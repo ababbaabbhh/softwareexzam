@@ -1,0 +1,722 @@
+[
+  {
+    "type": "fill",
+    "topic": "类与对象",
+    "stem": "在面向对象方法中，把具有相同属性和操作的对象的集合抽象为____，而该类的一个具体实体称为____。",
+    "answer": ["类", "对象|实例"],
+    "explanation": "类是对对象的抽象，对象是类的实例，二者是抽象与具体的关系。",
+    "difficulty": 1,
+    "knowledge": "类与对象"
+  },
+  {
+    "type": "fill",
+    "topic": "类与对象",
+    "stem": "对象之间通过____相互通信以请求对方提供服务；类中描述对象行为的成员称为____。",
+    "answer": ["消息", "方法|成员函数"],
+    "explanation": "对象间协作依靠消息传递，方法（成员函数）实现对象的行为。",
+    "difficulty": 2,
+    "knowledge": "消息传递"
+  },
+  {
+    "type": "fill",
+    "topic": "类与对象",
+    "stem": "C++中构造函数的名称必须与____相同，且不声明返回类型；对象生命周期结束时系统会自动调用____。",
+    "answer": ["类名", "析构函数"],
+    "explanation": "构造函数与类同名、无返回类型；析构函数在对象撤销时自动执行清理。",
+    "difficulty": 2,
+    "knowledge": "构造函数"
+  },
+  {
+    "type": "fill",
+    "topic": "类与对象",
+    "stem": "类的静态数据成员属于____而不属于某个具体对象；非静态成员函数隐含的指针参数是____。",
+    "answer": ["类", "this"],
+    "explanation": "静态成员为所有对象共享，属于类；非静态成员函数隐含this指针。",
+    "difficulty": 2,
+    "knowledge": "静态成员"
+  },
+  {
+    "type": "fill",
+    "topic": "类与对象",
+    "stem": "类中用于描述对象状态特征的成员称为数据成员，也称____；被同一类所有对象共享的成员称为____成员。",
+    "answer": ["属性|成员变量", "静态"],
+    "explanation": "描述状态的成员称属性（成员变量），共享的成员为静态成员。",
+    "difficulty": 1,
+    "knowledge": "数据成员"
+  },
+  {
+    "type": "fill",
+    "topic": "类与对象",
+    "stem": "在C++中，若类A的对象作为类B的数据成员，则创建B对象时会先自动调用A的____；销毁B对象时按成员的____序调用A的析构函数。",
+    "answer": ["构造函数", "逆"],
+    "explanation": "成员对象先于宿主构造、后于宿主析构，故构造与析构顺序相反。",
+    "difficulty": 3,
+    "knowledge": "对象成员"
+  },
+  {
+    "type": "fill",
+    "topic": "封装继承多态",
+    "stem": "把数据和对数据的操作捆绑在一起，并隐藏内部实现细节，这种机制称为____。",
+    "answer": ["封装"],
+    "explanation": "封装通过访问控制隐藏实现细节，对外只暴露必要接口。",
+    "difficulty": 1,
+    "knowledge": "封装"
+  },
+  {
+    "type": "fill",
+    "topic": "封装继承多态",
+    "stem": "子类自动拥有父类的属性和方法，这种机制称为____；子类对父类已实现的方法重新实现称为____。",
+    "answer": ["继承", "重写|覆盖|override"],
+    "explanation": "继承实现代码复用，重写使子类改变父类方法的具体行为。",
+    "difficulty": 1,
+    "knowledge": "继承"
+  },
+  {
+    "type": "fill",
+    "topic": "封装继承多态",
+    "stem": "同一消息发送给不同对象时产生不同响应，这种机制称为____，它分为编译时多态和____多态。",
+    "answer": ["多态", "运行时|动态"],
+    "explanation": "多态分重载实现的编译时多态与虚函数实现的运行时多态。",
+    "difficulty": 2,
+    "knowledge": "多态"
+  },
+  {
+    "type": "fill",
+    "topic": "封装继承多态",
+    "stem": "C++中实现运行时多态需要把基类成员函数声明为____函数，并通过基类____调用才能触发动态绑定。",
+    "answer": ["虚", "指针|引用"],
+    "explanation": "虚函数配合基类指针或引用调用，运行时按实际对象类型绑定。",
+    "difficulty": 2,
+    "knowledge": "虚函数"
+  },
+  {
+    "type": "fill",
+    "topic": "封装继承多态",
+    "stem": "一个子类同时拥有多个直接父类的继承方式称为____，由此可能产生____二义性问题。",
+    "answer": ["多重继承|多继承", "成员|名字"],
+    "explanation": "多重继承使同一成员可能来自多个基类，产生访问二义性。",
+    "difficulty": 3,
+    "knowledge": "多重继承"
+  },
+  {
+    "type": "fill",
+    "topic": "封装继承多态",
+    "stem": "Java中子类继承父类使用的关键字是____，并且Java中的类只支持____继承。",
+    "answer": ["extends", "单"],
+    "explanation": "Java用extends继承且仅支持单继承，多重继承效果依靠接口实现。",
+    "difficulty": 2,
+    "knowledge": "Java继承"
+  },
+  {
+    "type": "fill",
+    "topic": "封装继承多态",
+    "stem": "Java中类实现接口使用的关键字是____，一个类可以同时实现____个接口。",
+    "answer": ["implements", "多|多个"],
+    "explanation": "类用implements实现接口，且可实现多个接口以弥补单继承限制。",
+    "difficulty": 2,
+    "knowledge": "Java接口"
+  },
+  {
+    "type": "fill",
+    "topic": "UML图与关系",
+    "stem": "UML用例图中与系统交互的人或外部系统称为____，它通常用一个小人图形表示。",
+    "answer": ["参与者|主角|Actor"],
+    "explanation": "参与者是系统外部与系统交互的角色，可以是人或外部系统。",
+    "difficulty": 2,
+    "knowledge": "用例图"
+  },
+  {
+    "type": "fill",
+    "topic": "UML图与关系",
+    "stem": "UML类图中表示整体与部分关系、且部分可脱离整体独立存在的是____关系；部分随整体消亡的是____关系。",
+    "answer": ["聚合", "组合"],
+    "explanation": "聚合的部分可独立存在，组合的部分与整体同生命周期。",
+    "difficulty": 2,
+    "knowledge": "聚合组合"
+  },
+  {
+    "type": "fill",
+    "topic": "UML图与关系",
+    "stem": "UML中描述一个对象在生命周期内的状态变化及引起变化事件的图称为____图，触发状态转换的因素称为____。",
+    "answer": ["状态|状态机", "事件"],
+    "explanation": "状态图以状态和转换描述对象动态行为，转换由事件触发。",
+    "difficulty": 2,
+    "knowledge": "状态图"
+  },
+  {
+    "type": "fill",
+    "topic": "UML图与关系",
+    "stem": "UML中按时间顺序描述对象之间消息交互的图称为____图，图中对象下方的纵向虚线称为____。",
+    "answer": ["顺序|时序|序列", "生命线"],
+    "explanation": "顺序图强调消息时序，对象下方的生命线表示其存在时段。",
+    "difficulty": 2,
+    "knowledge": "顺序图"
+  },
+  {
+    "type": "fill",
+    "topic": "UML图与关系",
+    "stem": "UML类图中类之间的一般与特殊关系称为____关系，图中用带____三角箭头的实线表示。",
+    "answer": ["泛化|继承", "空心"],
+    "explanation": "泛化即继承关系，用指向父类的空心三角箭头实线表示。",
+    "difficulty": 2,
+    "knowledge": "泛化关系"
+  },
+  {
+    "type": "fill",
+    "topic": "UML图与关系",
+    "stem": "UML用例图中表示在特定条件下把可选行为插入基础用例的关系称为____关系，其箭头指向____用例。",
+    "answer": ["扩展|extend", "基础|基本"],
+    "explanation": "扩展关系由扩展用例指向基础用例，扩展行为只在条件满足时执行。",
+    "difficulty": 3,
+    "knowledge": "扩展关系"
+  },
+  {
+    "type": "fill",
+    "topic": "UML图与关系",
+    "stem": "UML中一个类把另一个类用作方法参数时，二者之间是____关系，图中用____线箭头表示。",
+    "answer": ["依赖", "虚"],
+    "explanation": "依赖是较弱的使用关系，用带箭头的虚线表示。",
+    "difficulty": 3,
+    "knowledge": "依赖关系"
+  },
+  {
+    "type": "fill",
+    "topic": "设计模式",
+    "stem": "保证一个类仅有一个实例并提供全局访问点的设计模式是____模式，其实现中通常提供静态的____方法。",
+    "answer": ["单例|Singleton", "getInstance|实例获取"],
+    "explanation": "单例模式私有化构造并提供静态方法返回唯一实例。",
+    "difficulty": 1,
+    "knowledge": "单例模式"
+  },
+  {
+    "type": "fill",
+    "topic": "设计模式",
+    "stem": "定义一系列算法并把每个算法封装起来使它们可以互相替换的模式是____模式，它属于____型模式。",
+    "answer": ["策略|Strategy", "行为"],
+    "explanation": "策略模式封装可互换算法，属于行为型模式。",
+    "difficulty": 2,
+    "knowledge": "策略模式"
+  },
+  {
+    "type": "fill",
+    "topic": "设计模式",
+    "stem": "为其他对象提供一种代理以控制对该对象访问的设计模式是____模式，它属于____型模式。",
+    "answer": ["代理|Proxy", "结构"],
+    "explanation": "代理模式控制对象访问，属结构型模式。",
+    "difficulty": 2,
+    "knowledge": "代理模式"
+  },
+  {
+    "type": "fill",
+    "topic": "设计模式",
+    "stem": "将抽象部分与它的实现部分分离，使二者可以独立变化的设计模式是____模式，它用____关系替代继承。",
+    "answer": ["桥接|Bridge", "组合|聚合"],
+    "explanation": "桥接模式以组合替代多层继承，使抽象与实现独立扩展。",
+    "difficulty": 3,
+    "knowledge": "桥接模式"
+  },
+  {
+    "type": "fill",
+    "topic": "设计模式",
+    "stem": "用原型实例指定创建对象的种类，并通过____这些原型来创建新对象的模式是____模式。",
+    "answer": ["复制|克隆|拷贝", "原型|Prototype"],
+    "explanation": "原型模式通过克隆已有实例创建新对象，避免重复初始化。",
+    "difficulty": 2,
+    "knowledge": "原型模式"
+  },
+  {
+    "type": "fill",
+    "topic": "设计模式",
+    "stem": "定义对象间一对多的依赖关系，当一个对象状态改变时自动通知并更新所有依赖者的模式是____模式。",
+    "answer": ["观察者|Observer"],
+    "explanation": "观察者模式建立一对多依赖，主题变化时通知所有观察者。",
+    "difficulty": 2,
+    "knowledge": "观察者模式"
+  },
+  {
+    "type": "fill",
+    "topic": "设计模式",
+    "stem": "设计模式按目的可分为创建型、____型和____型三类。",
+    "answer": ["结构", "行为"],
+    "explanation": "按目的分为创建型、结构型、行为型三类，是软考常考分类。",
+    "difficulty": 2,
+    "knowledge": "模式分类"
+  },
+  {
+    "type": "fill",
+    "topic": "设计原则",
+    "stem": "一个类只应有一个引起它变化的原因，这一设计原则称为____原则。",
+    "answer": ["单一职责|SRP"],
+    "explanation": "单一职责原则要求类职责单一，只有一个变化原因。",
+    "difficulty": 1,
+    "knowledge": "单一职责"
+  },
+  {
+    "type": "fill",
+    "topic": "设计原则",
+    "stem": "软件实体应对扩展开放、对修改关闭，这一原则称为____原则。",
+    "answer": ["开闭|开放封闭|开放-封闭|OCP"],
+    "explanation": "开闭原则要求通过扩展增加功能，而不修改已有代码。",
+    "difficulty": 2,
+    "knowledge": "开闭原则"
+  },
+  {
+    "type": "fill",
+    "topic": "设计原则",
+    "stem": "所有引用基类对象的地方都必须能透明地使用其子类对象，这一原则称为____原则。",
+    "answer": ["里氏替换|李氏替换|LSP"],
+    "explanation": "里氏替换原则要求子类可替换基类且不破坏程序正确性。",
+    "difficulty": 2,
+    "knowledge": "里氏替换"
+  },
+  {
+    "type": "fill",
+    "topic": "设计原则",
+    "stem": "高层模块不应依赖低层模块，二者都应依赖____；抽象不应依赖细节，细节应依赖抽象，这一原则是____原则。",
+    "answer": ["抽象", "依赖倒置|DIP"],
+    "explanation": "依赖倒置原则要求面向抽象编程，高层与低层都依赖抽象。",
+    "difficulty": 3,
+    "knowledge": "依赖倒置"
+  },
+  {
+    "type": "fill",
+    "topic": "设计原则",
+    "stem": "客户端不应被迫依赖它不使用的方法，应使用多个专门接口代替一个总接口，这一原则是____原则。",
+    "answer": ["接口隔离|ISP"],
+    "explanation": "接口隔离原则主张细化接口，避免客户依赖多余方法。",
+    "difficulty": 2,
+    "knowledge": "接口隔离"
+  },
+  {
+    "type": "fill",
+    "topic": "设计原则",
+    "stem": "一个对象应尽可能少地了解其他对象的内部细节，只与直接朋友通信，这一原则称为____法则。",
+    "answer": ["迪米特|最少知识|LoD"],
+    "explanation": "迪米特法则即最少知识原则，降低对象之间的耦合。",
+    "difficulty": 3,
+    "knowledge": "迪米特法则"
+  },
+  {
+    "type": "fill",
+    "topic": "C++/Java特性",
+    "stem": "C++中用____运算符在堆上动态创建对象，与之配对释放内存的运算符是delete。",
+    "answer": ["new"],
+    "explanation": "new在堆上分配并构造对象，delete负责析构并释放内存。",
+    "difficulty": 1,
+    "knowledge": "new运算符"
+  },
+  {
+    "type": "fill",
+    "topic": "C++/Java特性",
+    "stem": "Java中所有类的根类是____，它位于____包中。",
+    "answer": ["Object|java.lang.Object", "java.lang"],
+    "explanation": "java.lang.Object是Java类层次根类，提供通用方法。",
+    "difficulty": 2,
+    "knowledge": "Object类"
+  },
+  {
+    "type": "fill",
+    "topic": "C++/Java特性",
+    "stem": "C++中包含纯虚函数的类称为____类，它不能____。",
+    "answer": ["抽象", "实例化|被实例化"],
+    "explanation": "含纯虚函数的类为抽象类，不能实例化，只能被继承。",
+    "difficulty": 2,
+    "knowledge": "抽象类"
+  },
+  {
+    "type": "fill",
+    "topic": "C++/Java特性",
+    "stem": "Java中用____关键字修饰的类不能被继承，修饰的方法不能被____。",
+    "answer": ["final", "重写|覆盖|override"],
+    "explanation": "final类不可继承，final方法不可重写，用于固定行为。",
+    "difficulty": 1,
+    "knowledge": "final关键字"
+  },
+  {
+    "type": "fill",
+    "topic": "C++/Java特性",
+    "stem": "C++中把对象作为函数参数按____传递会复制整个对象，按____传递则不会复制对象。",
+    "answer": ["值", "引用|reference"],
+    "explanation": "值传递复制实参对象，引用传递直接操作原对象，效率更高。",
+    "difficulty": 3,
+    "knowledge": "参数传递"
+  },
+  {
+    "type": "fill",
+    "topic": "C++/Java特性",
+    "stem": "C++中运行时多态通常通过____表实现动态绑定，每个含虚函数的类都有一张这样的表。",
+    "answer": ["虚函数|vtable|VTable"],
+    "explanation": "编译器为含虚函数的类建立虚函数表，运行时按表定位函数。",
+    "difficulty": 3,
+    "knowledge": "虚函数表"
+  },
+  {
+    "type": "fill",
+    "topic": "C++/Java特性",
+    "stem": "C++中用____运算符释放由new动态分配的对象所占的内存。",
+    "answer": ["delete"],
+    "explanation": "delete调用析构函数并释放new分配的堆内存，须成对使用。",
+    "difficulty": 1,
+    "knowledge": "delete运算符"
+  },
+  {
+    "type": "tf",
+    "topic": "类与对象",
+    "stem": "类是具有相同属性和操作的对象的集合，对象是类的一个实例。",
+    "answer": ["对"],
+    "explanation": "类描述共性，对象是其具体实例，二者为抽象与具体关系。",
+    "difficulty": 1,
+    "knowledge": "类与对象"
+  },
+  {
+    "type": "tf",
+    "topic": "类与对象",
+    "stem": "在C++中，一个类可以定义多个构造函数，它们之间通过参数列表相互区分。",
+    "answer": ["对"],
+    "explanation": "构造函数可重载，依靠参数个数或类型区分，属于编译时多态。",
+    "difficulty": 2,
+    "knowledge": "构造函数"
+  },
+  {
+    "type": "tf",
+    "topic": "类与对象",
+    "stem": "构造函数可以声明返回类型，以便返回新建对象的地址。",
+    "answer": ["错"],
+    "explanation": "构造函数不能声明返回类型，也不返回对象地址。",
+    "difficulty": 2,
+    "knowledge": "构造函数"
+  },
+  {
+    "type": "tf",
+    "topic": "类与对象",
+    "stem": "类的静态成员函数可以直接访问该类的非静态数据成员。",
+    "answer": ["错"],
+    "explanation": "静态成员函数没有this指针，不能直接访问非静态成员。",
+    "difficulty": 2,
+    "knowledge": "静态成员"
+  },
+  {
+    "type": "tf",
+    "topic": "类与对象",
+    "stem": "在C++中，const成员函数不能修改非静态数据成员，但可以修改被mutable修饰的成员。",
+    "answer": ["对"],
+    "explanation": "const成员函数限制普通成员修改，mutable成员是例外。",
+    "difficulty": 3,
+    "knowledge": "const成员"
+  },
+  {
+    "type": "tf",
+    "topic": "类与对象",
+    "stem": "在C++中，同一个类的两个对象各自拥有独立的非静态数据成员副本。",
+    "answer": ["对"],
+    "explanation": "非静态成员随对象分配，各对象各持一份；静态成员则共享。",
+    "difficulty": 2,
+    "knowledge": "对象存储"
+  },
+  {
+    "type": "tf",
+    "topic": "封装继承多态",
+    "stem": "面向对象的三大基本特征是封装、继承和多态。",
+    "answer": ["对"],
+    "explanation": "封装、继承、多态是面向对象方法的基本特征。",
+    "difficulty": 1,
+    "knowledge": "三大特征"
+  },
+  {
+    "type": "tf",
+    "topic": "封装继承多态",
+    "stem": "方法重载和方法重写是同一概念的不同叫法。",
+    "answer": ["错"],
+    "explanation": "重载在同一作用域内按参数区分，重写在父子类间同名同参。",
+    "difficulty": 2,
+    "knowledge": "重载与重写"
+  },
+  {
+    "type": "tf",
+    "topic": "封装继承多态",
+    "stem": "含有纯虚函数的类称为抽象类，抽象类不能被实例化。",
+    "answer": ["对"],
+    "explanation": "抽象类含未实现的纯虚函数，只能作为基类被继承。",
+    "difficulty": 2,
+    "knowledge": "抽象类"
+  },
+  {
+    "type": "tf",
+    "topic": "封装继承多态",
+    "stem": "封装是指把对象的内部状态完全公开，以便其他对象直接访问和修改。",
+    "answer": ["错"],
+    "explanation": "封装恰恰是隐藏内部实现细节，只通过接口对外提供操作。",
+    "difficulty": 2,
+    "knowledge": "封装"
+  },
+  {
+    "type": "tf",
+    "topic": "封装继承多态",
+    "stem": "在C++中，构造函数可以声明为虚函数，而析构函数不能声明为虚函数。",
+    "answer": ["错"],
+    "explanation": "构造函数不能是虚函数，析构函数应当声明为虚函数。",
+    "difficulty": 3,
+    "knowledge": "虚析构"
+  },
+  {
+    "type": "tf",
+    "topic": "封装继承多态",
+    "stem": "通过基类指针删除派生类对象时，若基类析构函数不是虚函数，可能导致派生类资源泄漏。",
+    "answer": ["对"],
+    "explanation": "非虚析构只按静态类型调用，派生类析构不会执行。",
+    "difficulty": 3,
+    "knowledge": "虚析构"
+  },
+  {
+    "type": "tf",
+    "topic": "UML图与关系",
+    "stem": "UML用例图中的参与者既可以是系统用户，也可以是与之交互的外部系统。",
+    "answer": ["对"],
+    "explanation": "参与者表示系统外部角色，可以是人、设备或其他系统。",
+    "difficulty": 1,
+    "knowledge": "用例图"
+  },
+  {
+    "type": "tf",
+    "topic": "UML图与关系",
+    "stem": "UML类图中聚合关系的整体与部分具有相同的生命周期。",
+    "answer": ["错"],
+    "explanation": "聚合的部分可独立于整体存在，组合才有相同生命周期。",
+    "difficulty": 2,
+    "knowledge": "聚合组合"
+  },
+  {
+    "type": "tf",
+    "topic": "UML图与关系",
+    "stem": "UML中泛化关系用带空心三角箭头的实线表示，箭头指向父类。",
+    "answer": ["对"],
+    "explanation": "泛化表示一般与特殊关系，空心三角箭头指向父类。",
+    "difficulty": 2,
+    "knowledge": "泛化关系"
+  },
+  {
+    "type": "tf",
+    "topic": "UML图与关系",
+    "stem": "顺序图强调消息传递的时间顺序，通信图强调对象之间的结构关系。",
+    "answer": ["对"],
+    "explanation": "顺序图关注时序，通信图（协作图）关注对象间的链接结构。",
+    "difficulty": 2,
+    "knowledge": "顺序图"
+  },
+  {
+    "type": "tf",
+    "topic": "UML图与关系",
+    "stem": "UML依赖关系是一种强耦合关系，通常用实线箭头表示。",
+    "answer": ["错"],
+    "explanation": "依赖是较弱的使用关系，用带箭头的虚线表示。",
+    "difficulty": 3,
+    "knowledge": "依赖关系"
+  },
+  {
+    "type": "tf",
+    "topic": "UML图与关系",
+    "stem": "用例图中扩展关系的箭头指向基础用例，扩展用例所描述的行为只在特定条件下才执行。",
+    "answer": ["对"],
+    "explanation": "扩展关系由扩展用例指向基础用例，行为按条件插入。",
+    "difficulty": 3,
+    "knowledge": "扩展关系"
+  },
+  {
+    "type": "tf",
+    "topic": "UML图与关系",
+    "stem": "UML部署图用于描述系统的功能需求与参与者之间的关系。",
+    "answer": ["错"],
+    "explanation": "部署图描述硬件节点及构件的物理部署，功能需求由用例图描述。",
+    "difficulty": 3,
+    "knowledge": "部署图"
+  },
+  {
+    "type": "tf",
+    "topic": "设计模式",
+    "stem": "设计模式按目的可分为创建型、结构型和行为型三类。",
+    "answer": ["对"],
+    "explanation": "按目的分为创建型、结构型、行为型，是常考的分类方式。",
+    "difficulty": 1,
+    "knowledge": "模式分类"
+  },
+  {
+    "type": "tf",
+    "topic": "设计模式",
+    "stem": "工厂方法模式把对象的创建延迟到子类，由子类决定实例化哪个类。",
+    "answer": ["对"],
+    "explanation": "工厂方法把实例化推迟到子类，符合开闭原则。",
+    "difficulty": 2,
+    "knowledge": "工厂方法"
+  },
+  {
+    "type": "tf",
+    "topic": "设计模式",
+    "stem": "单例模式应把构造函数声明为公有，以便外部随时创建实例。",
+    "answer": ["错"],
+    "explanation": "单例须私有化构造函数，仅通过静态方法返回唯一实例。",
+    "difficulty": 2,
+    "knowledge": "单例模式"
+  },
+  {
+    "type": "tf",
+    "topic": "设计模式",
+    "stem": "观察者模式属于结构型设计模式。",
+    "answer": ["错"],
+    "explanation": "观察者模式定义对象间一对多依赖，属于行为型模式。",
+    "difficulty": 2,
+    "knowledge": "观察者模式"
+  },
+  {
+    "type": "tf",
+    "topic": "设计模式",
+    "stem": "适配器模式属于结构型设计模式。",
+    "answer": ["对"],
+    "explanation": "适配器转换接口使不兼容的类协同工作，属结构型模式。",
+    "difficulty": 1,
+    "knowledge": "适配器模式"
+  },
+  {
+    "type": "tf",
+    "topic": "设计模式",
+    "stem": "装饰器模式通过组合而非继承来动态扩展对象功能，比继承更灵活。",
+    "answer": ["对"],
+    "explanation": "装饰器用组合包装对象，可运行时叠加职责，避免类膨胀。",
+    "difficulty": 3,
+    "knowledge": "装饰器模式"
+  },
+  {
+    "type": "tf",
+    "topic": "设计模式",
+    "stem": "模板方法模式在父类中定义算法骨架，把某些步骤的实现延迟到子类。",
+    "answer": ["对"],
+    "explanation": "模板方法固定流程骨架，具体步骤由子类实现，属行为型。",
+    "difficulty": 2,
+    "knowledge": "模板方法"
+  },
+  {
+    "type": "tf",
+    "topic": "设计模式",
+    "stem": "命令模式把请求封装为对象，从而使请求的调用者与实现者解耦。",
+    "answer": ["对"],
+    "explanation": "命令模式把请求封装成对象，便于排队、撤销和日志记录。",
+    "difficulty": 3,
+    "knowledge": "命令模式"
+  },
+  {
+    "type": "tf",
+    "topic": "设计模式",
+    "stem": "桥接模式用继承关系替代组合关系，以减少类的数目。",
+    "answer": ["错"],
+    "explanation": "桥接模式用组合替代多层继承，使抽象与实现独立变化。",
+    "difficulty": 3,
+    "knowledge": "桥接模式"
+  },
+  {
+    "type": "tf",
+    "topic": "设计原则",
+    "stem": "开闭原则要求软件实体对修改开放、对扩展关闭。",
+    "answer": ["错"],
+    "explanation": "开闭原则是对扩展开放、对修改关闭，题干表述正好相反。",
+    "difficulty": 2,
+    "knowledge": "开闭原则"
+  },
+  {
+    "type": "tf",
+    "topic": "设计原则",
+    "stem": "单一职责原则要求一个类只有一个引起它变化的原因。",
+    "answer": ["对"],
+    "explanation": "职责单一则变化原因唯一，降低类之间的耦合。",
+    "difficulty": 1,
+    "knowledge": "单一职责"
+  },
+  {
+    "type": "tf",
+    "topic": "设计原则",
+    "stem": "合成复用原则提倡优先使用继承而不是组合来实现复用。",
+    "answer": ["错"],
+    "explanation": "合成复用原则主张优先使用组合或聚合，继承次之。",
+    "difficulty": 2,
+    "knowledge": "合成复用"
+  },
+  {
+    "type": "tf",
+    "topic": "设计原则",
+    "stem": "里氏替换原则允许子类缩小父类中被重写方法的访问权限。",
+    "answer": ["错"],
+    "explanation": "子类不应缩小访问权限或加强前置条件，否则无法替换父类。",
+    "difficulty": 3,
+    "knowledge": "里氏替换"
+  },
+  {
+    "type": "tf",
+    "topic": "设计原则",
+    "stem": "接口隔离原则提倡使用多个专门的接口，而不是一个庞大的总接口。",
+    "answer": ["对"],
+    "explanation": "细化接口可避免客户依赖不使用的方法，降低耦合。",
+    "difficulty": 2,
+    "knowledge": "接口隔离"
+  },
+  {
+    "type": "tf",
+    "topic": "设计原则",
+    "stem": "迪米特法则要求一个对象尽可能多地了解与之交互对象的内部细节。",
+    "answer": ["错"],
+    "explanation": "迪米特法则即最少知识原则，要求尽量少了解他人内部细节。",
+    "difficulty": 3,
+    "knowledge": "迪米特法则"
+  },
+  {
+    "type": "tf",
+    "topic": "C++/Java特性",
+    "stem": "Java中一个类可以实现多个接口，但不能继承多个类。",
+    "answer": ["对"],
+    "explanation": "Java类单继承、接口多实现，借此获得多重继承的部分效果。",
+    "difficulty": 1,
+    "knowledge": "Java接口"
+  },
+  {
+    "type": "tf",
+    "topic": "C++/Java特性",
+    "stem": "Java中方法参数的传递方式只有值传递一种。",
+    "answer": ["对"],
+    "explanation": "Java只有值传递，对象参数传递的是对象引用的副本。",
+    "difficulty": 2,
+    "knowledge": "参数传递"
+  },
+  {
+    "type": "tf",
+    "topic": "C++/Java特性",
+    "stem": "Java中final修饰的类不能被继承，final修饰的方法不能被重写。",
+    "answer": ["对"],
+    "explanation": "final类禁止继承，final方法禁止重写，final变量不可再赋值。",
+    "difficulty": 2,
+    "knowledge": "final关键字"
+  },
+  {
+    "type": "tf",
+    "topic": "C++/Java特性",
+    "stem": "C++中友元函数是类的成员函数，拥有this指针。",
+    "answer": ["错"],
+    "explanation": "友元函数不是成员函数，没有this指针，需显式传入对象。",
+    "difficulty": 3,
+    "knowledge": "友元"
+  },
+  {
+    "type": "tf",
+    "topic": "C++/Java特性",
+    "stem": "C++中被声明为inline的函数一定会在调用处展开，从而完全没有函数调用开销。",
+    "answer": ["错"],
+    "explanation": "inline只是建议，编译器可拒绝展开，递归或复杂函数常不展开。",
+    "difficulty": 3,
+    "knowledge": "内联函数"
+  },
+  {
+    "type": "tf",
+    "topic": "C++/Java特性",
+    "stem": "Java中接口只能包含抽象方法，不能包含任何成员变量。",
+    "answer": ["错"],
+    "explanation": "接口可含常量，其成员变量默认是public static final。",
+    "difficulty": 3,
+    "knowledge": "Java接口"
+  }
+]

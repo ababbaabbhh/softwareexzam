@@ -1,0 +1,542 @@
+[
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "若两个模块之间仅通过参数传递简单数据，彼此不传递控制信息，则它们之间的耦合属于____耦合。",
+    "answer": ["数据耦合|数据"],
+    "explanation": "仅传递简单数据参数为数据耦合，耦合度较低。",
+    "difficulty": 1,
+    "knowledge": "耦合"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "模块内各元素共同完成一个单一且不可分割的功能，这种内聚是内聚程度最高的____内聚。",
+    "answer": ["功能内聚|功能"],
+    "explanation": "功能内聚的模块各部分协同完成单一功能，内聚度最高。",
+    "difficulty": 1,
+    "knowledge": "内聚"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "结构化设计以数据流图为基础：对具有输入、变换、输出三段结构的数据流采用____分析，对以事务为中心的数据流采用____分析。",
+    "answer": ["变换", "事务"],
+    "explanation": "变换分析导出变换型结构，事务分析导出事务型结构。",
+    "difficulty": 2,
+    "knowledge": "结构化设计"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "详细设计中，程序流程图的等价图形工具除了 PAD 图外，还有____图，它不允许随意转移控制。",
+    "answer": ["N-S|NS|N-S图|盒图"],
+    "explanation": "N-S 图用嵌套矩形表示逻辑，取消箭头，强制结构化。",
+    "difficulty": 2,
+    "knowledge": "详细设计"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "当加工逻辑由多个条件的组合决定时，适合采用____或判定树清晰地描述条件与动作的对应关系。",
+    "answer": ["判定表"],
+    "explanation": "判定表适合描述多条件组合的逻辑，可消除冗余规则。",
+    "difficulty": 2,
+    "knowledge": "判定表"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "白盒测试中，要求程序中每条可执行语句至少被执行一次的覆盖准则是____。",
+    "answer": ["语句覆盖"],
+    "explanation": "语句覆盖是最弱的逻辑覆盖，无法保证分支都被执行。",
+    "difficulty": 1,
+    "knowledge": "语句覆盖"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "白盒测试中，要求判定表达式中每个条件的可能取值至少出现一次的覆盖准则是____。",
+    "answer": ["条件覆盖"],
+    "explanation": "条件覆盖关注单个条件取值，不保证判定的真假分支都走到。",
+    "difficulty": 2,
+    "knowledge": "条件覆盖"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "McCabe 环路复杂度的计算公式为 V(G)=____。",
+    "answer": ["E-N+2|m-n+2|E-N+2"],
+    "explanation": "E 为边数，N 为结点数，V(G)=E-N+2。",
+    "difficulty": 2,
+    "knowledge": "麦卡贝复杂度"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "基本路径测试中，为覆盖所有独立路径所需的测试用例数至少等于程序的____复杂度。",
+    "answer": ["环路|圈|环形"],
+    "explanation": "独立路径条数等于环路复杂度，据此确定最少用例数。",
+    "difficulty": 3,
+    "knowledge": "基本路径测试"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "黑盒测试中，把输入数据按有效与无效划分为若干____，再从每类中选取代表数据进行测试。",
+    "answer": ["等价类"],
+    "explanation": "等价类划分以少量用例覆盖整类输入，减少冗余测试。",
+    "difficulty": 1,
+    "knowledge": "等价类"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "整数变量取值范围为 [1,100]，边界值分析通常选取 0、1、100 和____等数据进行测试。",
+    "answer": ["101"],
+    "explanation": "边界值取刚超出有效范围的 101 作为无效等价类代表值。",
+    "difficulty": 2,
+    "knowledge": "边界值"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "一个完整的测试用例通常包括测试目标、输入数据、____和预期输出等要素。",
+    "answer": ["操作步骤|测试步骤"],
+    "explanation": "用例需可重复执行，故须包含明确的操作步骤。",
+    "difficulty": 2,
+    "knowledge": "测试用例"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "软件测试应遵循的原则之一是：程序员应避免测试自己的程序，程序应由____人员独立测试。",
+    "answer": ["开发|独立|第三方|测试"],
+    "explanation": "独立测试更易发现自身思维定势造成的错误。",
+    "difficulty": 2,
+    "knowledge": "测试原则"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "采用自顶向下增量集成测试时，需要编写____模块来模拟尚未完成的底层模块。",
+    "answer": ["桩|桩模块"],
+    "explanation": "桩模块模拟被调用的下层模块，自上而下逐层替换。",
+    "difficulty": 2,
+    "knowledge": "集成测试"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "自底向上增量集成测试时，需要编写____模块来调用被测模块并传递测试数据。",
+    "answer": ["驱动|驱动模块"],
+    "explanation": "驱动模块充当上层调用者，配合自底向上的集成顺序。",
+    "difficulty": 2,
+    "knowledge": "单元测试"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "软件修改后，为确认修改未引入新错误、原有功能仍然正常而重新执行的测试称为____测试。",
+    "answer": ["回归"],
+    "explanation": "回归测试验证修改未破坏已有功能，常借助测试用例集自动执行。",
+    "difficulty": 1,
+    "knowledge": "回归测试"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "为适应外部环境变化，例如操作系统升级或硬件更换而修改软件，该维护属于____维护。",
+    "answer": ["适应性"],
+    "explanation": "适应性维护应对运行环境变化，不改变软件功能。",
+    "difficulty": 2,
+    "knowledge": "维护类型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "为扩充软件功能、提高运行性能而进行的修改工作，属于____维护。",
+    "answer": ["完善性"],
+    "explanation": "完善性维护占维护工作量最大，用于满足新增需求。",
+    "difficulty": 2,
+    "knowledge": "维护类型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "软件可维护性包括可理解性、可测试性和____等，它决定了维护工作的难易程度。",
+    "answer": ["可修改性"],
+    "explanation": "可修改性反映修改软件时的难易与风险，属可维护性子特性。",
+    "difficulty": 3,
+    "knowledge": "可维护性度量"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "软件在规定条件下和规定时间内维持其性能水平、不发生失效的能力属于质量特性中的____。",
+    "answer": ["可靠性"],
+    "explanation": "可靠性由成熟性、容错性、易恢复性等子特性构成。",
+    "difficulty": 2,
+    "knowledge": "可靠性"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "GB/T 16260 将软件质量分为功能性、可靠性、易用性、效率、可维护性和____六个特性。",
+    "answer": ["可移植性"],
+    "explanation": "六大质量特性中的可移植性指软件转移到新环境的能力。",
+    "difficulty": 2,
+    "knowledge": "质量特性"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "McCall 质量模型把软件质量分为产品运行、产品修正和____三个方面。",
+    "answer": ["产品转移"],
+    "explanation": "McCall 模型从运行、修正、转移三个视角组织质量特性。",
+    "difficulty": 3,
+    "knowledge": "McCall模型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "CMMI 将过程能力成熟度分为初始级、已管理级、已定义级、____级和优化级五个等级。",
+    "answer": ["量化管理|定量管理"],
+    "explanation": "第 4 级为量化管理级，过程以统计量化的方式控制。",
+    "difficulty": 1,
+    "knowledge": "CMMI"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "CMMI 中，过程能力成熟度第 2 级称为____级。",
+    "answer": ["已管理|受管理|已管理级"],
+    "explanation": "第 2 级为已管理级，项目过程得到计划与跟踪。",
+    "difficulty": 2,
+    "knowledge": "成熟度等级"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "软件配置管理中，将一组配置项在某个特定时间点冻结所形成的稳定版本称为____。",
+    "answer": ["基线"],
+    "explanation": "基线是配置项的稳定快照，其变更须受变更控制约束。",
+    "difficulty": 2,
+    "knowledge": "基线"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "配置管理的主要功能包括版本控制、变更控制、配置审计和____。",
+    "answer": ["配置状态报告|状态报告"],
+    "explanation": "四项功能共同记录并控制配置项的全生命周期状态。",
+    "difficulty": 2,
+    "knowledge": "配置管理"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "在 AOE 网中，从源点到汇点路径长度最长的路径称为____。",
+    "answer": ["关键路径"],
+    "explanation": "关键路径长度决定整个工程的最短完成时间。",
+    "difficulty": 2,
+    "knowledge": "关键路径"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "关键路径上的活动称为关键活动，在不影响总工期的前提下关键活动的可延迟时间为____。",
+    "answer": ["0|零"],
+    "explanation": "总时差为零的活动为关键活动，其延迟将拖长总工期。",
+    "difficulty": 3,
+    "knowledge": "总时差"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "项目管理中，以条形长度表示任务持续时间并沿时间轴排列的进度图称为____图。",
+    "answer": ["甘特|Gantt|甘特图"],
+    "explanation": "甘特图直观显示任务时间安排，但难以表达活动间依赖。",
+    "difficulty": 2,
+    "knowledge": "甘特图"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "活动的最迟开始时间与最早开始时间之差称为____，它反映活动可延迟的余地。",
+    "answer": ["总时差|总浮动时间"],
+    "explanation": "总时差=最迟开始-最早开始，为零者为关键活动。",
+    "difficulty": 3,
+    "knowledge": "总时差"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "两个模块之间的耦合程度越高，模块的独立性就越好，软件也越易维护。",
+    "answer": ["错"],
+    "explanation": "耦合越高独立性越差，应追求低耦合。",
+    "difficulty": 1,
+    "knowledge": "耦合"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "偶然内聚是各种内聚类型中内聚程度最低的一种。",
+    "answer": ["对"],
+    "explanation": "偶然内聚的模块内各部分毫无关系，内聚度最低。",
+    "difficulty": 1,
+    "knowledge": "内聚"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "软件需求规格说明是软件设计、实现和测试验收的共同依据。",
+    "answer": ["对"],
+    "explanation": "SRS 是需求基线，后续各阶段以其为验证依据。",
+    "difficulty": 1,
+    "knowledge": "需求规格说明"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "软件测试的最终目的是证明程序中不存在任何错误。",
+    "answer": ["错"],
+    "explanation": "测试只能发现错误，无法证明程序无错。",
+    "difficulty": 1,
+    "knowledge": "测试目的"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "在软件生命周期总成本中，软件维护阶段的成本通常低于开发阶段的成本。",
+    "answer": ["错"],
+    "explanation": "维护成本往往占生命周期总成本的一半以上。",
+    "difficulty": 1,
+    "knowledge": "维护成本"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "软件配置管理的对象是软件生命周期中所产生的全部配置项。",
+    "answer": ["对"],
+    "explanation": "配置项包括文档、程序、数据和各类工具产物。",
+    "difficulty": 1,
+    "knowledge": "配置项"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "结构化设计采用自顶向下、逐步求精的方法，把系统划分为相对独立的模块。",
+    "answer": ["对"],
+    "explanation": "模块化与相对独立是结构化设计的核心思想。",
+    "difficulty": 2,
+    "knowledge": "结构化设计"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "软件模块设计应遵循高耦合、低内聚的原则，以增强模块之间的联系。",
+    "answer": ["错"],
+    "explanation": "正确原则是高内聚、低耦合。",
+    "difficulty": 2,
+    "knowledge": "设计原则"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "软件模块的划分与模块间接口的确定主要在详细设计阶段完成，而模块内部算法则在概要设计阶段确定。",
+    "answer": ["错"],
+    "explanation": "模块划分属概要设计，模块内部算法属详细设计。",
+    "difficulty": 2,
+    "knowledge": "概要设计"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "判定覆盖要求程序中每个判定的真分支和假分支都至少被执行一次。",
+    "answer": ["对"],
+    "explanation": "判定覆盖又称分支覆盖，要求每个判定的两种结果均出现。",
+    "difficulty": 2,
+    "knowledge": "判定覆盖"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "路径覆盖要求程序中每条可能的执行路径至少被执行一次，其强度高于条件覆盖。",
+    "answer": ["对"],
+    "explanation": "路径覆盖考虑路径组合，覆盖强度通常高于条件覆盖。",
+    "difficulty": 2,
+    "knowledge": "路径覆盖"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "边界值分析法属于黑盒测试方法，且不能与等价类划分方法结合使用。",
+    "answer": ["错"],
+    "explanation": "边界值分析常与等价类划分结合使用，互为补充。",
+    "difficulty": 3,
+    "knowledge": "边界值"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "单元测试通常由开发人员完成，主要采用白盒测试方法。",
+    "answer": ["对"],
+    "explanation": "单元测试针对模块内部逻辑，多用白盒方法并需驱动或桩。",
+    "difficulty": 2,
+    "knowledge": "单元测试"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "验收测试一般由用户参与或主导，并以软件需求规格说明为依据。",
+    "answer": ["对"],
+    "explanation": "验收测试面向用户需求，确认软件是否满足合同或需求。",
+    "difficulty": 2,
+    "knowledge": "验收测试"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "回归测试只需在软件首次交付前执行一次，之后修改软件不必再执行。",
+    "answer": ["错"],
+    "explanation": "每次修改后都应回归测试，确认未引入新的错误。",
+    "difficulty": 3,
+    "knowledge": "回归测试"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "预防性维护是指为改进软件未来的可维护性或可靠性而主动修改软件。",
+    "answer": ["对"],
+    "explanation": "预防性维护着眼未来，如重构、逆向工程与再工程。",
+    "difficulty": 2,
+    "knowledge": "预防性维护"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "配置管理中，对基线配置项的修改必须经过变更控制流程的审批。",
+    "answer": ["对"],
+    "explanation": "基线一经建立，其变更须经申请、评估、批准与验证。",
+    "difficulty": 2,
+    "knowledge": "变更控制"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "一个工程网络图的关键路径可能不止一条，其长度决定工程的最短完成时间。",
+    "answer": ["对"],
+    "explanation": "关键路径可并行存在多条，其长度即最短总工期。",
+    "difficulty": 2,
+    "knowledge": "关键路径"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "项目管理中，项目三角形通常指范围、时间和成本三个相互制约的要素。",
+    "answer": ["对"],
+    "explanation": "三者相互制约，范围扩大常导致时间或成本增加。",
+    "difficulty": 2,
+    "knowledge": "项目管理"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "软件质量保证的主要活动就是软件测试，做好测试即可保证软件质量。",
+    "answer": ["错"],
+    "explanation": "SQA 覆盖过程审查、评审、度量等活动，远不止测试。",
+    "difficulty": 2,
+    "knowledge": "SQA"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "程序的环路复杂度越高，说明程序结构越复杂，也越容易理解和维护。",
+    "answer": ["错"],
+    "explanation": "复杂度越高越难理解测试，可维护性随之下降。",
+    "difficulty": 3,
+    "knowledge": "程序复杂度"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "信息隐藏原则要求模块内的数据结构和实现细节对其他模块尽量公开，以便共享。",
+    "answer": ["错"],
+    "explanation": "信息隐藏要求封装实现细节，仅通过接口交互。",
+    "difficulty": 3,
+    "knowledge": "信息隐藏"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "Jackson 结构化设计方法从数据结构出发导出程序结构，适用于数据处理类系统的设计。",
+    "answer": ["对"],
+    "explanation": "Jackson 方法以输入输出数据结构映射程序结构。",
+    "difficulty": 3,
+    "knowledge": "Jackson方法"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "判定表能清晰描述多个条件组合与动作之间的对应关系，并可通过合并规则消除冗余。",
+    "answer": ["对"],
+    "explanation": "判定表适合复杂条件逻辑，可化简合并等价规则。",
+    "difficulty": 3,
+    "knowledge": "判定表"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "若某程序的语句覆盖率达到 100%，则其判定覆盖率必然也达到 100%。",
+    "answer": ["错"],
+    "explanation": "语句覆盖无法保证判定假分支被执行，二者不等价。",
+    "difficulty": 3,
+    "knowledge": "覆盖准则"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "软件测试只能发现程序中存在的错误，不能证明程序中不存在错误。",
+    "answer": ["对"],
+    "explanation": "测试的局限性在于它只能证明错误的存在。",
+    "difficulty": 3,
+    "knowledge": "测试局限性"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "结构化维护的对象具有完整文档和配置，因而其维护成本一般低于非结构化维护。",
+    "answer": ["对"],
+    "explanation": "文档齐全可减少理解成本，故结构化维护更经济。",
+    "difficulty": 3,
+    "knowledge": "结构化维护"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "功能配置审计验证配置项的实际功能与性能是否符合需求，物理配置审计验证配置项是否完整、正确。",
+    "answer": ["对"],
+    "explanation": "功能审计查一致性，物理审计查完整性与正确性。",
+    "difficulty": 3,
+    "knowledge": "配置审计"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "风险管理的首要工作是风险控制，即在风险发生前设法消除全部风险。",
+    "answer": ["错"],
+    "explanation": "风险管理首要是风险识别，且风险无法全部消除。",
+    "difficulty": 3,
+    "knowledge": "风险识别"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "在数据流图中，数据流既可以从外部实体直接流向数据存储，也可以从数据存储直接流向外部实体。",
+    "answer": ["错"],
+    "explanation": "数据流图要求外部实体与数据存储之间必须经由加工。",
+    "difficulty": 3,
+    "knowledge": "数据流图"
+  }
+]

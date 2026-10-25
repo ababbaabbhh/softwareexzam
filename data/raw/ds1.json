@@ -1,0 +1,452 @@
+[
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在长度为n的顺序表中，等概率地在任意合法位置插入一个元素，平均需要移动的元素个数为（ ）。",
+    "options": [
+      "(n-1)/2",
+      "n/2",
+      "(n+1)/2",
+      "n"
+    ],
+    "answer": ["B"],
+    "explanation": "插入位置共有n+1个，平均移动n/2个元素；若是删除元素，平均移动(n-1)/2个元素。",
+    "difficulty": 1,
+    "knowledge": "顺序表"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于单链表的叙述，正确的有（ ）。",
+    "options": [
+      "单链表不支持随机存取，查找第i个结点需从头结点开始遍历",
+      "单链表每个结点只含数据域，存储密度为1",
+      "在单链表中删除p所指结点，可在O(1)时间内直接完成",
+      "单链表中插入、删除元素时不需要移动其他元素"
+    ],
+    "answer": ["A", "D"],
+    "explanation": "单链表只能顺序访问，存储密度小于1；删除p需先找到其前驱，为O(n)，但插入删除无需移动元素。",
+    "difficulty": 2,
+    "knowledge": "单链表"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在带头结点的双链表中删除指针p所指结点（p既不是首元结点也不是尾结点），正确的语句序列是（ ）。",
+    "options": [
+      "p->prior->next = p->next; p->next->prior = p->prior;",
+      "p->next->prior = p; p->prior->next = p->next;",
+      "p->prior->next = p->prior; p->next->prior = p->next;",
+      "p->next = p->prior; p->prior = p->next;"
+    ],
+    "answer": ["A"],
+    "explanation": "删除p需让p的前驱指向p的后继、p的后继的前驱指向p的前驱，两条语句缺一不可。",
+    "difficulty": 2,
+    "knowledge": "双链表"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "设head为带头结点的循环单链表的头指针，则判断该循环单链表为空的条件是（ ）。",
+    "options": [
+      "head == NULL",
+      "head->next == head",
+      "head->next == NULL",
+      "head->next->next == head"
+    ],
+    "answer": ["B"],
+    "explanation": "带头结点的循环单链表为空时，头结点的next指针指回头结点自身，即head->next==head。",
+    "difficulty": 1,
+    "knowledge": "循环链表"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "顺序栈存放在数组S[0..m-1]中，top指向栈顶元素，初始时top=-1，则栈满的条件是（ ）。",
+    "options": [
+      "top == 0",
+      "top == m",
+      "top == m-1",
+      "top == -1"
+    ],
+    "answer": ["C"],
+    "explanation": "数组最大下标为m-1，top指向栈顶元素，故top==m-1表示栈满；top==-1表示栈空。",
+    "difficulty": 1,
+    "knowledge": "顺序栈"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "用不带头结点的单链表实现链栈，栈顶指针top指向栈顶元素，则将栈顶元素保存到x并出栈的正确语句是（ ）。",
+    "options": [
+      "x = top->data; top = top->next;",
+      "top = top->next; x = top->data;",
+      "x = top->data; top->next = top;",
+      "x = top->next->data; top = top->next;"
+    ],
+    "answer": ["A"],
+    "explanation": "链栈以表头为栈顶，出栈时先取出栈顶数据，再让top下移一个结点即可。",
+    "difficulty": 2,
+    "knowledge": "链栈"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "中缀表达式 (A+B)*C-D/E 对应的后缀表达式是（ ）。",
+    "options": [
+      "ABC+*DE/-",
+      "AB+C*D/E-",
+      "AB+C*DE-/",
+      "AB+C*DE/-"
+    ],
+    "answer": ["D"],
+    "explanation": "(A+B)得AB+，乘C得AB+C*，D/E得DE/，最后做减法，故后缀式为AB+C*DE/-。",
+    "difficulty": 3,
+    "knowledge": "表达式求值"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "利用栈判断括号串 \"[({[]})]\" 是否匹配，在处理过程中栈内元素个数的最大值是（ ）。",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": ["B"],
+    "explanation": "依次压入[、(、{、[共4个左括号时栈最深，随后依次匹配弹出，最大深度为4。",
+    "difficulty": 2,
+    "knowledge": "括号匹配"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于递归的叙述，正确的有（ ）。",
+    "options": [
+      "递归调用的实现需要系统栈保存返回地址和局部变量",
+      "递归算法必须有一个明确的递归出口（终止条件）",
+      "递归程序的空间复杂度一定为O(1)",
+      "任何递归算法都能在辅助空间为O(1)的条件下改写为非递归算法"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "递归借助系统栈保存现场，必须有递归出口；其空间开销与递归深度有关，且一般需借助栈改为非递归。",
+    "difficulty": 2,
+    "knowledge": "递归"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "循环队列存储在数组A[0..49]中，front指向队头元素，rear指向队尾元素的后一位置。当前front=15、rear=8，则队列中元素个数为（ ）。",
+    "options": [
+      "7",
+      "33",
+      "43",
+      "42"
+    ],
+    "answer": ["C"],
+    "explanation": "元素个数=(rear-front+50)%50=(8-15+50)%50=43。",
+    "difficulty": 1,
+    "knowledge": "循环队列"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "容量为100的循环队列（数组下标0~99）采用少用一个存储单元的方法区分队空与队满，front指向队头元素，rear指向队尾元素的后一位置。若front=95且队列中存放了10个元素，则rear的值为（ ）。",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "105"
+    ],
+    "answer": ["B"],
+    "explanation": "rear=(front+元素个数)%100=(95+10)%100=5，注意rear必须落回0~99范围内。",
+    "difficulty": 3,
+    "knowledge": "循环队列"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "带头结点的链队列中，front指向头结点，rear指向队尾结点。当出队操作删除的是队列中最后一个元素时，除修改front外还必须（ ）。",
+    "options": [
+      "使rear指向头结点",
+      "使rear置为NULL",
+      "使front置为NULL",
+      "不做任何修改"
+    ],
+    "answer": ["A"],
+    "explanation": "删除最后一个元素后队列变空，尾指针必须重新指向头结点，否则rear将成为悬空指针。",
+    "difficulty": 1,
+    "knowledge": "链队列"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "双端队列是允许在两端进行插入和删除操作的线性表。若限定插入只能在某一端进行，则称为（ ）。",
+    "options": [
+      "循环队列",
+      "输出受限的双端队列",
+      "优先队列",
+      "输入受限的双端队列"
+    ],
+    "answer": ["D"],
+    "explanation": "插入（输入）受限的双端队列只允许在一端插入、两端删除；输出受限则只允许一端删除。",
+    "difficulty": 2,
+    "knowledge": "双端队列"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "元素1、2、3、4依次入栈，入栈过程中允许随时出栈，则下列输出序列中不可能得到的是（ ）。",
+    "options": [
+      "4,1,2,3",
+      "2,3,4,1",
+      "3,2,1,4",
+      "1,2,3,4"
+    ],
+    "answer": ["A"],
+    "explanation": "若要4最先出栈，须先把1、2、3全部压栈，4出栈后栈顶为3，不可能紧接着输出1。",
+    "difficulty": 3,
+    "knowledge": "入出栈序列"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "主串长度为20，模式串长度为5，采用朴素的模式匹配算法，最坏情况下字符比较次数为（ ）。",
+    "options": [
+      "16",
+      "20",
+      "80",
+      "100"
+    ],
+    "answer": ["C"],
+    "explanation": "最坏时需比较n-m+1=16个起始位置，每个位置都比较m=5次，共5×16=80次。",
+    "difficulty": 3,
+    "knowledge": "模式匹配"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "模式串P=\"ababaa\"，其next数组（下标从1开始，next[1]=0，其余为最长相等前后缀长度加1）为（ ）。",
+    "options": [
+      "0,1,2,3,4,2",
+      "0,1,1,2,3,4",
+      "0,1,2,3,4,5",
+      "0,0,1,2,3,4"
+    ],
+    "answer": ["A"],
+    "explanation": "各前缀最长相等前后缀长度依次为0、0、1、2、3、1，加1后得0,1,2,3,4,2。",
+    "difficulty": 3,
+    "knowledge": "KMP"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "将6阶对称矩阵的下三角部分（含主对角线）按行优先压缩存入一维数组B，B的下标从1开始，则元素a[5][3]在B中的下标为（ ）。",
+    "options": [
+      "12",
+      "14",
+      "13",
+      "15"
+    ],
+    "answer": ["C"],
+    "explanation": "下三角按行优先，前4行共4×5/2=10个元素，a[5][3]是本行第3个，故下标为10+3=13。",
+    "difficulty": 2,
+    "knowledge": "对称矩阵"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "将10阶上三角矩阵的上三角部分（含主对角线）按行优先压缩存入一维数组B，B的下标从1开始，则元素a[4][7]在B中的下标为（ ）。",
+    "options": [
+      "30",
+      "31",
+      "32",
+      "28"
+    ],
+    "answer": ["B"],
+    "explanation": "前3行元素个数为10+9+8=27，a[4][7]是本行第7-4+1=4个，故下标为27+4=31。",
+    "difficulty": 3,
+    "knowledge": "三角矩阵"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "稀疏矩阵采用十字链表存储时，每个非零元素结点中除数据域外，指针域的个数为（ ）。",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "1"
+    ],
+    "answer": ["A"],
+    "explanation": "十字链表结点设两个指针域，分别指向同一行的下一个非零元和同一列的下一个非零元。",
+    "difficulty": 2,
+    "knowledge": "稀疏矩阵"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "设广义表L=(a,(b,c))，则下列说法正确的有（ ）。",
+    "options": [
+      "L的长度为2",
+      "L的深度为3",
+      "L的表头为原子a",
+      "L的表尾为(c)"
+    ],
+    "answer": ["A", "C"],
+    "explanation": "L含2个元素、深度为2，表头为a，表尾为((b,c))，故只有长度和表头的说法正确。",
+    "difficulty": 2,
+    "knowledge": "广义表"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "一棵二叉树中有20个度为2的结点，则该二叉树的叶子结点个数为（ ）。",
+    "options": [
+      "19",
+      "20",
+      "22",
+      "21"
+    ],
+    "answer": ["D"],
+    "explanation": "由n0=n2+1，度为2的结点为20个，则叶子结点个数为21。",
+    "difficulty": 1,
+    "knowledge": "二叉树性质"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "一棵有1000个结点的完全二叉树，其叶子结点的个数为（ ）。",
+    "options": [
+      "499",
+      "500",
+      "501",
+      "250"
+    ],
+    "answer": ["B"],
+    "explanation": "完全二叉树中，n为偶数时叶子结点数为n/2，故为1000/2=500。",
+    "difficulty": 2,
+    "knowledge": "完全二叉树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "某二叉树的前序遍历序列为ABDECFG，中序遍历序列为DBEAFCG，则其后序遍历序列为（ ）。",
+    "options": [
+      "DEBFGCA",
+      "DEBGFCA",
+      "DBEFGCA",
+      "EDBFGCA"
+    ],
+    "answer": ["A"],
+    "explanation": "前序首元A为根，中序划分出左子树DBE、右子树FCG，递归得后序为DEBFGCA。",
+    "difficulty": 3,
+    "knowledge": "遍历还原"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "用二叉树表示算术表达式 (a+b)*(c-d)，对该二叉树进行后序遍历得到的序列是（ ）。",
+    "options": [
+      "a+b*c-d",
+      "*+ab-cd",
+      "ab+cd-*",
+      "ab+cd*-"
+    ],
+    "answer": ["C"],
+    "explanation": "后序遍历表达式树得到后缀表达式：先a b +，再c d -，最后做乘法，得ab+cd-*。",
+    "difficulty": 2,
+    "knowledge": "二叉树遍历"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于线索二叉树的叙述，正确的有（ ）。",
+    "options": [
+      "中序线索二叉树中，若结点有左孩子，则其左指针指向该结点的中序前驱",
+      "含n个结点的二叉树共有n+1个空指针域，均可用来存放线索",
+      "线索二叉树不能进行中序遍历",
+      "中序线索二叉树中，若结点没有右孩子，则其右指针指向该结点的中序后继"
+    ],
+    "answer": ["B", "D"],
+    "explanation": "只有空指针域才改放线索，有孩子时仍指向孩子；线索化的目的正是便于不用栈完成遍历。",
+    "difficulty": 2,
+    "knowledge": "线索二叉树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对权值集合{1,2,4,8}构造哈夫曼树，则权值为1的叶子结点所对应的编码长度为（ ）。",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "3"
+    ],
+    "answer": ["D"],
+    "explanation": "合并过程为1+2=3、3+4=7、7+8=15，权值1的叶子位于第三层，编码长度为3。",
+    "difficulty": 2,
+    "knowledge": "哈夫曼树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对权值集合{1,4,9,16,25,36}构造哈夫曼树，其带权路径长度WPL为（ ）。",
+    "options": [
+      "200",
+      "186",
+      "195",
+      "91"
+    ],
+    "answer": ["C"],
+    "explanation": "依次合并得5、14、30、55、91，WPL等于全部合并所得结点权值之和：5+14+30+55+91=195。",
+    "difficulty": 3,
+    "knowledge": "哈夫曼树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "依次插入关键字45、24、53、12、37、93构造一棵二叉排序树，则查找关键字37时需要比较的关键字个数为（ ）。",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "5"
+    ],
+    "answer": ["A"],
+    "explanation": "查找路径为45→24→37，依次比较45、24、37共3次后查找成功。",
+    "difficulty": 2,
+    "knowledge": "二叉排序树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "下列关键字序列中，不可能是一棵二叉排序树中查找某关键字时的比较序列的是（ ）。",
+    "options": [
+      "50,30,20,40",
+      "50,30,70,60,80",
+      "50,70,60,65",
+      "50,30,70,65,68"
+    ],
+    "answer": ["B"],
+    "explanation": "从70向左到60后，后续关键字必须小于70，而80大于70，违背二叉排序树的有序性。",
+    "difficulty": 3,
+    "knowledge": "二叉排序树"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于树的叙述，正确的有（ ）。",
+    "options": [
+      "树中结点总数等于所有结点的度数之和加1",
+      "度为m的树中，第i层上至多有m^(i-1)个结点",
+      "树中每个结点都有且仅有一个前驱结点",
+      "树中每个结点的度都不大于2"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "树中根结点没有前驱，且结点度可大于2；结点数等于度数之和加1，第i层最多m^(i-1)个结点。",
+    "difficulty": 2,
+    "knowledge": "树的性质"
+  }
+]

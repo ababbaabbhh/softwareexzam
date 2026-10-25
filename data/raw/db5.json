@@ -1,0 +1,302 @@
+[
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在分布式数据库中，将关系按行的方向划分为若干子集并分别存储到不同站点的做法称为（ ）。",
+    "options": ["水平分片", "垂直分片", "混合分片", "导出分片"],
+    "answer": ["A"],
+    "explanation": "按行（元组）划分形成水平分片，每个分片包含原关系的部分元组。",
+    "difficulty": 1,
+    "knowledge": "水平分片"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "分布式数据库的垂直分片是按照关系的（ ）进行划分的。",
+    "options": ["元组", "属性列", "索引项", "视图"],
+    "answer": ["B"],
+    "explanation": "垂直分片按属性列划分，分片之间通过主键或元组标识符连接重构。",
+    "difficulty": 2,
+    "knowledge": "垂直分片"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "分布式数据库采用全复制（每个站点保存完整副本）方式时，其主要优点是（ ）。",
+    "options": ["显著提高写操作的并发度", "减少存储开销和数据冗余", "提高读的并发度与本地可用性", "彻底消除一致性维护的代价"],
+    "answer": ["C"],
+    "explanation": "全复制使读请求可在本地完成，提高读并发度与可用性，但写操作代价和冗余增大。",
+    "difficulty": 2,
+    "knowledge": "全复制"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在事务的两阶段提交协议中，若参与者已投出“提交”表决，但在等待协调者决策时协调者发生故障，则该参与者应（ ）。",
+    "options": ["立即在本地提交事务", "立即在本地回滚事务", "阻塞等待，直到获得协调者的决策", "由参与者自行决定提交或回滚"],
+    "answer": ["C"],
+    "explanation": "投出提交票后参与者已无法单方面决定，必须阻塞等待决策，这正是两阶段提交的阻塞缺陷。",
+    "difficulty": 3,
+    "knowledge": "两阶段提交"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "根据CAP定理，当分布式系统发生网络分区时，最多只能同时满足（ ）。",
+    "options": ["一致性和可用性", "一致性和分区容忍性", "可用性和分区容忍性", "一致性、可用性和分区容忍性"],
+    "answer": ["A"],
+    "explanation": "分区发生时必须在一致性与可用性之间取舍，三者不可同时满足。",
+    "difficulty": 1,
+    "knowledge": "CAP定理"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "BASE理论中的“E”指的是（ ）。",
+    "options": ["最终一致性", "持久性", "排他性", "可扩展性"],
+    "answer": ["A"],
+    "explanation": "BASE由基本可用、软状态和最终一致性组成，E即Eventually consistent。",
+    "difficulty": 2,
+    "knowledge": "BASE理论"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在数据仓库的星型模型中，位于模型中心、包含业务度量数据的是（ ）。",
+    "options": ["事实表", "维度表", "视图", "索引"],
+    "answer": ["A"],
+    "explanation": "星型模型以事实表为中心，周围连接多个只读的维度表。",
+    "difficulty": 1,
+    "knowledge": "星型模型"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "与星型模型相比，雪花模型的主要特点是（ ）。",
+    "options": ["维度表被进一步规范化，分解为多级子维表", "事实表被拆分为多个子表", "取消了所有维度表之间的关联", "查询性能通常优于星型模型"],
+    "answer": ["A"],
+    "explanation": "雪花模型对维度进行规范化，减少冗余，但连接增多、查询效率一般低于星型模型。",
+    "difficulty": 2,
+    "knowledge": "雪花模型"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "数据仓库ETL过程中，字母“T”代表的环节是（ ）。",
+    "options": ["抽取", "转换", "加载", "传输"],
+    "answer": ["B"],
+    "explanation": "ETL分别为抽取（Extract）、转换（Transform）和加载（Load）。",
+    "difficulty": 1,
+    "knowledge": "ETL转换环节"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "下列工作中，不属于ETL中“数据转换”环节的是（ ）。",
+    "options": ["字段类型与编码格式的统一", "缺失值填充与脏数据清洗", "派生数据的计算与生成", "将处理后的数据写入目标数据仓库"],
+    "answer": ["D"],
+    "explanation": "写入目标数据仓库属于加载（Load）环节，其余属于转换环节。",
+    "difficulty": 2,
+    "knowledge": "ETL转换环节"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在OLAP多维分析中，将数据从细粒度层次汇总到粗粒度层次的操作称为（ ）。",
+    "options": ["上卷", "下钻", "切片", "旋转"],
+    "answer": ["A"],
+    "explanation": "上卷通过维层次的提升进行汇总；下钻则相反，从粗粒度细化到细粒度。",
+    "difficulty": 2,
+    "knowledge": "OLAP上卷"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在多维数据集中，固定某一个维的取值、观察其余维数据子集的操作称为（ ）。",
+    "options": ["切片", "切块", "旋转", "钻取"],
+    "answer": ["A"],
+    "explanation": "切片是选取单个维的一个值形成的子集；切块是选取两个及以上维的取值。",
+    "difficulty": 3,
+    "knowledge": "OLAP切片"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "数据仓库中的数据包含大量历史信息并随时间不断追加，这体现了数据仓库数据的（ ）特征。",
+    "options": ["面向主题", "集成性", "随时间变化", "非易失性"],
+    "answer": ["C"],
+    "explanation": "数据仓库记录历史变化并随时间追加新数据，体现随时间变化的特征。",
+    "difficulty": 2,
+    "knowledge": "数据仓库特性"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "“购买啤酒的顾客通常也会购买尿布”这类分析属于数据挖掘中的（ ）。",
+    "options": ["分类分析", "聚类分析", "关联规则分析", "回归分析"],
+    "answer": ["C"],
+    "explanation": "发现项集之间同时出现的规律属于关联规则挖掘，典型算法为Apriori。",
+    "difficulty": 2,
+    "knowledge": "关联规则"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "Redis属于NoSQL数据库中的（ ）类型。",
+    "options": ["键值存储", "文档存储", "列族存储", "图存储"],
+    "answer": ["A"],
+    "explanation": "Redis以键值对形式组织数据，是典型的键值型内存数据库。",
+    "difficulty": 1,
+    "knowledge": "键值存储"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在MongoDB中，数据组织的基本单元是（ ）。",
+    "options": ["键值对", "文档", "列族", "边"],
+    "answer": ["B"],
+    "explanation": "MongoDB是文档型数据库，以类似JSON的文档（BSON）作为基本存储单元。",
+    "difficulty": 1,
+    "knowledge": "文档存储"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "HBase采用的数据模型主要来源于Google的（ ）。",
+    "options": ["BigTable", "Dynamo", "GFS", "Chubby"],
+    "answer": ["A"],
+    "explanation": "HBase是BigTable的开源实现，采用行键、列族、时间戳的稀疏多维映射表模型。",
+    "difficulty": 3,
+    "knowledge": "列族存储"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在图数据库（如Neo4j）中，节点之间通过（ ）建立联系。",
+    "options": ["外键约束", "边", "列族", "视图"],
+    "answer": ["B"],
+    "explanation": "图数据库以节点和边表示实体及其关系，天然支持多跳关系查询。",
+    "difficulty": 2,
+    "knowledge": "图存储"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "SQL中用GRANT语句把某张表的查询权限授予用户，属于数据库安全性控制中的（ ）。",
+    "options": ["自主存取控制", "强制存取控制", "视图机制", "审计机制"],
+    "answer": ["A"],
+    "explanation": "由授权者自主决定把权限授予他人，属于自主存取控制（DAC）。",
+    "difficulty": 2,
+    "knowledge": "自主存取控制"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在强制存取控制中，主体能否访问某个客体，主要取决于（ ）。",
+    "options": ["主体许可证级别与客体密级的比较", "用户的自愿授权", "所定义视图的多少", "审计日志的记录情况"],
+    "answer": ["A"],
+    "explanation": "强制存取控制由系统按主体许可证级别与客体密级的支配关系判定，用户不能随意改变。",
+    "difficulty": 3,
+    "knowledge": "强制存取控制"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "利用视图机制实现安全性控制的实质是（ ）。",
+    "options": ["隐藏用户无权访问的数据行或数据列", "对存储介质上的数据加密", "记录用户对数据库的全部操作", "限制数据库的并发连接数量"],
+    "answer": ["A"],
+    "explanation": "视图只向用户呈现其有权访问的行和列，从而实现数据级和范围级的安全保护。",
+    "difficulty": 2,
+    "knowledge": "视图机制"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "数据库审计功能的主要作用是（ ）。",
+    "options": ["提高查询执行速度", "记录用户操作，为事后分析和追查提供依据", "自动完成数据备份与恢复", "避免并发事务产生死锁"],
+    "answer": ["B"],
+    "explanation": "审计把用户对数据库的所有操作自动记录到审计日志，用于事后追踪与责任认定。",
+    "difficulty": 2,
+    "knowledge": "数据库审计"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "对数据库中存放的敏感数据实施存储加密，主要目的是防止（ ）。",
+    "options": ["存储介质被窃取或非法拷贝导致的数据泄露", "通信链路上的网络窃听", "恶意构造的SQL注入攻击", "合法用户的越权查询"],
+    "answer": ["A"],
+    "explanation": "存储加密保护持久化数据本身；链路窃听应由传输加密解决。",
+    "difficulty": 3,
+    "knowledge": "存储加密"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在MapReduce计算模型中，shuffle阶段发生在（ ）。",
+    "options": ["Map任务输出之后、Reduce任务输入之前", "Map任务执行之前", "Reduce任务输出之后", "作业提交之前"],
+    "answer": ["A"],
+    "explanation": "shuffle负责把Map输出按key分区、排序并传输给对应的Reduce任务。",
+    "difficulty": 3,
+    "knowledge": "MapReduce"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "HDFS并不擅长的应用场景是（ ）。",
+    "options": ["一次写入、多次读取的超大文件存储", "海量小文件的存储", "流式的顺序数据访问", "在廉价硬件上提供可靠存储"],
+    "answer": ["B"],
+    "explanation": "海量小文件会使NameNode元数据膨胀、寻址开销过大，是HDFS的典型短板。",
+    "difficulty": 3,
+    "knowledge": "HDFS存储"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "关于分布式数据库中的数据复制，下列说法正确的有（ ）。",
+    "options": ["全复制可以提高读的并发度和本地可用性", "复制会增加数据一致性维护的复杂度", "复制可以减少系统的存储开销", "各副本可以任意并发更新而不破坏一致性"],
+    "answer": ["A", "B"],
+    "explanation": "复制提升读并发与可用性，但带来存储开销与副本一致性维护问题；并发更新必须受协议控制。",
+    "difficulty": 2,
+    "knowledge": "数据复制"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "关于两阶段提交协议，下列说法正确的有（ ）。",
+    "options": ["第一阶段由协调者向各参与者征集表决结果", "只要有一个参与者投反对票，事务即全局回滚", "该协议可以彻底避免协调者故障引起的阻塞", "参与者在投出赞成票后即可自行决定提交本地事务"],
+    "answer": ["A", "B"],
+    "explanation": "第一阶段收集表决，任一反对则全局回滚；协议存在阻塞和协调者单点问题，参与者投票后不能自行决定。",
+    "difficulty": 3,
+    "knowledge": "两阶段提交"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "下列属于数据挖掘主要任务的有（ ）。",
+    "options": ["分类与预测", "聚类分析", "关系代数的等价变换", "数据字典的维护"],
+    "answer": ["A", "B"],
+    "explanation": "分类预测、聚类、关联规则、序列模式等属于数据挖掘任务；关系代数优化属于查询处理。",
+    "difficulty": 2,
+    "knowledge": "数据挖掘任务"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "关于NoSQL数据库，下列说法正确的有（ ）。",
+    "options": ["多数产品采用BASE思想，弱化强一致性", "通常不要求固定的表结构，数据模型较为灵活", "完全不支持分布式部署", "只能存储结构化数据"],
+    "answer": ["A", "B"],
+    "explanation": "NoSQL以BASE换取可扩展性与可用性，模式灵活且支持半结构化数据，普遍支持分布式部署。",
+    "difficulty": 2,
+    "knowledge": "NoSQL特性"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "下列属于数据库安全性控制措施的有（ ）。",
+    "options": ["用户身份鉴别", "存取控制与视图机制", "数据库的重组与重构", "数据转储与恢复"],
+    "answer": ["A", "B"],
+    "explanation": "身份鉴别、存取控制、视图、审计、加密属于安全性措施；重组与恢复主要保障完整性与可靠性。",
+    "difficulty": 2,
+    "knowledge": "数据库安全控制"
+  }
+]

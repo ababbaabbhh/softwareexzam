@@ -1,0 +1,89 @@
+# ---------- 依赖 ----------
+node_modules/
+.pnpm-store/
+
+# ---------- 运行时数据（由 npm run seed 生成）----------
+data/questions.db
+data/questions.db-wal
+data/questions.db-shm
+data/*.db
+data/*.db-wal
+data/*.db-shm
+*.sqlite
+*.sqlite3
+
+# ---------- 打包产物 ----------
+*.apk
+*.aab
+*.ap_
+*.dex
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+dist/
+build/
+out/
+coverage/
+
+# ---------- Android / Gradle ----------
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/local.properties
+android/.cxx/
+gradle-app.setting
+.gradletasknamecache
+
+# ---------- 签名文件（务必不要提交）----------
+*.keystore
+*.jks
+*.p12
+android.keystore
+keystore.properties
+*.pepk
+
+# ---------- 密钥 / 本地配置 ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+config.local.*
+
+# ---------- 编辑器 / IDE ----------
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# ---------- 操作系统 ----------
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ---------- 日志 / 临时文件 ----------
+*.log
+logs/
+tmp/
+temp/
+.tmp*
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# ---------- 测试临时产物（保留人工截图）----------
+test-results/
+playwright-report/
+blob-report/
+.playwright/

@@ -1,0 +1,345 @@
+[
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某高校图书馆要开发图书借阅管理子系统。系统需求如下：\n(1) 图书馆收藏若干种图书，每种图书（Book）有唯一 ISBN、书名、作者、出版社、单价等属性；同一种图书可能购入多册，每一册称为一个馆藏副本（Copy），副本有唯一条码号、馆藏位置和状态（在架/借出/遗失）。\n(2) 读者（Reader）分为教师（Teacher）与学生（Student）两类，二者都具备读者编号、姓名、联系方式等属性，但可借册数不同：教师最多 10 册，学生最多 5 册。\n(3) 读者借书时产生一条借阅记录（BorrowRecord），记录借阅流水号、借出日期、应还日期、归还日期、罚金；归还时填写归还日期，若逾期则按每天 0.5 元计算罚金并生成罚单（FineBill）。\n(4) 图书管理员（Librarian）负责为读者办理借书、还书手续，并可查询馆藏。\n【问题1】根据上述描述，识别出该系统的类（至少 8 个），并指出哪些类之间存在泛化关系。\n【问题2】说明 Book 与 Copy、Reader 与 BorrowRecord、BorrowRecord 与 Copy 之间的关联关系及多重性，并指出哪个关系可以视为聚合或组合，说明理由。\n【问题3】给出 BorrowRecord 类的主要属性和主要方法，并说明 Reader 与 BorrowRecord 之间导航方向应如何设计。",
+    "answer": "【问题1】\n系统中可识别的类有：Book（图书）、Copy（馆藏副本）、Reader（读者）、Teacher（教师）、Student（学生）、BorrowRecord（借阅记录）、FineBill（罚单）、Librarian（图书管理员）。\n其中存在泛化关系的类：Teacher 与 Reader 之间、Student 与 Reader 之间均为泛化关系，Reader 为父类（一般类），Teacher、Student 为子类（特殊类），子类继承父类的读者编号、姓名、联系方式等属性和借阅操作，并各自实现可借册数限制。\n【问题2】\n(1) Book 与 Copy：1 对 0..* 的关联（一种图书拥有零册或多册副本，一册副本只属于一种图书），可细化为组合关系（组合是强聚合），因为副本脱离图书没有独立业务含义，图书被注销时其副本一并销毁。\n(2) Reader 与 BorrowRecord：1 对 0..* 的关联，一个读者可以有多条借阅记录，一条借阅记录只属于一个读者。\n(3) BorrowRecord 与 Copy：0..* 对 1 的关联，一条借阅记录对应一册被借出的副本，一册副本在其生命周期内可产生多条借阅记录（不同时间段被不同读者借阅）。\n(4) 聚合/组合的判断：Book 与 Copy 之间宜为组合关系，因为副本的生命周期依附于图书；而 Reader 与 BorrowRecord 之间是普通关联（也可视为聚合），因为借阅记录在读者注销后仍需保留作历史存证，不随读者一起销毁。\n【问题3】\nBorrowRecord 的主要属性：借阅流水号（recordId）、借出日期（borrowDate）、应还日期（dueDate）、归还日期（returnDate）、罚金（fine）、状态（status）。\nBorrowRecord 的主要方法：计算逾期天数 calculateOverdueDays()、计算罚金 calculateFine()、办理归还 returnCopy()、判断是否逾期 isOverdue()。\n导航方向：应由 BorrowRecord 单向导航到 Reader 与 Copy（即 BorrowRecord → Reader、BorrowRecord → Copy），Reader 端不必保留对历史借阅记录的导航，以保证历史数据不随读者对象状态变化。",
+    "rubric": [
+      "问题1：正确列出 Book、Copy、Reader、Teacher、Student、BorrowRecord、FineBill、Librarian 等类，列出 8 个及以上得 4 分，5~7 个得 2 分，少于 5 个不得分",
+      "问题1：明确指出 Teacher、Student 与 Reader 之间存在泛化关系，Reader 为父类，得 2 分",
+      "问题2：正确给出 Book 与 Copy 为 1 对 0..* 并判定为组合（强聚合），说明理由，得 2 分",
+      "问题2：正确给出 Reader 与 BorrowRecord 为 1 对 0..*，得 1.5 分",
+      "问题2：正确给出 BorrowRecord 与 Copy 为 0..* 对 1（一册副本可被多次借阅），得 1.5 分",
+      "问题2：正确解释聚合/组合的判定依据（生命周期依赖），得 1 分",
+      "问题3：正确列出 BorrowRecord 的主要属性（流水号、借出日期、应还日期、归还日期、罚金），得 1.5 分",
+      "问题3：正确列出 BorrowRecord 的主要方法（计算逾期天数、计算罚金、归还），得 1 分",
+      "问题3：导航方向由 BorrowRecord 指向 Reader/Copy 的理由说明正确，得 0.5 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某电商平台需要开发订单子系统。需求描述如下：\n(1) 顾客（Customer）有顾客编号、姓名、手机号、收货地址，可下多个订单（Order）。\n(2) 订单有订单号、下单时间、订单状态、订单总金额；一个订单包含一条或多条订单明细（OrderItem），每条明细记录购买的商品、数量和成交单价。\n(3) 商品（Product）有商品编号、名称、单价、库存量；商品分为普通商品（NormalProduct）和促销商品（PromotionProduct），促销商品有促销价和促销起止时间，其成交单价按促销价计算。\n(4) 订单支持多种支付方式（Payment），包括支付宝（Alipay）和微信支付（WechatPay），支付成功后生成支付流水（PayRecord）。\n(5) 订单提交后由订单服务调用库存服务扣减库存。\n【问题1】识别该子系统类图中的类，并说明哪些类之间是泛化关系、哪些类之间是聚合或组合关系。\n【问题2】写出 Order 与 OrderItem、OrderItem 与 Product、Customer 与 Order 之间关联的多重性，并说明计算订单总金额时金额应存放在哪个类中，为什么。\n【问题3】若用策略模式实现多种支付方式，请说明类图中应增加哪些类与接口，以及它们之间的关系和调用者。",
+    "answer": "【问题1】\n类包括：Customer（顾客）、Order（订单）、OrderItem（订单明细）、Product（商品）、NormalProduct（普通商品）、PromotionProduct（促销商品）、Payment（支付方式接口/抽象类）、Alipay（支付宝支付）、WechatPay（微信支付）、PayRecord（支付流水）。\n泛化关系：NormalProduct 与 Product、PromotionProduct 与 Product 之间是泛化；Alipay 与 Payment、WechatPay 与 Payment 之间是泛化（实现关系）。\n组合关系：Order 与 OrderItem 之间为组合关系，订单明细不能脱离订单独立存在，订单删除时明细一并删除。\n【问题2】\n多重性：Customer 与 Order 为 1 对 0..*；Order 与 OrderItem 为 1 对 1..*（一个订单至少有一条明细）；OrderItem 与 Product 为 0..* 对 1（一条明细对应一种商品，一种商品可出现在多条明细中）。\n总金额：订单总金额应存放在 Order 中（作为派生属性/冗余属性），成交单价存放在 OrderItem 中。理由：成交价是下单时刻的快照，不能存放在 Product 中，否则商品调价会导致历史订单金额改变；总金额由各明细金额累加得出，属于订单整体的属性。\n【问题3】\n应增加抽象类或接口 Payment（含 pay(amount) 方法），增加具体类 Alipay、WechatPay 实现该接口；在 Order 中增加对 Payment 的关联（或由 Order 的方法接收 Payment 参数），由 Order（订单对象）作为上下文调用 payment.pay(amount)，从而在运行时替换具体支付算法；PayRecord 与 Order 为 1 对 0..* 的关联，记录支付结果。这样新增支付方式时只需增加 Payment 的子类，符合开闭原则。",
+    "rubric": [
+      "问题1：列出 Customer、Order、OrderItem、Product、NormalProduct、PromotionProduct、Payment、Alipay、WechatPay、PayRecord，得 4 分",
+      "问题1：正确指出商品分类与支付方式两组泛化/实现关系，得 1 分",
+      "问题1：正确指出 Order 与 OrderItem 为组合关系并说明理由，得 1 分",
+      "问题2：正确给出 Customer–Order（1 对 0..*）得 1 分，Order–OrderItem（1 对 1..*）得 1 分，OrderItem–Product（0..* 对 1）得 1 分",
+      "问题2：正确说明成交单价放 OrderItem、总金额放 Order，并说明价格快照理由，得 2 分",
+      "问题3：给出 Payment 抽象类/接口及 pay 方法，得 1.5 分",
+      "问题3：说明 Alipay、WechatPay 继承/实现 Payment，得 1 分",
+      "问题3：说明 Order 作为上下文持有或接收 Payment 并调用其方法，得 1 分",
+      "问题3：说明 PayRecord 与 Order 的关联，得 0.5 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某医院门诊挂号系统需求如下：\n(1) 医院设有若干科室（Department），每个科室有科室编号、名称；科室下有多名医生（Doctor），医生有工号、姓名、职称，一名医生只属于一个科室。\n(2) 医生有出诊安排（Schedule），一条安排包含出诊日期、时段（上午/下午）、限号数、已挂号数；一名医生可有多条出诊安排。\n(3) 患者（Patient）有就诊卡号、姓名、身份证号、联系电话，可预约多个号源。\n(4) 患者挂号后生成挂号单（Registration），记录挂号单号、挂号时间、号序、挂号费、状态（已挂号/已就诊/已退号）。一张挂号单对应一名患者和一条出诊安排。\n(5) 患者可退号，退号后挂号单状态变为已退号，号源释放。\n【问题1】识别系统类图中的类，并说明 Department、Doctor、Schedule、Patient、Registration 五个类之间的关系及多重性。\n(2) 说明 Registration 与 Doctor 之间是否存在直接关联，如果不直接关联应通过什么类间接关联，理由是什么。\n【问题2】给出 Schedule 类应具有的属性与主要方法（含号源管理与释放）。\n【问题3】画出（用文字描述）Registration 类在挂号与退号两个用例中的状态变化，并说明状态图中应有哪些状态与迁移事件。",
+    "answer": "【问题1】\n类包括：Department（科室）、Doctor（医生）、Schedule（出诊安排）、Patient（患者）、Registration（挂号单）。关系与多重性：\n(1) Department 与 Doctor：1 对 1..* 的关联（一个科室有多名医生，一名医生属于一个科室）。\n(2) Doctor 与 Schedule：1 对 1..* 的关联（一名医生有多条出诊安排，一条安排属于一名医生）。\n(3) Patient 与 Registration：1 对 0..* 的关联（一名患者可有多张挂号单，一张挂号单属于一名患者）。\n(4) Schedule 与 Registration：1 对 0..* 的关联（一条出诊安排可产生多张挂号单，一张挂号单占用一个号序）。\n(5) Registration 与 Doctor 之间不宜直接关联，应通过 Schedule 间接关联：挂号单占用的是某个具体出诊时段的号源，医生信息由 Schedule 导航获得，可避免同一医生多个时段造成的冗余与不一致。\n【问题2】\nSchedule 属性：安排编号、出诊日期、时段、限号数（maxCount）、已挂号数（bookedCount）、状态（正常/停诊）。\nSchedule 方法：查询剩余号源 getRemainCount()、占用号源 occupy()、释放号源 release()、判断是否满号 isFull()、停诊 cancel()。其中 occupy() 在 bookedCount 大于等于 maxCount 时应拒绝；release() 用于退号时 bookedCount 减 1。\n【问题3】\nRegistration 的状态变化：\n状态：已挂号（Booked）、已就诊（Visited）、已退号（Canceled）。\n迁移：初始创建进入“已挂号”；事件“就诊/医生接诊”由“已挂号”迁移到“已就诊”；事件“退号”由“已挂号”迁移到“已退号”；“已就诊”“已退号”为终态，不可再迁移。\n执行“退号”迁移时须触发 Schedule 的 release()，执行“挂号”创建时须触发 occupy()。",
+    "rubric": [
+      "问题1：列出 Department、Doctor、Schedule、Patient、Registration 五个类，得 2 分",
+      "问题1：正确给出 Department–Doctor（1 对 1..*）、Doctor–Schedule（1 对 1..*）、Patient–Registration（1 对 0..*）、Schedule–Registration（1 对 0..*），每个 1 分，共 4 分",
+      "问题1：指出 Registration 不直接关联 Doctor、应通过 Schedule 间接关联并说明理由，得 1 分",
+      "问题2：给出属性（日期、时段、限号数、已挂号数）完整，得 1.5 分",
+      "问题2：给出方法（查询余号、占用号源、释放号源），得 1.5 分",
+      "问题2：说明满号时拒绝挂号、退号时释放号源的约束，得 1 分",
+      "问题3：给出 3 个状态（已挂号、已就诊、已退号），得 1.5 分",
+      "问题3：给出初始、就诊、退号三条迁移并指出终态，得 1.5 分",
+      "问题3：说明退号与挂号需联动号源占用/释放，得 0.5 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某银行开发账户与交易系统：\n(1) 银行（Bank）下设多个网点（Branch），网点有网点号、地址；一个网点可开立多个账户（Account）。\n(2) 账户有账号、余额、开户日期、密码；账户分为储蓄账户（SavingAccount）和信用账户（CreditAccount），储蓄账户有利率属性并计算利息，信用账户有信用额度属性并可透支。\n(3) 每笔交易（Transaction）有交易流水号、交易时间、金额、交易类型（存款/取款/转账），交易必须发生在某个账户上；一个账户可有多笔交易。\n(4) 转账交易涉及转出账户和转入账户。\n(5) 系统要求对账户的余额修改必须保证并发安全。\n【问题1】识别类图中的类，指出 Account、SavingAccount、CreditAccount 之间的关系类型及在类图中的表示方式。\n【问题2】说明 Account 与 Transaction 的关系及多重性；指出转账交易应如何在 Transaction 中表示转入/转出账户，并给出相应属性或关联。\n【问题3】写出 Account 类的抽象方法和 SavingAccount、CreditAccount 对其的重写（可用伪代码），并说明这种设计体现了面向对象的什么特性。",
+    "answer": "【问题1】\n类包括：Bank（银行）、Branch（网点）、Account（账户）、SavingAccount（储蓄账户）、CreditAccount（信用账户）、Transaction（交易）、Customer（客户，可选）、TransferTransaction（转账交易，可选）。\nAccount 与 SavingAccount、CreditAccount 之间为泛化关系：Account 为抽象父类，SavingAccount、CreditAccount 为子类，类图中用带空心三角箭头的实线表示，箭头由子类指向父类。Branch 与 Account 为 1 对 0..* 关联；Bank 与 Branch 为 1 对 1..* 关联。\n【问题2】\nAccount 与 Transaction 为 1 对 0..* 的关联（一个账户有多笔交易，一笔交易只能属于一个账户）。\n转账交易需在两个账户间发生，可在 Transaction 中增加两个关联：转出账户（fromAccount）和转入账户（toAccount），多重性均为 0..1 或 1，即转账交易时两者均不为空，普通存取款时转入/转出之一为空；也可定义 Transaction 的子类 TransferTransaction，与 Account 建立两条 1 对 0..* 的关联（角色名 fromAccount、toAccount）。\n【问题3】\nAccount 中定义：abstract double calculateInterest(); abstract void withdraw(double amount); abstract void deposit(double amount); double getBalance();\nSavingAccount：重写 calculateInterest() 返回 balance * rate；重写 withdraw(amount) 时要求 amount 不超过余额，否则抛出异常。\nCreditAccount：重写 calculateInterest() 返回 0 或按欠款计息；重写 withdraw(amount) 时允许余额为负，但透支额不得超过 creditLimit。\n该设计体现了面向对象的封装（余额私有、只能通过 deposit/withdraw 修改）、继承（子类复用父类属性）和多态（父类引用调用 calculateInterest() 时按实际对象类型执行不同实现）。",
+    "rubric": [
+      "问题1：列出 Bank、Branch、Account、SavingAccount、CreditAccount、Transaction 等类，得 3 分",
+      "问题1：正确指出 Account 与两个子类为泛化关系，并说明空心三角箭头由子类指向父类，得 2 分",
+      "问题2：正确给出 Account–Transaction 为 1 对 0..*，得 2 分",
+      "问题2：给出转账交易的 fromAccount/toAccount 两个关联（或 TransferTransaction 子类方案）及多重性说明，得 2.5 分",
+      "问题3：写出 calculateInterest、withdraw/deposit 等抽象方法，得 2 分",
+      "问题3：给出两个子类对方法的不同重写（利息计算、透支限制），得 2 分",
+      "问题3：说明体现封装、继承、多态（至少指出多态），得 1.5 分"
+    ],
+    "score": 15,
+    "difficulty": 1,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某高校教务系统的选课子系统需求如下：\n(1) 学生（Student）有学号、姓名、年级、专业、已修学分；教师（Teacher）有工号、姓名、所属院系。学生和教师都属于“人员”，都具有编号和姓名，因此抽象出 Person 类。\n(2) 课程（Course）有课程号、课程名、学分、学时；课程分为必修课（RequiredCourse）和选修课（ElectiveCourse），选修课有先修课程要求（先修课程本身也是课程，一门课程可以有 0 到多门先修课程）。\n(3) 教师可讲授多门课程，一门课程可由多名教师讲授；某位教师讲授某门课程形成“授课安排”（Teaching），记录学期、上课时间和教室。\n(4) 学生选课形成选课记录（Enrollment），记录学期、成绩、选课时间；同一学生在同一学期同一课程只能有一条选课记录。\n(5) 学生每学期选课学分不得超过 30 学分。\n【问题1】识别类图中的类，并分别说明 Person/Student/Teacher、Course/必修课/选修课之间的泛化关系，以及 Course 自关联的多重性与含义。\n【问题2】说明 Teaching 与 Enrollment 两个“关联类”存在的必要性，指出它们分别连接哪两个类，以及各自的多重性。\n(3) 说明学生与课程之间的多对多关系为什么不宜直接实现，应如何处理。\n【问题3】给出 Course 类与 Student 类的主要属性，并说明“选课学分不超过 30”这一约束在类图中如何表达。",
+    "answer": "【问题1】\n类包括：Person（人员）、Student（学生）、Teacher（教师）、Course（课程）、RequiredCourse（必修课）、ElectiveCourse（选修课）、Teaching（授课安排）、Enrollment（选课记录）。\nPerson 与 Student、Teacher 之间为泛化关系（Person 为父类）；Course 与 RequiredCourse、ElectiveCourse 之间为泛化关系。Course 存在自关联“先修”，多重性为 0..* 对 0..*（一门课程可有多门先修课，一门课程也可作为多门课程的先修课）。\n【问题2】\nTeaching 是 Teacher 与 Course 之间多对多关联的关联类，记录授课的学期、上课时间、教室等只与“某教师讲某课程”相关的属性；多重性：Teacher 与 Teaching 为 1 对 0..*，Course 与 Teaching 为 1 对 0..*（等价于 Teacher 0..* —— Course 0..*）。\nEnrollment 是 Student 与 Course 之间多对多关联的关联类，记录学期、成绩、选课时间；多重性：Student 与 Enrollment 为 1 对 0..*，Course 与 Enrollment 为 1 对 0..*（等价于 Student 0..* —— Course 0..*）。\n学生与课程的直接多对多关系不宜直接实现，因为关系上带有成绩、学期等属性，且需要保证“同一学期同一课程唯一”的约束；应通过引入关联类 Enrollment（或中间实体）把多对多拆成两个一对多关联。\n【问题3】\nCourse 属性：课程号、课程名、学分、学时、课程类型；主要方法：获取学分 getCredit()、判断是否满足先修 isPrerequisiteSatisfied(student)。\nStudent 属性：学号、姓名、年级、专业、已修学分、本学期已选学分；主要方法：选课 enroll(course)、退课 drop(course)、计算已选学分 calcSelectedCredit()。\n“选课学分不超过 30”的约束可用 UML 约束（花括号内的约束表达式，如 {每学期已选学分 <= 30}）标注在 Student 类旁或选课关联上，也可用 OCL 约束表达。",
+    "rubric": [
+      "问题1：列出 Person、Student、Teacher、Course、RequiredCourse、ElectiveCourse、Teaching、Enrollment，得 3 分",
+      "问题1：正确说明两组泛化关系，得 1.5 分",
+      "问题1：正确给出 Course 自关联 0..* 对 0..* 及先修含义，得 1.5 分",
+      "问题2：正确说明 Teaching 连接 Teacher 与 Course、Enrollment 连接 Student 与 Course，得 2 分",
+      "问题2：正确给出各自多重性（1 对 0..* 两条），得 1.5 分",
+      "问题2：说明多对多不宜直接实现、需引入关联类/中间实体并说明理由，得 1 分",
+      "问题3：给出 Course 主要属性与方法，得 1.5 分",
+      "问题3：给出 Student 主要属性与方法，得 1.5 分",
+      "问题3：用 UML 约束（花括号约束或 OCL）表达学分上限，得 1.5 分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某酒店预订系统需求如下：\n(1) 酒店（Hotel）有酒店编号、名称、地址；酒店拥有多种房型（RoomType），房型有房型编号、名称、床位数、门市价；每种房型下有多间客房（Room），客房有房间号、楼层、状态（空闲/已预订/入住/维修）。\n(2) 客人（Guest）有证件号、姓名、手机号，可进行多次预订。\n(3) 预订（Reservation）有预订号、入住日期、离店日期、间数、总价、预订状态；一条预订可包含多间客房的预订明细（ReservationItem），每条明细对应一间客房和一个日期区间。\n(4) 客人入住时办理入住单（CheckIn），入住单关联预订与客房，办理退房时生成账单（Bill），账单包含房费与消费项。\n(5) 旺季时同一房型价格上浮，需支持按日期动态定价。\n【问题1】识别类图中的类，并说明 Hotel–RoomType–Room 三者的关系与多重性，指出其中哪些是聚合/组合并说明理由。\n【问题2】说明 Reservation 与 ReservationItem、ReservationItem 与 Room 的关系及多重性；指出为什么“间数”不能只保存在 Reservation 中。\n【问题3】若要支持按日期动态定价，请说明类图中应如何设计（增加什么类或方法），以及它与 RoomType 的关系。",
+    "answer": "【问题1】\n类包括：Hotel（酒店）、RoomType（房型）、Room（客房）、Guest（客人）、Reservation（预订）、ReservationItem（预订明细）、CheckIn（入住单）、Bill（账单）、PriceRule（价格规则，问题3）。\n关系与多重性：Hotel 与 RoomType 为 1 对 1..*；RoomType 与 Room 为 1 对 1..*（一种房型有多间客房，一间客房属于一种房型）。\n两者均可视为组合关系（强聚合）：房型不能脱离酒店存在，客房不能脱离房型存在，销毁酒店/房型时其下属对象一并销毁；类图中用实心菱形表示，菱形位于整体一端。\n【问题2】\nReservation 与 ReservationItem 为 1 对 1..* 的组合关系（一条预订至少包含一条明细，明细脱离预订无意义）；ReservationItem 与 Room 为 0..* 对 1 的关联（多条明细可在不同时间段指向同一间客房，一条明细只对应一间客房）。\n“间数”不能只保存在 Reservation 中，因为一条预订可能同时预订不同房型的多间客房，每间客房的房型、价格、入住区间可能不同，必须由明细逐间记录；间数可由明细条数派生得出。\n【问题3】\n应增加价格规则类 PriceRule（或 RatePlan），属性包括规则编号、适用起止日期、价格系数或固定价格、适用房型；PriceRule 与 RoomType 为 1 对 0..* 的关联（一种房型可有多条价格规则，一条规则属于一种房型）。RoomType 增加方法 getPrice(date) 或由预订服务根据日期区间匹配 PriceRule 计算总价；价格规则与预订明细的日期区间结合计算，实现按日期动态定价。",
+    "rubric": [
+      "问题1：列出 Hotel、RoomType、Room、Guest、Reservation、ReservationItem、CheckIn、Bill 等类，得 3 分",
+      "问题1：正确给出 Hotel–RoomType、RoomType–Room 均为 1 对 1..*，得 2 分",
+      "问题1：判定为组合关系（实心菱形、整体一端）并说明生命周期理由，得 2 分",
+      "问题2：正确给出 Reservation–ReservationItem 为 1 对 1..* 组合，得 1.5 分",
+      "问题2：正确给出 ReservationItem–Room 为 0..* 对 1，得 1.5 分",
+      "问题2：说明间数需由明细记录（不同房型/价格/区间）的理由，得 1 分",
+      "问题3：提出增加 PriceRule/RatePlan 类并给出关键属性，得 2 分",
+      "问题3：说明 PriceRule 与 RoomType 为 1 对 0..*，得 1 分",
+      "问题3：说明按日期匹配规则计算房价的方法或机制，得 1 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某快递物流公司要开发运单跟踪系统：\n(1) 客户（Sender）寄件时生成运单（Waybill），运单有运单号、寄件人信息、收件人信息、物品重量、运费、下单时间；寄件人（Sender）与收件人（Receiver）都是联系人（Contact），具有姓名、电话、地址。\n(2) 运单的一条运输路径由多个运输节点（TransitNode）依次组成，节点类型包括揽收点、分拨中心、派送点，每个节点有节点编号、名称、所在城市；节点类型用继承实现。\n(3) 运单在流转过程中产生多条轨迹记录（TrackRecord），每条记录包含发生时间、节点、操作类型（揽收/发出/到达/签收）、操作员。\n(4) 运单状态包括已揽收、运输中、派送中、已签收、异常；签收后不可再变更。\n(5) 运费计算规则因运输方式（标准快递、次日达）不同而不同。\n【问题1】识别类图中的类，说明 Contact 与 Sender、Receiver 的泛化关系，并说明 Waybill 与 TrackRecord 的关联关系与多重性。\n【问题2】说明 TransitNode 的继承层次如何设计（父类属性与子类特有属性/方法），以及 Waybill 与 TransitNode 之间的关系和多重性。\n【问题3】若采用策略模式实现运费计算，请说明参与的角色类、各自职责及类图关系；并说明运单状态变化应用什么 UML 图描述。",
+    "answer": "【问题1】\n类包括：Contact（联系人）、Sender（寄件人）、Receiver（收件人）、Waybill（运单）、TransitNode（运输节点）、PickupNode（揽收点）、TransferCenter（分拨中心）、DeliveryNode（派送点）、TrackRecord（轨迹记录）、FreightStrategy（运费策略）。\nContact 与 Sender、Receiver 为泛化关系（Contact 为父类，含姓名、电话、地址）。\nWaybill 与 TrackRecord 为 1 对 0..* 的关联（一张运单有多条轨迹，一条轨迹属于一张运单），轨迹记录按发生时间排序。\n【问题2】\nTransitNode 为抽象父类，含节点编号、名称、所在城市、节点类型等公共属性，以及到达/发出处理等方法；PickupNode 增加揽收员、揽收时间等属性与揽收方法；TransferCenter 增加分拣线、吞吐量等属性与分拣方法；DeliveryNode 增加派送员、派送范围属性与派送方法。\nWaybill 与 TransitNode：可为 0..* 对 0..* 的关联（一张运单途经多个节点，一个节点可处理多张运单），该多对多关联可引入关联类“途经记录”（或由 TrackRecord 体现节点与运单的关系）。\n【问题3】\n策略模式角色：抽象策略 FreightStrategy（含 calcFreight(weight, distance) 方法），具体策略 StandardExpressStrategy、NextDayStrategy 实现该接口/继承该抽象类；上下文 Context 由 Waybill（或 FreightCalculator）持有 FreightStrategy 引用，运行时按运输方式注入具体策略并调用 calcFreight 计算运费。类图关系：具体策略与 FreightStrategy 为泛化（实现），上下文与 FreightStrategy 为聚合或普通关联（0..1 或 1）。运单状态变化应用状态图（状态机图）描述。",
+    "rubric": [
+      "问题1：列出 Contact、Sender、Receiver、Waybill、TransitNode、TrackRecord 及三种节点类、运费策略类，得 3 分",
+      "问题1：正确说明 Contact 与 Sender/Receiver 为泛化，得 1.5 分",
+      "问题1：正确给出 Waybill–TrackRecord 为 1 对 0..*，得 1.5 分",
+      "问题2：设计 TransitNode 抽象父类的公共属性与三种子类特有属性/方法，得 3 分",
+      "问题2：正确给出 Waybill 与 TransitNode 的多对多（0..* 对 0..*）或经轨迹记录间接关联，得 1.5 分",
+      "问题3：完整给出策略模式的抽象策略、具体策略、上下文三个角色及职责，得 3 分",
+      "问题3：正确说明三者类图关系（泛化/实现、聚合/关联），得 1 分",
+      "问题3：指出运单状态变化用状态图描述，得 0.5 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某大楼电梯控制系统需求如下：\n(1) 一栋楼有多个电梯（Elevator），每部电梯有编号、当前楼层、运行方向、门状态；每部电梯包含多个楼层按钮和轿厢内楼层指示器。\n(2) 每个楼层设有呼叫按钮（CallButton），按下后产生呼梯请求（Request），请求包含起始楼层、目标方向、产生时间。\n(3) 电梯调度器（Dispatcher）负责把呼梯请求分配给某部电梯；一个调度器管理多部电梯，一部电梯只受一个调度器管理。\n(4) 电梯状态包括空闲、上行、下行、开门、关门、故障；请求处理完成后请求被移除。\n(5) 同一部电梯的请求需按方向排序执行，且电梯运行中不得开门。\n【问题1】识别类图中的类，说明 Dispatcher 与 Elevator 的关系类型及多重性；说明 Request 与 Elevator 的关系及多重性。\n【问题2】写出 Elevator 类的主要属性与方法（含状态判断与开关门约束），并说明 CallButton 与 Elevator 是否需要直接关联。\n【问题3】请说明描述电梯运行状态变化应使用哪种 UML 图，列出状态与主要迁移事件，并说明状态图与类图的关系。",
+    "answer": "【问题1】\n类包括：Building（楼宇，可选）、Elevator（电梯）、Floor（楼层）、CallButton（呼叫按钮）、Request（呼梯请求）、Dispatcher（调度器）、FloorButton（楼层按钮）。\nDispatcher 与 Elevator 为 1 对 1..* 的聚合关系（一个调度器管理多部电梯，一部电梯属于一个调度器），电梯可独立存在，调度器负责分配，因此用聚合（空心菱形）而非组合。\nRequest 与 Elevator 为 0..* 对 0..1 的关联（一个请求在调度后分配给一部电梯，一部电梯可同时持有多条请求，未被调度的请求尚未分配）。\n【问题2】\nElevator 属性：电梯编号、当前楼层、运行方向（上行/下行/空闲）、门状态（开/关）、目标楼层队列、状态（空闲/运行/故障）。\nElevator 方法：接收请求 addRequest(request)、选择下一目标 selectNextTarget()、移动 moveTo(floor)、判断能否开门 canOpenDoor()、开门 openDoor()、关门 closeDoor()、故障时进入故障状态 setFault()。其中 canOpenDoor() 在运行中返回 false，保证运行中不开门；selectNextTarget() 按方向排序选择目标。\nCallButton 与 Elevator 不需要直接关联：按钮只产生 Request 并交给 Dispatcher，由调度器间接控制电梯，从而解耦按钮与具体电梯。\n【问题3】\n应使用状态图（状态机图）描述。状态包括：空闲、上行、下行、开门、关门、故障。主要迁移事件：上行请求→上行；下行请求→下行；到达目标楼层→开门；开门超时/关门按钮→关门；关门后无请求→空闲；发生故障→故障；故障排除→空闲。类图中的 Elevator 类对应状态图的对象，状态图描述该类对象生命周期内的状态迁移，二者配合描述结构与行为。",
+    "rubric": [
+      "问题1：列出 Elevator、Floor、CallButton、Request、Dispatcher 等类，得 3 分",
+      "问题1：正确给出 Dispatcher 与 Elevator 为 1 对 1..* 的聚合关系，得 2 分",
+      "问题1：正确给出 Request 与 Elevator 为 0..* 对 0..1，得 1.5 分",
+      "问题2：给出 Elevator 主要属性（当前楼层、方向、门状态、请求队列），得 1.5 分",
+      "问题2：给出主要方法并说明运行中不得开门的约束，得 2 分",
+      "问题2：说明 CallButton 不直接关联 Elevator、通过 Dispatcher 解耦，得 1 分",
+      "问题3：指出用状态图描述，得 1 分",
+      "问题3：列出至少 5 个状态与至少 4 条迁移事件，得 2 分",
+      "问题3：说明状态图描述 Elevator 对象的状态迁移、与类图配合，得 1 分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某停车场管理系统需求如下：\n(1) 停车场（ParkingLot）有编号、名称、总车位数；停车场内划分若干区域（Zone），每个区域有区域编号和车位数；区域内有多个车位（ParkingSpace），车位有车位号、类型（普通/无障碍/充电）、状态（空闲/占用/维修）。\n(2) 车辆（Vehicle）有车牌号、车型；车辆分为小型车（Car）和大型车（Truck），小型车只能停普通车位，大型车可停大型车位。\n(3) 车辆入场生成入场记录（EntryRecord），出场生成出场记录，二者统一为停车记录（ParkingRecord），记录入场时间、出场时间、应收费用、实收费用。\n(4) 收费标准（FeeRule）按车型和停车时长分档计费；会员（Member）车辆可享受折扣，会员是车辆的一种？\n(5) 收费方式包括现金、扫码、ETC。\n【问题1】识别类图中的类，说明 ParkingLot–Zone–ParkingSpace 的关系与多重性，并指出组合与聚合的区别在本例中如何体现。\n【问题2】说明 Vehicle 与 ParkingRecord 的关联关系及多重性；若要区分入场记录与出场记录，应如何设计（用泛化还是用同一类中的两个时间属性），并说明理由。\n【问题3】说明“会员车辆享受折扣”在类图中如何设计：应把会员作为 Vehicle 的子类还是作为独立的会员类与 Vehicle 关联？给出你的方案与理由，并说明 FeeRule 应如何设计以支持折扣。",
+    "answer": "【问题1】\n类包括：ParkingLot（停车场）、Zone（区域）、ParkingSpace（车位）、Vehicle（车辆）、Car（小型车）、Truck（大型车）、ParkingRecord（停车记录）、FeeRule（收费标准）、Member（会员，若独立）、Payment（收费/支付，可选）。\n关系：ParkingLot 与 Zone 为 1 对 1..*；Zone 与 ParkingSpace 为 1 对 1..*；Vehicle 与 Car、Truck 为泛化关系。\n组合与聚合的区别体现：ParkingLot 与 Zone、Zone 与 ParkingSpace 宜为组合关系，车位是停车场设施的组成部分，随停车场/区域撤销而销毁，生命周期一致（实心菱形）；若把车辆、记录之类外部对象与停车场关联，则为普通关联或聚合（空心菱形），因为车辆、记录可独立存在。\n【问题2】\nVehicle 与 ParkingRecord 为 1 对 0..* 的关联（一辆车可有多条停车记录，一条记录属于一辆车）；ParkingSpace 与 ParkingRecord 为 1 对 0..*（一个车位可产生多条停车记录）。\n区分入场与出场：宜用同一 ParkingRecord 类中包含入场时间、出场时间两个属性（同一停车事实的一条记录），而不是用泛化拆成两个子类。理由：一次停车是一次完整业务事件，拆成两个子类会造成同一事件两条记录、需要关联匹配，增加复杂度；出场时补填出场时间并把状态置为已结束即可。\n【问题3】\n宜把会员设计为独立的 Member 类，与 Vehicle 建立 1 对 0..1 关联（一辆车可注册为会员，一个会员对应一辆车），而不是作为 Vehicle 的子类。理由：会员是车辆的一种“角色/身份”而非车辆的类型，车辆类别（小型/大型）与会员身份是可正交变化的；若用继承会产生 Car 与 MemberCar 之类的组合爆炸。\nFeeRule 设计：FeeRule 含规则编号、适用车型、时长分档、单价、折扣率等属性，并提供 calcFee(record, isMember) 或由会员关联的 Discount 类参与计算；FeeRule 与 Vehicle 车型（或与 ParkingRecord）建立关联，按车型和会员身份匹配规则计算应收费用。",
+    "rubric": [
+      "问题1：列出 ParkingLot、Zone、ParkingSpace、Vehicle、Car、Truck、ParkingRecord、FeeRule 等类，得 3 分",
+      "问题1：正确给出 ParkingLot–Zone、Zone–ParkingSpace 均为 1 对 1..*，得 1.5 分",
+      "问题1：正确判定为组合关系并说明生命周期一致的理由，得 1.5 分",
+      "问题2：正确给出 Vehicle–ParkingRecord 为 1 对 0..*，得 1.5 分",
+      "问题2：说明采用同一类中两个时间属性的方案并给出理由（避免两条记录需匹配），得 2 分",
+      "问题3：选择 Member 独立类与 Vehicle 关联（1 对 0..1）并说明角色/身份而非类型的理由，得 3 分",
+      "问题3：说明 FeeRule 的属性与 calcFee 方法支持按车型分档和会员折扣，得 2.5 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某智能家居系统需求如下：\n(1) 一个家庭（Home）中有多个房间（Room），每个房间有房间名；房间内安装多种智能设备（Device），设备有设备编号、名称、在线状态、功率。\n(2) 设备分为灯（Light）、空调（AirConditioner）、窗帘（Curtain）、传感器（Sensor）；灯有亮度属性并支持调节亮度，空调有目标温度属性，传感器有采集数值属性。\n(3) 用户可通过手机 App 发出控制命令（Command），命令包括开、关、调参；命令由家庭网关（Gateway）转发到目标设备。\n(4) 支持场景模式（Scene），如“回家模式”“睡眠模式”，一个场景包含对多个设备的操作序列，一个设备也可被多个场景引用。\n(5) 设备离线时命令执行失败，需记录日志（Log）。\n【问题1】识别类图中的类，说明 Home、Room、Device 三者的关系与多重性，并说明 Device 与其子类之间是什么关系。\n【问题2】说明 Scene 与 Device 的关联关系及多重性；若“场景中的操作”还带有参数（如亮度 80%、温度 26℃），应如何在类图中表达？\n【问题3】写出 Device 类应提供的抽象方法和各子类的实现要点，并说明 Command 与 Device 之间宜采用什么关系（依赖/关联）及理由。",
+    "answer": "【问题1】\n类包括：Home（家庭）、Room（房间）、Device（设备）、Light（灯）、AirConditioner（空调）、Curtain（窗帘）、Sensor（传感器）、Command（控制命令）、Gateway（网关）、Scene（场景）、Log（日志）、SceneAction（场景动作，问题2）。\n关系与多重性：Home 与 Room 为 1 对 1..* 的组合（房间随家庭存在）；Room 与 Device 为 1 对 0..* 的组合或聚合（设备安装在房间内，可拆装），一般取组合/聚合，多重性 1 对 0..*。\nDevice 与 Light、AirConditioner、Curtain、Sensor 为泛化关系，Device 为抽象父类。\n【问题2】\nScene 与 Device 为 0..* 对 0..* 的多对多关联（一个场景含多台设备操作，一台设备可被多个场景引用）。\n带参数的操作应引入关联类 SceneAction（或把多对多拆为 Scene 1—* SceneAction *—1 Device），SceneAction 属性包括动作类型（开/关/调参）、参数值（如亮度、温度）、执行顺序。这样参数存放在关联类中，避免污染 Device。\n【问题3】\nDevice 抽象方法：turnOn()、turnOff()、setParam(value)（或 setLevel）、getStatus()。\nLight 重写 setParam 设置亮度（0~100），到 0 视为关；AirConditioner 重写 setParam 设置目标温度并校验范围；Curtain 重写 setParam 设置开合度；Sensor 重写 getStatus 返回采集值，setParam 可为空实现（不支持控制）。\nCommand 与 Device 宜为依赖关系：Command 在执行时把目标 Device 作为参数或局部引用使用，即 execute(device)，命令执行完不再长期持有设备引用；若 Command 需要保存目标设备以便重放，则可改为 0..* 对 1 的关联。一般场景下取依赖关系，耦合更松。",
+    "rubric": [
+      "问题1：列出 Home、Room、Device、Light、AirConditioner、Curtain、Sensor、Command、Gateway、Scene、Log 等类，得 3 分",
+      "问题1：正确给出 Home–Room（1 对 1..*）、Room–Device（1 对 0..*）及组合/聚合判定，得 2 分",
+      "问题1：正确说明 Device 与四个子类为泛化关系、Device 为抽象类，得 1.5 分",
+      "问题2：正确给出 Scene 与 Device 为 0..* 对 0..*，得 1.5 分",
+      "问题2：提出引入 SceneAction 关联类存放动作类型、参数与顺序，得 2 分",
+      "问题3：给出 Device 的抽象方法（开、关、设参数、查状态），得 1.5 分",
+      "问题3：给出各子类的不同实现要点（亮度、温度、开合度、采集值），得 2 分",
+      "问题3：说明 Command 与 Device 采用依赖关系（或关联）并给出理由，得 1.5 分"
+    ],
+    "score": 15,
+    "difficulty": 1,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某公司人事考勤系统需求如下：\n(1) 公司有多个部门（Department），部门有部门编号、名称；部门有多名员工（Employee），每名员工只属于一个部门；部门设一名部门经理（经理也是员工）。\n(2) 员工有工号、姓名、入职日期、岗位、基本工资；员工分为正式员工（RegularEmployee）和实习生（Intern），正式员工有绩效系数，实习生有实习期限。\n(3) 员工每天打卡产生考勤记录（AttendanceRecord），记录打卡日期、上班打卡时间、下班打卡时间、是否迟到、是否早退。\n(4) 每月根据考勤记录生成工资单（SalarySheet），工资 = 基本工资 + 绩效工资 − 迟到扣款；工资单有月份、应发金额、实发金额。\n(5) 请假（Leave）需要审批，请假单（LeaveForm）记录请假类型、起止时间、审批状态。\n【问题1】识别类图中的类，说明 Department 与 Employee 的关系及多重性，并说明“部门经理”这一关系在类图中如何表示（自关联/关联角色）。\n【问题2】说明 Employee 与 AttendanceRecord、SalarySheet 的关系及多重性；指出工资单为什么不应包含员工姓名等属性。\n【问题3】说明 LeaveForm 与 Employee 的关系及审批状态的设计，并指出描述请假单审批流程应使用哪两种 UML 图。",
+    "answer": "【问题1】\n类包括：Department（部门）、Employee（员工）、RegularEmployee（正式员工）、Intern（实习生）、AttendanceRecord（考勤记录）、SalarySheet（工资单）、LeaveForm（请假单）、Approver（审批人，可由员工充当）。\nDepartment 与 Employee 为 1 对 1..* 的关联（一个部门有多名员工，一名员工属于一个部门）。\n部门经理：在 Employee 与 Department 之间增加关联，Employee 端角色名为 manager，多重性 1 对 0..1（一个部门最多一名经理，一名员工最多管理一个部门）；也可用 Employee 的自关联（管理关系，1 对 0..*）表达上下级，但“谁是部门经理”更宜用 Employee 与 Department 的带角色名关联表示。\n【问题2】\nEmployee 与 AttendanceRecord 为 1 对 0..* 的关联（一名员工有多条考勤记录，一条记录属于一名员工）。Employee 与 SalarySheet 为 1 对 0..* 的关联（一名员工每月一张工资单）。\n工资单不应包含员工姓名等属性：姓名属于员工实体的属性，存在工资单中会造成数据冗余和更新异常（改名后历史工资单不一致）；工资单应只保存工号引用与金额类属性，通过关联导航获取姓名。\n【问题3】\nLeaveForm 与 Employee 有两条关联：申请人（1 对 0..*）与审批人（0..* 对 0..1，角色名 approver）。审批状态设计为 LeaveForm 的属性或状态：待审批、已批准、已驳回；也可用枚举类型 LeaveStatus。\n描述审批流程应使用活动图（描述审批活动与判定）和状态图（描述请假单从待审批到批准的迁移）；若强调参与者与系统交互，还可用用例图。",
+    "rubric": [
+      "问题1：列出 Department、Employee、RegularEmployee、Intern、AttendanceRecord、SalarySheet、LeaveForm 等类，得 3 分",
+      "问题1：正确给出 Department–Employee 为 1 对 1..*，得 1.5 分",
+      "问题1：正确表示部门经理关系（带角色名关联或自关联，多重性 0..1），得 1.5 分",
+      "问题2：正确给出 Employee–AttendanceRecord、Employee–SalarySheet 均为 1 对 0..*，得 2 分",
+      "问题2：说明工资单只存工号引用、避免冗余与更新异常，得 2 分",
+      "问题3：给出 LeaveForm 与 Employee 的申请人、审批人两条关联及多重性，得 2 分",
+      "问题3：给出审批状态（待审批/已批准/已驳回），得 1.5 分",
+      "问题3：指出活动图与状态图（至少活动图）描述审批流程，得 1.5 分"
+    ],
+    "score": 15,
+    "difficulty": 1,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某在线视频点播平台需求如下：\n(1) 平台有用户（User），用户有用户编号、昵称、手机号、注册时间；用户分为普通用户（FreeUser）和会员用户（VipUser），会员用户有会员到期时间，可观看会员专享内容。\n(2) 平台有视频（Video），视频有视频编号、标题、时长、清晰度、上线时间；视频分为电影（Movie）、剧集（Series）、纪录片（Documentary），剧集包含多集（Episode），每集有集号、时长。\n(3) 用户观看视频产生播放记录（PlayRecord），记录开始时间、播放时长、播放进度。\n(4) 用户可对视频发表评论（Comment），评论有内容、时间、点赞数，评论可回复评论（自关联）。\n(5) 平台对视频按分类（Category）组织，一个视频可属于多个分类，一个分类包含多个视频。\n【问题1】识别类图中的类，说明 Video 与 Movie、Series、Documentary、Episode 的关系与多重性；指出 Episode 与 Video 是否应存在泛化关系。\n【问题2】说明 Category 与 Video 的关系及多重性；说明 Comment 自关联的多重性与含义。\n【问题3】说明 User 与 PlayRecord 的关联关系及多重性；若要限制“普通用户播放会员专享视频”这一业务规则，应放在类图的哪个位置、用什么方式表达？",
+    "answer": "【问题1】\n类包括：User（用户）、FreeUser（普通用户）、VipUser（会员用户）、Video（视频）、Movie（电影）、Series（剧集）、Documentary（纪录片）、Episode（集）、PlayRecord（播放记录）、Comment（评论）、Category（分类）。\nVideo 与 Movie、Series、Documentary 为泛化关系（Video 为父类）；Series 与 Episode 为 1 对 1..* 的组合关系（剧集包含多集，集脱离剧集无意义）。\nEpisode 与 Video 之间不应存在泛化关系：一集不是一种视频（视频的泛化子类是电影/剧集/纪录片等影片形态），Episode 是 Series 的组成部分，若让 Episode 继承 Video 会造成“集是视频、剧集包含视频”的语义混乱与属性冗余。\n【问题2】\nCategory 与 Video 为 0..* 对 0..* 的多对多关联（一个视频可属多个分类，一个分类含多个视频），可引入关联类或直接把多对多映射为中间表。\nComment 自关联：0..* 对 0..1，含义是一条评论可被多条评论回复，而一条回复只针对一条父评论（顶级评论的父评论为空）。\n【问题3】\nUser 与 PlayRecord 为 1 对 0..*（一个用户有多条播放记录，一条记录属于一个用户）；Video 与 PlayRecord 为 1 对 0..*。\n会员专享限制应在类图约束中表达：可在 Video 上增加属性 isVipOnly（或关联 VipUser 的可见性），并在 User 的 play(video) 方法前用 UML 约束（花括号约束或 OCL 前置条件，如 {video.isVipOnly implies self.oclIsTypeOf(VipUser) and vipExpireDate > now}）标注；也可用带守卫条件的活动图/状态图配合表达。",
+    "rubric": [
+      "问题1：列出 User、FreeUser、VipUser、Video、Movie、Series、Documentary、Episode、PlayRecord、Comment、Category，得 3 分",
+      "问题1：正确给出 Video 与三个子类的泛化、Series 与 Episode 为 1 对 1..* 组合，得 2 分",
+      "问题1：正确指出 Episode 不应继承 Video 并说明理由，得 1 分",
+      "问题2：正确给出 Category–Video 为 0..* 对 0..*，得 1.5 分",
+      "问题2：正确给出 Comment 自关联 0..* 对 0..1 及回复含义，得 1.5 分",
+      "问题3：正确给出 User–PlayRecord 为 1 对 0..*，得 1.5 分",
+      "问题3：指出用 isVipOnly 属性/可见性标记会员专享内容，得 1.5 分",
+      "问题3：用 UML 约束（花括号约束或 OCL 前置条件）表达播放限制，得 3 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某航空公司机票预订系统需求如下：\n(1) 航班（Flight）有航班号、起飞时间、降落时间、机型；航班有多个航段（Segment），每个航段有起飞机场、降落机场、起飞时间、降落时间；一条航线（Route）由多个航段组成。\n(2) 飞机（Aircraft）有注册号、机型、座位数；一个航班使用一架飞机，一架飞机可执行多个航班。\n(3) 座位（Seat）有座位号、舱位等级（经济舱/公务舱/头等舱）；一个航班对应一套座位。\n(4) 乘客（Passenger）有证件号、姓名、联系方式；乘客购票生成机票（Ticket），机票有票号、票价、出票时间、状态（已出票/已退票/已使用）；一张机票对应一个航班上的一个座位。\n(5) 票价（Fare）随舱位等级和购买时间浮动，同一航班不同舱位价格不同。\n【问题1】识别类图中的类，说明 Flight 与 Aircraft、Flight 与 Seat 的关系与多重性；说明 Segment 与 Flight 的关系类型及理由。\n【问题2】说明 Ticket 与 Passenger、Ticket 与 Seat 的关联关系与多重性；指出“一张机票对应一个座位”这一约束体现了什么，如何在类图中表达。\n【问题3】说明 Fare（票价）类应如何设计以支持不同舱位、不同购买时间的浮动价格，并给出它与 Seat/Flight 的关系。",
+    "answer": "【问题1】\n类包括：Flight（航班）、Segment（航段）、Route（航线）、Aircraft（飞机）、Seat（座位）、Passenger（乘客）、Ticket（机票）、Fare（票价）、Airport（机场）。\nFlight 与 Aircraft 为 0..* 对 1 的关联（一个航班使用一架飞机，一架飞机可执行多个航班）。Flight 与 Seat 为 1 对 1..* 的组合关系（一个航班对应一套座位，座位脱离航班无意义），可经 CabinClass（舱位）细分。\nSegment 与 Flight 为 1 对 1..* 的组合关系：航段是航班飞行的组成部分，航段脱离航班没有意义，航班取消时航段随之取消，生命周期一致，故为组合。\n【问题2】\nTicket 与 Passenger 为 0..* 对 1 的关联（一名乘客可有多张机票，一张机票属于一名乘客）。Ticket 与 Seat 为 0..1 对 1 的关联（一张机票占用一个座位，一个座位在某一航班上最多被一张有效机票占用）。\n“一张机票对应一个座位”体现了多重性与唯一性约束（座位在航班内唯一分配），可在关联上标注多重性 1，并附加唯一性约束 {unique} 或 {seat is unique per flight}；也可用 Seat 与 Ticket 的 1 对 0..1 关联配合座位状态属性表达。\n【问题3】\nFare 设计为独立类：属性包括票价编号、舱位等级、适用航班（或航线）、基准价格、折扣规则、生效起止时间；Fare 与 Flight 为 0..* 对 1（一个航班有多条票价，一条票价针对一个航班），或经 CabinClass 与 Flight 关联以表达按舱位定价。同一航班不同舱位通过与 Seat 的舱位等级匹配对应 Fare 计算；购买时间浮动通过生效起止时间与购买时间比较选择适用票价，或提供 calcPrice(purchaseTime, cabinClass) 方法。",
+    "rubric": [
+      "问题1：列出 Flight、Segment、Route、Aircraft、Seat、Passenger、Ticket、Fare 等类，得 3 分",
+      "问题1：正确给出 Flight–Aircraft 为 0..* 对 1、Flight–Seat 为 1 对 1..* 组合，得 2 分",
+      "问题1：判定 Segment 与 Flight 为组合关系并说明生命周期理由，得 1.5 分",
+      "问题2：正确给出 Ticket–Passenger 为 0..* 对 1，得 1.5 分",
+      "问题2：正确给出 Ticket–Seat 为 0..1 对 1 并说明座位唯一分配约束，得 2 分",
+      "问题3：Fare 独立类的属性设计（舱位、基准价、折扣、生效时间），得 2.5 分",
+      "问题3：说明 Fare 与 Flight/Seat 的关联及按购买时间选择适用票价的机制，得 2.5 分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某制造企业仓库库存管理系统需求如下：\n(1) 仓库（Warehouse）有仓库编号、名称、容量；仓库分多个库区（StorageArea），库区有库区编号、温区类型；库区内有多个货位（Location），货位有货位号、承重上限。\n(2) 物料（Material）有物料编码、名称、规格、计量单位；物料分为原材料（RawMaterial）、半成品（SemiFinished）、成品（FinishedProduct）。\n(3) 库存（Inventory）记录某物料在某货位上的数量与批次号；同一物料可存放在多个货位，同一货位可存放多种物料。\n(4) 物料入库生成入库单（InboundOrder），出库生成出库单（OutboundOrder），二者都含明细行（OrderLine），明细行记录物料、数量、批次。\n(5) 库存低于安全库存时系统产生预警（Warning）。\n【问题1】识别类图中的类，说明 Warehouse–StorageArea–Location 的关系与多重性；说明 Inventory 为什么不能作为 Material 的属性。\n【问题2】说明 Inventory 与 Material、Location 的关系与多重性，并说明为什么需要 Inventory 这个类（即关联类思想）。\n【问题3】说明 InboundOrder 与 OutboundOrder 应如何设计（是否抽象父类），给出类图结构并说明 OrderLine 与物料、库存的关系；说明预警的触发方式在类图中如何体现。",
+    "answer": "【问题1】\n类包括：Warehouse（仓库）、StorageArea（库区）、Location（货位）、Material（物料）、RawMaterial（原材料）、SemiFinished（半成品）、FinishedProduct（成品）、Inventory（库存）、InboundOrder（入库单）、OutboundOrder（出库单）、OrderLine（明细行）、Warning（预警）。\nWarehouse 与 StorageArea 为 1 对 1..* 的组合；StorageArea 与 Location 为 1 对 1..* 的组合；Material 与三种物料为泛化关系。\nInventory 不能作为 Material 的属性：同一物料可存放在多个货位、具有多个批次，数量是“物料—货位—批次”三元组合的属性，若作为 Material 的属性只能保存一个总量，无法表达分布，且会造成更新异常。\n【问题2】\nInventory 与 Material 为 0..* 对 1（一条库存记录对应一种物料，一种物料可有多条库存记录）；Inventory 与 Location 为 0..* 对 1（一条库存记录在一个货位上，一个货位可有多条库存记录）。\nInventory 实质是 Material 与 Location 之间多对多关联的关联类（可加上批次号作为标识的一部分），用于存放只与“某物料在某货位”有关的属性：数量、批次号、入库时间；因此必须独立成类，而不能用普通属性表达。\n【问题3】\n宜抽象出入库单据父类 StockOrder（或 BusinessOrder），含单据号、日期、状态、经办人等公共属性与提交、审核方法；InboundOrder 与 OutboundOrder 继承该父类，并各自增加供应商/客户、入库类型/出库类型等属性。父类与 OrderLine 为 1 对 1..* 的组合，OrderLine 与 Material 为 0..* 对 1，OrderLine 的属性包括数量、批次。\n预警：Warning 与 Material（或 Inventory）为 0..* 对 1 的关联，Warning 含预警编号、触发时间、当前库存、安全库存；触发由 Inventory 的 checkSafetyStock() 或预警服务在入库/出库操作后调用生成，类图中以 Warning 与 Inventory 的关联及约束 {quantity < safetyStock} 表达。",
+    "rubric": [
+      "问题1：列出 Warehouse、StorageArea、Location、Material 及其子类、Inventory、单据类、Warning 等，得 3 分",
+      "问题1：正确给出仓库—库区、库区—货位均为 1 对 1..* 组合，得 1.5 分",
+      "问题1：说明库存不能作为物料属性的理由（多货位、多批次、更新异常），得 1.5 分",
+      "问题2：正确给出 Inventory–Material、Inventory–Location 均为 0..* 对 1，得 2 分",
+      "问题2：说明 Inventory 是关联类（物料与货位多对多）并解释批次属性，得 2 分",
+      "问题3：设计出库/入库单的抽象父类并说明子类差异，得 2 分",
+      "问题3：给出父类与 OrderLine 1 对 1..* 组合、OrderLine 与 Material 0..* 对 1，得 1.5 分",
+      "问题3：说明 Warning 与库存/物料的关联及 {quantity < safetyStock} 约束触发方式，得 1.5 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某高校校园一卡通系统需求如下：\n(1) 持卡人（CardHolder）有学号/工号、姓名、身份类型；一人只能办理一张校园卡（CampusCard），卡有卡号、余额、状态（正常/挂失/注销）。\n(2) 校园卡可用于消费（食堂、超市）、借阅、门禁三类场景；消费终端（PosDevice）有终端编号、位置、商户号。\n(3) 每笔交易（Transaction）有交易流水号、交易时间、金额、交易类型（消费/充值/退款）；消费交易关联一个终端。\n(4) 充值（Recharge）可通过现金、银行卡、线上支付完成；充值与消费都影响卡余额。\n(5) 余额不足时交易失败；挂失卡不可交易；单笔消费超过 50 元需输入密码。\n【问题1】识别类图中的类，说明 CardHolder 与 CampusCard 的关联关系与多重性，并说明“一人一卡”约束如何表达。\n【问题2】说明 Transaction 与 CampusCard、Transaction 与 PosDevice 的关系与多重性；指出充值与消费应设计为同类还是子类，并说明理由。\n【问题3】说明“余额不足失败、挂失卡不可交易、超 50 元需密码”三条业务规则在类图中应如何表达。",
+    "answer": "【问题1】\n类包括：CardHolder（持卡人）、CampusCard（校园卡）、PosDevice（消费终端）、Transaction（交易）、ConsumeTransaction（消费交易）、Recharge（充值）、Refund（退款）、Payment（支付方式）、Account（账户/余额，可选）。\nCardHolder 与 CampusCard 为 1 对 0..1 的关联（一人最多一张卡，一张卡属于一人）；也可设计为 1 对 1 的单向关联。\n“一人一卡”约束用 UML 约束表达：在关联上标注 {unique} 或在 CampusCard 端写多重性 0..1，并附加花括号约束 {每个 CardHolder 至多持有一张 CampusCard}（可用 OCL：context CardHolder inv: self.card->size() <= 1）。\n【问题2】\nTransaction 与 CampusCard 为 0..* 对 1 的关联（一张卡有多笔交易，一笔交易属于一张卡）。Transaction 与 PosDevice 为 0..* 对 0..1 的关联（消费交易关联一个终端，充值交易可不关联终端）。\n充值与消费宜设计为 Transaction 的子类（ConsumeTransaction、Recharge、Refund）：三者共用流水号、时间、金额等属性，但消费需关联终端与商户、充值需关联支付方式，用泛化可复用公共属性并各带特有属性；若仅用交易类型枚举区分，则会出现大量可空属性。\n【问题3】\n三条规则均以约束（花括号约束/OCL 前置条件）表达在类图对应元素上：\n(1) 余额不足失败：约束写在 Transaction 或 CampusCard 上，如 {amount <= card.balance}；\n(2) 挂失卡不可交易：约束为 {card.status = 正常}；\n(3) 超 50 元需密码：约束为 {amount > 50 implies passwordVerified = true}，可持续在 ConsumeTransaction 的 pre 条件上标注，或用活动图的判定节点配合表达。",
+    "rubric": [
+      "问题1：列出一卡通相关类（持卡人、校园卡、终端、交易及子类、支付方式）共 7 个以上，得 3 分",
+      "问题1：正确给出 CardHolder–CampusCard 为 1 对 0..1，得 1.5 分",
+      "问题1：用 {unique} 或 OCL 约束表达一人一卡，得 1.5 分",
+      "问题2：正确给出 Transaction–CampusCard 为 0..* 对 1，得 1.5 分",
+      "问题2：正确给出 Transaction–PosDevice 为 0..* 对 0..1，得 1.5 分",
+      "问题2：选择泛化（子类）方案并说明共用属性/特有属性的理由，得 2 分",
+      "问题3：用约束表达余额不足失败的规则，得 1.5 分",
+      "问题3：用约束表达挂失卡不可交易，得 1 分",
+      "问题3：用约束表达超 50 元需密码，得 1.5 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某连锁餐厅点餐系统需求如下：\n(1) 餐厅（Restaurant）有餐厅编号、名称、地址；餐厅有多个餐桌（Table），餐桌有桌号、座位数、状态（空闲/占用/预订）。\n(2) 顾客（Customer）到店后点餐生成订单（Order），订单有订单号、下单时间、订单状态、总金额；一个订单对应一个餐桌，一个餐桌可产生多个订单。\n(3) 订单包含多个菜品项（OrderItem），每项有菜品、数量、单价、备注；菜品（Dish）有菜品编号、名称、单价、所属菜系；菜品分为主食（Staple）、菜品（DishItem）？\n(4) 菜品有做法选项（如加辣、少油），做法选项（Option）可被多个菜品使用，一个菜品可有多个选项。\n(5) 顾客可使用优惠券（Coupon）抵扣，优惠券有券号、面值、有效期、是否已使用。\n【问题1】识别类图中的类，说明 Restaurant–Table、Table–Order 的关系与多重性；说明 Order 与 OrderItem 之间是什么关系及理由。\n【问题2】说明 Dish 与 Option 的关系与多重性，指出若“某订单的某菜品选择了少油”这一信息应存放在哪里。\n【问题3】说明 Coupon 与 Order、Coupon 与 Customer 的关系与多重性；说明订单总金额的计算应放在哪个类的方法中，并给出方法签名。",
+    "answer": "【问题1】\n类包括：Restaurant（餐厅）、Table（餐桌）、Customer（顾客）、Order（订单）、OrderItem（菜品项）、Dish（菜品）、Staple（主食）、Option（做法选项）、Coupon（优惠券）、OrderItemOption（明细选项，问题2）。\nRestaurant 与 Table 为 1 对 1..* 的组合关系（餐桌是餐厅的组成部分）；Table 与 Order 为 1 对 0..* 的关联（一个餐桌可产生多个订单，一个订单只对应一个餐桌）。\nOrder 与 OrderItem 为 1 对 1..* 的组合关系：菜品项不能脱离订单存在，订单作废时明细随之删除，生命周期一致，用实心菱形表示。\n【问题2】\nDish 与 Option 为 0..* 对 0..* 的多对多关联（一个菜品可有多个可选做法，一个做法可被多个菜品使用）；可引入关联类 DishOption 记录该菜品是否支持该选项及默认值。\n“某订单某菜品选择了少油”应存放在 OrderItem 与 Option 的关联上，即引入 OrderItemOption（订单明细选项）类记录所选项与加价，或作为 OrderItem 的关联对象；不能放在 Dish 上，因为做法选择是本次下单的选择，不是菜品固有属性。\n【问题3】\nCoupon 与 Order 为 0..1 对 0..1 的关联（一张优惠券用于一个订单，一个订单最多用一张券），Coupon 有是否已使用属性并在使用时置位；Coupon 与 Customer 为 0..* 对 1（一名顾客可持有多张券，一张券属于一名顾客）。\n订单总金额计算应放在 Order 类的方法中，因为它聚合了所有明细并关联优惠券：public double calcTotal(); 内部遍历 OrderItem 求和后再减去 coupon.discount()，也可写为 double calcTotal(Coupon coupon)。",
+    "rubric": [
+      "问题1：列出餐厅、餐桌、顾客、订单、菜品项、菜品及其子类、做法选项、优惠券等类，得 3 分",
+      "问题1：正确给出 Restaurant–Table 为 1 对 1..* 组合、Table–Order 为 1 对 0..*，得 2 分",
+      "问题1：正确说明 Order–OrderItem 为 1 对 1..* 组合并给出理由，得 1.5 分",
+      "问题2：正确给出 Dish–Option 为 0..* 对 0..*，得 1.5 分",
+      "问题2：指出选择结果存放在 OrderItemOption（明细选项）而非 Dish，得 1.5 分",
+      "问题3：正确给出 Coupon–Order（0..1 对 0..1）、Coupon–Customer（0..* 对 1），得 2 分",
+      "问题3：指出总金额计算放在 Order 类中，得 1.5 分",
+      "问题3：给出 calcTotal() 方法签名并说明由明细累加、券抵扣，得 2 分"
+    ],
+    "score": 15,
+    "difficulty": 1,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "UML建模",
+    "stem": "【案例】某共享单车运营平台需求如下：\n(1) 平台在城市中设多个投放点（Station），投放点有编号、位置、容量；每个投放点停放多辆单车（Bike），单车有车架号、车型、投放日期、状态（可用/使用中/维修/报废）。\n(2) 用户（User）有用户编号、手机号、实名信息、信用分；用户可发起骑行（Ride），骑行有骑行号、开始时间、结束时间、起止地点、骑行距离、费用。\n(3) 单车分为普通单车（NormalBike）和电助力车（EBike），电助力车有电池电量属性；骑行费用按车型和时长计费。\n(4) 用户可报修（RepairOrder），报修单有报修号、故障描述、报修时间、处理状态；维修人员（Maintainer）处理报修单。\n(5) 信用分低于 60 分的用户不可使用电助力车。\n【问题1】识别类图中的类，说明 Station 与 Bike 的关系与多重性；说明 Bike 与 Ride 的关系与多重性，并解释为什么骑行记录不能作为 Bike 的属性。\n【问题2】说明 Bike 与 NormalBike、EBike 的关系，以及 RepairOrder 与 Bike、Maintainer 的关系与多重性。\n【问题3】说明“按车型和时长计费”应采用什么设计（给出类图结构），并说明“信用分低于 60 不可使用电助力车”在类图中如何表达。",
+    "answer": "【问题1】\n类包括：Station（投放点）、Bike（单车）、NormalBike（普通单车）、EBike（电助力车）、User（用户）、Ride（骑行）、RepairOrder（报修单）、Maintainer（维修人员）、FeeRule（计费规则，问题3）。\nStation 与 Bike 为 1 对 0..* 的关联（一个投放点停放多辆单车，单车在某时刻停在一个投放点）。\nBike 与 Ride 为 1 对 0..* 的关联（一辆单车可产生多条骑行记录，一条骑行记录对应一辆单车）。骑行记录不能作为 Bike 的属性：一辆车的骑行历史数量不定且持续增长，属性只能保存单值，且历史骑行记录需独立查询与统计；应作为独立的 Ride 类，通过关联与 Bike 相连。\n【问题2】\nBike 与 NormalBike、EBike 为泛化关系（Bike 为父类，EBike 增加电池电量属性）。\nRepairOrder 与 Bike 为 0..* 对 1 的关联（一张报修单针对一辆单车，一辆单车可有多张报修单）；RepairOrder 与 Maintainer 为 0..* 对 0..1 的关联（一张报修单指派给一名维修人员，一名维修人员可处理多张报修单）。\n【问题3】\n计费采用策略模式：抽象策略 FeeRule（calcFee(bikeType, duration)），具体策略 NormalBikeFee、EBikeFee 实现之；Ride 作为上下文持有 FeeRule 引用或在结束时传入策略计算费用，Ride 关联 Bike 以取得车型。类图关系：具体策略继承 FeeRule，Ride 与 FeeRule 为关联（0..1）。\n“信用分低于 60 不可使用电助力车”以约束表达：在 Ride 与 Bike/User 的关联旁标注花括号约束 {user.creditScore >= 60 or bike.oclIsTypeOf(NormalBike)}，或用 OCL 在 User 的 startRide(bike) 前置条件上书写；也可在 EBike 上增加 minCreditScore 属性并结合约束判断。",
+    "rubric": [
+      "问题1：列出 Station、Bike、两个子类、User、Ride、RepairOrder、Maintainer 等类，得 3 分",
+      "问题1：正确给出 Station–Bike 为 1 对 0..*，得 1.5 分",
+      "问题1：正确给出 Bike–Ride 为 1 对 0..* 并说明历史记录不能作为属性的理由，得 2 分",
+      "问题2：正确说明 Bike 与 NormalBike/EBike 为泛化，得 1.5 分",
+      "问题2：正确给出 RepairOrder–Bike（0..* 对 1）、RepairOrder–Maintainer（0..* 对 0..1），得 2 分",
+      "问题3：给出策略模式的 FeeRule 抽象类、具体策略类与 Ride 的关系，得 3 分",
+      "问题3：用约束（花括号约束或 OCL 前置条件）表达信用分限制，得 2 分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  }
+]

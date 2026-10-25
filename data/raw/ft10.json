@@ -1,0 +1,722 @@
+[
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "DES 算法的有效密钥长度为 ____ 位，其分组长度为 ____ 位。",
+    "answer": ["56", "64"],
+    "explanation": "DES 是分组对称密码，分组 64 位，有效密钥 56 位（含 8 位校验位）。",
+    "difficulty": 2,
+    "knowledge": "DES算法"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "RSA 公钥密码体制的安全性主要基于 ____ 问题的困难性。",
+    "answer": ["大整数分解|大数分解|整数分解"],
+    "explanation": "RSA 的安全性依赖于大整数分解的困难性，属于非对称加密体制。",
+    "difficulty": 2,
+    "knowledge": "RSA算法"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "数字签名中，发送方通常用自己的 ____ 对消息摘要进行加密，接收方用发送方的 ____ 验证签名。",
+    "answer": ["私钥", "公钥"],
+    "explanation": "私钥签名、公钥验证，从而保证完整性与不可否认性。",
+    "difficulty": 3,
+    "knowledge": "数字签名"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "包过滤防火墙工作在网络层，它根据数据包的源地址、目的地址、____ 和端口号等决定是否转发该数据包。",
+    "answer": ["协议|协议类型"],
+    "explanation": "包过滤依据 IP 首部中的地址、协议类型与端口号实施访问控制。",
+    "difficulty": 3,
+    "knowledge": "包过滤防火墙"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "计算机病毒具有传染性、破坏性、潜伏性和 ____ 性，其中 ____ 性是病毒区别于其他程序的最本质特征。",
+    "answer": ["隐蔽|隐藏", "传染"],
+    "explanation": "病毒可潜伏、隐蔽和破坏，最本质特征是传染性。",
+    "difficulty": 2,
+    "knowledge": "计算机病毒"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "《计算机软件保护条例》规定，自然人的软件著作权保护期为自然人终生及其死亡后 ____ 年。",
+    "answer": ["50|五十"],
+    "explanation": "自然人软件著作权保护期为终生加死亡后 50 年。",
+    "difficulty": 2,
+    "knowledge": "软件著作权"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "我国发明专利权的保护期限为 ____ 年，实用新型和外观设计专利权的保护期限为 ____ 年，均自 ____ 日起计算。",
+    "answer": ["20", "10", "申请"],
+    "explanation": "发明专利 20 年，实用新型与外观设计 10 年，自申请日起算。",
+    "difficulty": 3,
+    "knowledge": "专利权期限"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "我国标准分为国家标准、行业标准、地方标准和企业标准，其中对需要在全国范围内统一的技术要求应制定为 ____ 标准。",
+    "answer": ["国家"],
+    "explanation": "四级标准中，国家标准适用范围最广、层级最高。",
+    "difficulty": 1,
+    "knowledge": "标准分级"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "《中华人民共和国网络安全法》自 ____ 年 6 月 1 日起施行。",
+    "answer": ["2017"],
+    "explanation": "网络安全法于 2016 年通过，2017 年 6 月 1 日起施行。",
+    "difficulty": 2,
+    "knowledge": "网络安全法"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "AES 算法的分组长度为 ____ 位，其密钥长度可以是 128 位、192 位和 ____ 位。",
+    "answer": ["128", "256"],
+    "explanation": "AES 分组固定 128 位，密钥支持 128、192、256 位。",
+    "difficulty": 2,
+    "knowledge": "AES算法"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "MD5 算法生成的报文摘要长度为 ____ 位，SHA-1 算法生成的摘要长度为 ____ 位。",
+    "answer": ["128", "160"],
+    "explanation": "MD5 输出 128 位摘要，SHA-1 输出 160 位摘要。",
+    "difficulty": 3,
+    "knowledge": "报文摘要"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "数字证书由权威的 ____ 机构签发，用于将用户身份与其 ____ 绑定。",
+    "answer": ["认证|CA|认证中心", "公钥"],
+    "explanation": "CA 签发的数字证书把持有者身份与公钥绑定。",
+    "difficulty": 2,
+    "knowledge": "数字证书"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "防火墙按实现技术可分为包过滤防火墙、应用代理防火墙和 ____ 防火墙。",
+    "answer": ["状态检测|状态检查"],
+    "explanation": "状态检测防火墙跟踪连接状态，比单纯包过滤更安全。",
+    "difficulty": 3,
+    "knowledge": "防火墙分类"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "____ 病毒不需要寄生在宿主程序中，可通过网络自行复制传播，其英文名称为 ____ 。",
+    "answer": ["蠕虫", "worm|Worm"],
+    "explanation": "蠕虫独立传播、扫描漏洞扩散，不依赖宿主程序。",
+    "difficulty": 2,
+    "knowledge": "蠕虫病毒"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "我国注册商标的有效期为 ____ 年，期满可以续展。",
+    "answer": ["10|十"],
+    "explanation": "注册商标有效期 10 年，续展次数不限。",
+    "difficulty": 2,
+    "knowledge": "商标权期限"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "公开密钥密码体制中，加密密钥可以公开，解密密钥必须保密，因此该体制又称为 ____ 密码体制。",
+    "answer": ["非对称|公钥"],
+    "explanation": "加密与解密使用不同密钥，故称非对称密码体制。",
+    "difficulty": 1,
+    "knowledge": "公钥密码体制"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "散列函数可以把任意长度的消息压缩成 ____ 长度的摘要，且这种变换是 ____ 的，难以由摘要恢复原文。",
+    "answer": ["固定", "单向|不可逆"],
+    "explanation": "散列输出定长摘要，具有单向性和抗碰撞性。",
+    "difficulty": 2,
+    "knowledge": "散列函数"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "我国实行网络安全等级保护制度，网络安全等级保护对象共分为 ____ 个安全保护等级。",
+    "answer": ["5|五"],
+    "explanation": "等级保护按受破坏后的危害程度分为五级。",
+    "difficulty": 3,
+    "knowledge": "等级保护"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "OSI 安全体系结构中，防止发送方或接收方否认已发生通信的安全服务是 ____ 服务。",
+    "answer": ["不可否认|抗抵赖|不可否认性"],
+    "explanation": "抗抵赖服务依靠数字签名等证据防止事后否认。",
+    "difficulty": 3,
+    "knowledge": "安全服务"
+  },
+  {
+    "type": "fill",
+    "topic": "SEC",
+    "stem": "特洛伊木马通常由 ____ 端和 ____ 端两部分组成，攻击者通过后者远程控制目标主机。",
+    "answer": ["客户|客户端", "服务|服务器|服务端"],
+    "explanation": "木马由客户端与服务端组成，服务端藏于受害主机。",
+    "difficulty": 2,
+    "knowledge": "木马程序"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "音频数字化时，每隔一定时间对模拟信号取一个样值的过程称为 ____ ，每秒采样的次数称为 ____ 。",
+    "answer": ["采样", "采样频率|取样频率"],
+    "explanation": "采样把连续信号离散化，采样频率决定可还原的带宽。",
+    "difficulty": 2,
+    "knowledge": "音频采样"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "量化是把采样得到的连续幅度值转换为离散值的过程，其精度通常用 ____ 表示。",
+    "answer": ["量化位数|量化精度|采样精度"],
+    "explanation": "量化位数越多，幅度分级越细，声音质量越高。",
+    "difficulty": 2,
+    "knowledge": "量化"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "显示分辨率为 1024×768，表示屏幕水平方向有 1024 个 ____ ，垂直方向有 768 个。",
+    "answer": ["像素|像素点"],
+    "explanation": "分辨率以行列像素数描述显示设备的显示能力。",
+    "difficulty": 1,
+    "knowledge": "显示分辨率"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "真彩色图像每个像素用 24 位二进制数表示颜色，最多可表示 ____ 种颜色。",
+    "answer": ["16777216|2的24次方|16M"],
+    "explanation": "24 位真彩色共 2 的 24 次方约 1677 万种颜色。",
+    "difficulty": 3,
+    "knowledge": "色彩深度"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "在存储容量单位中，1 GB 等于 ____ MB，1 MB 等于 ____ 字节。",
+    "answer": ["1024", "1048576|1024×1024"],
+    "explanation": "存储单位按 2 的 10 次方递进：1GB=1024MB=2^20 字节。",
+    "difficulty": 3,
+    "knowledge": "容量单位"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "JPEG 标准适用于 ____ 图像的压缩，MPEG 标准适用于 ____ 图像的压缩。",
+    "answer": ["静态|静止|单幅", "动态|运动"],
+    "explanation": "JPEG 面向静止图像，MPEG 面向运动图像与伴音。",
+    "difficulty": 2,
+    "knowledge": "JPEG与MPEG"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "GIF 图像格式最多可表示 ____ 种颜色，并支持透明背景和简单的动画。",
+    "answer": ["256"],
+    "explanation": "GIF 采用 8 位调色板，最多 256 色，支持隔行与动画。",
+    "difficulty": 2,
+    "knowledge": "GIF格式"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "MP3 采用基于 ____ 模型的感知编码，属于 ____ 压缩。",
+    "answer": ["心理声学|人耳听觉", "有损"],
+    "explanation": "MP3 利用听觉掩蔽效应去掉冗余信息，是有损压缩。",
+    "difficulty": 3,
+    "knowledge": "MP3格式"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "根据奈奎斯特采样定理，采样频率应不低于信号最高频率的 ____ 倍。",
+    "answer": ["2|两"],
+    "explanation": "采样频率至少为信号最高频率的 2 倍才能无失真还原。",
+    "difficulty": 1,
+    "knowledge": "采样定理"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "PAL 制电视信号的帧频为 ____ 帧/秒，每帧扫描 ____ 行。",
+    "answer": ["25", "625"],
+    "explanation": "PAL 制帧频 25 帧/秒、625 行；NTSC 为 30 帧/秒、525 行。",
+    "difficulty": 3,
+    "knowledge": "电视制式"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "一幅分辨率为 1024×768、色彩深度为 16 位的图像，未经压缩时数据量约为 ____ MB。",
+    "answer": ["1.5"],
+    "explanation": "数据量=1024×768×16/8 字节=1.5MB。",
+    "difficulty": 3,
+    "knowledge": "图像数据量"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "BMP 图像文件通常采用 ____ 压缩，而 JPEG 图像文件采用 ____ 压缩。",
+    "answer": ["无损|不压缩|无", "有损"],
+    "explanation": "BMP 一般不压缩或无损，JPEG 采用有损压缩。",
+    "difficulty": 2,
+    "knowledge": "BMP格式"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "无损压缩的典型算法有 Huffman 编码和 ____ 编码。",
+    "answer": ["游程|RLE|算术"],
+    "explanation": "游程、算术、Huffman 编码均为常用无损压缩方法。",
+    "difficulty": 3,
+    "knowledge": "无损压缩"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "CMYK 颜色模型主要用于印刷，其中 K 表示 ____ 色。",
+    "answer": ["黑"],
+    "explanation": "CMYK 为青、品红、黄、黑四色印刷模型。",
+    "difficulty": 1,
+    "knowledge": "颜色模型"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "扫描仪的光学分辨率常用 ____ 表示，即每英寸的像素点数。",
+    "answer": ["dpi|DPI"],
+    "explanation": "dpi 表示每英寸点数，是扫描与打印分辨率的单位。",
+    "difficulty": 1,
+    "knowledge": "设备分辨率"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "H.264 是 MPEG-4 标准的第 ____ 部分，又称 AVC，广泛用于高清视频压缩。",
+    "answer": ["10|十"],
+    "explanation": "H.264/AVC 是 MPEG-4 第 10 部分，编码效率高。",
+    "difficulty": 3,
+    "knowledge": "H.264"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "MIDI 文件记录的是演奏 ____ ，而不是声音的波形采样数据，因此文件体积很小。",
+    "answer": ["指令|消息|命令"],
+    "explanation": "MIDI 记录乐器演奏指令，需合成器还原声音。",
+    "difficulty": 2,
+    "knowledge": "MIDI"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "AVI 是 ____ 公司提出的一种音频视频交错（Audio Video Interleaved）文件格式。",
+    "answer": ["微软|Microsoft"],
+    "explanation": "AVI 由 Microsoft 提出，音视频数据按帧交错存放。",
+    "difficulty": 2,
+    "knowledge": "AVI格式"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "MPEG-4 采用基于 ____ 的编码思想，支持交互性和低码率多媒体应用。",
+    "answer": ["对象|内容"],
+    "explanation": "MPEG-4 把场景分解为音视频对象分别编码再合成。",
+    "difficulty": 3,
+    "knowledge": "MPEG-4"
+  },
+  {
+    "type": "fill",
+    "topic": "MULTI",
+    "stem": "视频卡采集 NTSC 制电视信号时，其帧频为 ____ 帧/秒。",
+    "answer": ["30"],
+    "explanation": "NTSC 制帧频 30 帧/秒、525 行，与 PAL 制不同。",
+    "difficulty": 2,
+    "knowledge": "视频采集"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "DES 是一种对称加密算法，其加密密钥与解密密钥相同。",
+    "answer": ["对"],
+    "explanation": "DES 属对称密码体制，加解密使用同一密钥。",
+    "difficulty": 1,
+    "knowledge": "DES算法"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "RSA 算法既能用于数据加密，也能用于数字签名。",
+    "answer": ["对"],
+    "explanation": "RSA 公私钥可互换使用，故兼有加密与签名功能。",
+    "difficulty": 2,
+    "knowledge": "RSA算法"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "数字签名中，发送方使用接收方的私钥对消息摘要进行加密。",
+    "answer": ["错"],
+    "explanation": "签名用发送方自己的私钥，接收方无法持有他人私钥。",
+    "difficulty": 3,
+    "knowledge": "数字签名"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "防火墙部署在网络边界，能够有效防止来自内部网络的攻击行为。",
+    "answer": ["错"],
+    "explanation": "防火墙主要防范外部攻击，对内部绕过与越权访问作用有限。",
+    "difficulty": 3,
+    "knowledge": "防火墙局限"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "计算机病毒是一种程序，具有传染性、潜伏性和破坏性。",
+    "answer": ["对"],
+    "explanation": "病毒是能自我复制并破坏系统或数据的程序代码。",
+    "difficulty": 1,
+    "knowledge": "计算机病毒"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "法人或其他组织的软件著作权保护期为 50 年。",
+    "answer": ["对"],
+    "explanation": "法人软件著作权保护期 50 年，截止于首次发表后第 50 年。",
+    "difficulty": 2,
+    "knowledge": "软件著作权"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "我国实用新型专利权的保护期限为 20 年。",
+    "answer": ["错"],
+    "explanation": "实用新型与外观设计专利保护期为 10 年，发明为 20 年。",
+    "difficulty": 3,
+    "knowledge": "专利权期限"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "GB/T 表示强制性国家标准。",
+    "answer": ["错"],
+    "explanation": "GB 为强制性国家标准，GB/T 为推荐性国家标准。",
+    "difficulty": 2,
+    "knowledge": "标准分级"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "《中华人民共和国网络安全法》于 2017 年 6 月 1 日起施行。",
+    "answer": ["对"],
+    "explanation": "网络安全法自 2017 年 6 月 1 日起施行。",
+    "difficulty": 1,
+    "knowledge": "网络安全法"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "AES 算法的分组长度为 128 位，密钥长度可以为 128 位、192 位或 256 位。",
+    "answer": ["对"],
+    "explanation": "AES 分组固定 128 位，密钥三种长度可选。",
+    "difficulty": 2,
+    "knowledge": "AES算法"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "MD5 生成的报文摘要长度比 SHA-1 生成的摘要长度更长。",
+    "answer": ["错"],
+    "explanation": "MD5 为 128 位，SHA-1 为 160 位，MD5 更短。",
+    "difficulty": 3,
+    "knowledge": "报文摘要"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "数字证书由 CA 认证中心签发，其中包含用户的公钥信息。",
+    "answer": ["对"],
+    "explanation": "证书绑定身份与公钥，由 CA 签名保证可信。",
+    "difficulty": 1,
+    "knowledge": "数字证书"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "应用代理防火墙工作在应用层，能够对应用层协议内容进行过滤。",
+    "answer": ["对"],
+    "explanation": "代理型防火墙在应用层代理连接，可做细粒度内容检查。",
+    "difficulty": 2,
+    "knowledge": "防火墙分类"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "蠕虫病毒必须寄生在宿主程序中才能传播。",
+    "answer": ["错"],
+    "explanation": "蠕虫可独立运行，通过网络自行复制传播。",
+    "difficulty": 2,
+    "knowledge": "蠕虫病毒"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "我国注册商标的有效期为 10 年，期满可以续展。",
+    "answer": ["对"],
+    "explanation": "商标权有效期 10 年，可无限次续展。",
+    "difficulty": 2,
+    "knowledge": "商标权期限"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "在公钥密码体制中，用公钥加密的数据只能用对应的私钥解密。",
+    "answer": ["对"],
+    "explanation": "公私钥成对使用，公钥加密须以私钥解密。",
+    "difficulty": 1,
+    "knowledge": "公钥密码体制"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "散列函数是单向函数，不同的消息一定生成不同的摘要值。",
+    "answer": ["错"],
+    "explanation": "散列存在碰撞，不同消息可能得到相同摘要。",
+    "difficulty": 3,
+    "knowledge": "散列函数"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "IPSec 工作在网络层，可以为 IP 数据报提供加密和认证服务。",
+    "answer": ["对"],
+    "explanation": "IPSec 在 IP 层提供认证与加密，常用于构建 VPN。",
+    "difficulty": 2,
+    "knowledge": "IPSec"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "特洛伊木马通常伪装成正常程序诱使用户执行，从而在主机上植入后门。",
+    "answer": ["对"],
+    "explanation": "木马以欺骗方式植入，为攻击者提供远程控制通道。",
+    "difficulty": 1,
+    "knowledge": "木马程序"
+  },
+  {
+    "type": "tf",
+    "topic": "SEC",
+    "stem": "计算机软件著作权自软件发表之日起产生。",
+    "answer": ["错"],
+    "explanation": "软件著作权自开发完成之日自动产生，不以发表为条件。",
+    "difficulty": 3,
+    "knowledge": "著作权取得"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "采样频率越高，声音的还原效果越好，但产生的数据量也越大。",
+    "answer": ["对"],
+    "explanation": "采样频率提高可减少失真，同时增加数据量。",
+    "difficulty": 1,
+    "knowledge": "音频采样"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "量化位数越多，声音的质量越高，占用的存储空间越大。",
+    "answer": ["对"],
+    "explanation": "量化位数决定幅度分辨率，位数越多音质越好、数据越多。",
+    "difficulty": 2,
+    "knowledge": "量化"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "两幅图像的分辨率相同，则它们的文件大小一定相同。",
+    "answer": ["错"],
+    "explanation": "文件大小还与色彩深度和压缩方法有关。",
+    "difficulty": 2,
+    "knowledge": "显示分辨率"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "色彩深度为 8 位的图像最多可表示 256 种颜色。",
+    "answer": ["对"],
+    "explanation": "8 位可表示 2 的 8 次方即 256 种颜色。",
+    "difficulty": 1,
+    "knowledge": "色彩深度"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "在计算机存储容量单位中，1 MB 等于 1024 KB。",
+    "answer": ["对"],
+    "explanation": "容量单位按 2 的 10 次方递进，1MB=1024KB。",
+    "difficulty": 1,
+    "knowledge": "容量单位"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "JPEG 是一种无损压缩的静态图像压缩标准。",
+    "answer": ["错"],
+    "explanation": "JPEG 采用有损压缩，以牺牲部分细节换取高压缩比。",
+    "difficulty": 2,
+    "knowledge": "JPEG与MPEG"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "GIF 格式支持透明背景和简单的帧动画。",
+    "answer": ["对"],
+    "explanation": "GIF 支持调色板、透明色与多帧动画。",
+    "difficulty": 1,
+    "knowledge": "GIF格式"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "MP3 是一种有损压缩的音频文件格式。",
+    "answer": ["对"],
+    "explanation": "MP3 基于心理声学模型，属有损音频压缩。",
+    "difficulty": 2,
+    "knowledge": "MP3格式"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "根据采样定理，采样频率低于信号最高频率的 2 倍时会产生失真。",
+    "answer": ["对"],
+    "explanation": "频率不足会造成频谱混叠，导致信号无法正确还原。",
+    "difficulty": 2,
+    "knowledge": "采样定理"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "PAL 制电视信号的帧频为 30 帧/秒。",
+    "answer": ["错"],
+    "explanation": "PAL 制为 25 帧/秒，NTSC 制才是 30 帧/秒。",
+    "difficulty": 3,
+    "knowledge": "电视制式"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "24 位真彩色图像的每个像素占用 3 个字节。",
+    "answer": ["对"],
+    "explanation": "24 位即 3 字节，分别表示红、绿、蓝分量。",
+    "difficulty": 2,
+    "knowledge": "图像数据量"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "BMP 格式图像体积小，适合在网络上传输。",
+    "answer": ["错"],
+    "explanation": "BMP 通常不压缩，文件体积大，不适合网络传输。",
+    "difficulty": 2,
+    "knowledge": "BMP格式"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "Huffman 编码是一种无损压缩方法。",
+    "answer": ["对"],
+    "explanation": "Huffman 按字符出现频率构造变长码，可无失真还原。",
+    "difficulty": 2,
+    "knowledge": "无损压缩"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "RGB 颜色模型主要用于印刷领域，CMYK 模型主要用于显示设备。",
+    "answer": ["错"],
+    "explanation": "RGB 用于显示，CMYK 用于印刷，两者恰好相反。",
+    "difficulty": 3,
+    "knowledge": "颜色模型"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "在存储容量单位中，1 TB 等于 1024 GB。",
+    "answer": ["对"],
+    "explanation": "容量单位按 2 的 10 次方递进，1TB=1024GB。",
+    "difficulty": 2,
+    "knowledge": "容量单位"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "MPEG 标准只规定了视频压缩方法，不涉及音频压缩。",
+    "answer": ["错"],
+    "explanation": "MPEG 同时规定了视频与音频的压缩编码方法。",
+    "difficulty": 3,
+    "knowledge": "JPEG与MPEG"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "扫描仪的光学分辨率通常以 dpi 为单位表示。",
+    "answer": ["对"],
+    "explanation": "dpi 表示每英寸点数，是扫描分辨率的常用单位。",
+    "difficulty": 2,
+    "knowledge": "设备分辨率"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "AVI 是 Microsoft 公司提出的一种音频视频交错文件格式。",
+    "answer": ["对"],
+    "explanation": "AVI 由微软提出，与 RIFF 结构一起存放音视频数据。",
+    "difficulty": 2,
+    "knowledge": "AVI格式"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "MIDI 文件记录的是声音波形的采样数据。",
+    "answer": ["错"],
+    "explanation": "MIDI 记录演奏指令，而非波形采样数据。",
+    "difficulty": 2,
+    "knowledge": "MIDI"
+  },
+  {
+    "type": "tf",
+    "topic": "MULTI",
+    "stem": "MPEG-4 支持基于对象的编码，可用于交互式多媒体应用。",
+    "answer": ["对"],
+    "explanation": "MPEG-4 以音视频对象为单位编码，便于交互与组合。",
+    "difficulty": 2,
+    "knowledge": "MPEG-4"
+  }
+]

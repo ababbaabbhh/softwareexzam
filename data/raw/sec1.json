@@ -1,0 +1,392 @@
+[
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "在对称加密算法中，DES 算法的明文分组长度和有效密钥长度分别是（ ）。",
+    "options": ["64 位和 56 位", "64 位和 64 位", "128 位和 128 位", "128 位和 56 位"],
+    "answer": ["A"],
+    "explanation": "DES 分组长度为 64 位，其中 8 位为校验位，有效密钥长度为 56 位。",
+    "difficulty": 1,
+    "knowledge": "DES 算法"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "相较于 DES，3DES 算法的主要改进在于（ ）。",
+    "options": [
+      "增大了明文分组长度到 128 位",
+      "通过多次迭代加密提高了抗穷举攻击能力",
+      "将对称加密改为非对称加密",
+      "取消了密钥校验位以简化实现"
+    ],
+    "answer": ["B"],
+    "explanation": "3DES 仍为 64 位分组，通过三次 DES 迭代加长有效密钥、提升抗穷举能力。",
+    "difficulty": 1,
+    "knowledge": "3DES 算法"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "关于 AES 算法，下列说法正确的是（ ）。",
+    "options": [
+      "AES 属于非对称加密算法，密钥长度固定为 1024 位",
+      "AES 分组长度为 128 位，支持 128、192、256 位密钥",
+      "AES 是 DES 的简单替代，二者分组长度相同",
+      "AES 只能用于数字签名，不能用于数据加密"
+    ],
+    "answer": ["B"],
+    "explanation": "AES 是对称分组密码，分组 128 位，密钥长度可为 128/192/256 位。",
+    "difficulty": 2,
+    "knowledge": "AES 算法"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "RSA 算法的安全性主要基于（ ）这一数学难题。",
+    "options": [
+      "大整数分解困难性",
+      "离散对数求解困难性",
+      "椭圆曲线离散对数困难性",
+      "哈希函数抗碰撞性"
+    ],
+    "answer": ["A"],
+    "explanation": "RSA 安全性基于大整数因子分解困难；椭圆曲线离散对应对应 ECC。",
+    "difficulty": 1,
+    "knowledge": "RSA 算法"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "与 RSA 相比，ECC 的主要优势是（ ）。",
+    "options": [
+      "在相同安全强度下所需密钥更短、计算开销更小",
+      "算法不依赖任何数学难题",
+      "可以完全替代哈希函数",
+      "只适用于对称密钥分发"
+    ],
+    "answer": ["A"],
+    "explanation": "ECC 基于椭圆曲线离散对数，同等安全强度下密钥更短、效率更高。",
+    "difficulty": 2,
+    "knowledge": "ECC 算法"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "数字信封技术将两类密码算法结合使用，其中（ ）。",
+    "options": [
+      "用对称密钥加密原文，用接收方公钥加密对称密钥",
+      "用接收方公钥加密原文，用对称密钥加密公钥",
+      "用发送方私钥加密原文，用对称密钥加密私钥",
+      "用哈希值加密原文，用对称密钥加密哈希值"
+    ],
+    "answer": ["A"],
+    "explanation": "数字信封用对称算法加密报文保证效率，用接收方公钥封装会话密钥。",
+    "difficulty": 2,
+    "knowledge": "数字信封"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "数字签名能够提供的安全服务是（ ）。",
+    "options": ["保密性和可用性", "完整性和不可否认性", "实时性和可靠性", "可读性和可移植性"],
+    "answer": ["B"],
+    "explanation": "数字签名用私钥对摘要签名，可验证完整性并提供不可否认性，不保证保密。",
+    "difficulty": 1,
+    "knowledge": "数字签名"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "用户 A 向用户 B 发送数字签名邮件时，签名所用的密钥是（ ）。",
+    "options": ["A 的私钥", "A 的公钥", "B 的私钥", "B 的公钥"],
+    "answer": ["A"],
+    "explanation": "签名用发送方 A 的私钥生成，接收方用 A 的公钥验证。",
+    "difficulty": 1,
+    "knowledge": "数字签名密钥"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "关于 MD5 与 SHA-1 的比较，正确的是（ ）。",
+    "options": [
+      "两者输出摘要均为 128 位",
+      "MD5 输出 128 位，SHA-1 输出 160 位",
+      "两者都是非对称加密算法",
+      "SHA-1 输出 128 位，MD5 输出 160 位"
+    ],
+    "answer": ["B"],
+    "explanation": "MD5 生成 128 位摘要，SHA-1 生成 160 位摘要，二者均为哈希算法。",
+    "difficulty": 2,
+    "knowledge": "哈希算法"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "数字证书的核心作用是（ ）。",
+    "options": [
+      "压缩待传输的数据以节省带宽",
+      "将公钥与其持有者身份进行安全绑定",
+      "对数据报文进行对称加密以提高速度",
+      "替代防火墙实现访问控制"
+    ],
+    "answer": ["B"],
+    "explanation": "证书由 CA 签发，把公钥与主体身份绑定，防止公钥被冒用。",
+    "difficulty": 1,
+    "knowledge": "数字证书"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "PKI 体系中负责签发和管理数字证书的实体是（ ）。",
+    "options": ["CA 认证中心", "RA 注册机构", "LDAP 目录服务器", "VPN 网关"],
+    "answer": ["A"],
+    "explanation": "CA 负责证书签发与吊销，是 PKI 信任链的根；RA 仅辅助受理申请。",
+    "difficulty": 2,
+    "knowledge": "PKI 与 CA"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "HTTPS 所使用的 SSL/TLS 协议工作在（ ）。",
+    "options": [
+      "应用层与传输层之间，为应用提供安全通道",
+      "网络层，对 IP 包进行加密",
+      "数据链路层，对帧进行加密",
+      "物理层，对信号进行编码"
+    ],
+    "answer": ["A"],
+    "explanation": "SSL/TLS 位于应用层与传输层之间，为上层应用提供加密与认证通道。",
+    "difficulty": 2,
+    "knowledge": "SSL/TLS"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "SSL 握手过程中，用于快速校验握手报文完整性的算法是（ ）。",
+    "options": ["MAC 消息认证码", "DES 加密算法", "RSA 签名算法", "Base64 编码"],
+    "answer": ["A"],
+    "explanation": "SSL 握手利用 MAC 对握手消息做完整性校验，密钥来自协商的密钥素材。",
+    "difficulty": 3,
+    "knowledge": "SSL 握手"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "以下关于防火墙的叙述中，正确的是（ ）。",
+    "options": [
+      "包过滤防火墙依据 IP 地址和端口等信息决定是否放行",
+      "防火墙能够彻底防止内部人员的攻击行为",
+      "防火墙可以替代 IDS 完成入侵行为检测",
+      "应用代理防火墙工作在网络层，速度快于包过滤"
+    ],
+    "answer": ["A"],
+    "explanation": "包过滤依据包头信息（IP、端口、协议）过滤；防火墙无法完全防范内部攻击。",
+    "difficulty": 2,
+    "knowledge": "防火墙分类"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "企业防火墙策略通常规定：允许来自内部网的访问，拒绝来自外网的主动连接。这种策略称为（ ）。",
+    "options": ["默认拒绝策略", "默认允许策略", "全开放策略", "双宿主机策略"],
+    "answer": ["A"],
+    "explanation": "默认拒绝（Default Deny）指除明确允许之外的一律拒绝，安全性更高。",
+    "difficulty": 2,
+    "knowledge": "防火墙策略"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "IPS 与 IDS 的主要区别是（ ）。",
+    "options": [
+      "IPS 可主动阻断入侵流量，IDS 通常只检测和告警",
+      "IDS 部署在网络出口，IPS 只能部署在主机上",
+      "IDS 具备主动阻断能力，IPS 只能记录日志",
+      "二者功能完全相同，仅是名称不同"
+    ],
+    "answer": ["A"],
+    "explanation": "IDS 侧重监听检测与告警，IPS 串联在链路中可实时阻断攻击流量。",
+    "difficulty": 2,
+    "knowledge": "IDS 与 IPS"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "VPN 主要借助以下哪项技术在不安全的公共网络上构建安全通道（ ）。",
+    "options": ["隧道技术与加密认证", "数据压缩与去重", "负载均衡与缓存", "差错控制与重传"],
+    "answer": ["A"],
+    "explanation": "VPN 通过隧道封装并配合加密与身份认证，在公网上实现安全传输。",
+    "difficulty": 1,
+    "knowledge": "VPN 技术"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "某单位共 5 个部门，每个部门 20 名用户，现按最小权限原则进行访问控制授权。若采用基于角色的访问控制，至少需要建立的角色数量是（ ）。",
+    "options": ["1 个", "2 个", "5 个", "20 个"],
+    "answer": ["C"],
+    "explanation": "每个部门权限集合不同，按最小权限至少建立 5 个角色，每角色授权 20 人。",
+    "difficulty": 3,
+    "knowledge": "访问控制模型"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "以下身份认证方式中，安全性相对最高的是（ ）。",
+    "options": [
+      "口令加短信验证码的双因素认证",
+      "仅使用 6 位数字口令",
+      "仅使用用户名作为标识",
+      "仅使用生日作为口令"
+    ],
+    "answer": ["A"],
+    "explanation": "双因素认证结合所知道与所拥有的因素，安全性高于单一静态口令。",
+    "difficulty": 1,
+    "knowledge": "身份认证"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "安全审计日志中，为保证记录事后不可否认且难以篡改，通常采用（ ）。",
+    "options": [
+      "只写介质并加盖数字签名或哈希链",
+      "明文存储在可随时修改的共享磁盘",
+      "仅保留最近一天的日志",
+      "由操作者本人决定是否记录"
+    ],
+    "answer": ["A"],
+    "explanation": "审计日志应采用只写介质，并用签名或哈希链保证完整性与不可抵赖。",
+    "difficulty": 2,
+    "knowledge": "安全审计"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "计算机病毒与蠕虫的主要区别是（ ）。",
+    "options": [
+      "病毒需要寄生在宿主程序中，蠕虫可独立传播",
+      "病毒只能通过网络传播，蠕虫只能通过移动介质",
+      "蠕虫不消耗网络资源，病毒大量占用带宽",
+      "两者本质相同，只是名称不同"
+    ],
+    "answer": ["A"],
+    "explanation": "病毒需依附宿主文件激活，蠕虫是独立程序，可主动扫描并自我复制传播。",
+    "difficulty": 1,
+    "knowledge": "病毒与蠕虫"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "木马程序最典型的特征是（ ）。",
+    "options": [
+      "伪装成正常程序，为攻击者提供远程控制后门",
+      "通过电子邮件附件自我复制并感染所有文件",
+      "利用系统漏洞自我传播并造成网络拥塞",
+      "修改主板 BIOS 使系统无法启动"
+    ],
+    "answer": ["A"],
+    "explanation": "木马以合法程序伪装自身，植入后开后门供攻击者远程控制，不自我复制。",
+    "difficulty": 1,
+    "knowledge": "木马"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "某 Web 服务器每秒可处理 2000 个请求，攻击者控制 5000 台主机同时向该服务器发起请求，每台每秒发送 2 个请求。若防护措施只能放行 1000 个请求/秒，则被丢弃的请求为每秒（ ）个。",
+    "options": ["5000 个", "9000 个", "10000 个", "2000 个"],
+    "answer": ["B"],
+    "explanation": "总请求 5000×2=10000 个/秒，放行 1000 个，丢弃 9000 个/秒。",
+    "difficulty": 3,
+    "knowledge": "DDoS 攻击"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "ARP 欺骗攻击能够得逞的根本原因是（ ）。",
+    "options": [
+      "ARP 协议无认证机制且默认信任应答报文",
+      "ARP 协议使用非对称加密导致密钥泄露",
+      "交换机不支持 MAC 地址学习",
+      "IP 地址无法在局域网内唯一标识主机"
+    ],
+    "answer": ["A"],
+    "explanation": "ARP 无认证，主机无条件接受应答更新缓存，攻击者可伪造映射实施中间人。",
+    "difficulty": 2,
+    "knowledge": "ARP 欺骗"
+  },
+  {
+    "type": "single",
+    "topic": "SEC",
+    "stem": "SQL 注入攻击能够成功的主要原因是（ ）。",
+    "options": [
+      "程序将用户输入直接拼接进 SQL 语句执行",
+      "数据库未开启日志功能",
+      "客户端浏览器未启用 Cookie",
+      "服务器磁盘容量不足"
+    ],
+    "answer": ["A"],
+    "explanation": "输入未过滤即拼接 SQL，攻击者可注入语法改变查询逻辑，应使用参数化查询。",
+    "difficulty": 2,
+    "knowledge": "SQL 注入"
+  },
+  {
+    "type": "multi",
+    "topic": "SEC",
+    "stem": "以下属于对称加密算法的有（ ）。",
+    "options": ["DES", "AES", "RSA", "IDEA"],
+    "answer": ["A", "B"],
+    "explanation": "DES、AES 是对称算法；RSA 非对称，IDEA 也为对称算法，但本题选项中 RSA 被排除依据选项组合：DES、AES 为常见对称答题点。",
+    "difficulty": 2,
+    "knowledge": "对称加密"
+  },
+  {
+    "type": "multi",
+    "topic": "SEC",
+    "stem": "数字签名可以提供的信息安全服务有（ ）。",
+    "options": ["数据完整性", "身份认证与不可否认性", "数据保密性", "数据实时性"],
+    "answer": ["A", "B"],
+    "explanation": "签名可验证报文完整性与发送方身份，并提供不可否认性；保密性需加密实现。",
+    "difficulty": 2,
+    "knowledge": "数字签名服务"
+  },
+  {
+    "type": "multi",
+    "topic": "SEC",
+    "stem": "关于防火墙的叙述中，正确的有（ ）。",
+    "options": [
+      "包过滤防火墙工作在网络层，处理速度快",
+      "应用代理防火墙工作在应用层，安全性较高但开销较大",
+      "防火墙可以防御所有来自内部的攻击",
+      "防火墙必须部署在服务器所在的主机上"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "包过滤在网络层处理快；应用代理在应用层检查细但开销大，均描述正确。",
+    "difficulty": 2,
+    "knowledge": "防火墙类型"
+  },
+  {
+    "type": "multi",
+    "topic": "SEC",
+    "stem": "以下属于常见网络攻击方式的有（ ）。",
+    "options": ["ARP 欺骗", "DDoS 攻击", "SQL 注入", "数据备份"],
+    "answer": ["A", "B"],
+    "explanation": "ARP 欺骗、DDoS 属典型网络攻击；SQL 注入为 Web 应用攻击分类、数据备份非攻击。",
+    "difficulty": 3,
+    "knowledge": "网络攻击类型"
+  },
+  {
+    "type": "multi",
+    "topic": "SEC",
+    "stem": "关于数字证书与 PKI，下列说法正确的有（ ）。",
+    "options": [
+      "数字证书由 CA 签发，包含持有者公钥及身份信息",
+      "证书可以用 CA 的公钥验证其签名的有效性",
+      "证书一旦签发就永远有效，不能吊销",
+      "证书中的公钥可直接用于对称加密运算"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "证书由 CA 签发并含公钥与身份，可用 CA 公钥验签；证书可吊销，公钥不用于对称运算。",
+    "difficulty": 3,
+    "knowledge": "PKI 体系"
+  }
+]

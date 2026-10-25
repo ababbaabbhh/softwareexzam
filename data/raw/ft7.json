@@ -1,0 +1,722 @@
+[
+  {
+    "type": "fill",
+    "topic": "进程线程",
+    "stem": "在操作系统中，____是程序的一次执行过程，是系统进行资源分配和独立运行的基本单位。",
+    "answer": ["进程"],
+    "explanation": "进程是程序在数据集合上的一次运行活动，是资源分配的基本单位。",
+    "difficulty": 2,
+    "knowledge": "进程定义"
+  },
+  {
+    "type": "fill",
+    "topic": "进程线程",
+    "stem": "同一进程内的各线程共享进程的____和资源，但拥有各自的栈和寄存器上下文。",
+    "answer": ["地址空间", "内存空间"],
+    "explanation": "线程是CPU调度单位，共享进程的地址空间与打开文件等资源。",
+    "difficulty": 1,
+    "knowledge": "线程共享"
+  },
+  {
+    "type": "fill",
+    "topic": "状态转换",
+    "stem": "在三态模型中，进程因等待某事件（如I/O完成）而暂停运行时所处的状态是____状态。",
+    "answer": ["阻塞", "等待", "Blocked", "Wait"],
+    "explanation": "等待事件发生而暂停运行的进程处于阻塞态，事件完成后转为就绪态。",
+    "difficulty": 2,
+    "knowledge": "进程状态"
+  },
+  {
+    "type": "fill",
+    "topic": "状态转换",
+    "stem": "在三态模型中，进程由运行态转换为阻塞态是____的行为，由阻塞态转换为就绪态是____的行为。",
+    "answer": ["主动", "被动"],
+    "explanation": "运行转阻塞由进程自身请求I/O引起属主动，阻塞转就绪由事件完成引起属被动。",
+    "difficulty": 2,
+    "knowledge": "状态转换"
+  },
+  {
+    "type": "fill",
+    "topic": "调度算法",
+    "stem": "时间片轮转调度算法中，若时间片过____，则进程切换过于频繁，系统开销明显增大。",
+    "answer": ["小", "短"],
+    "explanation": "时间片过短导致切换频繁，过长则退化为先来先服务。",
+    "difficulty": 2,
+    "knowledge": "时间片轮转"
+  },
+  {
+    "type": "fill",
+    "topic": "调度算法",
+    "stem": "在作业同时到达的情况下，采用____调度算法可获得最小的平均周转时间。",
+    "answer": ["短作业优先", "SJF", "短进程优先", "SPF"],
+    "explanation": "短作业优先使等待时间之和最小，故平均周转时间最小。",
+    "difficulty": 2,
+    "knowledge": "短作业优先"
+  },
+  {
+    "type": "fill",
+    "topic": "调度算法",
+    "stem": "在优先级调度中，若优先级随进程已占用CPU时间的增加而降低，则称该优先级为____优先级。",
+    "answer": ["动态"],
+    "explanation": "优先级随运行时间动态调整，可避免长进程长期占用CPU。",
+    "difficulty": 2,
+    "knowledge": "优先级调度"
+  },
+  {
+    "type": "fill",
+    "topic": "调度算法",
+    "stem": "高响应比优先调度算法中，响应比等于1加上等待时间与____之比。",
+    "answer": ["要求服务时间", "服务时间", "运行时间"],
+    "explanation": "响应比=（等待时间+要求服务时间）/要求服务时间，兼顾长短作业。",
+    "difficulty": 3,
+    "knowledge": "高响应比"
+  },
+  {
+    "type": "fill",
+    "topic": "PV 操作",
+    "stem": "在PV操作中，P操作表示申请资源，V操作表示____资源。",
+    "answer": ["释放", "归还"],
+    "explanation": "P操作申请并可能阻塞，V操作释放资源并可能唤醒等待进程。",
+    "difficulty": 1,
+    "knowledge": "PV操作"
+  },
+  {
+    "type": "fill",
+    "topic": "PV 操作",
+    "stem": "若信号量S的当前值为-3，则表示有____个进程正在该信号量的等待队列中排队。",
+    "answer": ["3", "三"],
+    "explanation": "信号量值为负时，其绝对值等于等待该资源的进程数。",
+    "difficulty": 2,
+    "knowledge": "信号量值"
+  },
+  {
+    "type": "fill",
+    "topic": "PV 操作",
+    "stem": "用PV操作实现两个进程互斥访问同一临界区时，互斥信号量的初值应设为____。",
+    "answer": ["1", "一"],
+    "explanation": "互斥信号量初值为1，保证同一时刻仅一个进程进入临界区。",
+    "difficulty": 1,
+    "knowledge": "互斥信号量"
+  },
+  {
+    "type": "fill",
+    "topic": "PV 操作",
+    "stem": "在生产者-消费者问题中，若缓冲区容量为n，则空缓冲区信号量的初值为____，满缓冲区信号量的初值为____。",
+    "answer": ["n", "0"],
+    "explanation": "空缓冲区初值为n，满缓冲区初值为0，二者配合实现同步。",
+    "difficulty": 3,
+    "knowledge": "生产者消费者"
+  },
+  {
+    "type": "fill",
+    "topic": "死锁",
+    "stem": "产生死锁的四个必要条件为互斥、请求并保持、不可剥夺和____。",
+    "answer": ["循环等待", "环路等待"],
+    "explanation": "四条件同时成立才可能死锁，破坏任一条件即可预防死锁。",
+    "difficulty": 2,
+    "knowledge": "死锁条件"
+  },
+  {
+    "type": "fill",
+    "topic": "死锁",
+    "stem": "采用资源有序分配法可以破坏死锁的____条件。",
+    "answer": ["循环等待", "环路等待"],
+    "explanation": "按序号递增申请资源，使资源分配图不可能出现环路。",
+    "difficulty": 2,
+    "knowledge": "死锁预防"
+  },
+  {
+    "type": "fill",
+    "topic": "死锁",
+    "stem": "银行家算法通过判断系统是否处于安全状态来分配资源，该算法属于死锁的____策略。",
+    "answer": ["避免"],
+    "explanation": "银行家算法在分配前判断安全性，属死锁避免而非预防。",
+    "difficulty": 3,
+    "knowledge": "银行家算法"
+  },
+  {
+    "type": "fill",
+    "topic": "死锁",
+    "stem": "系统处于安全状态时____发生死锁。",
+    "answer": ["一定不会", "不会"],
+    "explanation": "安全状态必然不存在死锁，不安全状态只是可能发生死锁。",
+    "difficulty": 3,
+    "knowledge": "安全状态"
+  },
+  {
+    "type": "fill",
+    "topic": "死锁",
+    "stem": "若系统每类资源只有一个实例，且其资源分配图中存在环路，则系统____发生死锁。",
+    "answer": ["一定", "必然"],
+    "explanation": "每类资源单实例时，环路是死锁的充分必要条件。",
+    "difficulty": 3,
+    "knowledge": "进程资源图"
+  },
+  {
+    "type": "fill",
+    "topic": "存储管理",
+    "stem": "程序中使用的地址称为____地址，内存中的实际地址称为物理地址。",
+    "answer": ["逻辑", "相对", "虚拟"],
+    "explanation": "逻辑地址由编译链接产生，须经重定位转换为物理地址。",
+    "difficulty": 1,
+    "knowledge": "逻辑地址"
+  },
+  {
+    "type": "fill",
+    "topic": "存储管理",
+    "stem": "将逻辑地址转换为物理地址的过程称为____。",
+    "answer": ["重定位", "地址转换", "地址映射"],
+    "explanation": "重定位分静态与动态两种，动态重定位在程序运行时完成。",
+    "difficulty": 2,
+    "knowledge": "重定位"
+  },
+  {
+    "type": "fill",
+    "topic": "存储管理",
+    "stem": "动态重定位是在程序____时进行的地址转换，通常需要____寄存器提供支持。",
+    "answer": ["运行", "执行", "重定位", "基址"],
+    "explanation": "动态重定位在指令执行时由硬件完成，需基址或重定位寄存器。",
+    "difficulty": 3,
+    "knowledge": "动态重定位"
+  },
+  {
+    "type": "fill",
+    "topic": "存储管理",
+    "stem": "在可变分区分配中，最佳适应算法总是优先选择能满足要求的____空闲区。",
+    "answer": ["最小"],
+    "explanation": "最佳适应选最小可用分区，易产生大量难以利用的小碎片。",
+    "difficulty": 2,
+    "knowledge": "最佳适应"
+  },
+  {
+    "type": "fill",
+    "topic": "分页分段",
+    "stem": "在分页存储管理中，逻辑地址由页号和____两部分组成，后者位数由页面大小决定。",
+    "answer": ["页内偏移", "页内地址", "偏移量"],
+    "explanation": "逻辑地址=页号×页面大小+页内偏移，页内偏移位数由页大小确定。",
+    "difficulty": 2,
+    "knowledge": "分页地址"
+  },
+  {
+    "type": "fill",
+    "topic": "分页分段",
+    "stem": "分页系统中，用于记录各页面存放在内存中哪个物理块的数据结构称为____。",
+    "answer": ["页表"],
+    "explanation": "页表实现页号到物理块号的映射，是地址变换的依据。",
+    "difficulty": 2,
+    "knowledge": "页表"
+  },
+  {
+    "type": "fill",
+    "topic": "分页分段",
+    "stem": "为提高地址变换速度，在地址变换机构中增设的高速缓存称为快表，其内容为页表项的____。",
+    "answer": ["副本", "拷贝", "部分副本"],
+    "explanation": "快表存放最近使用的页表项，命中时可跳过访问内存中的页表。",
+    "difficulty": 3,
+    "knowledge": "快表"
+  },
+  {
+    "type": "fill",
+    "topic": "分页分段",
+    "stem": "在分段存储管理中，段表表项通常包含段号、段长和____。",
+    "answer": ["段基址", "基址", "段起始地址"],
+    "explanation": "段表实现段号到段起始地址的映射，并记录段长用于越界检查。",
+    "difficulty": 2,
+    "knowledge": "段表"
+  },
+  {
+    "type": "fill",
+    "topic": "分页分段",
+    "stem": "在段页式存储管理中，一个逻辑地址由段号、____和页内偏移三部分组成。",
+    "answer": ["段内页号", "页号"],
+    "explanation": "段页式先查段表得页表始址，再查页表得物理块号。",
+    "difficulty": 3,
+    "knowledge": "段页式"
+  },
+  {
+    "type": "fill",
+    "topic": "页面置换",
+    "stem": "在页面置换算法中，____算法可能出现Belady异常，即物理块增多而缺页次数反而增加。",
+    "answer": ["FIFO", "先进先出"],
+    "explanation": "先进先出算法不具备堆栈性质，因此会出现Belady异常。",
+    "difficulty": 2,
+    "knowledge": "FIFO"
+  },
+  {
+    "type": "fill",
+    "topic": "页面置换",
+    "stem": "选择最近最长时间未被访问的页面予以淘汰的置换算法简称为____算法。",
+    "answer": ["LRU", "最近最少使用", "最近最久未使用"],
+    "explanation": "LRU依据局部性原理，淘汰最久未使用的页面。",
+    "difficulty": 2,
+    "knowledge": "LRU"
+  },
+  {
+    "type": "fill",
+    "topic": "页面置换",
+    "stem": "理论上缺页率最低但实际无法实现的页面置换算法是____算法。",
+    "answer": ["OPT", "最佳置换", "最优置换"],
+    "explanation": "最佳置换淘汰将来最长时间不再访问的页面，需预知未来。",
+    "difficulty": 3,
+    "knowledge": "最佳置换"
+  },
+  {
+    "type": "fill",
+    "topic": "页面置换",
+    "stem": "当分配给进程的物理块过少时，页面频繁调入调出，使系统效率急剧下降，这种现象称为____。",
+    "answer": ["抖动", "颠簸", "thrashing"],
+    "explanation": "抖动使CPU大量时间用于换页，可通过工作集模型加以控制。",
+    "difficulty": 3,
+    "knowledge": "抖动"
+  },
+  {
+    "type": "fill",
+    "topic": "页面置换",
+    "stem": "在请求分页系统中，当所访问的页面不在内存时，将产生____中断。",
+    "answer": ["缺页"],
+    "explanation": "缺页中断属于内中断，需由操作系统将所需页面调入内存。",
+    "difficulty": 2,
+    "knowledge": "缺页中断"
+  },
+  {
+    "type": "fill",
+    "topic": "文件系统",
+    "stem": "在UNIX文件系统中，用于描述文件属性、权限及物理位置的数据结构称为____。",
+    "answer": ["索引节点", "inode", "i节点"],
+    "explanation": "索引节点记录除文件名外的全部文件信息，由目录项指向。",
+    "difficulty": 2,
+    "knowledge": "索引节点"
+  },
+  {
+    "type": "fill",
+    "topic": "文件系统",
+    "stem": "文件的____分配方式支持随机存取，但不便于文件动态增长，且易产生外部碎片。",
+    "answer": ["连续"],
+    "explanation": "连续分配访问速度快，需预知文件大小且难以动态扩展。",
+    "difficulty": 3,
+    "knowledge": "连续分配"
+  },
+  {
+    "type": "fill",
+    "topic": "文件系统",
+    "stem": "采用链接分配时，若把各物理块的链接指针集中存放在一张表中，该表称为____。",
+    "answer": ["文件分配表", "FAT"],
+    "explanation": "文件分配表把链接指针集中存放，使链接分配也能随机存取。",
+    "difficulty": 2,
+    "knowledge": "文件分配表"
+  },
+  {
+    "type": "fill",
+    "topic": "磁盘调度",
+    "stem": "磁盘调度算法中，SCAN算法又形象地称为____算法。",
+    "answer": ["电梯"],
+    "explanation": "SCAN沿一个方向服务到底再反向，如同电梯上下运行。",
+    "difficulty": 2,
+    "knowledge": "电梯算法"
+  },
+  {
+    "type": "fill",
+    "topic": "磁盘调度",
+    "stem": "选择与当前磁头位置距离最近的请求先予服务的磁盘调度算法称为____。",
+    "answer": ["最短寻道时间优先", "SSTF"],
+    "explanation": "SSTF每次选最近请求，可能出现远程请求长期得不到服务。",
+    "difficulty": 2,
+    "knowledge": "最短寻道"
+  },
+  {
+    "type": "fill",
+    "topic": "磁盘调度",
+    "stem": "磁盘访问时间由寻道时间、旋转延迟时间和____时间三部分组成。",
+    "answer": ["传输", "数据传送"],
+    "explanation": "寻道与旋转延迟占主要部分，故磁盘调度主要优化寻道时间。",
+    "difficulty": 3,
+    "knowledge": "磁盘访问时间"
+  },
+  {
+    "type": "fill",
+    "topic": "IO 控制",
+    "stem": "在主存与I/O设备之间直接进行数据传送、无需CPU干预的控制方式是____方式。",
+    "answer": ["DMA", "直接存储器存取", "直接内存访问"],
+    "explanation": "DMA以数据块为单位传送，仅在开始和结束时需要CPU干预。",
+    "difficulty": 2,
+    "knowledge": "DMA"
+  },
+  {
+    "type": "fill",
+    "topic": "IO 控制",
+    "stem": "在设备管理中，为缓和CPU与I/O设备速度不匹配的矛盾，通常采用____技术。",
+    "answer": ["缓冲", "缓冲技术"],
+    "explanation": "缓冲可减少对CPU的中断次数，提高CPU与设备的并行度。",
+    "difficulty": 1,
+    "knowledge": "缓冲技术"
+  },
+  {
+    "type": "fill",
+    "topic": "IO 控制",
+    "stem": "把独占设备改造为可共享设备的技术称为____技术，它利用磁盘上的输入井和输出井。",
+    "answer": ["SPOOLing", "假脱机"],
+    "explanation": "SPOOLing通过输入井、输出井实现虚拟设备，提高设备利用率。",
+    "difficulty": 3,
+    "knowledge": "假脱机"
+  },
+  {
+    "type": "tf",
+    "topic": "状态转换",
+    "stem": "在进程三态模型中，进程可以由阻塞态直接转换为运行态。",
+    "answer": ["错"],
+    "explanation": "阻塞态须先转为就绪态，被调度后才能进入运行态。",
+    "difficulty": 1,
+    "knowledge": "三态模型"
+  },
+  {
+    "type": "tf",
+    "topic": "状态转换",
+    "stem": "在进程五态模型中，处于挂起就绪状态的进程必须先被激活并调入内存，才能被调度程序选中运行。",
+    "answer": ["对"],
+    "explanation": "挂起就绪进程在外存，须激活为就绪态后才具备被调度资格。",
+    "difficulty": 2,
+    "knowledge": "五态模型"
+  },
+  {
+    "type": "tf",
+    "topic": "进程线程",
+    "stem": "同一进程中的多个线程各自拥有独立的地址空间。",
+    "answer": ["错"],
+    "explanation": "同一进程的线程共享地址空间，仅栈和寄存器等私有。",
+    "difficulty": 1,
+    "knowledge": "进程与线程"
+  },
+  {
+    "type": "tf",
+    "topic": "进程线程",
+    "stem": "线程切换所需的时间开销通常小于进程切换的时间开销。",
+    "answer": ["对"],
+    "explanation": "线程切换不涉及地址空间切换，故开销小于进程切换。",
+    "difficulty": 2,
+    "knowledge": "线程切换"
+  },
+  {
+    "type": "tf",
+    "topic": "进程线程",
+    "stem": "用户级线程的切换不需要进入内核态，因此一个线程被阻塞时不会导致整个进程阻塞。",
+    "answer": ["错"],
+    "explanation": "用户级线程由库管理，一个线程阻塞将导致整个进程阻塞。",
+    "difficulty": 3,
+    "knowledge": "用户级线程"
+  },
+  {
+    "type": "tf",
+    "topic": "进程线程",
+    "stem": "管道通信只能用于具有亲缘关系的进程之间进行数据传输。",
+    "answer": ["对"],
+    "explanation": "匿名管道依赖继承的文件描述符，仅适用于有亲缘关系的进程。",
+    "difficulty": 2,
+    "knowledge": "进程通信"
+  },
+  {
+    "type": "tf",
+    "topic": "调度算法",
+    "stem": "时间片轮转调度是一种抢占式调度算法。",
+    "answer": ["对"],
+    "explanation": "时间片用完即剥夺CPU，属于抢占式调度。",
+    "difficulty": 2,
+    "knowledge": "抢占式调度"
+  },
+  {
+    "type": "tf",
+    "topic": "调度算法",
+    "stem": "先来先服务调度算法有利于短作业的运行。",
+    "answer": ["错"],
+    "explanation": "先来先服务对长作业有利，短作业可能长时间等待。",
+    "difficulty": 1,
+    "knowledge": "先来先服务"
+  },
+  {
+    "type": "tf",
+    "topic": "调度算法",
+    "stem": "作业的周转时间等于作业完成时刻减去作业提交时刻。",
+    "answer": ["对"],
+    "explanation": "周转时间=完成时间−提交时间，平均周转时间用于评价调度性能。",
+    "difficulty": 1,
+    "knowledge": "周转时间"
+  },
+  {
+    "type": "tf",
+    "topic": "调度算法",
+    "stem": "在多级反馈队列调度算法中，队列优先级越高，分配给该队列进程的时间片越长。",
+    "answer": ["错"],
+    "explanation": "优先级越高的队列时间片越短，以便快速响应短作业。",
+    "difficulty": 3,
+    "knowledge": "多级反馈队列"
+  },
+  {
+    "type": "tf",
+    "topic": "PV 操作",
+    "stem": "P操作执行后若信号量的值小于0，则执行该操作的进程应进入相应的等待队列。",
+    "answer": ["对"],
+    "explanation": "P操作使信号量减1，结果为负表示资源不足，进程须阻塞。",
+    "difficulty": 1,
+    "knowledge": "P操作"
+  },
+  {
+    "type": "tf",
+    "topic": "PV 操作",
+    "stem": "实现互斥时，进入临界区前执行P操作、退出临界区后执行V操作，且两个操作必须成对出现。",
+    "answer": ["对"],
+    "explanation": "P、V操作成对使用才能保证互斥正确性与信号量恢复。",
+    "difficulty": 2,
+    "knowledge": "临界区"
+  },
+  {
+    "type": "tf",
+    "topic": "PV 操作",
+    "stem": "若某类资源有3个可用实例，被8个进程竞争使用，则其互斥信号量的取值范围是-5至3。",
+    "answer": ["对"],
+    "explanation": "初值3，最多5个进程等待，故取值为-5到3。",
+    "difficulty": 3,
+    "knowledge": "信号量范围"
+  },
+  {
+    "type": "tf",
+    "topic": "PV 操作",
+    "stem": "管程机制中，同一时刻允许有多个进程在管程内同时执行。",
+    "answer": ["错"],
+    "explanation": "管程保证每次仅有一个进程在其内部执行，实现互斥。",
+    "difficulty": 3,
+    "knowledge": "管程"
+  },
+  {
+    "type": "tf",
+    "topic": "死锁",
+    "stem": "系统资源不足以及进程推进顺序不当，都可能导致死锁的发生。",
+    "answer": ["对"],
+    "explanation": "资源竞争与推进顺序非法是死锁产生的根本原因。",
+    "difficulty": 1,
+    "knowledge": "死锁原因"
+  },
+  {
+    "type": "tf",
+    "topic": "死锁",
+    "stem": "银行家算法在资源分配前判断系统是否处于安全状态，属于死锁预防策略。",
+    "answer": ["错"],
+    "explanation": "银行家算法在分配时判断安全性，属于死锁避免策略。",
+    "difficulty": 2,
+    "knowledge": "死锁避免"
+  },
+  {
+    "type": "tf",
+    "topic": "死锁",
+    "stem": "剥夺某些进程已占有的资源再重新分配，破坏的是死锁的不可剥夺条件。",
+    "answer": ["对"],
+    "explanation": "资源可被剥夺即使不可剥夺条件不成立，从而预防死锁。",
+    "difficulty": 2,
+    "knowledge": "资源剥夺"
+  },
+  {
+    "type": "tf",
+    "topic": "死锁",
+    "stem": "处于饥饿状态的进程一定已经死锁，而处于死锁状态的进程则不一定饥饿。",
+    "answer": ["错"],
+    "explanation": "饥饿的进程仍可推进，只是长期得不到资源，与死锁不同。",
+    "difficulty": 3,
+    "knowledge": "死锁与饥饿"
+  },
+  {
+    "type": "tf",
+    "topic": "存储管理",
+    "stem": "覆盖技术要求程序员划分程序的覆盖结构，而交换技术由操作系统自动完成。",
+    "answer": ["对"],
+    "explanation": "覆盖需程序员显式划分，交换由操作系统调度完成。",
+    "difficulty": 2,
+    "knowledge": "覆盖与交换"
+  },
+  {
+    "type": "tf",
+    "topic": "存储管理",
+    "stem": "虚拟存储器的最大容量由内存容量与外存容量之和决定，可以无限扩大。",
+    "answer": ["错"],
+    "explanation": "虚拟存储容量受计算机地址空间限制，不能超过地址位数可表示范围。",
+    "difficulty": 2,
+    "knowledge": "虚拟存储"
+  },
+  {
+    "type": "tf",
+    "topic": "存储管理",
+    "stem": "固定分区分配会产生内部碎片，而可变分区分配会产生外部碎片。",
+    "answer": ["对"],
+    "explanation": "固定分区按整块分配产生内部碎片，可变分区产生不连续的外部碎片。",
+    "difficulty": 2,
+    "knowledge": "分区碎片"
+  },
+  {
+    "type": "tf",
+    "topic": "存储管理",
+    "stem": "最差适应算法每次都从最大的空闲区中划分，其性能通常优于最佳适应算法。",
+    "answer": ["错"],
+    "explanation": "最差适应使大空闲区迅速被破坏，通常性能并不优于最佳适应。",
+    "difficulty": 2,
+    "knowledge": "最差适应"
+  },
+  {
+    "type": "tf",
+    "topic": "分页分段",
+    "stem": "在分页存储管理中，页面尺寸越大，页表项数目越少，但平均页内碎片也越大。",
+    "answer": ["对"],
+    "explanation": "页大则页数少、页表短，但平均页内碎片为半页，随之增大。",
+    "difficulty": 2,
+    "knowledge": "页面尺寸"
+  },
+  {
+    "type": "tf",
+    "topic": "分页分段",
+    "stem": "分段存储管理中，各段的大小可以不同，而段内地址是连续的。",
+    "answer": ["对"],
+    "explanation": "分段按逻辑单位划分，段长可变，段内地址连续便于共享与保护。",
+    "difficulty": 2,
+    "knowledge": "分段特点"
+  },
+  {
+    "type": "tf",
+    "topic": "分页分段",
+    "stem": "分页系统中的地址变换是连续的，不需要页表参与即可由硬件直接完成。",
+    "answer": ["错"],
+    "explanation": "分页地址变换必须通过页表将页号映射为物理块号。",
+    "difficulty": 2,
+    "knowledge": "地址变换"
+  },
+  {
+    "type": "tf",
+    "topic": "分页分段",
+    "stem": "采用多级页表可以减少页表占用的连续内存空间，但会增加地址变换的访存次数。",
+    "answer": ["对"],
+    "explanation": "多级页表节省空间，却使一次地址变换需要多次访存。",
+    "difficulty": 3,
+    "knowledge": "多级页表"
+  },
+  {
+    "type": "tf",
+    "topic": "页面置换",
+    "stem": "程序访问的局部性原理是虚拟存储技术能够有效工作的基础。",
+    "answer": ["对"],
+    "explanation": "时间与空间局部性使少数页面能支撑大部分访问，缺页率得以降低。",
+    "difficulty": 1,
+    "knowledge": "局部性原理"
+  },
+  {
+    "type": "tf",
+    "topic": "页面置换",
+    "stem": "采用先进先出页面置换算法时，增加分配的物理块数可能反而使缺页次数增加。",
+    "answer": ["对"],
+    "explanation": "这正是FIFO算法的Belady异常现象。",
+    "difficulty": 2,
+    "knowledge": "Belady"
+  },
+  {
+    "type": "tf",
+    "topic": "页面置换",
+    "stem": "工作集是指进程在某段时间间隔内实际访问的页面集合，工作集模型可用于防止系统抖动。",
+    "answer": ["对"],
+    "explanation": "按工作集大小分配物理块，可避免物理块过少引起抖动。",
+    "difficulty": 3,
+    "knowledge": "工作集"
+  },
+  {
+    "type": "tf",
+    "topic": "页面置换",
+    "stem": "在请求分页系统中，只要增加分配给进程的物理块数，缺页率就一定会降低。",
+    "answer": ["错"],
+    "explanation": "FIFO算法下增加物理块可能出现Belady异常，缺页率反而上升。",
+    "difficulty": 3,
+    "knowledge": "缺页率"
+  },
+  {
+    "type": "tf",
+    "topic": "文件系统",
+    "stem": "采用树形目录结构可以有效地解决不同用户之间的文件重名问题。",
+    "answer": ["对"],
+    "explanation": "树形目录通过不同路径区分同名文件，并便于分类管理与权限控制。",
+    "difficulty": 1,
+    "knowledge": "目录结构"
+  },
+  {
+    "type": "tf",
+    "topic": "文件系统",
+    "stem": "位示图常用于记录磁盘空闲块的使用情况，其中每一位对应一个物理块。",
+    "answer": ["对"],
+    "explanation": "位示图用0、1表示空闲与占用，便于快速查找与分配连续块。",
+    "difficulty": 2,
+    "knowledge": "位示图"
+  },
+  {
+    "type": "tf",
+    "topic": "文件系统",
+    "stem": "采用链接分配的文件支持随机访问，而采用索引分配的文件不支持随机访问。",
+    "answer": ["错"],
+    "explanation": "链接分配只支持顺序访问，索引分配才支持随机访问。",
+    "difficulty": 3,
+    "knowledge": "索引分配"
+  },
+  {
+    "type": "tf",
+    "topic": "文件系统",
+    "stem": "文件的硬链接是指多个文件名指向同一个索引节点。",
+    "answer": ["对"],
+    "explanation": "硬链接共享同一索引节点与数据块，链接计数随之增加。",
+    "difficulty": 2,
+    "knowledge": "文件共享"
+  },
+  {
+    "type": "tf",
+    "topic": "磁盘调度",
+    "stem": "磁盘调度算法的主要目标是减少寻道时间，从而提高磁盘的吞吐量。",
+    "answer": ["对"],
+    "explanation": "寻道时间在磁盘访问时间中占比最大，故调度主要优化寻道。",
+    "difficulty": 1,
+    "knowledge": "磁盘调度目标"
+  },
+  {
+    "type": "tf",
+    "topic": "磁盘调度",
+    "stem": "循环扫描算法与扫描算法的区别在于磁头只沿一个方向移动，返回时快速回移且不服务请求。",
+    "answer": ["对"],
+    "explanation": "CSCAN单向服务到底后直接返回起始端，使各磁道等待更均衡。",
+    "difficulty": 3,
+    "knowledge": "CSCAN"
+  },
+  {
+    "type": "tf",
+    "topic": "磁盘调度",
+    "stem": "磁盘的旋转延迟时间与磁盘转速有关，转速越高旋转延迟越小。",
+    "answer": ["对"],
+    "explanation": "旋转延迟平均为半圈时间，转速越高该时间越短。",
+    "difficulty": 2,
+    "knowledge": "旋转延迟"
+  },
+  {
+    "type": "tf",
+    "topic": "IO 控制",
+    "stem": "在程序查询方式下，CPU启动设备后需不断查询设备状态，因而不能与外设并行工作。",
+    "answer": ["对"],
+    "explanation": "程序查询方式下CPU忙等设备状态，无法与外设并行工作。",
+    "difficulty": 1,
+    "knowledge": "程序查询"
+  },
+  {
+    "type": "tf",
+    "topic": "IO 控制",
+    "stem": "通道是一种专用的处理部件，可独立于CPU执行通道程序完成I/O操作。",
+    "answer": ["对"],
+    "explanation": "通道有自己的指令系统，可实现CPU与设备的高度并行。",
+    "difficulty": 3,
+    "knowledge": "通道"
+  },
+  {
+    "type": "tf",
+    "topic": "IO 控制",
+    "stem": "逻辑设备表的作用是把物理设备名映射为逻辑设备名，供用户程序使用。",
+    "answer": ["错"],
+    "explanation": "逻辑设备表实现逻辑设备名到物理设备名的映射，方向相反。",
+    "difficulty": 1,
+    "knowledge": "逻辑设备表"
+  }
+]

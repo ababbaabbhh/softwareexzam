@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "含n个顶点的图采用邻接矩阵存储时，所需的存储空间为（ ）。",
+      "options": ["O(n)", "O(n²)", "O(n+e)", "O(e)"],
+      "answer": ["B"],
+      "explanation": "邻接矩阵是n行n列的二维数组，空间只与顶点数有关，为O(n²)，与边数无关。",
+      "difficulty": 1,
+      "knowledge": "邻接矩阵"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "含n个顶点、e条边的无向图采用邻接表存储，所需设置的边结点个数为（ ）。",
+      "options": ["2e", "e", "n+e", "n+2e"],
+      "answer": ["A"],
+      "explanation": "无向图每条边在邻接表中出现两次（两个方向各一个边结点），故共2e个边结点。",
+      "difficulty": 2,
+      "knowledge": "邻接表"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "实现图的深度优先遍历时，通常借助的辅助数据结构是（ ）。",
+      "options": ["栈", "队列", "数组", "散列表"],
+      "answer": ["A"],
+      "explanation": "深度优先遍历需记住回退路径，本质是后进先出，故借助栈（或递归工作栈）实现。",
+      "difficulty": 1,
+      "knowledge": "深度优先遍历"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "某无向图含4个顶点1~4，邻接矩阵各行依次为(0,1,1,0)、(1,0,0,1)、(1,0,0,1)、(0,1,1,0)。从顶点1出发做深度优先遍历，每次按编号递增选取下一个顶点，得到的序列是（ ）。",
+      "options": ["1,2,3,4", "1,2,4,3", "1,3,2,4", "1,4,2,3"],
+      "answer": ["B"],
+      "explanation": "1的邻接点为2、3，取2；2的邻接点4，取4；4的邻接点3，得1,2,4,3。其余选项均出现无边相连的相邻项。",
+      "difficulty": 3,
+      "knowledge": "深度优先遍历"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "图的广度优先遍历过程类似于树的（ ）。",
+      "options": ["先根遍历", "后根遍历", "层次遍历", "中序遍历"],
+      "answer": ["C"],
+      "explanation": "广度优先遍历按距离由近及远逐层访问顶点，与树的层次遍历过程一致。",
+      "difficulty": 1,
+      "knowledge": "广度优先遍历"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "有向图G含4个顶点1~4，邻接矩阵各行依次为(0,1,1,0)、(0,0,0,1)、(0,0,0,1)、(0,0,0,0)。从顶点1出发做广度优先遍历，每次按编号递增处理邻接点，得到的序列是（ ）。",
+      "options": ["1,2,3,4", "1,2,4,3", "1,3,4,2", "1,4,2,3"],
+      "answer": ["A"],
+      "explanation": "第1层为1，第2层为2、3，第3层为4，故序列为1,2,3,4。其余选项违反了按层访问的次序。",
+      "difficulty": 3,
+      "knowledge": "广度优先遍历"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "采用邻接矩阵存储图时，Prim算法求最小生成树的时间复杂度为（ ）。",
+      "options": ["O(n)", "O(n²)", "O(e log n)", "O(n+e)"],
+      "answer": ["B"],
+      "explanation": "邻接矩阵存储时Prim算法每选一个顶点需扫描n个候选，共n轮，时间复杂度为O(n²)，与边数无关。",
+      "difficulty": 2,
+      "knowledge": "Prim算法"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "无向连通网含4个顶点，边(1,2)、(1,3)、(2,3)、(2,4)、(3,4)的权值依次为1、4、2、5、3，则该网最小生成树的权值之和为（ ）。",
+      "options": ["5", "6", "7", "8"],
+      "answer": ["B"],
+      "explanation": "按权值递增选边得1-2(1)、2-3(2)、3-4(3)，共3条边且不构成回路，权值之和为6。",
+      "difficulty": 3,
+      "knowledge": "Prim算法"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "Kruskal算法求最小生成树的时间复杂度主要取决于（ ）。",
+      "options": ["边的排序", "顶点的个数", "邻接矩阵的规模", "顶点度之和"],
+      "answer": ["A"],
+      "explanation": "Kruskal算法先对所有边按权值排序再依次判定回路，故时间主要耗在排序上，为O(e log e)。",
+      "difficulty": 2,
+      "knowledge": "Kruskal算法"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "含n个顶点的连通网，其最小生成树包含的边数为（ ）。",
+      "options": ["n", "n-1", "n+1", "2e"],
+      "answer": ["B"],
+      "explanation": "最小生成树是含n个顶点、n-1条边的极小连通子图，边数恰为n-1。",
+      "difficulty": 1,
+      "knowledge": "最小生成树"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "Dijkstra算法求单源最短路径时，不适用于（ ）。",
+      "options": ["有向图", "无向图", "含负权边的图", "边数大于顶点数的图"],
+      "answer": ["C"],
+      "explanation": "Dijkstra按贪心策略扩展已确定最短路径的顶点，负权边会破坏其贪心正确性，故不适用。",
+      "difficulty": 2,
+      "knowledge": "Dijkstra算法"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "有向网中顶点A到B、A到C、B到C、B到D、C到D的弧上权值依次为1、4、2、6、3，则A到D的最短路径长度为（ ）。",
+      "options": ["6", "7", "8", "9"],
+      "answer": ["A"],
+      "explanation": "A→B→C→D长度为1+2+3=6，A→C→D为4+3=7，A→B→D为1+6=7，故最短为6。",
+      "difficulty": 3,
+      "knowledge": "Dijkstra算法"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "Floyd算法求每对顶点之间最短路径的时间复杂度为（ ）。",
+      "options": ["O(n²)", "O(n+e)", "O(n³)", "O(e log n)"],
+      "answer": ["C"],
+      "explanation": "Floyd算法用三重循环依次以各顶点为中间点松弛所有顶点对，时间复杂度为O(n³)。",
+      "difficulty": 2,
+      "knowledge": "Floyd算法"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "一个有向图存在拓扑序列，则该图（ ）。",
+      "options": ["一定是有向无环图", "一定含有回路", "一定是连通图", "拓扑序列一定唯一"],
+      "answer": ["A"],
+      "explanation": "存在拓扑序列等价于图中无回路，即有向无环图；连通性和拓扑序列唯一性均不能由此推出。",
+      "difficulty": 2,
+      "knowledge": "拓扑排序"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "有向图含顶点A、B、C、D及边A→C、B→C、C→D，则该图可能的拓扑序列个数为（ ）。",
+      "options": ["1", "2", "3", "4"],
+      "answer": ["B"],
+      "explanation": "A与B无先后约束可互换，二者均须在C之前，D最后，故序列为ABCD与BACD共2个。",
+      "difficulty": 3,
+      "knowledge": "拓扑排序"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "AOE网中顶点v1到v4的弧为v1→v2(3)、v1→v3(2)、v2→v4(4)、v3→v4(6)，则该网关键路径的长度为（ ）。",
+      "options": ["8", "7", "9", "10"],
+      "answer": ["A"],
+      "explanation": "两条路径长度分别为3+4=7和2+6=8，关键路径为长度最大的路径，故长度为8。",
+      "difficulty": 3,
+      "knowledge": "关键路径"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "AOE网中弧为v1→v2(3)、v1→v3(2)、v2→v4(2)、v3→v4(2)，则活动v1→v3的最迟开始时间为（ ）。",
+      "options": ["0", "1", "2", "3"],
+      "answer": ["B"],
+      "explanation": "v4最早发生为5，v3最迟发生为5-2=3，故该活动最迟开始为3-2=1，时间余量为1。",
+      "difficulty": 2,
+      "knowledge": "最早最迟时间"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "AOE网中弧为v1→v2(4)、v1→v3(3)、v2→v4(2)、v3→v4(5)、v4→v5(1)，则事件v4的最早发生时间为（ ）。",
+      "options": ["6", "7", "8", "9"],
+      "answer": ["C"],
+      "explanation": "v4有两条入路径：4+2=6与3+5=8，最早发生时间取最大值，故为8。",
+      "difficulty": 3,
+      "knowledge": "最早最迟时间"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "一棵5阶B树中，除根结点外每个非叶结点所含关键字个数最少为（ ）。",
+      "options": ["2", "1", "3", "4"],
+      "answer": ["A"],
+      "explanation": "m阶B树非根结点关键字个数在⌈m/2⌉-1至m-1之间，m=5时下界为2。",
+      "difficulty": 2,
+      "knowledge": "B树"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "下列叙述中，不属于m阶B树特性的是（ ）。",
+      "options": ["每个结点至多有m棵子树", "根结点若非叶结点则至少有两棵子树", "所有叶子结点都在同一层", "叶子结点之间用指针链接成有序链表"],
+      "answer": ["D"],
+      "explanation": "叶结点链接成有序链表是B+树的特性，B树的叶子结点之间没有这种链接。",
+      "difficulty": 3,
+      "knowledge": "B树"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "与B树相比，B+树的显著特点是（ ）。",
+      "options": ["叶结点按关键字大小顺序链接，便于顺序查找", "非叶结点中存放全部记录的存储地址", "同一关键字不允许重复出现", "只适用于内存中的查找"],
+      "answer": ["A"],
+      "explanation": "B+树全部关键字出现在叶结点且叶结点链接成有序链表，兼顾随机查找与顺序查找，故适合索引。",
+      "difficulty": 2,
+      "knowledge": "B+树"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "向平衡二叉树中插入结点后，若失去平衡的子树属于LL型，则应进行的调整是（ ）。",
+      "options": ["左旋", "右旋", "先左旋后右旋", "先右旋后左旋"],
+      "answer": ["B"],
+      "explanation": "LL型失衡源于左孩子的左子树上插入，做一次以失衡结点为轴的右旋即可恢复平衡。",
+      "difficulty": 2,
+      "knowledge": "AVL旋转"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "从空树开始依次插入关键字3、1、2构造平衡二叉树，需要进行的调整是（ ）。",
+      "options": ["LL型，做一次右旋", "RR型，做一次左旋", "LR型，先左旋后右旋", "RL型，先右旋后左旋"],
+      "answer": ["C"],
+      "explanation": "插入后3的左孩子的右子树增高，属LR型，需先对其左孩子左旋，再对3右旋。",
+      "difficulty": 3,
+      "knowledge": "AVL旋转"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "平衡二叉树中任一结点的平衡因子的取值范围是（ ）。",
+      "options": ["-1、0、1", "0、1、2", "-2、-1、0、1、2", "任意整数"],
+      "answer": ["A"],
+      "explanation": "平衡因子为左子树与右子树高度之差，AVL树要求其绝对值不超过1，故只能取-1、0、1。",
+      "difficulty": 1,
+      "knowledge": "平衡二叉树"
+    },
+    {
+      "type": "single",
+      "topic": "DS_ALGO",
+      "stem": "含n个内部结点的红黑树，其高度至多为（ ）。",
+      "options": ["log₂n", "2log₂(n+1)", "n/2", "n"],
+      "answer": ["B"],
+      "explanation": "红黑树最长路径不超过最短路径的2倍，高度上界为2log₂(n+1)，故查找、插入均为O(log n)。",
+      "difficulty": 2,
+      "knowledge": "红黑树"
+    },
+    {
+      "type": "multi",
+      "topic": "DS_ALGO",
+      "stem": "关于图的邻接矩阵存储结构，下列说法中正确的是（ ）。",
+      "options": ["无向图的邻接矩阵一定是对称矩阵", "有向图邻接矩阵第i行非零元素个数为顶点i的出度", "邻接矩阵的存储空间只与边数有关", "无向图邻接矩阵第i行非零元素个数为顶点i的入度"],
+      "answer": ["A", "B"],
+      "explanation": "无向边(i,j)与(j,i)同时存在，矩阵对称；有向图第i行非零个数为出度，无向图该行非零个数为顶点的度而非入度。",
+      "difficulty": 1,
+      "knowledge": "邻接矩阵"
+    },
+    {
+      "type": "multi",
+      "topic": "DS_ALGO",
+      "stem": "关于最小生成树，下列说法中正确的是（ ）。",
+      "options": ["含n个顶点的连通图的最小生成树有n-1条边", "最小生成树一定唯一", "最小生成树各边权值之和最小", "最小生成树一定由图中权值最小的n-1条边组成"],
+      "answer": ["A", "C"],
+      "explanation": "最小生成树是权值之和最小的n-1条边构成的连通子图；当存在等权边时生成树可能不唯一，且未必由最小的n-1条边组成。",
+      "difficulty": 2,
+      "knowledge": "最小生成树"
+    },
+    {
+      "type": "multi",
+      "topic": "DS_ALGO",
+      "stem": "关于图的遍历，下列说法中正确的是（ ）。",
+      "options": ["广度优先遍历通常借助队列实现", "深度优先遍历可借助递归工作栈实现", "给定图的广度优先遍历序列唯一", "同一图的深度优先遍历序列唯一"],
+      "answer": ["A", "B"],
+      "explanation": "BFS用队列保证按层访问，DFS可用递归或显式栈实现；遍历序列与起点及邻接点访问次序有关，通常不唯一。",
+      "difficulty": 2,
+      "knowledge": "图的遍历"
+    },
+    {
+      "type": "multi",
+      "topic": "DS_ALGO",
+      "stem": "关于B+树，下列说法中正确的是（ ）。",
+      "options": ["叶结点包含全部关键字并链接成有序链表", "非叶结点中存放记录的存储地址", "B+树既能进行随机查找又能进行顺序查找", "每个关键字在整棵树中只能出现一次"],
+      "answer": ["A", "C"],
+      "explanation": "B+树非叶结点只作索引，记录地址均在叶结点；关键字在非叶结点中重复出现以引导查找，故B、D错误。",
+      "difficulty": 2,
+      "knowledge": "B+树"
+    },
+    {
+      "type": "multi",
+      "topic": "DS_ALGO",
+      "stem": "关于红黑树，下列说法中正确的是（ ）。",
+      "options": ["从任一结点到其所有后代叶结点的路径上黑结点数目相同", "红黑树是严格平衡的二叉排序树", "最长路径长度不超过最短路径长度的2倍", "红黑树上查找的时间复杂度为O(n)"],
+      "answer": ["A", "C"],
+      "explanation": "黑结点数目相同与红结点不相邻共同保证最长路径不超过最短路径的2倍，查找为O(log n)；红黑树并非严格平衡。",
+      "difficulty": 2,
+      "knowledge": "红黑树"
+    }
+  ]
+}

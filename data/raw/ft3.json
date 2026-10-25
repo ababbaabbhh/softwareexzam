@@ -1,0 +1,533 @@
+[
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "20世纪60年代出现的____，直接促使软件工程作为一门学科被提出。",
+    "answer": ["软件危机"],
+    "explanation": "软件危机表现为成本超支、进度拖延、质量难保证，催生了软件工程。",
+    "difficulty": 1,
+    "knowledge": "软件工程概念"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "软件工程的三要素是方法、工具和____。",
+    "answer": ["过程"],
+    "explanation": "软件工程由方法、工具和过程组成，过程起组织和控制作用。",
+    "difficulty": 1,
+    "knowledge": "软件工程三要素"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "软件生命周期中，投入人力、物力最多且延续时间最长的阶段是____。",
+    "answer": ["维护|运行维护|软件维护"],
+    "explanation": "维护阶段约占生命周期总成本的60%以上，持续时间最长。",
+    "difficulty": 1,
+    "knowledge": "生命周期阶段"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "瀑布模型各阶段严格按顺序开展且以文档为驱动，其最大缺点是难以适应____变化。",
+    "answer": ["需求"],
+    "explanation": "瀑布模型阶段间缺少反馈，需求变更代价大，适合需求明确的项目。",
+    "difficulty": 2,
+    "knowledge": "瀑布模型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "快速原型模型适用于需求____、用户难以清楚表达需求的项目。",
+    "answer": ["不明确|模糊|含糊"],
+    "explanation": "原型可帮助用户澄清需求，缩短开发周期，减少需求理解偏差。",
+    "difficulty": 1,
+    "knowledge": "原型模型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "螺旋模型将瀑布模型与原型模型相结合，每个螺旋周期中最核心的活动是____。",
+    "answer": ["风险分析|风险评估"],
+    "explanation": "螺旋模型以风险分析为核心，适用于大型复杂、高风险项目。",
+    "difficulty": 2,
+    "knowledge": "螺旋模型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "增量模型中，第一个增量通常实现系统的____部分。",
+    "answer": ["核心|核心功能|核心产品"],
+    "explanation": "增量模型先交付核心功能，后续增量逐步完善，便于用户及早使用。",
+    "difficulty": 2,
+    "knowledge": "增量模型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "V模型中，与详细设计阶段相对应的测试级别是____。",
+    "answer": ["单元测试"],
+    "explanation": "V模型左侧设计与右侧测试一一对应，详细设计对应单元测试。",
+    "difficulty": 2,
+    "knowledge": "V模型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "统一过程（RUP）将开发划分为初始、细化、构造和____四个阶段。",
+    "answer": ["移交|交付|转移"],
+    "explanation": "RUP四阶段为初始、细化、构造、移交，每个阶段内多次迭代。",
+    "difficulty": 2,
+    "knowledge": "RUP阶段"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "RUP是以____为驱动、以体系结构为中心、迭代增量的软件开发过程。",
+    "answer": ["用例"],
+    "explanation": "RUP三大特点：用例驱动、以体系结构为中心、迭代与增量。",
+    "difficulty": 2,
+    "knowledge": "RUP特征"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "敏捷宣言强调个体和交互、可工作的软件、客户合作以及____。",
+    "answer": ["响应变化"],
+    "explanation": "敏捷宣言的第四条价值观是“响应变化高于遵循计划”。",
+    "difficulty": 2,
+    "knowledge": "敏捷宣言"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "极限编程（XP）中，两名程序员共用一台计算机共同完成编码的实践称为____。",
+    "answer": ["结对编程"],
+    "explanation": "XP核心实践包括结对编程、持续集成、测试驱动开发和小型发布。",
+    "difficulty": 1,
+    "knowledge": "XP实践"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "可行性研究一般从技术可行性、经济可行性和____可行性三个方面进行。",
+    "answer": ["操作|运行|社会"],
+    "explanation": "还需考虑法律与社会因素，操作可行性指系统能否在组织中运行。",
+    "difficulty": 2,
+    "knowledge": "可行性研究"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "通过成本效益分析判断项目是否值得投资，属于____可行性研究。",
+    "answer": ["经济"],
+    "explanation": "经济可行性依靠成本效益分析、投资回收期和净现值等指标判断。",
+    "difficulty": 1,
+    "knowledge": "经济可行性"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "若某项目的净现值（NPV）大于零，说明该项目在经济上是____的。",
+    "answer": ["可行|盈利"],
+    "explanation": "NPV大于零表示收益超过基准收益率，经济可行，数值越大越优。",
+    "difficulty": 2,
+    "knowledge": "净现值"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "某系统投资20万元，投产后每年净收益4万元，则其静态投资回收期为____年。",
+    "answer": ["5"],
+    "explanation": "静态投资回收期等于投资总额除以年净收益，即20÷4=5年。",
+    "difficulty": 2,
+    "knowledge": "投资回收期"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "常用的软件规模估算方法有代码行（LOC）法和____法。",
+    "answer": ["功能点"],
+    "explanation": "功能点法在项目初期依据功能需求估算规模，与实现语言无关。",
+    "difficulty": 1,
+    "knowledge": "规模估算"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "COCOMO模型是一种软件____估算模型，分为基本、中级和详细三种形式。",
+    "answer": ["成本|工作量"],
+    "explanation": "COCOMO以代码行规模为输入估算工作量与成本，分三个层次。",
+    "difficulty": 3,
+    "knowledge": "COCOMO"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "需求工程由需求开发和需求____两类活动组成。",
+    "answer": ["管理"],
+    "explanation": "需求开发含获取、分析、定义、验证；需求管理含变更控制与追踪。",
+    "difficulty": 2,
+    "knowledge": "需求工程"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "需求获取的常用方法包括访谈、问卷调查、观察和____等。",
+    "answer": ["原型|原型法"],
+    "explanation": "需求获取还可采用联合应用开发、文档分析和原型演示等方法。",
+    "difficulty": 1,
+    "knowledge": "需求获取"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "按层次划分，软件需求分为业务需求、用户需求和____需求。",
+    "answer": ["系统"],
+    "explanation": "业务需求描述高层目标，用户需求描述用户任务，系统需求描述系统行为。",
+    "difficulty": 2,
+    "knowledge": "需求分类"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "需求管理中，建立需求与设计、代码、测试用例之间对应关系的技术称为需求____。",
+    "answer": ["追踪|跟踪|追溯"],
+    "explanation": "需求追踪分正向与逆向追踪，可评估变更影响范围，保证需求覆盖。",
+    "difficulty": 3,
+    "knowledge": "需求追踪"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "结构化分析常用的工具有数据流图、数据字典、判定表和____。",
+    "answer": ["判定树|结构化语言"],
+    "explanation": "结构化分析还使用判定树与结构化语言描述加工的处理逻辑。",
+    "difficulty": 3,
+    "knowledge": "结构化分析"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "数据流图由外部实体、加工、数据流和____四种基本元素组成。",
+    "answer": ["数据存储|文件"],
+    "explanation": "数据流图四种基本元素：外部实体、加工、数据流、数据存储。",
+    "difficulty": 2,
+    "knowledge": "DFD元素"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "父图与子图平衡是指子图的输入输出数据流必须与父图中对应加工的输入输出数据流保持____。",
+    "answer": ["一致|相同|对应"],
+    "explanation": "不平衡说明分解有误；子图内部可细化数据流，对外输入输出须一致。",
+    "difficulty": 3,
+    "knowledge": "DFD平衡"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "数据字典中，数据项是数据的____单位，不可再分。",
+    "answer": ["最小|基本"],
+    "explanation": "数据字典条目包括数据项、数据结构、数据流、数据存储、加工和外部实体。",
+    "difficulty": 2,
+    "knowledge": "数据项"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "模块耦合由低到高依次为非直接耦合、数据耦合、____耦合、控制耦合、外部耦合、公共耦合和内容耦合。",
+    "answer": ["标记|特征"],
+    "explanation": "标记耦合指模块间通过传递数据结构的某一部分进行通信。",
+    "difficulty": 3,
+    "knowledge": "耦合类型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "内聚由低到高依次为偶然内聚、逻辑内聚、时间内聚、过程内聚、通信内聚、顺序内聚和____内聚。",
+    "answer": ["功能"],
+    "explanation": "功能内聚中各成分共同完成单一功能，内聚程度最高，模块独立性最好。",
+    "difficulty": 3,
+    "knowledge": "内聚类型"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "软件结构图中，一个模块的直接上层模块个数称为____，其直接下层模块个数称为____。",
+    "answer": ["扇入", "扇出"],
+    "explanation": "扇入大表示复用度高；扇出大表示模块较复杂，一般以3～4为宜。",
+    "difficulty": 3,
+    "knowledge": "扇入扇出"
+  },
+  {
+    "type": "fill",
+    "topic": "SE",
+    "stem": "判定表通常由条件桩、动作桩、条件项和____四部分组成。",
+    "answer": ["动作项"],
+    "explanation": "判定表适合表达条件组合较多的处理逻辑，可化简合并相同动作的规则。",
+    "difficulty": 3,
+    "knowledge": "判定表"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "瀑布模型要求前一阶段完成后才能进入下一阶段，因此它不适合需求频繁变更的项目。",
+    "answer": ["对"],
+    "explanation": "瀑布模型阶段间缺乏反馈，需求变化代价高，适合需求稳定明确的项目。",
+    "difficulty": 2,
+    "knowledge": "瀑布模型"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "螺旋模型把风险分析放在每个螺旋周期的核心位置，适合大型复杂系统的开发。",
+    "answer": ["对"],
+    "explanation": "螺旋模型以风险分析为核心，每周期含制定计划、风险分析、实施与客户评估。",
+    "difficulty": 2,
+    "knowledge": "螺旋模型"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "快速原型模型的主要目的是尽早给用户一个可运行的模型，以明确和验证需求。",
+    "answer": ["对"],
+    "explanation": "原型帮助用户澄清需求、验证理解，从而降低后期返工风险。",
+    "difficulty": 1,
+    "knowledge": "原型模型"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "增量模型允许把系统划分成多个增量，逐步向用户交付可运行的产品。",
+    "answer": ["对"],
+    "explanation": "增量模型按优先级分批交付，用户可及早使用核心功能并提出反馈。",
+    "difficulty": 2,
+    "knowledge": "增量模型"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "喷泉模型体现了面向对象开发的无缝性和迭代性，各阶段之间没有明显的边界。",
+    "answer": ["对"],
+    "explanation": "喷泉模型以用户需求为动力、以对象为驱动，阶段可交叉反复进行。",
+    "difficulty": 2,
+    "knowledge": "喷泉模型"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "V模型中，系统测试与需求分析阶段相对应。",
+    "answer": ["对"],
+    "explanation": "V模型右侧测试与左侧设计对应：概要设计对集成测试，需求分析对系统测试。",
+    "difficulty": 2,
+    "knowledge": "V模型"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "RUP的细化阶段主要任务是确定系统体系结构并消除主要风险。",
+    "answer": ["对"],
+    "explanation": "细化阶段建立体系结构基线并降低主要技术风险，构造阶段才大规模实现。",
+    "difficulty": 3,
+    "knowledge": "RUP阶段"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "极限编程要求开发者频繁地集成代码并运行回归测试。",
+    "answer": ["对"],
+    "explanation": "XP的核心实践包括结对编程、持续集成、测试驱动开发和代码集体所有。",
+    "difficulty": 2,
+    "knowledge": "XP实践"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "投资回收期越长，说明项目的经济效益越好。",
+    "answer": ["错"],
+    "explanation": "投资回收期越短，资金回收越快，项目的经济效益才越好。",
+    "difficulty": 2,
+    "knowledge": "投资回收期"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "功能点法在项目初期即可估算软件规模，且估算结果与实现语言无关。",
+    "answer": ["对"],
+    "explanation": "功能点依据外部输入、输出、查询、内部文件和外部接口估算规模。",
+    "difficulty": 3,
+    "knowledge": "规模估算"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "COCOMO模型只能用于估算软件规模，不能用于估算工作量和成本。",
+    "answer": ["错"],
+    "explanation": "COCOMO以代码行规模为输入估算工作量与成本，规模本身需另行估算。",
+    "difficulty": 3,
+    "knowledge": "COCOMO"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "需求工程只包括需求分析，不包括需求管理。",
+    "answer": ["错"],
+    "explanation": "需求工程包括需求开发（获取、分析、定义、验证）和需求管理。",
+    "difficulty": 2,
+    "knowledge": "需求工程"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "功能需求描述系统的性能、可靠性等质量属性，非功能需求描述系统必须完成的功能。",
+    "answer": ["错"],
+    "explanation": "两者定义被颠倒：功能需求说明做什么，非功能需求说明质量属性与约束。",
+    "difficulty": 2,
+    "knowledge": "需求分类"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "软件需求规格说明书是软件设计和测试的重要依据，也是验收的标准之一。",
+    "answer": ["对"],
+    "explanation": "需求规格说明书描述系统应满足的需求，是设计、测试和验收的共同依据。",
+    "difficulty": 1,
+    "knowledge": "需求规格说明"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "需求评审是需求验证的重要手段，目的是尽早发现需求文档中的错误。",
+    "answer": ["对"],
+    "explanation": "需求验证通过评审和原型验证，及早发现不一致、遗漏和歧义。",
+    "difficulty": 2,
+    "knowledge": "需求验证"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "需求变更一旦提出，就应立即无条件实施，以保证用户满意。",
+    "answer": ["错"],
+    "explanation": "需求变更须经申请、评估、审批、实施和验证，控制其对成本进度的影响。",
+    "difficulty": 1,
+    "knowledge": "需求变更"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "结构化方法强调自顶向下、逐步求精，适用于数据处理类系统的开发。",
+    "answer": ["对"],
+    "explanation": "结构化方法以数据流为基础，自顶向下分解、逐步求精，适合数据处理。",
+    "difficulty": 2,
+    "knowledge": "结构化方法"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "结构化分析方法采用面向对象的思想，用类和对象描述系统。",
+    "answer": ["错"],
+    "explanation": "结构化分析用数据流图和数据字典描述功能与数据，面向对象才用类和对象。",
+    "difficulty": 2,
+    "knowledge": "结构化分析"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "数据流图既能表示数据的流动，也能表示程序的执行顺序和控制流。",
+    "answer": ["错"],
+    "explanation": "数据流图只表示数据的流动与加工，不表示执行顺序、控制流和判断条件。",
+    "difficulty": 2,
+    "knowledge": "DFD性质"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "分层数据流图中，子图可以出现父图中没有的外部实体和数据存储。",
+    "answer": ["错"],
+    "explanation": "子图只能引用父图已有的外部实体和数据存储，否则属于不平衡。",
+    "difficulty": 3,
+    "knowledge": "DFD平衡"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "数据流图中的每个加工都必须既有输入数据流又有输出数据流。",
+    "answer": ["对"],
+    "explanation": "没有输入的加工无数据可处理，没有输出的加工无意义，二者均不允许。",
+    "difficulty": 3,
+    "knowledge": "DFD加工"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "数据字典必须与数据流图保持一致，图中出现的每个元素都应在数据字典中定义。",
+    "answer": ["对"],
+    "explanation": "二者互为依据，元素不一致会导致需求模型错误和后续设计偏差。",
+    "difficulty": 3,
+    "knowledge": "数据字典一致性"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "数据字典中，符号“+”表示数据元素之间的选择关系。",
+    "answer": ["错"],
+    "explanation": "“+”表示顺序连接，“|”表示选择，“{}”表示重复，“()”表示可选。",
+    "difficulty": 2,
+    "knowledge": "数据字典符号"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "判定表适合描述条件组合较多的处理逻辑，并且可以通过化简合并规则。",
+    "answer": ["对"],
+    "explanation": "判定表由条件桩、动作桩、条件项、动作项组成，可合并相同动作的规则。",
+    "difficulty": 2,
+    "knowledge": "判定表"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "模块之间通过全局变量传递数据，属于数据耦合。",
+    "answer": ["错"],
+    "explanation": "通过全局变量通信属于公共耦合，数据耦合仅通过参数传递简单数据。",
+    "difficulty": 3,
+    "knowledge": "耦合类型"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "功能内聚指模块内各组成部分共同完成一个单一功能，是内聚程度最高的类型。",
+    "answer": ["对"],
+    "explanation": "内聚由低到高最高为功能内聚，此时模块独立性最好、最易维护。",
+    "difficulty": 3,
+    "knowledge": "内聚类型"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "模块的扇入越大，说明该模块被越多上层模块调用，复用程度越高。",
+    "answer": ["对"],
+    "explanation": "扇入大表示共享程度高；扇出大则模块控制关系复杂，宜控制在3～4。",
+    "difficulty": 3,
+    "knowledge": "扇入扇出"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "软件工程既要关注技术问题，也要关注过程管理和人员组织等管理问题。",
+    "answer": ["对"],
+    "explanation": "软件工程涉及技术与管理两方面，过程管理、度量与人员组织同样重要。",
+    "difficulty": 1,
+    "knowledge": "软件工程概念"
+  },
+  {
+    "type": "tf",
+    "topic": "SE",
+    "stem": "结构化语言用顺序、选择和循环三种基本控制结构描述加工的处理逻辑。",
+    "answer": ["对"],
+    "explanation": "结构化语言介于自然语言与程序语言之间，只使用三种基本控制结构。",
+    "difficulty": 3,
+    "knowledge": "结构化语言"
+  }
+]

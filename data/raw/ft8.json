@@ -1,0 +1,722 @@
+[
+  {
+    "type": "fill",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "OSI参考模型共分为____层，其中负责端到端可靠传输的是____层。",
+    "answer": ["7|七", "传输"],
+    "explanation": "OSI分七层，传输层提供端到端可靠传输。",
+    "difficulty": 1,
+    "knowledge": "OSI七层"
+  },
+  {
+    "type": "fill",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "TCP/IP体系结构中，网络接口层之上依次是网际层、____层和____层。",
+    "answer": ["传输", "应用"],
+    "explanation": "TCP/IP四层为网络接口层、网际层、传输层、应用层。",
+    "difficulty": 1,
+    "knowledge": "TCP/IP四层"
+  },
+  {
+    "type": "fill",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "在OSI模型中，数据链路层的协议数据单元称为____，网络层的协议数据单元称为____。",
+    "answer": ["帧|数据帧", "分组|包|数据报"],
+    "explanation": "链路层PDU为帧，网络层PDU为分组（数据报）。",
+    "difficulty": 2,
+    "knowledge": "PDU名称"
+  },
+  {
+    "type": "fill",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "数据在源主机自上而下逐层封装时，传输层添加的头部信息中最关键的是____号和____号。",
+    "answer": ["端口", "端口"],
+    "explanation": "传输层通过源端口和目的端口标识应用进程。",
+    "difficulty": 2,
+    "knowledge": "传输层封装"
+  },
+  {
+    "type": "fill",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "在OSI七层模型中，负责数据格式转换与加密压缩的是表示层，负责建立、管理和终止会话的是____层。",
+    "answer": ["会话"],
+    "explanation": "会话层管理对话的建立、保持和终止。",
+    "difficulty": 1,
+    "knowledge": "OSI层次职能"
+  },
+  {
+    "type": "fill",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "TCP/IP模型中的网际层对应OSI模型中的____层，二者之间传输层与应用层功能基本一致。",
+    "answer": ["网络"],
+    "explanation": "网际层对应OSI网络层，主要协议为IP。",
+    "difficulty": 1,
+    "knowledge": "模型对应"
+  },
+  {
+    "type": "fill",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "物理层传输数据的基本单位是____，其传输方式可分为串行传输和____传输。",
+    "answer": ["比特|bit|位", "并行"],
+    "explanation": "物理层传输比特流，按线路分为串行与并行传输。",
+    "difficulty": 2,
+    "knowledge": "物理层单位"
+  },
+  {
+    "type": "fill",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "OSI环境中，相邻两层的实体之间通过____进行交互，对等层实体之间则通过____通信。",
+    "answer": ["服务访问点|SAP|接口", "协议"],
+    "explanation": "相邻层靠SAP交互，对等层按协议通信。",
+    "difficulty": 3,
+    "knowledge": "层次间关系"
+  },
+  {
+    "type": "fill",
+    "topic": "协议与设备",
+    "stem": "工作在物理层的中继设备是____，工作在数据链路层的网络互连设备是____。",
+    "answer": ["中继器|集线器|hub", "网桥|交换机|桥"],
+    "explanation": "中继器在物理层放大信号，网桥/交换机在链路层转发帧。",
+    "difficulty": 2,
+    "knowledge": "层次与设备"
+  },
+  {
+    "type": "fill",
+    "topic": "协议与设备",
+    "stem": "ARP协议用于将IP地址解析为____地址，RARP协议的作用则相反。",
+    "answer": ["MAC|物理|硬件"],
+    "explanation": "ARP完成IP到MAC的解析，RARP求IP。",
+    "difficulty": 1,
+    "knowledge": "ARP协议"
+  },
+  {
+    "type": "fill",
+    "topic": "协议与设备",
+    "stem": "ICMP协议被封装在____协议之上传输，常用的网络连通性测试命令____即基于该协议。",
+    "answer": ["IP", "ping"],
+    "explanation": "ICMP是IP层协议，ping用其回显请求/应答。",
+    "difficulty": 2,
+    "knowledge": "ICMP"
+  },
+  {
+    "type": "fill",
+    "topic": "协议与设备",
+    "stem": "以太网使用的介质访问控制方法是____协议，令牌环网使用的是____协议。",
+    "answer": ["CSMA/CD", "令牌传递|Token Ring|令牌环"],
+    "explanation": "以太网竞争冲突检测，令牌环按令牌传递发送权。",
+    "difficulty": 3,
+    "knowledge": "介质访问控制"
+  },
+  {
+    "type": "fill",
+    "topic": "协议与设备",
+    "stem": "IGMP协议用于实现____功能，其报文通过IP数据报承载，目的地址可达____的成员。",
+    "answer": ["组播|多播", "一个或一组主机"],
+    "explanation": "IGMP管理组播成员，供主机加入或退出组。",
+    "difficulty": 3,
+    "knowledge": "IGMP"
+  },
+  {
+    "type": "fill",
+    "topic": "协议与设备",
+    "stem": "集线器工作在____层，其所有端口共享同一冲突域；交换机工作在数据链路层，每个端口是一个独立的____域。",
+    "answer": ["物理", "冲突|碰撞"],
+    "explanation": "集线器共享冲突域，交换机端口隔离冲突域。",
+    "difficulty": 2,
+    "knowledge": "冲突域"
+  },
+  {
+    "type": "fill",
+    "topic": "协议与设备",
+    "stem": "网桥根据帧的____地址进行转发和过滤，其转发决策依据的是内部维护的____表。",
+    "answer": ["MAC|物理|目的", "转发表|地址表|过滤表"],
+    "explanation": "网桥查MAC转发表决定是否转发帧。",
+    "difficulty": 2,
+    "knowledge": "网桥转发"
+  },
+  {
+    "type": "fill",
+    "topic": "IP地址与子网",
+    "stem": "IPv4地址长度为____位，通常用点分____进制表示。",
+    "answer": ["32", "十|10"],
+    "explanation": "IPv4为32位，采用点分十进制书写。",
+    "difficulty": 1,
+    "knowledge": "IPv4格式"
+  },
+  {
+    "type": "fill",
+    "topic": "IP地址与子网",
+    "stem": "B类IP地址的第一字节取值范围是____到____。",
+    "answer": ["128", "191"],
+    "explanation": "B类地址首位为10，范围128.0.0.0~191.255.255.255。",
+    "difficulty": 2,
+    "knowledge": "地址分类"
+  },
+  {
+    "type": "fill",
+    "topic": "IP地址与子网",
+    "stem": "IP地址192.168.1.100/26所在子网的网络地址是____，可用主机数最多为____个。",
+    "answer": ["192.168.1.64", "62"],
+    "explanation": "/26掩码块大小64，子网从.64开始，可用主机2^6-2=62。",
+    "difficulty": 3,
+    "knowledge": "子网划分计算"
+  },
+  {
+    "type": "fill",
+    "topic": "IP地址与子网",
+    "stem": "子网掩码255.255.255.224对应的前缀长度为____位，该子网含主机位____位。",
+    "answer": ["27", "5"],
+    "explanation": "掩码全1共27位，主机位32-27=5。",
+    "difficulty": 2,
+    "knowledge": "子网掩码换算"
+  },
+  {
+    "type": "fill",
+    "topic": "IP地址与子网",
+    "stem": "在无分类编址CIDR中，地址块202.16.8.0/21包含____个可用IP地址（含网络与广播地址）。",
+    "answer": ["2048"],
+    "explanation": "/21主机位11位，2^11=2048个地址。",
+    "difficulty": 3,
+    "knowledge": "CIDR计算"
+  },
+  {
+    "type": "fill",
+    "topic": "IP地址与子网",
+    "stem": "用于IPv6与IPv4互通的过渡技术主要有双协议栈、____和____三种。",
+    "answer": ["隧道|隧道技术", "NAT|地址转换|翻译"],
+    "explanation": "过渡技术包括双栈、隧道与协议翻译。",
+    "difficulty": 2,
+    "knowledge": "IPv6过渡"
+  },
+  {
+    "type": "fill",
+    "topic": "IP地址与子网",
+    "stem": "环回地址127.0.0.1用于本地软件测试，私有地址10.0.0.0/8属于____类地址段。",
+    "answer": ["A"],
+    "explanation": "10.0.0.0/8为A类私有地址空间。",
+    "difficulty": 1,
+    "knowledge": "私有地址"
+  },
+  {
+    "type": "fill",
+    "topic": "TCP与UDP",
+    "stem": "UDP首部固定为____字节，TCP首部的最小长度是____字节。",
+    "answer": ["8", "20"],
+    "explanation": "UDP首部8字节，TCP首部最短20字节。",
+    "difficulty": 2,
+    "knowledge": "首部长度"
+  },
+  {
+    "type": "fill",
+    "topic": "TCP与UDP",
+    "stem": "TCP连接的可靠传输主要依靠确认重传、超时重传和____机制来实现流量控制，拥塞控制则包含慢开始、拥塞避免、快重传和____四种算法。",
+    "answer": ["滑动窗口", "快恢复"],
+    "explanation": "滑动窗口控流，拥塞控制四算法含快恢复。",
+    "difficulty": 3,
+    "knowledge": "TCP控制机制"
+  },
+  {
+    "type": "fill",
+    "topic": "TCP与UDP",
+    "stem": "TCP协议工作在传输层，提供面向____的连接服务；UDP提供无连接、不可靠的____服务。",
+    "answer": ["连接", "数据报|传输"],
+    "explanation": "TCP面向连接，UDP为数据报服务。",
+    "difficulty": 1,
+    "knowledge": "TCP与UDP对比"
+  },
+  {
+    "type": "fill",
+    "topic": "TCP与UDP",
+    "stem": "TCP使用____进行流量控制，接收方通过首部中的____字段告知可接收的字节数。",
+    "answer": ["滑动窗口", "窗口"],
+    "explanation": "窗口字段通告接收能力，实现滑动窗口控制。",
+    "difficulty": 2,
+    "knowledge": "流量控制"
+  },
+  {
+    "type": "fill",
+    "topic": "三次握手四次挥手",
+    "stem": "TCP建立连接需进行三次握手，第一次握手客户端发送的报文段中SYN标志位为____。",
+    "answer": ["1|置1|SYN=1"],
+    "explanation": "首报文SYN=1，序号为随机初始序号。",
+    "difficulty": 1,
+    "knowledge": "三次握手"
+  },
+  {
+    "type": "fill",
+    "topic": "三次握手四次挥手",
+    "stem": "TCP释放连接时，主动关闭方发送FIN报文后进入____状态，收到对方确认后进入____状态。",
+    "answer": ["FIN_WAIT_1|FIN-WAIT-1", "FIN_WAIT_2|FIN-WAIT-2"],
+    "explanation": "主动关闭方先FIN_WAIT_1，收ACK后转FIN_WAIT_2。",
+    "difficulty": 3,
+    "knowledge": "四次挥手状态"
+  },
+  {
+    "type": "fill",
+    "topic": "TCP与UDP",
+    "stem": "TCP三次握手的目的是同步双方序号并确认双方____能力和序号初始值。",
+    "answer": ["收发|通信|数据传输"],
+    "explanation": "三次握手交换初始序号并确认双向收发能力。",
+    "difficulty": 2,
+    "knowledge": "握手目的"
+  },
+  {
+    "type": "fill",
+    "topic": "三次握手四次挥手",
+    "stem": "TCP连接释放时，被动关闭方收到FIN后先回送____报文，待本端数据发完后再发送FIN报文。",
+    "answer": ["ACK|确认"],
+    "explanation": "半关闭状态，先确认再发送自身FIN。",
+    "difficulty": 2,
+    "knowledge": "半关闭"
+  },
+  {
+    "type": "fill",
+    "topic": "TCP与UDP",
+    "stem": "TCP报文段首部中的____字段用于标识本报文段数据首字节的序号，____字段用于确认已正确收到的字节。",
+    "answer": ["序号|seq", "确认号|ack"],
+    "explanation": "序号标识首字节，确认号指明期望的下一个字节。",
+    "difficulty": 2,
+    "knowledge": "序号与确认号"
+  },
+  {
+    "type": "fill",
+    "topic": "TCP与UDP",
+    "stem": "TCP的拥塞控制算法中，当发送方连续收到____个重复确认时，立即执行快重传而不等超时定时器。",
+    "answer": ["3|三"],
+    "explanation": "收到3个重复ACK即快重传丢失的报文段。",
+    "difficulty": 2,
+    "knowledge": "快重传"
+  },
+  {
+    "type": "fill",
+    "topic": "DNS HTTP FTP SMTP",
+    "stem": "DNS系统默认使用____端口，其最常见的资源记录类型中，主机名到IP地址的映射记录为____记录。",
+    "answer": ["53", "A"],
+    "explanation": "DNS默认UDP 53端口，A记录映射IPv4地址。",
+    "difficulty": 2,
+    "knowledge": "DNS记录"
+  },
+  {
+    "type": "fill",
+    "topic": "应用层协议",
+    "stem": "HTTP协议默认端口为____，HTTPS默认端口为____。",
+    "answer": ["80", "443"],
+    "explanation": "HTTP用80，HTTPS用443。",
+    "difficulty": 1,
+    "knowledge": "端口号"
+  },
+  {
+    "type": "fill",
+    "topic": "应用层协议",
+    "stem": "FTP协议使用两条连接，其中控制连接使用____端口，数据连接在主动模式下由服务器以____端口发起。",
+    "answer": ["21", "20"],
+    "explanation": "FTP控制连接21端口，主动模式数据连接20端口。",
+    "difficulty": 2,
+    "knowledge": "FTP连接"
+  },
+  {
+    "type": "fill",
+    "topic": "应用层协议",
+    "stem": "SMTP协议默认使用____端口，用于接收邮件的POP3协议默认使用____端口。",
+    "answer": ["25", "110"],
+    "explanation": "SMTP发信25，POP3收信110。",
+    "difficulty": 2,
+    "knowledge": "邮件协议端口"
+  },
+  {
+    "type": "fill",
+    "topic": "DNS HTTP FTP SMTP",
+    "stem": "DNS域名解析过程中，若本地域名服务器无法解析，则依次查询根域名服务器、____域名服务器和____域名服务器。",
+    "answer": ["顶级|顶级域|TLD", "权限|授权"],
+    "explanation": "迭代解析顺序为根、顶级域、权限域名服务器。",
+    "difficulty": 3,
+    "knowledge": "DNS解析过程"
+  },
+  {
+    "type": "fill",
+    "topic": "应用层协议",
+    "stem": "HTTP请求报文的方法中，____方法用于请求读取资源，____方法用于向服务器提交实体数据。",
+    "answer": ["GET", "POST"],
+    "explanation": "GET取资源，POST提交数据。",
+    "difficulty": 1,
+    "knowledge": "HTTP方法"
+  },
+  {
+    "type": "fill",
+    "topic": "应用层协议",
+    "stem": "POP3协议在收信时需要将邮件下载到本地，适合多设备同步的收信协议是____，它通常还支持服务器端文件夹管理。",
+    "answer": ["IMAP|IMAP4"],
+    "explanation": "IMAP邮件留在服务器，支持多端同步。",
+    "difficulty": 2,
+    "knowledge": "IMAP"
+  },
+  {
+    "type": "fill",
+    "topic": "路由协议",
+    "stem": "RIP协议是一种内部网关协议，它采用____算法，最大跳数限制为____跳，超过则视为不可达。",
+    "answer": ["距离向量|Bellman-Ford|距离矢量", "15"],
+    "explanation": "RIP用距离向量算法，最大跳数15。",
+    "difficulty": 2,
+    "knowledge": "RIP协议"
+  },
+  {
+    "type": "fill",
+    "topic": "路由协议",
+    "stem": "OSPF协议采用____算法计算最短路径，其度量值是____。",
+    "answer": ["Dijkstra|最短路径优先|链路状态", "开销|代价|cost"],
+    "explanation": "OSPF为链路状态协议，用Dijkstra算法以开销为度量。",
+    "difficulty": 3,
+    "knowledge": "OSPF协议"
+  },
+  {
+    "type": "fill",
+    "topic": "路由协议",
+    "stem": "BGP协议是用于自治系统之间的____网关协议，其报文通过____协议可靠传输。",
+    "answer": ["外部|EGP", "TCP"],
+    "explanation": "BGP为外部网关协议，基于TCP承载。",
+    "difficulty": 3,
+    "knowledge": "BGP"
+  },
+  {
+    "type": "fill",
+    "topic": "路由协议",
+    "stem": "路由器工作在OSI模型的____层，其转发分组的主要依据是____表。",
+    "answer": ["网络|第三|3", "路由"],
+    "explanation": "路由器按路由表在网络层转发IP分组。",
+    "difficulty": 2,
+    "knowledge": "路由器"
+  },
+  {
+    "type": "tf",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "OSI参考模型中，传输层为会话层提供服务，而网络层为传输层提供服务。",
+    "answer": ["对"],
+    "explanation": "下层为上层提供服务，方向正确。",
+    "difficulty": 1,
+    "knowledge": "层次服务关系"
+  },
+  {
+    "type": "tf",
+    "topic": "协议与设备",
+    "stem": "集线器与交换机都能隔离冲突域，从而有效提高网络带宽利用率。",
+    "answer": ["错"],
+    "explanation": "集线器所有端口处于同一冲突域，不能隔离。",
+    "difficulty": 2,
+    "knowledge": "冲突域隔离"
+  },
+  {
+    "type": "tf",
+    "topic": "IP地址与子网",
+    "stem": "IP地址192.168.10.255一定是一个广播地址。",
+    "answer": ["错"],
+    "explanation": "若子网掩码为/16，则该地址为可用主机地址。",
+    "difficulty": 3,
+    "knowledge": "广播地址判定"
+  },
+  {
+    "type": "tf",
+    "topic": "TCP与UDP",
+    "stem": "UDP协议虽然不保证可靠交付，但能够提供比TCP更低的开销与时延。",
+    "answer": ["对"],
+    "explanation": "无连接无确认，首部短，适合实时业务。",
+    "difficulty": 1,
+    "knowledge": "UDP特点"
+  },
+  {
+    "type": "tf",
+    "topic": "三次握手四次挥手",
+    "stem": "TCP三次握手时，第三次握手报文可以携带数据，因为此时客户端已具备发送数据的能力。",
+    "answer": ["对"],
+    "explanation": "第三次握手可携带数据，前两次不可。",
+    "difficulty": 2,
+    "knowledge": "握手携带数据"
+  },
+  {
+    "type": "tf",
+    "topic": "TCP与UDP",
+    "stem": "TCP连接释放时，主动关闭方在发送最后一个ACK报文后立即关闭连接，不再等待。",
+    "answer": ["错"],
+    "explanation": "主动关闭方需进入TIME_WAIT等待2MSL。",
+    "difficulty": 2,
+    "knowledge": "TIME_WAIT"
+  },
+  {
+    "type": "tf",
+    "topic": "DNS HTTP FTP SMTP",
+    "stem": "HTTP协议是无状态的，因此需要借助Cookie或Session等机制维持用户会话状态。",
+    "answer": ["对"],
+    "explanation": "HTTP不保存状态，需Cookie/Session补充。",
+    "difficulty": 2,
+    "knowledge": "HTTP无状态"
+  },
+  {
+    "type": "tf",
+    "topic": "应用层协议",
+    "stem": "FTP协议的控制连接和数据连接在整个传输过程中始终保持打开状态。",
+    "answer": ["错"],
+    "explanation": "数据连接在每次传输时建立，传完即关闭。",
+    "difficulty": 3,
+    "knowledge": "FTP双连接"
+  },
+  {
+    "type": "tf",
+    "topic": "路由协议",
+    "stem": "OSPF协议属于距离向量路由协议，收敛速度比RIP慢。",
+    "answer": ["错"],
+    "explanation": "OSPF为链路状态协议，收敛速度快于RIP。",
+    "difficulty": 2,
+    "knowledge": "路由协议分类"
+  },
+  {
+    "type": "tf",
+    "topic": "协议与设备",
+    "stem": "ARP请求报文是以广播方式发送的，而ARP响应报文通常是单播发送的。",
+    "answer": ["对"],
+    "explanation": "请求广播询问MAC，应答单播回源主机。",
+    "difficulty": 2,
+    "knowledge": "ARP报文方式"
+  },
+  {
+    "type": "tf",
+    "topic": "IP地址与子网",
+    "stem": "在CIDR中，路由聚合就是把多个小地址块合并为更大的地址块，以减小路由表规模。",
+    "answer": ["对"],
+    "explanation": "超网/路由聚合减少路由表条目。",
+    "difficulty": 2,
+    "knowledge": "路由聚合"
+  },
+  {
+    "type": "tf",
+    "topic": "TCP与UDP",
+    "stem": "TCP的滑动窗口机制既能实现流量控制，也能在某种意义上提高链路的吞吐量。",
+    "answer": ["对"],
+    "explanation": "窗口允许连续发送多个报文段，提升效率。",
+    "difficulty": 2,
+    "knowledge": "滑动窗口作用"
+  },
+  {
+    "type": "tf",
+    "topic": "协议与设备",
+    "stem": "网桥能够隔离广播域，从而减少网络中的广播风暴。",
+    "answer": ["错"],
+    "explanation": "网桥隔离冲突域，但不隔离广播域。",
+    "difficulty": 2,
+    "knowledge": "广播域隔离"
+  },
+  {
+    "type": "tf",
+    "topic": "应用层协议",
+    "stem": "SMTP协议只负责邮件的发送，若要从服务器读取邮件需要使用POP3或IMAP协议。",
+    "answer": ["对"],
+    "explanation": "SMTP仅推送邮件，收信需POP3/IMAP。",
+    "difficulty": 2,
+    "knowledge": "邮件协议分工"
+  },
+  {
+    "type": "tf",
+    "topic": "TCP与UDP",
+    "stem": "TCP协议提供可靠传输，因此它所使用的IP协议也是面向连接的可靠协议。",
+    "answer": ["错"],
+    "explanation": "IP为无连接不可靠协议，可靠性由TCP保证。",
+    "difficulty": 1,
+    "knowledge": "IP服务特性"
+  },
+  {
+    "type": "tf",
+    "topic": "三次握手四次挥手",
+    "stem": "TCP连接建立采用三次握手而非两次，主要是为了防止已失效的连接请求报文段突然又传到服务端。",
+    "answer": ["对"],
+    "explanation": "三次握手可防止历史连接请求造成资源浪费。",
+    "difficulty": 2,
+    "knowledge": "握手必要性"
+  },
+  {
+    "type": "tf",
+    "topic": "DNS HTTP FTP SMTP",
+    "stem": "DNS主要采用UDP协议进行域名查询，但在区域传送时使用TCP协议以保证可靠性。",
+    "answer": ["对"],
+    "explanation": "普通查询用UDP 53，区域传送用TCP。",
+    "difficulty": 3,
+    "knowledge": "DNS传输协议"
+  },
+  {
+    "type": "tf",
+    "topic": "协议与设备",
+    "stem": "ICMP差错报告报文中的源点抑制报文目前已被广泛使用以控制网络拥塞。",
+    "answer": ["错"],
+    "explanation": "源点抑制报文已不再使用。",
+    "difficulty": 3,
+    "knowledge": "ICMP报文类型"
+  },
+  {
+    "type": "tf",
+    "topic": "IP地址与子网",
+    "stem": "IPv6地址长度为128位，通常采用冒号十六进制记法表示。",
+    "answer": ["对"],
+    "explanation": "IPv6为128位，用冒号分隔十六进制段。",
+    "difficulty": 1,
+    "knowledge": "IPv6格式"
+  },
+  {
+    "type": "tf",
+    "topic": "路由协议",
+    "stem": "RIP协议通过周期性向邻居发送完整路由表来交换路由信息，其收敛速度较快且不易出现环路。",
+    "answer": ["错"],
+    "explanation": "RIP收敛慢，且存在路由环路问题。",
+    "difficulty": 2,
+    "knowledge": "RIP缺点"
+  },
+  {
+    "type": "tf",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "在OSI模型中，同一主机内相邻层之间通过接口进行交互，不同主机的对等层之间通过协议通信。",
+    "answer": ["对"],
+    "explanation": "相邻层用接口/SAP，对等层用协议。",
+    "difficulty": 2,
+    "knowledge": "层次交互"
+  },
+  {
+    "type": "tf",
+    "topic": "应用层协议",
+    "stem": "HTTPS是在HTTP与TCP之间加入了SSL/TLS安全层，其默认端口为443。",
+    "answer": ["对"],
+    "explanation": "HTTPS通过TLS加密，默认443端口。",
+    "difficulty": 1,
+    "knowledge": "HTTPS"
+  },
+  {
+    "type": "tf",
+    "topic": "TCP与UDP",
+    "stem": "TCP和UDP的端口号均为16位，取值范围是0到65535。",
+    "answer": ["对"],
+    "explanation": "传输层端口号16位，范围0~65535。",
+    "difficulty": 2,
+    "knowledge": "端口号范围"
+  },
+  {
+    "type": "tf",
+    "topic": "协议与设备",
+    "stem": "交换机根据IP地址转发数据帧，因此可以用于连接不同的IP子网。",
+    "answer": ["错"],
+    "explanation": "二层交换机按MAC转发，连接不同子网需路由器。",
+    "difficulty": 2,
+    "knowledge": "交换机工作层"
+  },
+  {
+    "type": "tf",
+    "topic": "IP地址与子网",
+    "stem": "子网掩码中连续1的个数决定了网络号的长度，主机号部分全0表示网络地址。",
+    "answer": ["对"],
+    "explanation": "掩码1对应网络位，主机位全0为网络地址。",
+    "difficulty": 2,
+    "knowledge": "子网掩码"
+  },
+  {
+    "type": "tf",
+    "topic": "应用层协议",
+    "stem": "HTTP/1.1默认采用持久连接，可以在一个TCP连接上传输多个请求和响应。",
+    "answer": ["对"],
+    "explanation": "HTTP/1.1默认keep-alive持久连接。",
+    "difficulty": 2,
+    "knowledge": "持久连接"
+  },
+  {
+    "type": "tf",
+    "topic": "协议与设备",
+    "stem": "路由器在转发分组时若发现目的网络不可达，会向源主机发送ICMP超时报文。",
+    "answer": ["错"],
+    "explanation": "目的不可达应发ICMP终点不可达报文。",
+    "difficulty": 3,
+    "knowledge": "ICMP差错报文"
+  },
+  {
+    "type": "tf",
+    "topic": "DNS HTTP FTP SMTP",
+    "stem": "DNS的递归查询是指本地域名服务器代替主机向其他域名服务器逐级查询并返回最终结果。",
+    "answer": ["对"],
+    "explanation": "递归查询由服务器代为完成全部查询。",
+    "difficulty": 2,
+    "knowledge": "递归查询"
+  },
+  {
+    "type": "tf",
+    "topic": "TCP与UDP",
+    "stem": "TCP协议的首部长度是固定的20字节，不能包含选项字段。",
+    "answer": ["错"],
+    "explanation": "TCP首部可变长，最长可达60字节。",
+    "difficulty": 2,
+    "knowledge": "TCP首部"
+  },
+  {
+    "type": "tf",
+    "topic": "路由协议",
+    "stem": "BGP协议用于自治系统之间交换路由信息，属于外部网关协议。",
+    "answer": ["对"],
+    "explanation": "BGP为AS间的外部网关协议。",
+    "difficulty": 1,
+    "knowledge": "BGP定位"
+  },
+  {
+    "type": "tf",
+    "topic": "OSI与TCP/IP分层",
+    "stem": "TCP/IP模型中应用层把OSI模型的会话层和表示层功能合并到了应用层中。",
+    "answer": ["对"],
+    "explanation": "TCP/IP应用层对应OSI高三层。",
+    "difficulty": 1,
+    "knowledge": "模型合并"
+  },
+  {
+    "type": "tf",
+    "topic": "应用层协议",
+    "stem": "FTP的主动模式下，服务器使用20端口主动连接客户端的数据端口。",
+    "answer": ["对"],
+    "explanation": "PORT主动模式由服务器20端口发起数据连接。",
+    "difficulty": 2,
+    "knowledge": "FTP主动模式"
+  },
+  {
+    "type": "tf",
+    "topic": "协议与设备",
+    "stem": "以太网交换机通过自学习建立MAC地址表，其转发决策基于数据帧中的目的MAC地址。",
+    "answer": ["对"],
+    "explanation": "交换机自学习源MAC，按目的MAC转发。",
+    "difficulty": 2,
+    "knowledge": "交换机自学习"
+  },
+  {
+    "type": "tf",
+    "topic": "三次握手四次挥手",
+    "stem": "TCP四次挥手过程中，主动关闭方在TIME_WAIT状态需要等待2MSL时间才能进入CLOSED状态。",
+    "answer": ["对"],
+    "explanation": "等待2MSL确保最后ACK到达并清除旧报文。",
+    "difficulty": 2,
+    "knowledge": "TIME_WAIT"
+  },
+  {
+    "type": "tf",
+    "topic": "IP地址与子网",
+    "stem": "NAT技术只能实现多台内部主机共享一个公网IP地址访问外部网络，外部主机无法主动访问内网主机。",
+    "answer": ["对"],
+    "explanation": "NAPT转换表由内向外建立，外网不能主动连入。",
+    "difficulty": 2,
+    "knowledge": "NAT"
+  },
+  {
+    "type": "tf",
+    "topic": "DNS HTTP FTP SMTP",
+    "stem": "邮件发送过程中，用户代理既可以先发给发送方邮件服务器，也可以直接发给接收方邮件服务器。",
+    "answer": ["对"],
+    "explanation": "用户代理可直接投递或经本地邮件服务器转发。",
+    "difficulty": 3,
+    "knowledge": "邮件传输过程"
+  },
+  {
+    "type": "tf",
+    "topic": "TCP与UDP",
+    "stem": "TCP的慢开始算法中，拥塞窗口按指数规律增长，每经过一个往返时延即翻倍。",
+    "answer": ["对"],
+    "explanation": "慢开始每RTT拥塞窗口加倍，呈指数增长。",
+    "difficulty": 3,
+    "knowledge": "慢开始"
+  }
+]

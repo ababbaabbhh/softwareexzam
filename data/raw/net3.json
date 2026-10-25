@@ -1,0 +1,372 @@
+[
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在DNS系统中，将域名直接映射为IPv4地址的资源记录类型是（　）。",
+    "options": ["A记录", "AAAA记录", "CNAME记录", "PTR记录"],
+    "answer": ["A"],
+    "explanation": "A记录把域名映射为IPv4地址；AAAA对应IPv6，CNAME设置别名，PTR用于IP到域名的反向解析。",
+    "difficulty": 1,
+    "knowledge": "DNS记录"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "下列关于DNS资源记录的叙述中，正确的有（　）。",
+    "options": [
+      "MX记录指明该域的邮件交换服务器",
+      "PTR记录用于把域名解析为IPv4地址",
+      "CNAME记录用于为一个域名设置别名",
+      "AAAA记录把域名映射为IPv4地址"
+    ],
+    "answer": ["A", "C"],
+    "explanation": "MX指向该域的邮件交换服务器，CNAME实现别名；PTR做反向解析，AAAA映射IPv6地址。",
+    "difficulty": 2,
+    "knowledge": "DNS记录"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "主机向本地域名服务器发出查询后，由本地域名服务器依次向根、顶级和权威域名服务器逐级发起查询，这种查询方式是（　）。",
+    "options": ["递归查询", "迭代查询", "反向查询", "广播查询"],
+    "answer": ["B"],
+    "explanation": "本地域名服务器代为逐级查询属迭代查询；主机到本地域名服务器的查询通常才是递归查询。",
+    "difficulty": 3,
+    "knowledge": "DNS解析"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "HTTP/1.1中，下列请求方法中具有幂等性且通常用于整体替换目标资源的是（　）。",
+    "options": ["POST", "PUT", "PATCH", "CONNECT"],
+    "answer": ["B"],
+    "explanation": "PUT按URI整体替换资源且幂等；POST非幂等，PATCH做局部更新，CONNECT用于建立隧道。",
+    "difficulty": 2,
+    "knowledge": "HTTP方法"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "HTTP响应中的状态码404表示（　）。",
+    "options": ["请求成功并返回内容", "请求的资源不存在", "服务器内部发生错误", "需要客户端提供身份认证"],
+    "answer": ["B"],
+    "explanation": "404 Not Found表示服务器找不到请求的资源；200为成功，500为内部错误，401要求认证。",
+    "difficulty": 1,
+    "knowledge": "HTTP状态码"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "反向代理服务器等待上游应用服务器响应超时时，通常向客户端返回的状态码是（　）。",
+    "options": ["500", "502", "503", "504"],
+    "answer": ["D"],
+    "explanation": "504 Gateway Timeout表示网关等待上游响应超时；502为上游返回无效响应，503为服务不可用。",
+    "difficulty": 3,
+    "knowledge": "HTTP状态码"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "HTTPS默认使用的端口号是（　）。",
+    "options": ["21", "80", "443", "8080"],
+    "answer": ["C"],
+    "explanation": "HTTPS在TCP 443端口上运行，由TLS记录层之上承载HTTP报文，80为HTTP默认端口。",
+    "difficulty": 1,
+    "knowledge": "HTTPS协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在HTTPS通信过程中，服务器数字证书的主要作用是（　）。",
+    "options": [
+      "对应用层报文进行对称加密",
+      "向客户端证明服务器身份并分发其公钥",
+      "压缩HTTP报文以提高传输效率",
+      "替代TCP为上层提供可靠传输"
+    ],
+    "answer": ["B"],
+    "explanation": "证书由CA签发，绑定服务器身份与公钥，客户端校验后可安全协商会话密钥。",
+    "difficulty": 2,
+    "knowledge": "HTTPS协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "FTP主动模式下，服务器用于建立数据连接的默认端口号是（　）。",
+    "options": ["20", "21", "22", "69"],
+    "answer": ["A"],
+    "explanation": "主动模式中服务器用21端口建控制连接，并用自己的20端口主动连接客户端的数据端口。",
+    "difficulty": 2,
+    "knowledge": "FTP模式"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "下列关于FTP主动模式与被动模式的叙述中，正确的有（　）。",
+    "options": [
+      "主动模式下由服务器用20端口主动连接客户端的数据端口",
+      "被动模式下由客户端主动连接服务器开放的随机数据端口",
+      "两种模式的控制连接均由服务器发起",
+      "被动模式下不再需要建立控制连接"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "主动模式服务器发起数据连接，被动模式客户端发起；两种模式的控制连接都由客户端发起。",
+    "difficulty": 3,
+    "knowledge": "FTP模式"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "SMTP协议默认使用的TCP端口号是（　）。",
+    "options": ["25", "53", "110", "143"],
+    "answer": ["A"],
+    "explanation": "SMTP用TCP 25端口在邮件服务器之间及客户端与服务器之间传送邮件；53为DNS，110为POP3。",
+    "difficulty": 1,
+    "knowledge": "SMTP协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "与POP3相比，IMAP协议的主要特点是（　）。",
+    "options": [
+      "邮件下载到本地后服务器上立即删除",
+      "邮件保存在服务器上，支持多客户端在线同步操作",
+      "只支持发送邮件而不支持接收邮件",
+      "使用UDP传输，不保证可靠性"
+    ],
+    "answer": ["B"],
+    "explanation": "IMAP邮件驻留服务器并支持文件夹操作和多端同步；POP3通常下载后删除，二者均用TCP。",
+    "difficulty": 2,
+    "knowledge": "邮件协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "IMAP协议默认使用的TCP端口号是（　）。",
+    "options": ["25", "110", "143", "443"],
+    "answer": ["C"],
+    "explanation": "IMAP默认使用TCP 143端口；110为POP3，25为SMTP，993为IMAP over TLS。",
+    "difficulty": 2,
+    "knowledge": "邮件协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "DHCP客户端首次获取IP地址时，报文交互的正确顺序是（　）。",
+    "options": [
+      "DHCPDISCOVER→DHCPOFFER→DHCPREQUEST→DHCPACK",
+      "DHCPOFFER→DHCPDISCOVER→DHCPACK→DHCPREQUEST",
+      "DHCPREQUEST→DHCPOFFER→DHCPDISCOVER→DHCPACK",
+      "DHCPDISCOVER→DHCPREQUEST→DHCPOFFER→DHCPACK"
+    ],
+    "answer": ["A"],
+    "explanation": "即DORA过程：发现、提供、请求、确认四个报文依次交互完成地址分配。",
+    "difficulty": 2,
+    "knowledge": "DHCP协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "下列关于DHCP的叙述中，正确的是（　）。",
+    "options": [
+      "广播报文不能跨路由器，跨网段分配地址需配置DHCP中继",
+      "客户端获得的IP地址永久有效，不会到期",
+      "DHCP使用TCP的67和68端口交互报文",
+      "DHCPACK报文由客户端发送给服务器"
+    ],
+    "answer": ["A"],
+    "explanation": "DHCP靠广播交互，跨网段须由中继代理转发；地址有租期，使用UDP 67/68端口。",
+    "difficulty": 3,
+    "knowledge": "DHCP协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "Telnet协议存在的主要安全缺陷是（　）。",
+    "options": [
+      "不支持远程登录操作",
+      "数据与登录口令均以明文形式传输",
+      "只能传输文件而不能执行命令",
+      "固定占用带宽过大"
+    ],
+    "answer": ["B"],
+    "explanation": "Telnet使用TCP 23端口明文传送所有内容，口令易被窃听，安全场景应改用SSH。",
+    "difficulty": 1,
+    "knowledge": "Telnet协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "SNMP代理默认使用UDP 161端口接收管理站请求，其主动上报的Trap报文默认使用的端口号是（　）。",
+    "options": ["160", "161", "162", "163"],
+    "answer": ["C"],
+    "explanation": "管理站用161端口下发请求，代理用162端口向管理站发送Trap告警报文。",
+    "difficulty": 2,
+    "knowledge": "SNMP协议"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "下列关于SNMP的叙述中，正确的有（　）。",
+    "options": [
+      "管理站通过GetRequest报文读取代理的被管理对象",
+      "代理在发生异常时通过Trap报文主动向管理站告警",
+      "SetRequest报文由代理发送给管理站",
+      "SNMP依赖TCP提供可靠传输"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "GetRequest由管理站读取对象、Trap由代理主动上报；SetRequest由管理站下发，SNMP基于UDP。",
+    "difficulty": 3,
+    "knowledge": "SNMP协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "IEEE 802.11无线局域网的介质访问控制采用的机制是（　）。",
+    "options": ["CSMA/CD", "CSMA/CA", "令牌环", "时分复用"],
+    "answer": ["B"],
+    "explanation": "无线环境难以检测冲突，802.11采用载波监听多路访问/冲突避免，用确认与退避保障发送。",
+    "difficulty": 2,
+    "knowledge": "WLAN协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在WLAN中，SSID指的是（　）。",
+    "options": ["无线接入点的MAC地址", "无线网络的名称标识", "无线信道编号", "无线加密密钥"],
+    "answer": ["B"],
+    "explanation": "SSID是无线网络的名称标识，客户端据此选择并关联到相应的接入点。",
+    "difficulty": 1,
+    "knowledge": "WLAN基础"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "下列关于WPA2的叙述中，正确的是（　）。",
+    "options": [
+      "采用RC4流密码，安全性低于WEP",
+      "采用AES加密并配合CCMP进行完整性校验",
+      "不提供任何身份认证机制",
+      "只能用于有线以太网"
+    ],
+    "answer": ["B"],
+    "explanation": "WPA2基于AES与CCMP，安全强度明显高于WEP的RC4，并支持PSK或802.1X认证。",
+    "difficulty": 2,
+    "knowledge": "无线安全"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "VPN在公共网络上构建专用通信通道，其安全性主要依靠（　）。",
+    "options": [
+      "提升链路带宽与转发速率",
+      "隧道技术、数据加密与身份认证",
+      "修改路由协议的优先级",
+      "启用DHCP中继代理"
+    ],
+    "answer": ["B"],
+    "explanation": "VPN通过隧道封装、加密和身份认证在公网上传输私有数据，宽带与路由调整不提供安全性。",
+    "difficulty": 2,
+    "knowledge": "VPN技术"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "IPSec体系中，能够对IP数据报载荷提供加密保护的安全协议是（　）。",
+    "options": ["AH", "ESP", "IKE", "GRE"],
+    "answer": ["B"],
+    "explanation": "AH只提供完整性与源认证不加密；ESP可加密并认证；IKE负责协商密钥与SA。",
+    "difficulty": 2,
+    "knowledge": "IPSec"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "下列关于IPSec的叙述中，正确的有（　）。",
+    "options": [
+      "AH对IP数据报提供完整性校验但不加密载荷",
+      "ESP可同时提供加密与完整性保护",
+      "AH和ESP都只支持传输模式",
+      "IPSec必须配合TLS才能建立安全联盟"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "AH不含加密，ESP可加密并认证；两者均可工作于传输模式或隧道模式，SA由IKE协商。",
+    "difficulty": 2,
+    "knowledge": "IPSec"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "防火墙体系中将对外提供Web服务的服务器部署在DMZ区，主要目的是（　）。",
+    "options": [
+      "提高服务器的处理器性能",
+      "隔离内外网，降低内部网络被攻击的风险",
+      "节省公网IP地址的数量",
+      "在服务器之间实现负载均衡"
+    ],
+    "answer": ["B"],
+    "explanation": "DMZ是内外网之间的缓冲安全区，对外服务器被攻破时不易直接威胁内部网络。",
+    "difficulty": 2,
+    "knowledge": "防火墙"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "下列关于入侵检测系统(IDS)的叙述中，正确的是（　）。",
+    "options": [
+      "通常旁路部署，检测到入侵时告警而不直接阻断流量",
+      "必须串接在链路中才能正常工作",
+      "可以完全替代防火墙实施访问控制",
+      "只能检测计算机病毒而无法发现入侵行为"
+    ],
+    "answer": ["A"],
+    "explanation": "IDS以旁路镜像方式监听，侧重检测与告警；串接在线并主动阻断的是入侵防御系统IPS。",
+    "difficulty": 2,
+    "knowledge": "IDS技术"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "排查主机无法访问Internet的故障时，下列命令与其用途对应正确的有（　）。",
+    "options": [
+      "ipconfig用于查看本机IP地址和默认网关配置",
+      "nslookup用于检测网卡链路层的帧错误",
+      "tracert用于跟踪数据包到达目标所经过的路由",
+      "netstat用于测试到目标主机的往返时延"
+    ],
+    "answer": ["A", "C"],
+    "explanation": "ipconfig查看地址配置，tracert跟踪路径；nslookup用于域名解析测试，netstat查看连接状态。",
+    "difficulty": 2,
+    "knowledge": "故障排查"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "主机A经一条带宽为100Mb/s的链路向主机B发送一个1000字节的分组，忽略传播时延与处理时延，其发送时延约为（　）。",
+    "options": ["8μs", "80μs", "800μs", "1ms"],
+    "answer": ["B"],
+    "explanation": "1000字节即8000bit，8000÷100×10⁶=80μs，发送时延等于数据长度除以带宽。",
+    "difficulty": 3,
+    "knowledge": "性能指标"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "一条链路的传播时延为20ms、带宽为100Mb/s，则其时延带宽积为（　）。",
+    "options": ["20kbit", "200kbit", "2Mbit", "20Mbit"],
+    "answer": ["C"],
+    "explanation": "时延带宽积＝20×10⁻³s×100×10⁶b/s＝2×10⁶bit，即2Mbit，表示链路上可容纳的比特数。",
+    "difficulty": 3,
+    "knowledge": "性能指标"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "某链路带宽为10Mb/s，实测端到端吞吐量为2Mb/s，则吞吐量与带宽之比约为（　）。",
+    "options": ["20%", "40%", "50%", "80%"],
+    "answer": ["A"],
+    "explanation": "吞吐量2Mb/s除以带宽10Mb/s等于20%，说明该链路实际利用率较低。",
+    "difficulty": 3,
+    "knowledge": "吞吐量"
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "将二进制数 10110110 转换为十六进制数，结果是（ ）。",
+    "options": ["A6", "C6", "6B", "B6"],
+    "answer": ["D"],
+    "explanation": "按四位一组分组：1011对应B，0110对应6，故结果为B6。",
+    "difficulty": 1,
+    "knowledge": "进制转换"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "将十进制数 137 转换为八进制数，结果是（ ）。",
+    "options": ["211", "207", "213", "171"],
+    "answer": ["A"],
+    "explanation": "137除以8取余得：137=2×64+1×8+1，故八进制为211。",
+    "difficulty": 2,
+    "knowledge": "进制转换"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "用8位补码表示十进制数 -37，其编码为（ ）。",
+    "options": ["11011010", "11011011", "10100101", "11011100"],
+    "answer": ["B"],
+    "explanation": "+37为00100101，按位取反得11011010，再加1得11011011。",
+    "difficulty": 2,
+    "knowledge": "补码表示"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "用8位移码表示十进制数 -1，其编码为（ ）。",
+    "options": ["11111111", "01111111", "10000000", "10000001"],
+    "answer": ["B"],
+    "explanation": "移码等于真值加偏移量128：-1+128=127，即01111111。",
+    "difficulty": 3,
+    "knowledge": "移码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "IEEE 754 单精度浮点数由数符、阶码和尾数三部分组成，其位数分别为（ ）。",
+    "options": ["1、11、52", "1、7、24", "1、8、24", "1、8、23"],
+    "answer": ["D"],
+    "explanation": "单精度为32位：数符1位、阶码8位（移码）、尾数23位。",
+    "difficulty": 1,
+    "knowledge": "IEEE754格式"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "十进制数 0.5 用 IEEE 754 单精度浮点数表示，其机器码（十六进制）为（ ）。",
+    "options": ["3F800000", "3E800000", "40000000", "3F000000"],
+    "answer": ["D"],
+    "explanation": "0.5=1.0×2^-1，阶码为-1+127=126=01111110，尾数全0，得3F000000。",
+    "difficulty": 3,
+    "knowledge": "浮点编码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "8421码为 10010111，其表示的十进制数是（ ）。",
+    "options": ["87", "97", "151", "150"],
+    "answer": ["B"],
+    "explanation": "每4位二进制对应1位十进制数：1001为9，0111为7，故为97。",
+    "difficulty": 1,
+    "knowledge": "BCD码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "已知大写字母 A 的 ASCII 码值为65，则大写字母 D 的 ASCII 码值为（ ）。",
+    "options": ["66", "67", "68", "69"],
+    "answer": ["C"],
+    "explanation": "大写字母在ASCII表中连续排列，D比A大3，65+3=68。",
+    "difficulty": 1,
+    "knowledge": "ASCII码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "关于标准 ASCII 码，正确的叙述是（ ）。",
+    "options": ["用7位二进制编码，可表示128个字符", "用8位二进制编码，可表示256个字符", "用7位二进制编码，可表示127个字符", "用8位二进制编码，可表示128个字符"],
+    "answer": ["A"],
+    "explanation": "标准ASCII用7位二进制编码，共2^7=128种组合，表示128个字符。",
+    "difficulty": 2,
+    "knowledge": "ASCII码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "汉字“中”的国标码为 5650H，则其机内码为（ ）。",
+    "options": ["5650H", "D6D0H", "D750H", "D6CFH"],
+    "answer": ["B"],
+    "explanation": "机内码为国标码两字节各加80H：56H+80H=D6H，50H+80H=D0H。",
+    "difficulty": 2,
+    "knowledge": "汉字机内码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "存储一个 24×24 点阵的汉字字形码，需要的字节数是（ ）。",
+    "options": ["48", "64", "72", "576"],
+    "answer": ["C"],
+    "explanation": "点阵共24×24=576个点，每8点占1字节，576/8=72字节。",
+    "difficulty": 3,
+    "knowledge": "汉字字形码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "数据位为 1011001，若采用奇校验，则校验位的取值为（ ）。",
+    "options": ["0", "1", "0或1均可", "无法确定"],
+    "answer": ["B"],
+    "explanation": "数据中已有4个1（偶数），奇校验要求总1个数为奇数，故校验位取1。",
+    "difficulty": 2,
+    "knowledge": "奇偶校验"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "关于奇偶校验码，正确的叙述是（ ）。",
+    "options": ["既能检测错误又能纠正错误", "可以通过校验位直接定位出错位置", "只能发现1位（奇数个）出错，不能纠错", "能发现偶数个数据位同时出错"],
+    "answer": ["C"],
+    "explanation": "奇偶校验只能发现奇数个位出错，不能定位和纠正，偶数个错会漏检。",
+    "difficulty": 3,
+    "knowledge": "奇偶校验"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "对4位数据进行海明校验，校验位至少需要（ ）。",
+    "options": ["3", "2", "4", "5"],
+    "answer": ["A"],
+    "explanation": "校验位r须满足2^r≥m+r+1，m=4时2^3=8≥8，故至少3位。",
+    "difficulty": 2,
+    "knowledge": "海明码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "对8位数据进行海明校验，校验位至少需要（ ）。",
+    "options": ["3位", "5位", "4位", "6位"],
+    "answer": ["C"],
+    "explanation": "m=8时，r=3有8≥12不成立，r=4有16≥13成立，故至少4位。",
+    "difficulty": 3,
+    "knowledge": "海明码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "采用CRC校验，生成多项式为 G(x)=x³+x+1，则需在数据后添加的校验位位数是（ ）。",
+    "options": ["2", "4", "3", "8"],
+    "answer": ["C"],
+    "explanation": "生成多项式最高次幂为3，故校验位为3位，对应除数为1011。",
+    "difficulty": 2,
+    "knowledge": "CRC码"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "CPU 中完成算术运算和逻辑运算的部件是（ ）。",
+    "options": ["控制器", "指令寄存器IR", "算术逻辑单元ALU", "程序计数器PC"],
+    "answer": ["C"],
+    "explanation": "运算器中的ALU负责算术与逻辑运算，控制器负责产生控制命令。",
+    "difficulty": 1,
+    "knowledge": "运算器ALU"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "关于程序计数器 PC，正确的叙述是（ ）。",
+    "options": ["存放当前正在执行的指令", "存放操作数的地址", "存放CPU的状态标志", "存放下一条将要执行指令的地址"],
+    "answer": ["D"],
+    "explanation": "PC存放下一条待执行指令的地址，取指后按指令长度自动递增。",
+    "difficulty": 2,
+    "knowledge": "程序计数器PC"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "下列寄存器中，用户程序不能直接访问的是（ ）。",
+    "options": ["通用寄存器", "累加器", "程序计数器PC", "指令寄存器IR"],
+    "answer": ["D"],
+    "explanation": "IR由CPU自动使用，对程序员透明；通用寄存器和PC可由指令间接操作。",
+    "difficulty": 2,
+    "knowledge": "指令寄存器IR"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某计算机指令的操作码字段为8位，则该系统最多可定义（ ）条不同的指令。",
+    "options": ["64", "256", "128", "512"],
+    "answer": ["B"],
+    "explanation": "8位操作码可产生2^8=256种编码，故最多256条不同指令。",
+    "difficulty": 2,
+    "knowledge": "操作码字段"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某机指令字长为16位，其中操作码占6位，其余为一个二地址格式的两个地址码，则每个地址码的位数是（ ）。",
+    "options": ["5", "4", "6", "10"],
+    "answer": ["A"],
+    "explanation": "地址码总位数为16-6=10位，两个地址码各占5位。",
+    "difficulty": 3,
+    "knowledge": "地址码字段"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "操作数直接包含在指令中的寻址方式是（ ）。",
+    "options": ["直接寻址", "间接寻址", "立即寻址", "变址寻址"],
+    "answer": ["C"],
+    "explanation": "立即寻址的操作数就放在指令的地址码字段中，取指后即可获得。",
+    "difficulty": 1,
+    "knowledge": "立即寻址"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "为使程序在内存中浮动（重新定位）后转移指令仍能正确执行，宜采用的寻址方式是（ ）。",
+    "options": ["直接寻址", "立即寻址", "间接寻址", "相对寻址"],
+    "answer": ["D"],
+    "explanation": "相对寻址的有效地址为PC内容加形式地址，与程序存放位置无关。",
+    "difficulty": 3,
+    "knowledge": "相对寻址"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "一个指令周期通常包含取指、间址、执行和中断等阶段，其中不一定出现的是（ ）。",
+    "options": ["间址周期", "取指周期", "执行周期", "取指和执行周期"],
+    "answer": ["A"],
+    "explanation": "取指和执行周期每条指令必有，间址周期与中断周期仅在需要时出现。",
+    "difficulty": 3,
+    "knowledge": "指令周期"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "下列叙述中，属于 RISC 指令系统特点的是（ ）。",
+    "options": ["指令数量多，格式复杂", "主要采用微程序控制器实现", "指令长度固定、寻址方式少，便于流水线实现", "单条指令功能强，执行时间差异大"],
+    "answer": ["C"],
+    "explanation": "RISC指令数量少、长度固定、寻址方式少、寄存器多，利于流水线。",
+    "difficulty": 3,
+    "knowledge": "RISC特点"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于原码、反码、补码和移码，下列叙述正确的有（ ）。",
+    "options": ["正数的原码、反码和补码三者相同", "8位补码可表示-128至+127共256个整数", "移码的符号位与对应补码的符号位相同", "补码进行加减运算时符号位不参与运算"],
+    "answer": ["A", "B"],
+    "explanation": "正数三码相同；8位补码范围-128~127；移码符号位与补码相反；补码符号位参与运算。",
+    "difficulty": 2,
+    "knowledge": "原码反码补码"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于 CPU 各组成部分的功能，下列叙述正确的有（ ）。",
+    "options": ["程序计数器PC存放将要执行的下一条指令的地址", "指令寄存器IR保存当前正在执行的指令，用户程序不能直接访问", "算术逻辑单元ALU负责产生各种控制命令", "通用寄存器组是主存储器的组成部分"],
+    "answer": ["A", "B"],
+    "explanation": "PC存下条指令地址，IR存当前指令且对程序员透明；控制命令由控制器产生。",
+    "difficulty": 2,
+    "knowledge": "CPU组成"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于汉字编码，下列叙述正确的有（ ）。",
+    "options": ["汉字机内码由国标码的两个字节各加80H得到", "一个24×24点阵汉字的字形码需占用72字节", "汉字的输入码（如拼音码）与其机内码完全相同", "汉字国标码两个字节的最高位均为1"],
+    "answer": ["A", "B"],
+    "explanation": "机内码为国标码加8080H；字形码24×24/8=72字节；输入码与机内码不同，国标码最高位为0。",
+    "difficulty": 2,
+    "knowledge": "汉字编码"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于各种寻址方式，下列叙述正确的有（ ）。",
+    "options": ["立即寻址的操作数直接包含在指令中，取出指令即可得到操作数", "寄存器寻址的操作数存放在通用寄存器中，执行时无需访问主存", "间接寻址只需访问一次主存即可取得操作数", "相对寻址的有效地址等于形式地址本身"],
+    "answer": ["A", "B"],
+    "explanation": "立即寻址操作数在指令中；寄存器寻址不访存；间接寻址需两次访存；相对寻址为PC加形式地址。",
+    "difficulty": 2,
+    "knowledge": "寻址方式"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于 CISC 与 RISC，下列叙述正确的有（ ）。",
+    "options": ["RISC 的指令长度通常固定，有利于流水线实现", "RISC 多采用 Load/Store 结构，只有取数和存数指令访问主存", "CISC 的指令数量少，寻址方式单一", "RISC 一般采用微程序控制器实现"],
+    "answer": ["A", "B"],
+    "explanation": "RISC指令定长、Load/Store结构、多用硬布线控制；CISC指令多、寻址方式丰富。",
+    "difficulty": 2,
+    "knowledge": "CISC与RISC"
+  }
+]

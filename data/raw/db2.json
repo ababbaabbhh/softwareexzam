@@ -1,0 +1,417 @@
+[
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在 CREATE TABLE 语句中，用于实现参照完整性的子句是（　）。",
+    "options": ["PRIMARY KEY", "FOREIGN KEY … REFERENCES", "UNIQUE", "CHECK"],
+    "answer": ["B"],
+    "explanation": "FOREIGN KEY…REFERENCES 定义外键，要求本表该属性值必须是所参照表的主键值，实现参照完整性。",
+    "difficulty": 1,
+    "knowledge": "完整性约束"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "已存在表 Student(Sno, Sname)。现要向该表增加一个整型属性 Sage，正确的 SQL 语句是（　）。",
+    "options": [
+      "ALTER TABLE Student INSERT Sage INT",
+      "UPDATE TABLE Student ADD Sage INT",
+      "ALTER TABLE Student ADD Sage INT",
+      "INSERT INTO Student ADD Sage INT"
+    ],
+    "answer": ["C"],
+    "explanation": "ALTER TABLE … ADD 用于向已存在的表增加列；INSERT 和 UPDATE 分别用于插入元组和修改数据。",
+    "difficulty": 2,
+    "knowledge": "表结构修改"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "若关系 Student 的主键为 Sno，则 DBMS 自动保证（　）。",
+    "options": [
+      "Sno 可以为空但取值唯一",
+      "Sno 的值必须连续递增",
+      "Sno 必须由用户手工输入且不可修改",
+      "Sno 取值唯一且不允许为空"
+    ],
+    "answer": ["D"],
+    "explanation": "主键实现实体完整性，要求主键属性组非空且唯一，由 DBMS 自动检查。",
+    "difficulty": 1,
+    "knowledge": "实体完整性"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设 Student 表中已有数据，执行 DELETE FROM Student; 与执行 DROP TABLE Student; 的区别是（　）。",
+    "options": [
+      "两者都只删除数据并保留表结构",
+      "前者删除表结构，后者只删除数据",
+      "前者删除全部元组但保留表结构，后者删除表及其数据",
+      "两者都删除表定义，但后者保留数据"
+    ],
+    "answer": ["C"],
+    "explanation": "DELETE 属于 DML，只删除元组，表结构仍在；DROP 属于 DDL，删除表定义及其数据。",
+    "difficulty": 1,
+    "knowledge": "DML删除"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设 Student(Sno, Sname, Sage) 中某些元组的 Sage 为 NULL。执行 SELECT * FROM Student WHERE Sage <> 20; 的结果是（　）。",
+    "options": [
+      "只返回 Sage 不等于 20 的元组，Sage 为 NULL 的元组不出现",
+      "返回 Sage 不等于 20 的元组以及 Sage 为 NULL 的元组",
+      "返回表中的全部元组",
+      "出现语法错误，不能对 NULL 使用 <> 比较"
+    ],
+    "answer": ["A"],
+    "explanation": "含 NULL 的比较结果为 UNKNOWN，WHERE 只保留条件为真的元组，故 Sage 为 NULL 的元组被过滤。",
+    "difficulty": 2,
+    "knowledge": "NULL处理"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "关于 SQL 查询中 WHERE 子句与 HAVING 子句的叙述，正确的是（　）。",
+    "options": [
+      "WHERE 可使用聚合函数，HAVING 不能使用聚合函数",
+      "WHERE 作用于分组前的元组，HAVING 作用于分组后的组，聚合函数不能出现在 WHERE 中",
+      "两者作用完全相同，可以互相替换",
+      "HAVING 必须与 ORDER BY 一起使用"
+    ],
+    "answer": ["B"],
+    "explanation": "WHERE 在分组前筛选元组，HAVING 在分组后筛选组，聚合函数只能出现在 HAVING 或选择列表中。",
+    "difficulty": 2,
+    "knowledge": "GROUP BY"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设选课表 SC(Sno, Cno, Grade) 的元组为 ('S1','C1',80)、('S1','C2',90)、('S2','C1',70)、('S2','C2',NULL)。执行 SELECT Sno, COUNT(*), COUNT(Grade), AVG(Grade) FROM SC GROUP BY Sno; 对 S2 的输出是（　）。",
+    "options": [
+      "S2, 2, 2, 80",
+      "S2, 1, 1, 70",
+      "S2, 2, 1, 70",
+      "S2, 2, 1, NULL"
+    ],
+    "answer": ["C"],
+    "explanation": "COUNT(*) 统计全部元组为 2；COUNT(Grade) 与 AVG(Grade) 忽略 NULL，故分别为 1 和 70。",
+    "difficulty": 3,
+    "knowledge": "聚合函数"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系 R(A,B,C) 有 4 个元组，关系 S(B,D,E) 有 5 个元组，则 R 与 S 自然连接的结果属性列数为（　）。",
+    "options": ["6", "3", "5", "8"],
+    "answer": ["C"],
+    "explanation": "自然连接在公共属性 B 上做等值连接并去掉重复属性，列数为 3+3-1=5。",
+    "difficulty": 2,
+    "knowledge": "自然连接"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设 Student 表有 3 名学生 S1、S2、S3，SC 表有 4 条选课记录且只涉及 S1 和 S2（各 2 条），S3 未选课。执行 SELECT Student.Sno, SC.Cno FROM Student LEFT JOIN SC ON Student.Sno=SC.Sno; 结果元组数为（　）。",
+    "options": ["4", "5", "3", "7"],
+    "answer": ["B"],
+    "explanation": "左外连接保留左表全部元组，S3 无匹配仍保留一行且 Cno 取 NULL，故 4+1=5。",
+    "difficulty": 3,
+    "knowledge": "外连接"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设 Student(Sno, Sname) 与 SC(Sno, Cno)。语句 SELECT Sno FROM Student S WHERE EXISTS (SELECT * FROM SC WHERE SC.Sno=S.Sno); 等价于（　）。",
+    "options": [
+      "SELECT Sno FROM Student WHERE Sno NOT IN (SELECT Sno FROM SC);",
+      "SELECT Sno FROM SC WHERE Cno IN (SELECT Sno FROM Student);",
+      "SELECT Sno FROM Student WHERE Sno = (SELECT Sno FROM SC);",
+      "SELECT Sno FROM Student WHERE Sno IN (SELECT Sno FROM SC);"
+    ],
+    "answer": ["D"],
+    "explanation": "EXISTS 相关子查询判断是否存在匹配的选课记录，与 IN 子查询语义相同，均选出至少选修一门课的学生。",
+    "difficulty": 3,
+    "knowledge": "相关子查询"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "语句 SELECT Sno, Sname, Sage FROM Student ORDER BY Sage DESC, Sname ASC; 的含义是（　）。",
+    "options": [
+      "按 Sage 升序排列，Sage 相同时按 Sname 降序排列",
+      "按 Sage 降序排列，Sage 相同时按 Sname 升序排列",
+      "先按 Sname 升序排列，再按 Sage 降序排列",
+      "按 Sage 与 Sname 之和对结果降序排列"
+    ],
+    "answer": ["B"],
+    "explanation": "ORDER BY 中 DESC 表示降序、ASC 表示升序，多列排序时依次比较各列。",
+    "difficulty": 1,
+    "knowledge": "ORDER BY"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "关于视图的叙述，正确的是（　）。",
+    "options": [
+      "视图与基本表一样存储数据，可以脱离基本表存在",
+      "视图一经定义，其定义不能再被修改",
+      "一个视图只能由一个基本表导出",
+      "视图是由基本表导出的虚表，数据库中只保存其定义"
+    ],
+    "answer": ["D"],
+    "explanation": "视图是由基本表或其他视图导出的虚表，数据库只存视图定义，数据仍存放在基本表中。",
+    "difficulty": 1,
+    "knowledge": "视图定义"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "下列视图中，一般不允许对其执行 INSERT 操作的是（　）。",
+    "options": [
+      "由单个基本表经选择和投影得到的视图",
+      "由单个基本表去掉部分列得到的视图",
+      "由单个基本表选取部分行得到的视图",
+      "含有 GROUP BY 子句和聚合函数的视图"
+    ],
+    "answer": ["D"],
+    "explanation": "含聚合、GROUP BY、DISTINCT 的视图无法与基本表元组一一对应，一般不可更新。",
+    "difficulty": 3,
+    "knowledge": "可更新视图"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在 Student 表的 Sname 列上建立索引后，通常的效果是（　）。",
+    "options": [
+      "加快所有查询，且不增加任何存储开销",
+      "既能加快查询，又能自动消除重复的 Sname 值",
+      "加快按 Sname 的等值和范围查询，但插入、删除时维护索引增加开销",
+      "使 Sname 成为该表的主键"
+    ],
+    "answer": ["C"],
+    "explanation": "索引是附加的存取结构，可加速检索，但占用额外存储空间并增加更新维护代价。",
+    "difficulty": 2,
+    "knowledge": "索引作用"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "关于聚集索引的叙述，正确的是（　）。",
+    "options": [
+      "一个表可以建立多个聚集索引",
+      "一个表最多只能建立一个聚集索引，因为表中元组只能按一种物理顺序存放",
+      "聚集索引只能建立在非主属性上",
+      "建立聚集索引后表中元组仍按随机顺序存放"
+    ],
+    "answer": ["B"],
+    "explanation": "聚集索引决定元组的物理存放顺序，一种物理顺序只能由一个聚集索引决定，故每个表最多一个。",
+    "difficulty": 3,
+    "knowledge": "聚集索引"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "关于触发器的叙述，正确的是（　）。",
+    "options": [
+      "必须由用户在 SQL 语句中显式调用才会执行",
+      "只能在查询语句上定义",
+      "由对表的 INSERT、UPDATE、DELETE 事件自动激活，不能显式调用",
+      "触发器执行后不会影响引发它的语句"
+    ],
+    "answer": ["C"],
+    "explanation": "触发器是事件—条件—动作规则，由对表的更新事件隐式激活，应用程序不能直接调用。",
+    "difficulty": 2,
+    "knowledge": "触发器"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在 SC 表上定义行级 AFTER DELETE 触发器，若要引用被删除元组的 Cno 值，正确的写法是（　）。",
+    "options": [":NEW.Cno", ":NEW.Cno 与 :OLD.Cno 均可", "无法在触发器中引用被删除元组的属性", ":OLD.Cno"],
+    "answer": ["D"],
+    "explanation": "DELETE 事件中被删除的旧值通过 OLD（或 :OLD）引用，NEW 只适用于插入和更新。",
+    "difficulty": 3,
+    "knowledge": "触发器变量"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "将常用操作定义成存储过程存放在数据库服务器上，其主要优点是（　）。",
+    "options": [
+      "只能在定义它的会话中使用一次",
+      "在数据库端预编译并存储，减少网络传输，可被多次调用和共享",
+      "比基本表的查询速度慢，仅便于加密",
+      "必须由触发器调用，不能直接执行"
+    ],
+    "answer": ["B"],
+    "explanation": "存储过程预编译后存放在服务器端，多次执行无需重复编译和传输，便于共享与安全管理。",
+    "difficulty": 2,
+    "knowledge": "存储过程"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "语句 GRANT SELECT ON Student TO U1 WITH GRANT OPTION; 的含义是（　）。",
+    "options": [
+      "把 Student 表的所有权限授予 U1",
+      "把 Student 表的查询权限授予 U1，且 U1 可将该权限再授予其他用户",
+      "把 Student 表的查询权限授予 U1，但 U1 不得转授",
+      "允许 U1 修改 Student 表并转授权限"
+    ],
+    "answer": ["B"],
+    "explanation": "WITH GRANT OPTION 允许被授权者把所获得的权限再转授给其他用户。",
+    "difficulty": 2,
+    "knowledge": "GRANT"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "执行 REVOKE SELECT ON Student FROM U1 CASCADE; 中 CASCADE 的作用是（　）。",
+    "options": [
+      "级联收回 U1 转授给其他用户的相关权限",
+      "只收回 U1 的权限，其转授出去的权限仍然保留",
+      "同时删除 U1 基于该表建立的视图",
+      "把 U1 的权限转授给其他用户"
+    ],
+    "answer": ["A"],
+    "explanation": "CASCADE 表示收回权限时一并收回由该用户转授出去的同名权限，避免权限残留。",
+    "difficulty": 3,
+    "knowledge": "REVOKE"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在宿主语言中嵌入 SQL 语句时，SQL 语句一般以 EXEC SQL 引导，其结束标志是（　）。",
+    "options": ["分号或 END_EXEC", "右花括号", "冒号", "GO"],
+    "answer": ["A"],
+    "explanation": "嵌入式 SQL 以 EXEC SQL 开始，以分号或 END_EXEC 结束，具体形式由宿主语言和预编译器约定。",
+    "difficulty": 2,
+    "knowledge": "嵌入式SQL"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "当嵌入式 SQL 的查询返回多行结果时，宿主语言通常采用的逐行处理机制是（　）。",
+    "options": ["视图", "游标", "触发器", "存储过程"],
+    "answer": ["B"],
+    "explanation": "宿主语言一般不支持集合处理，需借助游标按 OPEN、FETCH、CLOSE 步骤逐行读取结果。",
+    "difficulty": 3,
+    "knowledge": "游标"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设 SC(Sno, Cno, Grade)，与 SQL 语句 SELECT DISTINCT Sno FROM SC WHERE Grade>90 等价的关系代数表达式是（　）。",
+    "options": [
+      "σGrade>90(πSno(SC))",
+      "πSno(σGrade>90(SC))",
+      "πSno(SC) 减 σGrade>90(SC)",
+      "πSno(SC 与 σGrade>90(SC) 连接)"
+    ],
+    "answer": ["B"],
+    "explanation": "WHERE 子句对应选择运算，SELECT DISTINCT 对应投影运算，故先做选择再做投影。",
+    "difficulty": 2,
+    "knowledge": "关系代数"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系 R(A,B) 的元组为 (a1,b1)、(a1,b2)、(a2,b1)，关系 S(B) 的元组为 (b1)、(b2)，则 R÷S 的结果是（　）。",
+    "options": ["只含元组 (a2)", "含元组 (a1) 和 (a2)", "空关系", "只含元组 (a1)"],
+    "answer": ["D"],
+    "explanation": "除法结果取在 S 的全部属性值上都有对应组合的 A 值：a1 对应 b1、b2，a2 只有 b1。",
+    "difficulty": 3,
+    "knowledge": "除法运算"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设 SC(Sno, Cno, Grade)。将课程 C1 的所有成绩提高 5 分，正确的语句是（　）。",
+    "options": [
+      "UPDATE SC Grade=Grade+5 WHERE Cno='C1';",
+      "ALTER TABLE SC SET Grade=Grade+5 WHERE Cno='C1';",
+      "UPDATE SC SET Grade=Grade+5 WHERE Cno='C1';",
+      "INSERT INTO SC SET Grade=Grade+5 WHERE Cno='C1';"
+    ],
+    "answer": ["C"],
+    "explanation": "修改表中数据用 UPDATE … SET … WHERE；ALTER 只修改表结构，INSERT 用于插入元组。",
+    "difficulty": 2,
+    "knowledge": "UPDATE语句"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "关于视图，下列说法正确的是（　）。",
+    "options": [
+      "视图是虚表，数据库中只保存视图的定义",
+      "视图中的数据随基本表数据的修改而变化",
+      "任何视图都可以直接执行 INSERT 操作",
+      "视图不能建立在已定义的视图之上"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "视图只存定义，数据取自基本表，故随基本表变化；含聚合等的视图不可更新，视图可嵌套定义。",
+    "difficulty": 1,
+    "knowledge": "视图特性"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "关于 SQL 中的 GRANT 与 REVOKE 语句，下列说法正确的是（　）。",
+    "options": [
+      "REVOKE 只能收回表级权限，不能收回列级权限",
+      "GRANT 用于授予权限，REVOKE 用于收回权限",
+      "带 WITH GRANT OPTION 的被授权用户可将该权限再转授他人",
+      "收回权限后，该用户基于此表建立的视图会立即自动删除"
+    ],
+    "answer": ["B", "C"],
+    "explanation": "GRANT 与 REVOKE 可对表和列授权与收权；WITH GRANT OPTION 允许转授，收权不会自动删视图。",
+    "difficulty": 2,
+    "knowledge": "权限控制"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "关于嵌入式 SQL，下列说法正确的是（　）。",
+    "options": [
+      "嵌入式 SQL 语句一般以 EXEC SQL 引导",
+      "宿主语言变量在 SQL 语句中可直接书写，不需要任何前缀标记",
+      "查询结果多于一行时通常需要使用游标逐行处理",
+      "主变量的数据类型不必与对应的列类型相容"
+    ],
+    "answer": ["A", "C"],
+    "explanation": "嵌入式 SQL 以 EXEC SQL 引导；主变量需加冒号且类型与列相容；多行结果须用游标处理。",
+    "difficulty": 2,
+    "knowledge": "嵌入式SQL"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "关于事务及 SQL 的事务控制语句，下列说法正确的是（　）。",
+    "options": [
+      "COMMIT 使事务中已做的修改永久生效",
+      "ROLLBACK 只撤销事务中最后一条 SQL 语句",
+      "事务开始后，其他用户不能再查询该表",
+      "事务提交之前，其修改对其他事务不可见"
+    ],
+    "answer": ["A", "D"],
+    "explanation": "COMMIT 提交使修改持久化，ROLLBACK 撤销整个事务；未提交的修改对其他事务不可见。",
+    "difficulty": 2,
+    "knowledge": "事务控制"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "设有关系 R(A,B) 与 S(B,C)，下列说法正确的是（　）。",
+    "options": [
+      "R 与 S 做笛卡尔积的结果属性列数为 3",
+      "R 与 S 自然连接的结果属性列数为 3",
+      "自然连接与等值连接完全相同",
+      "R 与 S 没有公共属性时，自然连接即笛卡尔积"
+    ],
+    "answer": ["B", "D"],
+    "explanation": "自然连接去掉重复的公共属性，列数为 2+2-1=3；无公共属性时自然连接退化为笛卡尔积。",
+    "difficulty": 2,
+    "knowledge": "连接运算"
+  }
+]

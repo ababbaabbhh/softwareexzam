@@ -1,0 +1,23 @@
+{
+  "name": "soft-exam-sim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "软考中级·软件设计师 全真模拟考试系统（本地 SQLite + 原生 Web）",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "seed": "node scripts/seed.mjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "node tests/selftest.mjs",
+    "selftest": "node tests/selftest.mjs",
+    "test:ui": "node tests/ui-test.mjs"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "devDependencies": {
+    "pdfjs-dist": "^4.6.82",
+    "playwright": "1.49.0"
+  }
+}

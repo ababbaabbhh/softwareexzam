@@ -1,0 +1,722 @@
+[
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "编译程序的前端通常包括词法分析、语法分析、语义分析和中间代码生成，后端包括代码优化和____生成。",
+    "answer": ["目标代码"],
+    "explanation": "前端与源语言相关，后端与目标机器相关，目标代码生成属于后端。",
+    "difficulty": 2,
+    "knowledge": "编译过程"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "词法分析阶段的输出是____序列，源程序中的单词常用____这一形式化工具来描述。",
+    "answer": ["记号|token", "正规式|正则表达式"],
+    "explanation": "词法分析把字符流转换为记号流，正规式是描述单词的常用工具。",
+    "difficulty": 2,
+    "knowledge": "词法分析"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "正规式 (a|b)*abb 所描述的字符串必须以____结尾。",
+    "answer": ["abb"],
+    "explanation": "该正规式表示由a、b组成且以abb结尾的串。",
+    "difficulty": 2,
+    "knowledge": "正规式"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "将 NFA 确定化为 DFA 常采用____法，转换后 DFA 的每个状态对应原 NFA 的一个状态____。",
+    "answer": ["子集构造|子集", "集合|子集"],
+    "explanation": "子集构造法把NFA的状态集合作为DFA的一个状态。",
+    "difficulty": 2,
+    "knowledge": "NFA确定化"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "最小化 DFA 常采用____法，所谓两个状态等价是指对任意输入串，它们所到达的状态都属于同一____。",
+    "answer": ["分割|划分", "等价类"],
+    "explanation": "分割法按是否终态及后继所属等价类不断细分状态集。",
+    "difficulty": 3,
+    "knowledge": "DFA最小化"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "乔姆斯基把文法分为四类，其中上下文无关文法的每个产生式左部都是____，这类文法所描述的语言可由____自动机识别。",
+    "answer": ["单个非终结符|一个非终结符", "下推|压栈"],
+    "explanation": "2型文法左部为单个非终结符，对应下推自动机。",
+    "difficulty": 2,
+    "knowledge": "文法分类"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "语法树的叶子结点由____组成，若某文法的一个句子存在两棵不同的语法树，则称该文法是____的。",
+    "answer": ["终结符", "二义|歧义"],
+    "explanation": "叶子从左至右构成句型，多棵语法树说明文法有二义性。",
+    "difficulty": 2,
+    "knowledge": "语法树"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "中缀表达式 (a+b)*c-d 对应的后缀表达式为____。",
+    "answer": ["ab+c*d-"],
+    "explanation": "先算a+b，再乘c，最后减d，运算符按运算顺序后置。",
+    "difficulty": 2,
+    "knowledge": "后缀式"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "参数传递中，值传递传递的是实参的____，而引用传递传递的是实参的____。",
+    "answer": ["值|副本", "地址|引用"],
+    "explanation": "值传递形参是实参的副本，引用传递形参与实参共享存储单元。",
+    "difficulty": 1,
+    "knowledge": "参数传递"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "程序的链接方式分为静态链接、装入时动态链接和____动态链接三种。",
+    "answer": ["运行时"],
+    "explanation": "运行时动态链接在程序执行过程中才解析未定义的符号。",
+    "difficulty": 2,
+    "knowledge": "程序链接"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "常用的中间代码形式有后缀式、三地址码、树形表示和____。",
+    "answer": ["四元式"],
+    "explanation": "四元式由算符、第一操作数、第二操作数和结果四部分组成。",
+    "difficulty": 1,
+    "knowledge": "中间代码"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "符号表在____阶段开始建立，主要用来记录源程序中各种名字的____。",
+    "answer": ["词法分析", "属性|信息"],
+    "explanation": "词法分析识别出名字并建表，后续各阶段不断填入属性。",
+    "difficulty": 2,
+    "knowledge": "符号表"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "自顶向下的语法分析常用____分析法，自底向上的语法分析常用____分析法。",
+    "answer": ["递归下降|LL", "算符优先|LR|移进归约"],
+    "explanation": "递归下降与LL属自顶向下，算符优先与LR属自底向上。",
+    "difficulty": 2,
+    "knowledge": "语法分析"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "语义分析阶段的主要任务是进行静态语义检查，其中最典型的是____检查，例如运算对象类型不匹配。",
+    "answer": ["类型"],
+    "explanation": "语义分析检查类型相容、变量是否声明等静态语义问题。",
+    "difficulty": 2,
+    "knowledge": "语义分析"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "与编译方式相比，解释方式不生成____，因而执行效率较____。",
+    "answer": ["目标代码", "低"],
+    "explanation": "解释程序边翻译边执行，不产生目标代码，速度较慢。",
+    "difficulty": 1,
+    "knowledge": "解释与编译"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "编译优化中，删除程序中永远不会被执行的代码称为____消除，把循环体内值不变的表达式移到循环外称为____。",
+    "answer": ["死代码|无用代码", "代码外提|循环不变式外提"],
+    "explanation": "两者分别减少冗余代码和重复计算，且不改变程序语义。",
+    "difficulty": 3,
+    "knowledge": "代码优化"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "一个确定的有限自动机由状态集、输入字母表、____函数、初态和____五部分组成。",
+    "answer": ["状态转换|转移", "终态集|终止状态集"],
+    "explanation": "DFA五元组中初态唯一，终态可为多个。",
+    "difficulty": 2,
+    "knowledge": "有限自动机"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "后缀式又称____式，计算后缀表达式的值通常借助于____。",
+    "answer": ["逆波兰", "栈"],
+    "explanation": "遇操作数入栈，遇运算符弹出两个操作数运算后入栈。",
+    "difficulty": 1,
+    "knowledge": "逆波兰式"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "若文法 G 中 S 经若干步推导出 α，则称 α 是 S 的一个____；若 α 全部由终结符组成，则称 α 为____。",
+    "answer": ["句型", "句子"],
+    "explanation": "句型可含非终结符，全为终结符的句型称为句子。",
+    "difficulty": 3,
+    "knowledge": "句型与句子"
+  },
+  {
+    "type": "fill",
+    "topic": "PL",
+    "stem": "把实参的地址传给形参，被调函数中通过形参修改的就是实参本身，这种参数传递方式称为____调用。",
+    "answer": ["引用|传地址|传引用"],
+    "explanation": "引用调用形参与实参共用一个存储单元，修改互相影响。",
+    "difficulty": 1,
+    "knowledge": "引用调用"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "二进制数 110101 对应的十进制数是____，十进制数 45 对应的二进制数是____。",
+    "answer": ["53", "101101"],
+    "explanation": "按权展开得53；45=32+8+4+1，故为101101。",
+    "difficulty": 1,
+    "knowledge": "进制转换"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "8 位补码所能表示的整数范围是____。",
+    "answer": ["-128~127|-128到127|-128～127"],
+    "explanation": "n位补码表示范围为-2^(n-1)到2^(n-1)-1。",
+    "difficulty": 2,
+    "knowledge": "补码范围"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "对于负数，其反码是原码除符号位外各位____，补码则是在反码末位____。",
+    "answer": ["取反|按位取反", "加1"],
+    "explanation": "负数反码符号位不变、数值位取反，补码为反码加1。",
+    "difficulty": 1,
+    "knowledge": "原码反码补码"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "移码通常用于表示浮点数的____，其编码值等于真值加上一个固定的____。",
+    "answer": ["阶码|指数", "偏移量|常数|偏置值"],
+    "explanation": "移码便于比较阶码大小，等于真值加偏移量。",
+    "difficulty": 3,
+    "knowledge": "移码"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "浮点数由____和尾数两部分组成，其中尾数通常采用____形式表示。",
+    "answer": ["阶码|指数", "规格化|规格化定点小数"],
+    "explanation": "阶码决定范围，规格化尾数决定精度。",
+    "difficulty": 2,
+    "knowledge": "浮点数表示"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "IEEE754 单精度浮点数共占____位，其中阶码占____位。",
+    "answer": ["32", "8"],
+    "explanation": "单精度为1位符号、8位阶码、23位尾数。",
+    "difficulty": 3,
+    "knowledge": "IEEE754"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "CPU 主要由运算器和____两部分组成，其中运算器的核心部件是____。",
+    "answer": ["控制器", "ALU|算术逻辑单元"],
+    "explanation": "控制器负责取指译码，运算器由ALU和寄存器组等构成。",
+    "difficulty": 1,
+    "knowledge": "CPU组成"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "程序计数器 PC 中存放的是____，指令寄存器 IR 中存放的是____。",
+    "answer": ["下一条指令的地址|待执行指令的地址", "正在执行的指令|当前指令"],
+    "explanation": "PC给出待取指令地址，IR保存当前已取出的指令。",
+    "difficulty": 2,
+    "knowledge": "寄存器"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "指令中给出操作数所在主存单元的地址，这种寻址方式称为____寻址；操作数直接包含在指令中的寻址方式称为____寻址。",
+    "answer": ["直接", "立即"],
+    "explanation": "直接寻址需访存一次，立即寻址无需访存取操作数。",
+    "difficulty": 1,
+    "knowledge": "寻址方式"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "变址寻址的有效地址等于变址寄存器内容加上指令中的____，该方式常用于处理____和表格。",
+    "answer": ["形式地址|位移量", "数组"],
+    "explanation": "变址寄存器内容可变，配合形式地址实现数组元素访问。",
+    "difficulty": 2,
+    "knowledge": "变址寻址"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "相对寻址的有效地址等于____的内容加上指令中的位移量，主要用于实现程序____。",
+    "answer": ["PC|程序计数器", "浮动|重定位"],
+    "explanation": "相对寻址以PC为基准，便于程序在内存中浮动装入。",
+    "difficulty": 3,
+    "knowledge": "相对寻址"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "Cache 与主存之间的地址映射方式有直接映射、全相联映射和____映射三种。",
+    "answer": ["组相联"],
+    "explanation": "组相联映射折中前两者的灵活性与硬件代价。",
+    "difficulty": 2,
+    "knowledge": "Cache映射"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "Cache 常用的替换算法有随机算法、先进先出算法和____算法。",
+    "answer": ["LRU|最近最少使用"],
+    "explanation": "LRU按最近最少使用原则替换，命中率较高。",
+    "difficulty": 2,
+    "knowledge": "Cache替换"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "程序访问的局部性包括时间局部性和____局部性，Cache 正是利用这一原理提高访存速度。",
+    "answer": ["空间"],
+    "explanation": "时间局部性指刚访问的数据可能再被访问，空间局部性指相邻单元常被使用。",
+    "difficulty": 1,
+    "knowledge": "局部性原理"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "某流水线分为 4 段，各段执行时间分别为 2ns、3ns、4ns、2ns，则该流水线的时钟周期至少为____ns。",
+    "answer": ["4"],
+    "explanation": "流水线时钟周期由最慢一段决定，即4ns。",
+    "difficulty": 3,
+    "knowledge": "流水线周期"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "按传输信息类型划分，系统总线分为数据总线、地址总线和____总线；总线带宽取决于总线宽度和____。",
+    "answer": ["控制", "总线频率|工作频率|传输频率"],
+    "explanation": "总线带宽约等于总线宽度与传输频率的乘积。",
+    "difficulty": 2,
+    "knowledge": "总线"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "I/O 控制方式有程序查询方式、中断方式、____方式和通道方式。",
+    "answer": ["DMA|直接存储器存取"],
+    "explanation": "DMA方式由硬件直接控制内存与外设间的数据传送。",
+    "difficulty": 1,
+    "knowledge": "IO控制"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "中断响应时，保护断点和恢复现场一般由____完成，各中断服务程序的入口地址集中存放在____中。",
+    "answer": ["硬件|中断隐指令", "中断向量表|向量表"],
+    "explanation": "硬件自动保存断点，按中断向量表转入服务程序。",
+    "difficulty": 3,
+    "knowledge": "中断处理"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "DMA 方式传送数据时不需要____的干预，数据直接在内存与____之间传送。",
+    "answer": ["CPU", "外设|I/O设备|设备"],
+    "explanation": "DMA控制器接管总线，成块传送数据后才中断CPU。",
+    "difficulty": 2,
+    "knowledge": "DMA方式"
+  },
+  {
+    "type": "fill",
+    "topic": "CO",
+    "stem": "两个可靠性均为 R 的部件串联构成系统的可靠性为____，并联构成系统的可靠性为____。",
+    "answer": ["R^2|R*R|R2", "1-(1-R)^2|2R-R^2"],
+    "explanation": "串联各部分都要正常，并联只要有一部分正常即可。",
+    "difficulty": 3,
+    "knowledge": "可靠性计算"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "编译方式生成目标代码后再执行，解释方式不生成目标代码而是边翻译边执行。",
+    "answer": ["对"],
+    "explanation": "这是编译与解释两种语言处理方式的基本区别。",
+    "difficulty": 1,
+    "knowledge": "解释与编译"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "词法分析阶段可以发现源程序中左右括号不匹配这类语法错误。",
+    "answer": ["错"],
+    "explanation": "括号匹配属于语法结构问题，应由语法分析阶段发现。",
+    "difficulty": 3,
+    "knowledge": "词法分析"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "正规式与有限自动机等价，二者所描述的语言都是正规语言。",
+    "answer": ["对"],
+    "explanation": "正规式、正规文法与有限自动机描述能力相同。",
+    "difficulty": 3,
+    "knowledge": "正规式"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "由于 NFA 中一个状态对同一输入符号可能有多个后继状态，所以 NFA 不能识别正规语言。",
+    "answer": ["错"],
+    "explanation": "NFA与DFA等价，任何NFA都可确定化为等价DFA。",
+    "difficulty": 2,
+    "knowledge": "NFA"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "一个确定的有限自动机可以有多个初始状态。",
+    "answer": ["错"],
+    "explanation": "DFA的初态唯一，终态才允许有多个。",
+    "difficulty": 2,
+    "knowledge": "DFA"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "上下文无关文法所描述的语言可以用下推自动机识别。",
+    "answer": ["对"],
+    "explanation": "2型文法对应下推自动机，3型文法对应有限自动机。",
+    "difficulty": 3,
+    "knowledge": "文法分类"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "若某文法的一个句子对应两棵不同的语法树，则该文法具有二义性。",
+    "answer": ["对"],
+    "explanation": "句子存在两棵不同语法树即二义性文法的定义。",
+    "difficulty": 2,
+    "knowledge": "语法树"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "后缀表达式不需要使用括号也不会产生歧义。",
+    "answer": ["对"],
+    "explanation": "后缀式中运算次序由运算符位置唯一确定，无需括号。",
+    "difficulty": 3,
+    "knowledge": "后缀式"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "值传递方式下，被调函数中对形参的修改会改变实参的值。",
+    "answer": ["错"],
+    "explanation": "值传递形参是实参副本，修改形参不影响实参。",
+    "difficulty": 1,
+    "knowledge": "传值调用"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "引用调用传递的是实参的地址，因此形参与实参共享同一存储单元。",
+    "answer": ["对"],
+    "explanation": "引用调用中形参是实参的别名，二者为同一存储单元。",
+    "difficulty": 2,
+    "knowledge": "引用调用"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "动态链接方式下，程序装入内存之前就已完成全部符号的地址绑定。",
+    "answer": ["错"],
+    "explanation": "动态链接推迟到装入时或运行时才解析符号地址。",
+    "difficulty": 3,
+    "knowledge": "程序链接"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "目标代码生成阶段需要考虑目标机器的指令系统以及寄存器的分配。",
+    "answer": ["对"],
+    "explanation": "目标代码与具体机器相关，需完成指令选择和寄存器分配。",
+    "difficulty": 2,
+    "knowledge": "目标代码生成"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "中间代码与具体机器无关，便于进行代码优化和移植。",
+    "answer": ["对"],
+    "explanation": "中间代码独立于机器，使前端后端分离，利于移植优化。",
+    "difficulty": 2,
+    "knowledge": "中间代码"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "递归下降分析法是一种自顶向下的语法分析方法，通常为每个非终结符编写一个子程序。",
+    "answer": ["对"],
+    "explanation": "递归下降法按产生式递归调用，每个非终结符对应一个子程序。",
+    "difficulty": 2,
+    "knowledge": "递归下降"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "语义分析阶段可以检查出数组下标越界这类错误。",
+    "answer": ["错"],
+    "explanation": "下标越界与运行时的具体数据有关，只能在运行中发现。",
+    "difficulty": 3,
+    "knowledge": "语义分析"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "有限自动机是识别正规语言的形式化工具，其状态个数是有限的。",
+    "answer": ["对"],
+    "explanation": "有限自动机只有有限个状态，对应3型文法所描述的语言。",
+    "difficulty": 2,
+    "knowledge": "有限自动机"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "代码优化可以在不改变程序语义的前提下提高程序的执行效率。",
+    "answer": ["对"],
+    "explanation": "优化的前提是保持程序功能不变，等价变换提高效率。",
+    "difficulty": 1,
+    "knowledge": "代码优化"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "同一个句子的最左推导和最右推导所对应的语法树是不同的。",
+    "answer": ["错"],
+    "explanation": "同一句子的不同推导可对应同一棵语法树。",
+    "difficulty": 2,
+    "knowledge": "推导"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "正规式 a|b 与 b|a 所描述的语言是相同的。",
+    "answer": ["对"],
+    "explanation": "选择运算满足交换律，两者都表示只含a或b的单个符号串。",
+    "difficulty": 2,
+    "knowledge": "正规式等价"
+  },
+  {
+    "type": "tf",
+    "topic": "PL",
+    "stem": "语法分析的任务是判断由记号组成的序列是否符合源语言的语法规则。",
+    "answer": ["对"],
+    "explanation": "语法分析以记号流为输入，按文法判定其结构是否合法。",
+    "difficulty": 1,
+    "knowledge": "语法分析"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "正数的原码、反码和补码三种表示形式完全相同。",
+    "answer": ["对"],
+    "explanation": "正数符号位为0，数值位不变，三种码制表示一致。",
+    "difficulty": 2,
+    "knowledge": "原码反码补码"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "在补码表示中，数字 0 有 +0 和 -0 两种不同的编码形式。",
+    "answer": ["错"],
+    "explanation": "补码的0只有一种形式，原码和反码才有两种零。",
+    "difficulty": 3,
+    "knowledge": "补码零表示"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "浮点数的表示范围主要由阶码位数决定，表示精度主要由尾数位数决定。",
+    "answer": ["对"],
+    "explanation": "阶码决定数量级范围，尾数长度决定有效数字精度。",
+    "difficulty": 2,
+    "knowledge": "浮点数表示"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "浮点数采用规格化表示的主要目的是提高运算精度。",
+    "answer": ["对"],
+    "explanation": "规格化使尾数最高有效位非零，充分利用有效位数。",
+    "difficulty": 3,
+    "knowledge": "规格化"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "十六进制数 1A 转换成十进制数的结果是 26。",
+    "answer": ["对"],
+    "explanation": "1×16+10=26。",
+    "difficulty": 2,
+    "knowledge": "进制转换"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "CPU 中的指令译码器属于控制器部件。",
+    "answer": ["对"],
+    "explanation": "控制器包括指令译码、时序控制等部件。",
+    "difficulty": 2,
+    "knowledge": "控制器"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "程序计数器 PC 的内容在每条指令执行后都会自动改变，指向下一条指令的地址。",
+    "answer": ["错"],
+    "explanation": "顺序执行时PC递增，但转移类指令会使PC被改写为转移目标。",
+    "difficulty": 3,
+    "knowledge": "PC"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "立即数寻址方式的操作数直接包含在指令中，取操作数时不需要访问主存。",
+    "answer": ["对"],
+    "explanation": "立即数随指令一起取出，无需再访存取操作数。",
+    "difficulty": 2,
+    "knowledge": "立即寻址"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "在同样条件下，间接寻址比直接寻址的指令执行速度快。",
+    "answer": ["错"],
+    "explanation": "间接寻址需多次访存，速度比直接寻址慢。",
+    "difficulty": 3,
+    "knowledge": "间接寻址"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "设置 Cache 的主要目的是解决 CPU 与主存之间速度不匹配的问题。",
+    "answer": ["对"],
+    "explanation": "Cache速度快、容量小，缓解CPU与主存的速度差异。",
+    "difficulty": 2,
+    "knowledge": "Cache作用"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "Cache 的命中率越高，CPU 访问存储器系统的平均时间越短。",
+    "answer": ["对"],
+    "explanation": "命中率提高使更多访问在高速Cache中完成，平均时间下降。",
+    "difficulty": 2,
+    "knowledge": "Cache命中率"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "流水线技术可以缩短单条指令的执行时间。",
+    "answer": ["错"],
+    "explanation": "流水线提高的是整体吞吐率，单条指令执行时间并未缩短。",
+    "difficulty": 3,
+    "knowledge": "流水线"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "流水线各段的执行时间越接近，流水线的加速效果越好。",
+    "answer": ["对"],
+    "explanation": "时钟周期取决于最慢一段，各段均衡可减少时间浪费。",
+    "difficulty": 3,
+    "knowledge": "流水线加速比"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "数据总线是双向的，地址总线是单向的。",
+    "answer": ["对"],
+    "explanation": "数据需要在CPU与存储器间双向传送，地址由CPU单向发出。",
+    "difficulty": 2,
+    "knowledge": "总线"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "中断响应时 CPU 需要保存断点，以便中断处理结束后返回原程序继续执行。",
+    "answer": ["对"],
+    "explanation": "保存断点即保存返回地址，中断服务结束后据此恢复执行。",
+    "difficulty": 2,
+    "knowledge": "中断处理"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "DMA 方式下每传送一个数据都需要中断 CPU 一次。",
+    "answer": ["错"],
+    "explanation": "DMA在整块数据传送结束后才向CPU发一次中断请求。",
+    "difficulty": 3,
+    "knowledge": "DMA方式"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "奇偶校验码可以检测出奇数个数据位同时出错，但无法发现偶数个位同时出错的情况。",
+    "answer": ["对"],
+    "explanation": "奇偶校验只能发现一位或奇数位错误，不能纠错。",
+    "difficulty": 3,
+    "knowledge": "奇偶校验"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "由多个部件串联构成的系统，其可靠性低于其中任何一个部件的可靠性。",
+    "answer": ["对"],
+    "explanation": "串联可靠性为各部件可靠性之积，小于任一因子。",
+    "difficulty": 2,
+    "knowledge": "可靠性计算"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "SRAM 需要定期刷新，而 DRAM 不需要刷新。",
+    "answer": ["错"],
+    "explanation": "DRAM靠电容存储电荷需定期刷新，SRAM用触发器无需刷新。",
+    "difficulty": 3,
+    "knowledge": "存储器"
+  },
+  {
+    "type": "tf",
+    "topic": "CO",
+    "stem": "程序查询方式下 CPU 的利用率高于中断控制方式。",
+    "answer": ["错"],
+    "explanation": "程序查询方式CPU需不断查询外设状态，利用率低于中断方式。",
+    "difficulty": 2,
+    "knowledge": "IO控制"
+  }
+]

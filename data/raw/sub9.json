@@ -1,0 +1,313 @@
+{
+  "questions": [
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某公司要开发一个图形绘制模块，支持按类型标识动态创建圆形和矩形，并统一通过基类指针完成面积计算与绘制。现采用工厂方法模式，部分代码如下（C++，省略头文件与 using namespace std）：\nclass Shape {\npublic:\n    (1) double area() const = 0;\n    virtual void draw() const { cout << 1 << endl; }\n    virtual ~Shape() {}\n};\nclass Circle : public Shape {\n    double r;\npublic:\n    Circle(double r) : r(r) {}\n    double area() const (2) { return 3.14159 * r * r; }\n    void draw() const { cout << 2 << endl; }\n};\nclass Rect : public Shape {\n    double w, h;\npublic:\n    Rect(double w, double h) : w(w), h(h) {}\n    double area() const override { return w * h; }\n    void draw() const { cout << 3 << endl; }\n};\nclass ShapeFactory {\npublic:\n    static (3) create(int kind, double a, double b = 0) {\n        if (kind == 1) return new Circle(a);\n        if (kind == 2) return new Rect(a, b);\n        return nullptr;\n    }\n};\nint main() {\n    Shape* p = ShapeFactory::create(1, 2.0);\n    if (p != nullptr) { cout << p->area() << endl; p->draw(); delete p; }\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：说明 Shape 为什么不能直接用来定义对象，以及 main 中通过基类指针 p 调用 area() 时系统如何决定执行哪个版本。\n问题3：若要新增三角形 Triangle，按现有写法需要修改哪些代码？这反映了工厂模式在本例中的什么设计缺陷，应如何改进？",
+      "answer": "问题1：（1）virtual；（2）override；（3）Shape*。\n问题2：Shape 中 area() 被声明为纯虚函数（=0），含有纯虚函数的类是抽象类，不能实例化，只能作为基类使用，其作用是为所有图形规定统一接口。main 中 p 的静态类型是 Shape*，area() 是虚函数，因此采用动态绑定（晚绑定）：编译时只做语法与类型检查，运行时根据 p 实际指向的对象（Circle）通过虚函数表找到 Circle::area 的入口，从而执行派生类版本；draw() 同理。\n问题3：需新增 class Triangle : public Shape 并实现 area()、draw()，同时必须修改 ShapeFactory::create，增加一个 kind 分支（如 kind==3）。缺陷是创建逻辑集中在一个函数里，新增产品必须修改已有代码，违反开闭原则（对扩展开放、对修改关闭）。改进方式：（a）为每种图形提供自己的工厂（工厂方法模式，新增图形只需新增具体工厂类）；（b）或使用注册表/映射，用 function<Shape*()> 或类名到创建函数的 map 在运行时注册创建器，新增图形只注册不改代码。",
+      "rubric": [
+        "(1) 填 virtual、(2) 填 override、(3) 填 Shape*，每空 2 分，共 6 分",
+        "指出纯虚函数使 Shape 成为抽象类、不能实例化，2 分",
+        "说明通过基类指针调用虚函数采用动态绑定（虚函数表/运行期确定），2 分",
+        "指出新增 Triangle 需新增派生类并修改 create 中的分支，2 分",
+        "指出该写法违反开闭原则（改已有代码才能扩展），2 分",
+        "给出改进方案（工厂方法或注册表/function 映射），1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某证券行情系统采用观察者模式实现价格变动的多端推送：行情源（被观察者）价格变化时，所有已订阅的手机端和网页端同时收到通知。部分代码如下（C++，省略头文件）：\nclass Observer {\npublic:\n    virtual void update(double price) = 0;\n    virtual ~Observer() {}\n};\nclass Subject {\n    vector<Observer*> obs;\npublic:\n    void attach(Observer* o) { (1) ; }\n    void detach(Observer* o) { obs.erase(remove(obs.begin(), obs.end(), o), obs.end()); }\n    void notify(double price) { for (auto p : obs) (2) ; }\n    virtual ~Subject() { for (auto p : obs) delete p; }\n};\nclass MobileApp : public Observer {\npublic:\n    void update(double price) override { cout << 1 << price << endl; }\n};\nclass WebPage : public Observer {\npublic:\n    void update(double price) override { cout << 2 << price << endl; }\n};\nclass Broker : public Subject {\n    double price;\npublic:\n    void setPrice(double p) { price = p; (3) ; }\n};\nint main() {\n    Broker b;\n    b.attach(new MobileApp());\n    b.attach(new WebPage());\n    b.setPrice(9.5);\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：Observer 中析构函数为什么声明为 virtual？Subject 析构函数中 delete p 的作用是什么？如果某个观察者在 update 中调用 detach 移除自己会产生什么问题？\n问题3：程序输出是什么？简述观察者模式的优点与一个需要注意的缺点。",
+      "answer": "问题1：（1）obs.push_back(o)；（2）p->update(price)；（3）notify(price)。\n问题2：Observer 作为多态基类，其对象通常通过基类指针删除，析构函数必须声明为 virtual，才能保证 delete 基类指针时先执行派生类析构、再执行基类析构，否则行为未定义并可能泄漏派生类资源。Subject 析构中 delete p 负责释放由 attach 传入、由 Subject 拥有所有权的观察者对象，避免内存泄漏（这是本例采用的所有权约定）。若观察者在 update 中调用 detach 移除自己，会在 notify 的循环遍历 obs 的同时修改容器，导致迭代器失效、跳过元素甚至崩溃，正确做法是先收集要移除的观察者，通知结束后再统一 detach。\n问题3：输出为两行：1 9.5 和 2 9.5（顺序由 attach 顺序决定，即先手机端后网页端）。优点是：被观察者与观察者之间是抽象耦合，支持一对多的广播通知，符合开闭原则，新增观察者无需修改行情源代码。缺点：观察者数量多时通知开销大；通知顺序不确定；若被观察者与观察者互相引用或观察者未及时 detach，容易造成内存泄漏或循环调用。",
+      "rubric": [
+        "(1) obs.push_back(o)、(2) p->update(price)、(3) notify(price)，每空 2 分，共 6 分",
+        "说明多态基类析构函数须为 virtual 的原因，2 分",
+        "说明 delete p 用于释放观察者对象、防止内存泄漏，2 分",
+        "指出通知过程中 detach 会导致迭代器失效并给出正确做法，2 分",
+        "正确写出两行输出（含价格 9.5），1 分",
+        "答出松耦合/一对多广播/符合开闭原则等优点，1 分",
+        "答出通知开销大、顺序不确定或内存泄漏等缺点，1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某电商结算模块需要支持普通会员、VIP 会员等多种折扣算法，并允许在运行期切换。设计人员采用策略模式，部分代码如下（C++，省略头文件）：\nclass DiscountStrategy {\npublic:\n    virtual double calc(double amount) const = 0;\n    virtual ~DiscountStrategy() {}\n};\nclass NormalMember : public DiscountStrategy {\npublic:\n    double calc(double amount) const override { return amount; }\n};\nclass VipMember : public DiscountStrategy {\npublic:\n    double calc(double amount) const override { return amount * 0.8; }\n};\nclass Checkout {\n    DiscountStrategy* strategy;\npublic:\n    Checkout(DiscountStrategy* s) : (1) {}\n    void setStrategy(DiscountStrategy* s) { (2) ; }\n    double total(double amount) const { return (3) ; }\n};\nint main() {\n    Checkout c(new VipMember());\n    cout << c.total(100) << endl;\n    c.setStrategy(new NormalMember());\n    cout << c.total(100) << endl;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：Checkout 中为什么保存 DiscountStrategy* 指针而不直接保存策略对象？如果用 if-else 或 switch 直接写在 total 中，与本例相比有什么不足？\n问题3：程序输出是什么？该实现还存在什么问题（提示：注意 new 出来的策略对象）？如何改进？",
+      "answer": "问题1：（1）strategy(s)；（2）strategy = s；（3）strategy->calc(amount)。\n问题2：策略是抽象类，不能直接定义对象，且只有保存基类指针才能利用动态绑定，在运行期把指针改为指向不同派生类对象，从而切换算法而不改动 Checkout 的代码。若把折扣逻辑写成 if-else/switch，则新增一种会员就要修改 total 函数，违反开闭原则；分支语句会随策略增多而膨胀，且折扣算法无法独立复用和单独测试；把算法分散在条件语句中也不利于替换实现。\n问题3：输出为 80 和 100。存在的问题是 Checkout 只保存指针却不负责释放，两次 new（VipMember、NormalMember）都没有 delete，造成内存泄漏；替换策略时旧策略对象也无人回收。改进：由 Checkout 在析构函数中 delete 旧策略并在 setStrategy 中先释放原对象；或使用智能指针（unique_ptr<DiscountStrategy>）自动管理生命周期；或让策略对象由外部创建与持有，Checkout 只借用不拥有，并明确所有权约定。",
+      "rubric": [
+        "(1) strategy(s)、(2) strategy = s、(3) strategy->calc(amount)，每空 2 分，共 6 分",
+        "说明用基类指针才能动态绑定并在运行期切换实现，2 分",
+        "指出 if-else/switch 写法新增策略需修改已有代码、违反开闭原则，2 分",
+        "正确写出输出 80 与 100，2 分",
+        "指出 new 出的策略对象未释放造成内存泄漏，2 分",
+        "给出改进措施（析构释放/智能指针/明确所有权），1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 3,
+      "score": 15,
+      "stem": "某咖啡店点单系统需要按需叠加配料（牛奶、糖），每种配料都要在基础饮品价格上追加费用，且配料可以任意组合、顺序叠加。设计人员采用装饰器模式，部分代码如下（C++，省略头文件）：\nclass Beverage {\npublic:\n    virtual double cost() const = 0;\n    virtual string desc() const = 0;\n    virtual ~Beverage() {}\n};\nclass Espresso : public Beverage {\npublic:\n    double cost() const override { return 10; }\n    string desc() const override { return 1; }\n};\nclass Condiment : public Beverage {\nprotected:\n    Beverage* inner;\npublic:\n    Condiment(Beverage* b) : (1) {}\n    virtual ~Condiment() { (2) }\n};\nclass Milk : public Condiment {\npublic:\n    Milk(Beverage* b) : Condiment(b) {}\n    double cost() const override { return (3) + 3; }\n    string desc() const override { return inner->desc() + 2; }\n};\nclass Sugar : public Condiment {\npublic:\n    Sugar(Beverage* b) : Condiment(b) {}\n    double cost() const override { return inner->cost() + 1; }\n    string desc() const override { return inner->desc() + 3; }\n};\nint main() {\n    Beverage* b = new Milk(new Sugar(new Espresso()));\n    cout << b->cost() << endl;\n    delete b;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容（(1)(3) 处的内容为表达式或初始化项，(2) 处为一条完整语句）。\n问题2：程序输出是多少？请说明 cost() 的调用链是如何逐层叠加的。\n问题3：与“为每种组合单独派生子类（如 MilkSugarEspresso）”的继承方案相比，装饰器方案的优势是什么？为什么 Condiment 的析构函数必须处理 inner 指针？",
+      "answer": "问题1：（1）inner(b)；（2）delete inner;；（3）inner->cost()。\n问题2：输出为 14。调用链：b 指向 Milk 对象，b->cost() 动态绑定到 Milk::cost，它计算 inner->cost()+3；inner 指向 Sugar 对象，Sugar::cost 计算 inner->cost()+1；最内层 inner 指向 Espresso，Espresso::cost 返回 10。于是 10+1+3=14。desc() 同理逐层拼接字符串，最终得到依次追加配料名称的描述。\n问题3：优势：装饰器用组合+委托代替继承，配料可以在运行期任意组合、任意顺序叠加，装饰层数与种类变化时不必新增子类，避免了“为每种组合派生子类”导致的类数量爆炸；每个装饰类只关注自己追加的费用与描述，职责单一，符合开闭原则，新增配料只需新增一个装饰类。Condiment 拥有它包装的 inner 对象（本例中由 Condiment 接受并被 delete 接管所有权），它的析构函数必须 delete inner，才能沿装饰链把最内层的基础饮品（以及下一层装饰器）一起释放；否则每次 delete 外层装饰器只释放自身，链上其余对象全部泄漏。更安全的写法是用 unique_ptr<Beverage> 作为成员，自动完成链式释放。",
+      "rubric": [
+        "(1) inner(b)、(2) delete inner;、(3) inner->cost()，每空 2 分，共 6 分",
+        "正确算出输出 14，2 分",
+        "说明 cost() 沿 inner 逐层委托递归累加的过程，2 分",
+        "答出装饰器用组合替代继承、可动态叠加、避免子类数量爆炸，2 分",
+        "答出新增配料只需新增装饰类、符合开闭原则，1 分",
+        "说明析构 delete inner 的作用（沿链释放、防泄漏）或改用智能指针，2 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某监控系统原有采集模块只提供旧接口 LegacyThermometer::readCelsius()（返回摄氏度），而新系统统一要求实现 Sensor 接口的 readFahrenheit()（返回华氏度）。设计人员采用适配器模式，部分代码如下（C++，省略头文件）：\nclass Sensor {\npublic:\n    virtual double readFahrenheit() const = 0;\n    virtual ~Sensor() {}\n};\nclass LegacyThermometer {\npublic:\n    double readCelsius() const { return 25.0; }\n};\nclass ThermometerAdapter : public Sensor {\n    LegacyThermometer* legacy;\npublic:\n    ThermometerAdapter(LegacyThermometer* l) : (1) {}\n    ~ThermometerAdapter() { delete legacy; }\n    double readFahrenheit() const override { return (2) ; }\n};\nvoid show(const Sensor& s) { cout << s.readFahrenheit() << endl; }\nint main() {\n    Sensor* s = new ThermometerAdapter(new LegacyThermometer());\n    show(*s);\n    (3) ;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：程序输出是多少？说明适配器在调用链中承担的角色（请用“目标/适配者/适配器”三个术语描述）。\n问题3：对象适配器（本例，含适配者对象并委托调用）与类适配器（多重继承）两种实现方式各自的优缺点是什么？",
+      "answer": "问题1：（1）legacy(l)；（2）legacy->readCelsius() * 9 / 5 + 32；（3）delete s。\n问题2：输出 77。角色划分：Sensor 是目标接口（Target），定义新系统要求的 readFahrenheit；LegacyThermometer 是适配者（Adaptee），提供的是旧接口 readCelsius；ThermometerAdapter 是适配器（Adapter），实现 Sensor 接口并在 readFahrenheit 中把对目标接口的调用转换为对适配者 readCelsius 的调用，同时完成摄氏到华氏的单位换算（25×9/5+32=77）。\n问题3：对象适配器采用组合，持有一个适配者指针并委托调用，一个适配器还能适配适配者的多个子类对象，只暴露目标接口、封装性好，缺点是需额外的转发调用开销；类适配器采用多重继承（同时继承目标接口与适配者类），可直接复用适配者的实现、无需额外指针，但不能适配适配者的多个派生类，且把适配者的实现细节暴露给适配器、耦合更紧，多重继承还可能带来命名冲突与菱形继承问题。通常优先选用对象适配器。",
+      "rubric": [
+        "(1) legacy(l)、(2) legacy->readCelsius() * 9 / 5 + 32（等价换算式）、(3) delete s，每空 2 分，共 6 分",
+        "正确算出输出 77，1 分",
+        "用“目标/适配者/适配器”正确说明三者职责与转换关系，3 分",
+        "说明适配器完成接口转换并在其中实现单位换算，2 分",
+        "答出对象适配器用组合、灵活、可适配子类，优点说明清楚，2 分",
+        "答出类适配器用多重继承、复用实现但耦合紧、不能适配子类，1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 3,
+      "score": 15,
+      "stem": "某数值计算程序需要实现一个定长数组模板类 Array，支持按下标读写、逐元素相加、相等比较以及用输出运算符打印全部元素。部分代码如下（C++，省略头文件）：\ntemplate <typename T, int N>\nclass Array {\n    T data[N];\npublic:\n    T& operator[](int i) { return data[i]; }\n    const T& operator[](int i) const { return data[i]; }\n    int size() const { return N; }\n    Array<T, N> operator+(const Array<T, N>& o) const {\n        Array<T, N> r;\n        for (int i = 0; i < N; ++i) r.data[i] = (1) ;\n        return r;\n    }\n    bool operator==(const Array<T, N>& o) const {\n        for (int i = 0; i < N; ++i)\n            if ( (2) ) return false;\n        return true;\n    }\n};\ntemplate <typename T, int N>\nostream& operator<<(ostream& os, const Array<T, N>& a) {\n    for (int i = 0; i < N; ++i) os << (3) << ',';\n    return os;\n}\nint main() {\n    Array<int, 3> x, y;\n    for (int i = 0; i < 3; ++i) { x[i] = i + 1; y[i] = i + 1; }\n    cout << (x + y) << endl;\n    cout << (x == y) << endl;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：程序输出是什么？Array<int,3> 与 Array<double,3> 是同一个类型吗？模板中的 N 有什么限制？\n问题3：为什么 operator<< 写成类外的函数模板而不是成员函数？为什么它的返回值类型是 ostream&？",
+      "answer": "问题1：（1）data[i] + o.data[i]；（2）data[i] != o.data[i]；（3）a[i]。\n问题2：输出为 2,4,6, 换行后输出 1。Array<int,3> 与 Array<double,3> 不是同一个类型，模板每用一组实参实例化就生成一个独立的类（类型不同、互不兼容，不能互相赋值）。非类型模板参数 N 必须是编译期可求值的整型常量表达式（如字面量、constexpr 常量），因为它用于定义成员数组的长度 data[N]，运行期变量不能作为 N。\n问题3：若写成成员函数，调用形式为 a.operator<<(os)，即左操作数必须是 Array 对象，而实际使用是 cout << a，左操作数是 ostream，无法匹配，因此必须写成非成员（全局）函数或友元函数。返回 ostream& 是为了支持链式调用（如 cout << a << b << endl），并使调用后仍返回同一个输出流对象；参数中的 ostream& os 也必须是引用，因为流对象不可复制。",
+      "rubric": [
+        "(1) data[i] + o.data[i]、(2) data[i] != o.data[i]、(3) a[i]，每空 2 分，共 6 分",
+        "正确写出输出 2,4,6, 与 1，2 分",
+        "说明 Array<int,3> 与 Array<double,3> 是不同类型、各自实例化，2 分",
+        "说明非类型模板参数 N 必须是编译期常量（用于数组长度），2 分",
+        "说明 operator<< 必须为非成员函数（左操作数是 ostream），2 分",
+        "说明返回 ostream& 的原因（链式调用、流不可复制），1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某文本分析程序需要统计一段输入中各单词出现的次数，并按“次数由多到少、次数相同时按单词字典序”的顺序输出。部分代码如下（C++，省略头文件）：\nint main() {\n    string w;\n    (1) <string, int> freq;\n    while (cin >> w) (2) ;\n    vector<pair<string, int>> v(freq.begin(), freq.end());\n    sort(v.begin(), v.end(), [](const pair<string, int>& a, const pair<string, int>& b) {\n        return (3) ;\n    });\n    for (auto& p : v) cout << p.first << ' ' << p.second << endl;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：freq 若声明为 map，插入元素和访问元素的时间复杂度是多少？表达式 freq[w] 对一个尚不存在的键会做什么？map 与 unordered_map 的主要区别是什么？\n问题3：为什么不直接对 freq 调用 sort 排序？vector 转存的意义是什么？若要保证次数相同的单词保持首次出现的先后顺序，应改用哪个算法？",
+      "answer": "问题1：（1）map；（2）++freq[w]；（3）a.second != b.second ? a.second > b.second : a.first < b.first。\n问题2：map 通常用红黑树（平衡二叉搜索树）实现，插入与查找的时间复杂度为 O(log n)。表达式 freq[w] 属于下标访问，若 w 不存在，会先以默认值 0 插入一个新的键值对，再返回其值的引用，因此 ++freq[w] 正好完成“不存在则置 1、存在则加 1”的计数，但这种写法有副作用：凡是被下标访问过的键一定会出现在容器里。map 与 unordered_map 的区别：map 有序（按键升序遍历）且复杂度 O(log n)；unordered_map 基于哈希表，平均 O(1) 但无序，需要为键提供哈希函数，最坏情况退化。\n问题3：map 的迭代器是双向迭代器，不是随机访问迭代器，而 std::sort 要求随机访问迭代器；同时 map 元素按键有序存储且键为 const，不能在原容器上按值重排。因此必须把键值对拷贝到 vector（获得随机访问迭代器）后再排序，排序的是拷贝，不影响原 map。若要求相同次数的单词保持首次出现顺序，应使用稳定排序 stable_sort，它保证相等元素的相对次序不变（本例若用带字典序比较的 sort，则该顺序由比较规则决定，稳定与否不再关键）。",
+      "rubric": [
+        "(1) map、(2) ++freq[w]、(3) 先比次数降序再比字典序升序的比较表达式，每空 2 分，共 6 分",
+        "答出 map 插入/查找为 O(log n)（红黑树），2 分",
+        "说明 freq[w] 对不存在的键会插入默认值 0，2 分",
+        "答出 map 有序、unordered_map 哈希无序且平均 O(1) 的区别，2 分",
+        "说明 sort 需要随机访问迭代器、map 不能直接排序，2 分",
+        "答出应使用 stable_sort 保持相同键值的原有次序，1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 3,
+      "score": 15,
+      "stem": "某信号处理程序需要实现复数类 Complex，并要求像内置类型一样支持加法、复合赋值、相等比较和直接输出。部分代码如下（C++，省略头文件）：\nclass Complex {\n    double re, im;\npublic:\n    Complex(double r = 0, double i = 0) : re(r), im(i) {}\n    Complex operator+(const Complex& o) const { return Complex(re + o.re, im + o.im); }\n    Complex& operator+=(const Complex& o) { (1) ; return *this; }\n    bool operator==(const Complex& o) const { return re == o.re && im == o.im; }\n    (2) ostream& operator<<(ostream& os, const Complex& c);\n};\nostream& operator<<(ostream& os, const Complex& c) {\n    os << c.re << '+' << c.im << 'i';\n    return os;\n}\nint main() {\n    Complex a(1, 2), b(3, 4);\n    (3) c = a + b;\n    c += b;\n    cout << c << ' ' << (c == a) << endl;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：operator+ 为什么返回 Complex 对象而不是 Complex& 引用？operator+= 为什么返回 Complex& 而返回 *this？\n问题3：operator<< 为什么声明为 friend 并定义在类外？如果重载为成员函数会遇到什么问题？程序输出是什么？",
+      "answer": "问题1：（1）re += o.re; im += o.im；（2）friend；（3）Complex。\n问题2：operator+ 的结果是一个临时的新对象，它不与任何已有对象共享存储，不能返回引用：若返回 Complex& 指向函数内部创建的局部对象，函数返回后对象已销毁，产生悬空引用（未定义行为）；返回对象值则通过临时对象安全传递（编译器可用返回值优化避免多余拷贝）。operator+= 修改的是 *this 自身，返回 *this 的引用可以指向仍然存在的本对象，从而支持链式写法（如 a += b += c），并避免返回值带来的额外拷贝。\n问题3：operator<< 的左操作数是 ostream 对象、右操作数是 Complex，若声明为成员函数则隐含的第一个参数是 Complex 对象本身，调用形式将变成 c.operator<<(cout)，与 cout << c 的写法不匹配，因此必须写成非成员函数；而该函数需要直接访问私有成员 re、im，所以在其类内用 friend 声明授予访问权（也可提供公有读取接口，从而不必使用友元）。程序输出为 7+10i 0。",
+      "rubric": [
+        "(1) re += o.re; im += o.im（等价写法亦可）、(2) friend、(3) Complex，每空 2 分，共 6 分",
+        "说明 operator+ 返回新对象，不能返回局部对象引用（悬空引用），2 分",
+        "说明 operator+= 返回 *this 引用以支持链式调用并避免拷贝，2 分",
+        "说明 operator<< 因左操作数是 ostream 必须为非成员函数，2 分",
+        "说明 friend 用于访问私有成员（或给出去友元的替代方案），2 分",
+        "正确写出输出 7+10i 0，1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某公司薪酬系统用基类指针容器统一管理不同职位的员工并按各自规则计算月薪。部分代码如下（C++，省略头文件）：\nclass Employee {\nprotected:\n    string name;\npublic:\n    Employee(const string& n) : name(n) {}\n    (1) double pay() const { return 0; }\n    string getName() const { return name; }\n    virtual ~Employee() { cout << \"~Employee\" << endl; }\n};\nclass Manager : public Employee {\n    double base, bonus;\npublic:\n    Manager(const string& n, double b, double bo) : Employee(n), base(b), bonus(bo) {}\n    double pay() const override { return base + bonus; }\n    ~Manager() { cout << \"~Manager\" << endl; }\n};\nint main() {\n    vector<Employee*> v;\n    v.push_back(new Manager(1, 8000, 2000));\n    v.push_back(new Employee(2));\n    double total = 0;\n    for (auto e : v) total += (2) ;\n    cout << total << endl;\n    for (auto e : v) (3) ;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：程序输出是什么（请依次写出各行的内容）？\n问题3：如果把 pay() 前面的 virtual 去掉，输出会变成什么？为什么？如果基类析构函数不声明为 virtual，delete 基类指针会产生什么后果？",
+      "answer": "问题1：（1）virtual；（2）e->pay()；（3）delete e。\n问题2：输出为：先一行 8000（8000+2000 加上基类 Employee 的 0），随后依次输出 ~Manager、~Employee、~Employee：第一个元素被 delete 时先析构派生类 Manager 再析构基类部分，第二个元素是 Employee 对象本身，只输出 ~Employee。\n问题3：去掉 virtual 后，e->pay() 变成静态绑定（早绑定），编译时按指针的静态类型 Employee 决定调用 Employee::pay，两个元素都按 0 计，输出 0，Manager 的薪酬规则完全失效。若基类析构函数不是 virtual，delete 一个指向派生对象的基类指针只调用基类的析构函数，派生类的析构不执行，派生类成员（本例为 base、bonus 这类普通成员无问题，但若含指针等资源）不会被释放，行为是未定义的，实践中表现为资源泄漏；因此凡作为多态基类使用的类都应声明虚析构函数。",
+      "rubric": [
+        "(1) virtual、(2) e->pay()、(3) delete e，每空 2 分，共 6 分",
+        "正确写出 total 为 8000，2 分",
+        "正确写出析构输出顺序 ~Manager、~Employee、~Employee，2 分",
+        "说明去掉 virtual 后为静态绑定、输出 0，2 分",
+        "说明静态绑定在编译期按静态类型确定调用版本，1 分",
+        "说明基类析构非虚时 delete 基类指针只析构基类部分、行为未定义/资源泄漏，2 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某教学示例程序用于演示派生类对象的构造、析构与多态调用顺序。部分代码如下（C++，省略头文件）：\nclass Base {\nprotected:\n    int x;\npublic:\n    Base(int a = 1) : x(a) { cout << 1 << x << endl; }\n    virtual ~Base() { cout << 2 << endl; }\n    virtual void show() const { cout << 3 << x << endl; }\n};\nclass Derived : public Base {\n    int y;\npublic:\n    Derived(int a, int b) : (1) , y(b) { cout << 4 << y << endl; }\n    ~Derived() { cout << 5 << endl; }\n    void show() const override { cout << 6 << x << y << endl; }\n};\nint main() {\n    (2) p = new Derived(2, 3);\n    p->show();\n    (3) ;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：程序依次输出哪些内容？请说明派生类对象构造和析构的执行顺序规律。\n问题3：若把 main 中的语句改为 Derived d(2, 3); Base b = d; b.show();，输出的 show 内容是什么？这反映了什么问题？",
+      "answer": "问题1：（1）Base(a)；（2）Base*；（3）delete p。\n问题2：输出依次为：1 2（Base 构造，x=2）、4 3（Derived 构造，y=3）、6 2 3（Derived::show 打印 x、y）、5（Derived 析构）、2（Base 析构）。规律：构造时先执行基类构造函数（再按成员声明顺序构造成员），最后执行派生类构造函数体；析构顺序与构造完全相反，先执行派生类析构函数，再析构成员，最后执行基类析构函数。\n问题3：此时输出的是 3 2，即 Base::show 打印 x=2。因为 Base b = d 是对象赋值（拷贝构造基类子对象），发生了对象切片：b 只拥有 x，Derived 特有的 y 被截断丢弃，且 b 的静态类型是 Base，虽然 show 是虚函数，但其动态类型也是 Base，故调用 Base::show。这说明通过基类对象（而非指针或引用）复制派生类对象会丢失派生部分信息，多态只能通过基类指针或基类引用才能生效。",
+      "rubric": [
+        "(1) Base(a)、(2) Base*、(3) delete p，每空 2 分，共 6 分",
+        "完整写出输出序列 1 2 / 4 3 / 6 2 3 / 5 / 2，3 分",
+        "说明构造顺序为基类构造→成员→派生类构造体，1 分",
+        "说明析构顺序与构造顺序相反，1 分",
+        "说明对象切片导致 y 丢失，2 分",
+        "说明多态需通过基类指针或引用才生效、Base b = d 静态与动态类型均为 Base，2 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 3,
+      "score": 15,
+      "stem": "某通用比较模块提供函数模板 maxValue，用于求两个同类型值的较大者。对整数、字符串需要按内容比较；对自定义金额类型 Money 需要按分值比较；对 C 风格字符串需要按字典序比较。部分代码如下（C++，省略头文件）：\ntemplate <typename T>\nT maxValue(const T& a, const T& b) { return a > b ? a : b; }\n\n(1) const char* maxValue(const char* const& a, const char* const& b) {\n    return strcmp(a, b) > 0 ? a : b;\n}\n\nclass Money {\n    int cents;\npublic:\n    Money(int c = 0) : cents(c) {}\n    bool (2) (const Money& o) const { return cents > o.cents; }\n    int getCents() const { return cents; }\n};\n\nint main() {\n    cout << maxValue(3, 7) << endl;\n    cout << maxValue(string(\"ab\"), string(\"ac\")) << endl;\n    const char* s1 = \"apple\";\n    const char* s2 = \"banana\";\n    cout << maxValue(s1, s2) << endl;\n    cout << maxValue(Money(150), Money(99)).getCents() << endl;\n    return 0;\n}\n问题1：写出程序中 (1)(2) 两处应填入的内容。\n问题2：程序输出的四行内容分别是什么？如果没有对 const char* 的全特化版本，maxValue(s1, s2) 会按什么方式比较？\n问题3：Money 类为什么必须重载比较运算符？模板的实例化发生在什么时候？如果省略全特化而直接调用，编译器何时报错、报什么类型的错误？",
+      "answer": "问题1：（1）template <>；（2）operator>。\n问题2：四行输出依次为 7、ac、banana、150。7 与 ac 是由通用模板实例化得到（对 string 使用其重载的 >，按字典序比较 \"ab\" 与 \"ac\" 得 ac）；banana 由 const char* 全特化版本调用 strcmp 按内容比较得到；150 由通用模板实例化、依赖 Money 重载的 > 得到。若没有全特化，通用模板会以 const char* 为 T 实例化，a > b 比较的是两个指针的地址（即两个字符串字面量在内存中的位置关系），不是字符串内容，结果取决于地址大小，通常与字典序无关，属于逻辑错误。\n问题3：模板函数体内使用了 a > b，实例化时要求 T 类型支持 > 运算；内置类型、标准库 string 已有该运算，自定义的 Money 没有，必须重载 operator> 才能参与比较，否则无法实例化。模板的实例化发生在编译期：编译器遇到具体调用（如 maxValue(3, 7)）时以实参类型推导 T，并生成该类型的函数实例；未被调用的成员/函数不会被实例化。若省略全特化仍可编译（指针支持 >），但语义错误；若 Money 未重载 >，则在实例化该调用处报编译错误，典型信息是“no match for operator>”或“invalid operands to binary expression”，错误位置指向模板实例化处而不是模板定义处，这也是模板常见报错难以定位的原因。",
+      "rubric": [
+        "(1) template <>、(2) operator>，每空 3 分，共 6 分",
+        "正确写出四行输出 7、ac、banana、150，3 分",
+        "说明无全特化时比较的是指针地址而非字符串内容，2 分",
+        "说明 Money 必须重载 operator> 才能实例化模板，2 分",
+        "答出模板在编译期按实参类型实例化，1 分",
+        "说明缺少运算符时在实例化处报编译错误并指出典型报错形式，1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某系统需要一个全局唯一的日志器，任何模块都只能通过同一个实例写日志。设计人员采用单例模式，部分代码如下（C++，省略头文件）：\nclass Logger {\nprivate:\n    static Logger* instance;\n    Logger() {}\n    Logger(const Logger&) = delete;\n    Logger& operator=(const Logger&) = delete;\npublic:\n    static Logger* (1) () {\n        if (instance == nullptr) (2) ;\n        return instance;\n    }\n    void log(const string& s) { cout << '[' << s << ']' << endl; }\n};\n(3) Logger::instance = nullptr;\nint main() {\n    Logger::getInstance()->log(1);\n    Logger::getInstance()->log(2);\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：为什么要把构造函数和拷贝构造函数设为私有/删除？= delete 与只声明不定义的写法相比有什么好处？\n问题3：本例的懒汉式实现在多线程环境下有什么问题？请给出两种改进办法，并说明程序输出的两行内容。",
+      "answer": "问题1：（1）getInstance；（2）instance = new Logger()；（3）Logger*。\n问题2：把构造函数设为私有，使外部不能自行创建 Logger 对象，只能通过类提供的静态接口获取唯一实例；把拷贝构造函数和拷贝赋值运算符删除，防止有人通过已有实例复制出第二个对象，从而保证“唯一”。使用 = delete 是 C++11 的显式删除机制，在编译期就明确报错（提示使用了被删除的函数），语义清晰；而只声明不定义（旧写法）虽然链接期也会失败，但若在类内部成员函数中使用了拷贝，编译器可能不报错而链接时才报“未定义引用”，定位困难，且语义含糊。\n问题3：懒汉式在多线程下存在竞态条件：两个线程可能同时判断 instance == nullptr 为真，各自 new 一个 Logger，导致产生两个实例并泄漏其中一个，破坏了唯一性。改进办法：（a）使用 C++11 保证线程安全的局部静态变量写法，即 static Logger& getInstance() { static Logger inst; return inst; }，标准保证其初始化是线程安全的，且程序结束时自动析构；（b）加互斥锁保护创建过程，或采用“双重检查加锁”（需把 instance 声明为指针并用原子操作/内存屏障保证可见性），或在程序启动时直接构造（饿汉式，如 static Logger instance 定义在类外初始化）。程序输出两行：先 [1] 后 [2]，两次调用返回同一实例。",
+      "rubric": [
+        "(1) getInstance、(2) instance = new Logger()、(3) Logger*，每空 2 分，共 6 分",
+        "说明私有构造使外部无法创建、删除拷贝保证唯一，2 分",
+        "说明 = delete 在编译期报错、语义清晰，优于只声明不定义，2 分",
+        "指出懒汉式存在竞态可能导致创建多个实例，2 分",
+        "给出至少两种线程安全改进办法（局部静态变量/加锁/饿汉式），2 分",
+        "正确写出两行输出 [1]、[2] 且指出两次为同一实例，1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 3,
+      "score": 15,
+      "stem": "某教务程序用 STL 完成学生成绩的排序与统计：按成绩由高到低输出名单，并统计及格人数。要求排序规则以函数对象给出。部分代码如下（C++，省略头文件）：\nstruct Student { string name; int score; };\nstruct ByScoreDesc {\n    bool operator()(const Student& a, const Student& b) const { return (1) ; }\n};\nint main() {\n    vector<Student> v = {{1, 88}, {2, 92}, {3, 88}, {4, 55}};\n    sort(v.begin(), v.end(), (2) );\n    int pass = count_if(v.begin(), v.end(), [](const Student& s) { return (3) ; });\n    for (const auto& s : v) cout << s.name << ' ' << s.score << endl;\n    cout << pass << endl;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：sort 与 stable_sort 有什么区别？本例中两名 88 分学生的先后顺序是否确定？如果需要保持输入顺序应该怎么写？\n问题3：count_if 的第三个参数需要满足什么要求？如果要在遍历中累加所有人的总分，lambda 的捕获列表应如何写？为什么不能按值捕获？",
+      "answer": "问题1：（1）a.score > b.score；（2）ByScoreDesc()；（3）s.score >= 60。（(3) 写 s.score >= 60 或 s.score > 59 均可。）\n问题2：sort 通常使用内省式排序（快速排序+堆排序+插入排序），不保证相等元素的相对次序，时间复杂度 O(n log n)；stable_sort 通常用归并排序实现，保证相等元素保持原有相对次序，代价是需要额外的辅助空间。本例中成绩相同的两个学生（88 分）的先后顺序不确定，取决于 sort 的内部实现。若要求保持输入顺序，应把 sort 改为 stable_sort(v.begin(), v.end(), ByScoreDesc())，此时两个 88 分学生按其在 v 中出现的先后排列。\n问题3：count_if 的第三个参数是一元谓词（unary predicate），即接受一个容器元素并返回可转换为 bool 的值的可调用对象（函数指针、函数对象或 lambda），本例用 lambda 表达“成绩及格”的条件。若要累加总分，应写成 int total = 0; ... count_if/for_each 的 lambda 用引用捕获：... [&total](const Student& s) { total += s.score; return true; }。不能按值捕获，因为按值捕获得到的是外层变量的一份副本，lambda 内部对副本的修改不会影响外部变量，结果始终为 0；而 lambda 默认的 operator() 是 const 成员函数，按值捕获的变量在函数体内甚至可能无法修改（除非加 mutable）。",
+      "rubric": [
+        "(1) a.score > b.score、(2) ByScoreDesc()、(3) s.score >= 60，每空 2 分，共 6 分",
+        "说明 sort 不稳定、stable_sort 稳定，各 1 分，共 2 分",
+        "正确指出本例 88 分两人顺序不确定并给出使用 stable_sort 的写法，2 分",
+        "说明 count_if 第三个参数是一元谓词（可调用对象），2 分",
+        "给出按引用捕获 [&total] 累加总分的正确写法，2 分",
+        "说明按值捕获只修改副本、无法影响外部变量，1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某数据处理系统对 CSV、JSON 等不同格式的数据都要执行相同流程：打开数据源→解析处理→关闭数据源，差异仅在每一步的具体实现。设计人员采用模板方法模式，部分代码如下（C++，省略头文件）：\nclass DataProcessor {\npublic:\n    void run() {\n        open();\n        process();\n        close();\n    }\nprotected:\n    virtual void open() = 0;\n    virtual void process() = 0;\n    virtual void close() = 0;\n    (1) ;\n};\nclass CsvProcessor : public DataProcessor {\nprotected:\n    void open() override { cout << 1 << endl; }\n    void process() override { cout << 2 << endl; }\n    void close() override { cout << 3 << endl; }\n};\nint main() {\n    DataProcessor* p = new CsvProcessor();\n    (2) ;\n    (3) ;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：run() 为什么声明为普通公有函数而不是虚函数？程序输出是什么？\n问题3：模板方法模式与策略模式都能实现“算法的可替换”，二者在实现方式上有何本质区别？如果希望在解析前后插入可选日志，如何在模板方法中扩展？",
+      "answer": "问题1：（1）virtual ~DataProcessor() {}；（2）p->run()；（3）delete p。\n问题2：run() 是模板方法，它固定了算法骨架（open→process→close 的调用顺序），这一骨架不应由子类改变，因此不声明为 virtual，既防止子类重写打乱流程，也避免了通过虚函数表调用的额外开销；变化点被提取到 open、process、close 三个纯虚的“原语操作”上，由子类实现，这正是模板方法的“固定框架、变化步骤”思想。输出为三行：1、2、3（即依次执行打开、解析、关闭）。\n问题3：本质区别：模板方法使用继承，在编译期通过基类调用派生类重写的方法实现步骤替换，算法骨架在基类中固定，属于“父类控制流程、子类实现细节”，是白盒复用（子类能看到基类的内部结构）；策略模式使用组合，把整个算法封装为独立对象，由上下文持有策略接口并在运行期切换实现，属于黑盒复用，客户可在运行期改变算法，但上下文不控制算法的内部步骤。扩展办法：在 DataProcessor 中增加钩子函数（hook），例如 virtual void beforeProcess() {}（默认为空实现，子类可选择性重写），并在 run() 中按骨架顺序调用 open(); beforeProcess(); process(); close();，这样既有固定流程，又给子类留出可选的扩展点。",
+      "rubric": [
+        "(1) virtual ~DataProcessor() {}、(2) p->run()、(3) delete p，每空 2 分，共 6 分",
+        "说明 run() 为模板方法、固定算法骨架不应被重写，2 分",
+        "说明变化点被推迟到纯虚的原语操作由子类实现，1 分",
+        "正确写出输出三行 1、2、3，2 分",
+        "答出模板方法用继承（编译期、白盒、骨架固定），2 分",
+        "答出策略模式用组合（运行期切换、黑盒），1 分",
+        "给出一空实现钩子函数在 run 中调用以支持可选扩展，1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 3,
+      "score": 15,
+      "stem": "某图书管理程序用 vector 保存书目，要求先按价格升序排列，再删除所有价格低于 20 元的图书，最后找出第一本书价高于 50 元的图书并输出。部分代码如下（C++，省略头文件）：\nclass Book {\n    string title;\n    double price;\npublic:\n    Book(const string& t, double p) : title(t), price(p) {}\n    bool (1) (const Book& o) const { return price < o.price; }\n    double getPrice() const { return price; }\n    friend ostream& operator<<(ostream& os, const Book& b) { return os << b.title << ':' << b.price; }\n};\nint main() {\n    vector<Book> books;\n    books.push_back(Book(1, 35.0));\n    books.push_back(Book(2, 12.5));\n    books.push_back(Book(3, 68.0));\n    sort(books.begin(), books.end());\n    for (auto it = books.begin(); it != books.end(); ) {\n        if (it->getPrice() < 20) it = (2) ;\n        else ++it;\n    }\n    auto pos = find_if(books.begin(), books.end(), [](const Book& b) { return (3) ; });\n    if (pos != books.end()) cout << *pos << endl;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：程序输出是什么？erase 的返回值是什么？如果在循环中写成 books.erase(it); ++it; 会出现什么问题？\n问题3：如果把 books 换成 list<Book>，sort(books.begin(), books.end()) 能否编译通过？为什么？应如何修改？",
+      "answer": "问题1：（1）operator<；（2）books.erase(it)；（3）b.getPrice() > 50。\n问题2：输出为 3:68。排序后价格顺序为 12.5、35、68；删除价格低于 20 的元素后剩下 35 与 68；find_if 从头查找第一个价格大于 50 的元素，命中 68 对应的图书，输出其 title 与 price（3:68）。erase 返回被删元素之后元素的迭代器（在 vector 中是原来下一个元素移动后的位置）。若写成 books.erase(it); ++it;，则 erase 已使 it 失效，++it 作用在失效迭代器上是未定义行为，实际表现可能是程序崩溃、跳过元素或产生错误结果；正确写法是用返回值接收下一个有效位置，或在 C++20 中使用 std::erase_if/erase 的返回值风格统一处理。\n问题3：不能保证编译通过。std::sort 要求随机访问迭代器（支持 it+n、it[n] 等操作），list 的迭代器是双向迭代器，不满足要求，编译器会报迭代器类别不匹配的错误。修改办法：使用 list 自带的成员函数 books.sort()（成员版本使用归并排序，只依赖双向迭代器，且是稳定的），若需自定义规则则传比较器：books.sort([](const Book& a, const Book& b) { return a < b; })。",
+      "rubric": [
+        "(1) operator<、(2) books.erase(it)、(3) b.getPrice() > 50，每空 2 分，共 6 分",
+        "正确写出输出 3:68，2 分",
+        "说明 erase 返回被删元素之后元素的迭代器，2 分",
+        "指出 erase 后 ++it 使用失效迭代器属未定义行为，2 分",
+        "说明 std::sort 需随机访问迭代器、list 只有双向迭代器故不能编译，2 分",
+        "给出改用 list::sort（成员函数）的正确修改，1 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 2,
+      "score": 15,
+      "stem": "某办公设备管理系统用工厂创建打印机、扫描仪等设备，用基类指针容器统一管理并按功率汇总。部分代码如下（C++，省略头文件）：\nclass Device {\npublic:\n    virtual double power() const = 0;\n    virtual ~Device() {}\n};\nclass Printer : public Device {\n    double w;\npublic:\n    Printer(double w) : w(w) {}\n    double power() const override { return w; }\n};\nclass Scanner : public Device {\n    double w;\npublic:\n    Scanner(double w) : w(w) {}\n    double power() const override { return w; }\n};\nclass DeviceFactory {\npublic:\n    static Device* create(int kind) {\n        if (kind == 1) return (1) ;\n        if (kind == 2) return new Scanner(25);\n        return (2) ;\n    }\n};\nint main() {\n    vector<Device*> v;\n    v.push_back(DeviceFactory::create(1));\n    v.push_back(DeviceFactory::create(2));\n    double total = 0;\n    for (auto d : v) total += d->power();\n    cout << total << endl;\n    for (auto d : v) delete d;\n    return 0;\n}\n问题1：写出程序中 (1)(2) 两处应填入的内容（打印机功率取 60 瓦）。\n问题2：程序输出是多少？为什么 v 的元素类型必须是 Device* 而不能是 Device？\n问题3：main 中若某次 create 返回空指针，程序会有什么问题？如何改进容器的写法以避免手工 delete 和空指针访问？请写出关键代码。",
+      "answer": "问题1：（1）new Printer(60)；（2）nullptr。\n问题2：输出 85（60+25）。因为 Device 含有纯虚函数，是抽象类，不能定义对象，也不能按值放入容器；即使把纯虚函数改为普通虚函数，vector<Device> 也只能存放基类子对象，push_back 派生类对象时会发生对象切片，派生类的数据成员与重写函数全部丢失，调用 power() 只会得到基类版本。只有保存指针（或引用/智能指针）才能通过动态绑定在运行期调用到 Printer::power 与 Scanner::power。\n问题3：若 create 返回空指针（kind 无匹配），v 中会有空元素，d->power() 对空指针解引用导致程序崩溃（未定义行为），delete 空指针本身是安全的（no-op），但循环里的访问不安全。改进：（a）create 失败时抛异常或返回 nullptr 并在 push 前检查；（b）改用 vector<unique_ptr<Device>>，用 make_unique 创建、用 push_back(std::move(...)) 或 emplace_back 加入，容器析构时自动调用 delete，且借助虚析构正确析构派生部分，无需手工 delete。关键代码：vector<unique_ptr<Device>> v; v.push_back(unique_ptr<Device>(DeviceFactory::create(1))); for (const auto& d : v) if (d) total += d->power();（或先判断 create 的返回值非空再放入容器）。",
+      "rubric": [
+        "(1) new Printer(60)、(2) nullptr，每空 3 分，共 6 分",
+        "正确写出输出 85，2 分",
+        "说明抽象类不能实例化且按值存放会对象切片，2 分",
+        "说明只有指针/引用才能实现动态绑定，2 分",
+        "指出空指针解引用会崩溃（未定义行为），1 分",
+        "给出 vector<unique_ptr<Device>> 或判空后再存入的改进代码，2 分"
+      ],
+      "explanation": ""
+    },
+    {
+      "type": "subjective",
+      "topic": "OO",
+      "knowledge": "程序设计-C++",
+      "difficulty": 3,
+      "score": 15,
+      "stem": "某通用排序组件要求：排序算法与比较规则都可复用，比较规则（升序、降序、按自定义规则）作为可替换的策略传入。设计人员把类模板与策略模式结合，部分代码如下（C++，省略头文件）：\ntemplate <typename T>\nclass Comparator {\npublic:\n    virtual bool compare(const T& a, const T& b) const = 0;\n    virtual ~Comparator() {}\n};\ntemplate <typename T>\nclass Ascending : public Comparator<T> {\npublic:\n    bool compare(const T& a, const T& b) const override { return (1) ; }\n};\ntemplate <typename T>\nclass Sorter {\n    Comparator<T>* cmp;\npublic:\n    Sorter(Comparator<T>* c) : cmp(c) {}\n    ~Sorter() { delete cmp; }\n    void sort(vector<T>& v) {\n        for (size_t i = 0; i < v.size(); ++i)\n            for (size_t j = 0; j + 1 < v.size() - i; ++j)\n                if ( (2) ) swap(v[j], v[j + 1]);\n    }\n};\nint main() {\n    Sorter<int> s(new Ascending<int>());\n    vector<int> v{3, 1, 2};\n    (3) ;\n    for (int x : v) cout << x << ' ';\n    cout << endl;\n    return 0;\n}\n问题1：写出程序中 (1)(2)(3) 三处应填入的内容。\n问题2：程序输出是什么？Ascending<int> 与 Ascending<double> 是什么关系？(1) 处的表达式对 T 有什么要求？\n问题3：Sorter 析构函数中 delete cmp 有什么风险？若两个 Sorter 共享同一个 Comparator 对象会怎样？此外，类模板中能否定义函数模板形式的虚函数？请说明理由。",
+      "answer": "问题1：（1）a < b；（2）cmp->compare(v[j + 1], v[j])；（3）s.sort(v)。\n问题2：输出为 1 2 3。Ascending<int> 与 Ascending<double> 是两个由同一模板实例化出来的、互不相关的不同类（都公有继承各自基类的 Comparator<int> 与 Comparator<double>），彼此之间没有继承关系，不能互相替换；模板实例化是按需生成的。()1 处使用了 a < b，要求类型 T 支持 operator<（内置数值类型、string 满足；自定义类型需重载 <）。\n问题3：风险在于所有权不清：Sorter 在构造时接管指针并在析构时 delete，调用者若以为对象仍归自己所有、事后自行 delete 或再次交给其他 Sorter，就会出现重复释放（double free，未定义行为）或悬空指针；若两个 Sorter 共享同一个 Comparator 对象，它们析构时会各 delete 一次，同样导致重复释放。改进：改用 unique_ptr<Comparator<T>> 表达独占所有权，或用 shared_ptr 表达共享，或明确约定 Sorter 只借用不拥有、由调用者负责释放。类模板中不能定义函数模板形式的虚函数（即 virtual 成员函数本身不能再带模板参数）：因为虚函数依靠运行期虚函数表定位，虚表在编译期按固定签名建立，而成员函数模板每次实例化都会产生不同的签名，编译器无法为未知数量的实例预先生成虚表项，因此标准禁止模板化的虚函数；但类模板继承抽象基类并实现（非模板的）纯虚函数是完全允许的，本例正是如此。",
+      "rubric": [
+        "(1) a < b、(2) cmp->compare(v[j + 1], v[j])、(3) s.sort(v)，每空 2 分，共 6 分",
+        "正确写出输出 1 2 3，2 分",
+        "说明 Ascending<int> 与 Ascending<double> 是不同的模板实例（无继承关系），1 分",
+        "指出 (1) 要求 T 支持 operator<，1 分",
+        "指出 delete cmp 的所有权风险与重复释放问题，2 分",
+        "给出 unique_ptr/shared_ptr 或明确所有权约定的改进，1 分",
+        "说明虚函数不能是模板成员函数（虚表按固定签名建立）的理由，2 分"
+      ],
+      "explanation": ""
+    }
+  ]
+}

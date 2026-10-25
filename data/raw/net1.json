@@ -1,0 +1,327 @@
+[
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在OSI参考模型中，负责为源端和目的端之间提供端到端数据传输并进行流量控制的层次是（ ）。",
+    "options": ["数据链路层", "网络层", "传输层", "会话层"],
+    "answer": ["C"],
+    "explanation": "传输层为端到端提供可靠或不可靠的数据传输，并负责流量控制、复用与分用。",
+    "difficulty": 1,
+    "knowledge": "传输层功能"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在数据链路层，协议数据单元（PDU）的名称是（ ）。",
+    "options": ["比特流", "帧", "分组", "报文段"],
+    "answer": ["B"],
+    "explanation": "链路层PDU为帧，网络层为分组，传输层为报文段，物理层为比特流。",
+    "difficulty": 1,
+    "knowledge": "协议数据单元"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "集线器（Hub）工作在OSI参考模型的（ ）。",
+    "options": ["物理层", "数据链路层", "网络层", "传输层"],
+    "answer": ["A"],
+    "explanation": "集线器只对信号整形放大并广播到所有端口，工作在物理层，端口共享同一冲突域。",
+    "difficulty": 1,
+    "knowledge": "集线器"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "双绞线中两根导线相互绞合的主要作用是（ ）。",
+    "options": ["提高抗拉强度", "减少串扰和电磁干扰", "降低生产成本", "提高传输速率"],
+    "answer": ["B"],
+    "explanation": "绞合使各线对感应出的电磁干扰相互抵消，从而减少串扰和外部电磁干扰。",
+    "difficulty": 1,
+    "knowledge": "双绞线"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "下列网络设备中，工作在网络层的是（ ）。",
+    "options": ["中继器", "集线器", "交换机", "路由器"],
+    "answer": ["D"],
+    "explanation": "路由器依据IP地址进行路径选择，工作在网络层；中继器、集线器在物理层，交换机在数据链路层。",
+    "difficulty": 1,
+    "knowledge": "网络设备层次"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在OSI参考模型中，实现二进制比特流透明传输，并规定接口机械、电气特性的层次是（ ）。",
+    "options": ["数据链路层", "物理层", "网络层", "应用层"],
+    "answer": ["B"],
+    "explanation": "物理层定义接口的机械、电气、功能和规程特性，完成比特流的透明传输。",
+    "difficulty": 1,
+    "knowledge": "物理层功能"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "1000BASE-T标准的以太网采用的传输介质是（ ），最大传输距离为100m。",
+    "options": ["50Ω同轴电缆", "单模光纤", "5类非屏蔽双绞线", "多模光纤"],
+    "answer": ["C"],
+    "explanation": "1000BASE-T使用5类及以上非屏蔽双绞线，利用4对线全双工传输，最大距离100m。",
+    "difficulty": 2,
+    "knowledge": "千兆以太网"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "关于单模光纤的描述，正确的是（ ）。",
+    "options": ["纤芯直径较粗，可用发光二极管作光源", "纤芯直径较细，传输距离远、带宽大", "只能用于短距离楼内布线", "传输的是电信号，抗干扰能力弱"],
+    "answer": ["B"],
+    "explanation": "单模光纤纤芯细、只传输一种模式，衰减小、带宽大，适合长距离大容量传输。",
+    "difficulty": 2,
+    "knowledge": "光纤"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在综合布线系统中，连接楼层配线架的配线架与各工作区信息插座的部分是（ ）。",
+    "options": ["工作区子系统", "水平子系统", "垂直干线子系统", "建筑群子系统"],
+    "answer": ["B"],
+    "explanation": "水平子系统连接楼层配线架与工作区信息插座，常用双绞线，缆线长度一般不超过90m。",
+    "difficulty": 2,
+    "knowledge": "综合布线"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "要将两台交换机直接相连，通常应使用的双绞线是（ ）。",
+    "options": ["直通线", "交叉线", "扁平线", "电话线"],
+    "answer": ["B"],
+    "explanation": "同类设备（交换机与交换机）相连使用交叉线，异类设备相连使用直通线。",
+    "difficulty": 2,
+    "knowledge": "线序标准"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在TCP/IP体系结构中，地址解析协议ARP属于（ ）。",
+    "options": ["应用层", "传输层", "网际层", "网络接口层"],
+    "answer": ["C"],
+    "explanation": "ARP完成IP地址到MAC地址的解析，与IP、ICMP同属网际层协议。",
+    "difficulty": 2,
+    "knowledge": "ARP协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在TCP/IP模型中，下列协议位于应用层的是（ ）。",
+    "options": ["TCP", "DNS", "IP", "ARP"],
+    "answer": ["B"],
+    "explanation": "DNS、HTTP、FTP、SMTP均为应用层协议；TCP属传输层，IP、ARP属网际层。",
+    "difficulty": 2,
+    "knowledge": "应用层协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "数据从应用层向下逐层传递时，最先被添加的头部是（ ）。",
+    "options": ["应用层头", "传输层头", "网际层头", "链路层帧头"],
+    "answer": ["B"],
+    "explanation": "应用层数据先交给传输层，由传输层添加TCP或UDP首部，再逐层向下封装。",
+    "difficulty": 2,
+    "knowledge": "数据封装"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "IEEE 802.3以太网采用的介质访问控制方法是（ ）。",
+    "options": ["CSMA/CD", "CSMA/CA", "令牌环", "令牌总线"],
+    "answer": ["A"],
+    "explanation": "802.3以太网采用带冲突检测的载波监听多路访问CSMA/CD，802.11无线网采用CSMA/CA。",
+    "difficulty": 2,
+    "knowledge": "介质访问控制"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "以太网MAC地址长度为48位，其中高24位称为（ ）。",
+    "options": ["主机号", "机构唯一标识符OUI", "子网掩码", "VLAN标识"],
+    "answer": ["B"],
+    "explanation": "MAC地址高24位为厂商分配的组织唯一标识符OUI，低24位由厂商自行分配。",
+    "difficulty": 2,
+    "knowledge": "MAC地址"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "以太网交换机收到一个目的MAC地址在其MAC地址表中不存在的帧时，将（ ）。",
+    "options": ["丢弃该帧", "修改地址后转发", "向除接收端口外的所有端口转发", "只向源端口转发"],
+    "answer": ["C"],
+    "explanation": "地址表中无匹配表项时交换机执行泛洪，向除入端口外的所有端口转发该帧。",
+    "difficulty": 2,
+    "knowledge": "交换机自学习"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "用于连接两个协议体系差异较大、协议不兼容的网络并实现协议转换的设备是（ ）。",
+    "options": ["路由器", "网桥", "网关", "中继器"],
+    "answer": ["C"],
+    "explanation": "网关工作在高层，完成不同协议体系之间的转换，是最复杂的网络互连设备。",
+    "difficulty": 2,
+    "knowledge": "网关"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在交换机上按端口划分VLAN后，同一VLAN内的主机之间通信（ ）。",
+    "options": ["必须经过路由器", "由交换机直接二层转发，不需要路由器", "无法通信", "必须经网关转换协议"],
+    "answer": ["B"],
+    "explanation": "同一VLAN属同一广播域，二层交换机直接转发；不同VLAN间通信才需三层设备。",
+    "difficulty": 2,
+    "knowledge": "VLAN划分"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "交换机采用存储转发方式转发帧的主要优点是（ ）。",
+    "options": ["转发时延固定且很小", "可校验帧的正确性并支持不同速率端口互通", "不需要维护MAC地址表", "所有端口共享带宽"],
+    "answer": ["B"],
+    "explanation": "存储转发先接收完整帧并做CRC校验，可丢弃错帧，并支持不同速率端口间转发。",
+    "difficulty": 2,
+    "knowledge": "交换机转发"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "在TCP/IP体系中，用于传递控制消息和差错报告的ICMP协议属于（ ）。",
+    "options": ["应用层", "传输层", "网际层", "网络接口层"],
+    "answer": ["C"],
+    "explanation": "ICMP报文封装在IP数据报中传送，属网际层协议，用于差错报告和查询。",
+    "difficulty": 2,
+    "knowledge": "网际层协议"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "以太网MAC帧由目的地址（6B）、源地址（6B）、类型（2B）、数据（最少46B）和帧校验序列（4B）组成，其最小帧长为（ ）。",
+    "options": ["46B", "60B", "64B", "72B"],
+    "answer": ["C"],
+    "explanation": "6+6+2+46+4=64B，以太网最小帧长为64字节，用于保证发送方能检测到冲突。",
+    "difficulty": 3,
+    "knowledge": "以太网帧格式"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "待发送数据为1101011011，生成多项式G(x)=x<sup>4</sup>+x+1，按CRC方法计算得到的余数是（ ）。",
+    "options": ["1001", "1010", "1110", "1111"],
+    "answer": ["C"],
+    "explanation": "在数据后补4个0，用10011作模2除法，得余数1110，将其附加在数据后发送。",
+    "difficulty": 3,
+    "knowledge": "CRC校验"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "某10Mb/s以太网采用CSMA/CD协议，争用期为51.2μs，为保证发送方能检测到冲突，其最小帧长应为（ ）。",
+    "options": ["64B", "128B", "512B", "1024B"],
+    "answer": ["A"],
+    "explanation": "最小帧长=10Mb/s×51.2μs=512bit=64B，与以太网帧格式的最小长度一致。",
+    "difficulty": 3,
+    "knowledge": "争用期"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "一台交换机有4个端口，端口1连接一台集线器（集线器上接3台计算机），端口2、3、4各连接1台计算机，则冲突域和广播域的个数分别为（ ）。",
+    "options": ["1和1", "4和1", "4和4", "7和1"],
+    "answer": ["B"],
+    "explanation": "交换机每个端口各构成一个冲突域且不隔离广播，故有4个冲突域、1个广播域。",
+    "difficulty": 3,
+    "knowledge": "冲突域"
+  },
+  {
+    "type": "single",
+    "topic": "NET",
+    "stem": "IEEE 802.1Q VLAN标签中，用于标识VLAN的VID字段长度为（ ）。",
+    "options": ["8位", "10位", "12位", "16位"],
+    "answer": ["C"],
+    "explanation": "802.1Q标签共4字节，其中VID占12位，最多可标识4096个VLAN。",
+    "difficulty": 3,
+    "knowledge": "802.1Q"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "关于TCP/IP参考模型与OSI参考模型对应关系的叙述中，正确的有（ ）。",
+    "options": [
+      "TCP/IP的网络接口层对应OSI的物理层和数据链路层",
+      "TCP/IP的网际层对应OSI的网络层",
+      "TCP/IP的传输层对应OSI的会话层和表示层",
+      "TCP/IP的应用层只对应OSI的应用层"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "网络接口层对应物理层与数据链路层，网际层对应网络层，应用层对应高三层。",
+    "difficulty": 3,
+    "knowledge": "模型层次对应"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "关于CSMA/CD协议的叙述中，正确的有（ ）。",
+    "options": [
+      "发送站点边发送边检测冲突，检测到冲突立即停止发送",
+      "冲突后采用二进制指数退避算法随机延迟后再重发",
+      "站点发送数据前不监听信道，随时可以发送",
+      "以太网依靠CSMA/CD即可实现可靠传输，无需上层确认"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "CSMA/CD先听后发、边发边听，冲突后退避重传；可靠性由上层协议保证。",
+    "difficulty": 3,
+    "knowledge": "CSMA/CD机制"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "关于VLAN的叙述中，正确的有（ ）。",
+    "options": [
+      "VLAN可在逻辑上把一个物理局域网划分为多个广播域",
+      "不同VLAN之间的通信必须经过路由器或三层交换机",
+      "同一VLAN内的主机必须经过路由器才能相互通信",
+      "VLAN划分后必须更换硬件设备才能重新调整"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "VLAN隔离广播域，VLAN间通信需三层设备转发；同一VLAN内二层即可互通。",
+    "difficulty": 2,
+    "knowledge": "VLAN作用"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "关于传输介质的叙述中，正确的有（ ）。",
+    "options": [
+      "单模光纤纤芯细、衰减小，适合长距离传输",
+      "双绞线的线对相互绞合可减少串扰",
+      "多模光纤通常采用半导体激光器作为光源",
+      "同轴电缆中传输的是光信号"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "单模光纤适合长距离；绞合减少串扰。多模光纤多用LED作光源，同轴电缆传电信号。",
+    "difficulty": 3,
+    "knowledge": "传输介质特性"
+  },
+  {
+    "type": "multi",
+    "topic": "NET",
+    "stem": "关于网络互连设备的叙述中，正确的有（ ）。",
+    "options": [
+      "集线器工作在物理层，所有端口属于同一冲突域",
+      "交换机依据MAC地址转发帧，可隔离冲突域",
+      "路由器工作在传输层，用于实现进程间通信",
+      "网关只能用于连接采用相同协议的网络"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "集线器不隔离冲突域而交换机可隔离；路由器工作在网络层；网关用于异种协议转换。",
+    "difficulty": 3,
+    "knowledge": "网络设备"
+  }
+]

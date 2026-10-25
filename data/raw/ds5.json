@@ -1,0 +1,352 @@
+[
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "一棵二叉树中有 8 个度为 2 的结点，则其中叶子结点的个数为（　）。",
+    "options": ["7", "8", "9", "10"],
+    "answer": ["C"],
+    "explanation": "任意二叉树中叶子数 n0 与度为 2 的结点数 n2 满足 n0=n2+1，故叶子数为 8+1=9。",
+    "difficulty": 1,
+    "knowledge": "二叉树性质"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "一棵二叉树共有 121 个结点，其中度为 1 的结点有 40 个，则该二叉树中叶子结点的个数为（　）。",
+    "options": ["40", "41", "42", "81"],
+    "answer": ["B"],
+    "explanation": "由 n0=n2+1 且 n0+n1+n2=121、n1=40，解得 n2=40，故 n0=41。",
+    "difficulty": 2,
+    "knowledge": "二叉树性质"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "已知某二叉树的前序遍历序列为 ABDECFG，中序遍历序列为 DBEAFCG，则其后序遍历序列为（　）。",
+    "options": ["DEBFGCA", "DBEFGCA", "DEBGFCA", "DEFBGCA"],
+    "answer": ["A"],
+    "explanation": "前序首结点 A 为根，用中序序列划分左右子树并递归还原，后序遍历得 DEBFGCA。",
+    "difficulty": 2,
+    "knowledge": "序列还原"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "已知某二叉树的中序遍历序列为 BDCEAFHG，后序遍历序列为 DECBHGFA，则其前序遍历序列为（　）。",
+    "options": ["ABDCFEGH", "ABDCEGFH", "ABDFCEGH", "ABDCEFGH"],
+    "answer": ["D"],
+    "explanation": "后序末结点 A 为根，结合中序不断划分左右子树递归还原，前序序列为 ABDCEFGH。",
+    "difficulty": 3,
+    "knowledge": "序列还原"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "一棵完全二叉树共有 120 个结点，则其叶子结点的个数为（　）。",
+    "options": ["59", "60", "61", "64"],
+    "answer": ["B"],
+    "explanation": "完全二叉树中叶子数 n0=⌈n/2⌉=60，另有度为 1 的结点 1 个、度为 2 的结点 59 个。",
+    "difficulty": 2,
+    "knowledge": "完全二叉树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对权值集合 {2,3,4,5,6} 构造哈夫曼树，其带权路径长度 WPL 为（　）。",
+    "options": ["45", "40", "44", "50"],
+    "answer": ["A"],
+    "explanation": "逐次合并得 5、9、11、20，WPL 等于各次合并结果之和，即 45。",
+    "difficulty": 2,
+    "knowledge": "哈夫曼WPL"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对权值集合 {5,7,8,11,15,25} 构造哈夫曼树，其带权路径长度 WPL 为（　）。",
+    "options": ["164", "169", "173", "181"],
+    "answer": ["C"],
+    "explanation": "逐次合并得 12、19、27、44、71，WPL 为各次合并值之和，即 173。",
+    "difficulty": 3,
+    "knowledge": "哈夫曼WPL"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "关于哈夫曼编码，下列叙述正确的是（　）。",
+    "options": [
+      "对同一组权值，哈夫曼编码方案是唯一的",
+      "权值越大的字符，其编码一定越长",
+      "哈夫曼编码必须另加分隔符来区分字符",
+      "任一个字符的编码都不是另一个字符编码的前缀"
+    ],
+    "answer": ["D"],
+    "explanation": "哈夫曼编码是前缀编码，无需分隔符；权值大的字符码长较短；同一组权值可能得到不同编码。",
+    "difficulty": 2,
+    "knowledge": "哈夫曼编码"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在中序线索二叉树中，若结点 p 的左标志 ltag=1，则 p 的 lchild 域指向（　）。",
+    "options": ["p 的中序前驱", "p 的中序后继", "p 的左孩子", "p 的双亲"],
+    "answer": ["A"],
+    "explanation": "ltag=1 表示左指针为线索而非孩子指针，指向该结点在中序序列中的直接前驱。",
+    "difficulty": 2,
+    "knowledge": "线索二叉树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "关于线索二叉树，下列叙述正确的是（　）。",
+    "options": [
+      "线索化后每个结点都能直接找到其前驱和后继",
+      "线索二叉树是一种顺序存储结构",
+      "在中序线索二叉树中可不必借助栈实现中序遍历",
+      "线索化之后不能再对二叉树进行插入和删除操作"
+    ],
+    "answer": ["C"],
+    "explanation": "线索给出了遍历次序，沿线索即可完成中序遍历，无需递归或栈；仅有空指针处才被线索化。",
+    "difficulty": 3,
+    "knowledge": "线索二叉树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "将一棵树转换为对应的二叉树后，该二叉树的根结点（　）。",
+    "options": ["一定没有左子树", "左右子树都为空", "一定是叶子结点", "一定没有右子树"],
+    "answer": ["D"],
+    "explanation": "转换时结点的兄弟成为其右孩子，树的根结点没有兄弟，因此根结点一定无右子树。",
+    "difficulty": 1,
+    "knowledge": "树转二叉树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "将森林转换为二叉树时，森林中第二棵树的根结点成为（　）。",
+    "options": [
+      "第一棵树根结点的右孩子",
+      "第一棵树根结点的左孩子",
+      "第一棵树根结点的双亲",
+      "第一棵树根结点左孩子的右孩子"
+    ],
+    "answer": ["A"],
+    "explanation": "森林转换时各棵树的根结点依次作为前一棵树根结点的右孩子，形成右链。",
+    "difficulty": 2,
+    "knowledge": "森林转二叉树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "采用按秩合并和路径压缩的并查集处理 n 个元素，进行 m 次查找与合并操作，其时间复杂度为（　）。",
+    "options": ["O(m²)", "O(mn)", "O(m log n)", "O(m α(n))"],
+    "answer": ["D"],
+    "explanation": "路径压缩配合按秩合并使单次操作均摊代价近乎常数，总复杂度为 O(mα(n))。",
+    "difficulty": 2,
+    "knowledge": "并查集"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "初始时 6 个元素 1～6 各自构成一个集合，依次执行 union(1,2)、union(3,4)、union(2,3)，则元素 4 所在集合中的元素个数为（　）。",
+    "options": ["2", "3", "4", "6"],
+    "answer": ["C"],
+    "explanation": "前两次合并得到 {1,2} 与 {3,4}，第三次合并后 1～4 属于同一集合，共 4 个元素。",
+    "difficulty": 3,
+    "knowledge": "并查集"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "一棵完全二叉树共有 1000 个结点，则其高度（层数）为（　）。",
+    "options": ["9", "10", "11", "12"],
+    "answer": ["B"],
+    "explanation": "完全二叉树高度为 ⌊log2 n⌋+1，⌊log2 1000⌋=9，故高度为 10。",
+    "difficulty": 3,
+    "knowledge": "完全二叉树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "高度为 6 的二叉树最多含有多少个结点（　）？",
+    "options": ["31", "32", "63", "64"],
+    "answer": ["C"],
+    "explanation": "高度为 h 的二叉树结点数最多为 2^h-1，代入 h=6 得 63。",
+    "difficulty": 1,
+    "knowledge": "二叉树高度"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "若一棵二叉树的中序遍历序列与其前序遍历序列完全相同，则该二叉树中（　）。",
+    "options": [
+      "每个结点都没有左孩子",
+      "每个结点都没有右孩子",
+      "每个结点都有两个孩子",
+      "所有叶子结点都在同一层"
+    ],
+    "answer": ["A"],
+    "explanation": "前序为“根左右”、中序为“左根右”，二者相同要求每个结点的左子树为空，即均无左孩子。",
+    "difficulty": 2,
+    "knowledge": "遍历序列"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "若一棵二叉树的前序遍历序列与后序遍历序列正好相反，则该二叉树（　）。",
+    "options": [
+      "是一棵完全二叉树",
+      "是一棵满二叉树",
+      "只有根结点一个结点",
+      "每个结点至多只有一个孩子"
+    ],
+    "answer": ["D"],
+    "explanation": "若某结点同时有左右孩子，两序列不可能互为逆序，故树中每个结点至多一个孩子，即单支树。",
+    "difficulty": 3,
+    "knowledge": "遍历序列"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "一棵完全二叉树共有 100 个结点，按层序从 1 开始编号，则叶子结点中最小的编号为（　）。",
+    "options": ["49", "50", "51", "52"],
+    "answer": ["C"],
+    "explanation": "结点 i 为叶子的条件是 2i>n，即 i>50，故叶子结点最小编号为 51。",
+    "difficulty": 2,
+    "knowledge": "完全二叉树编号"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对一棵有 1000 个结点的完全二叉树按层序从 1 开始编号，则编号为 500 的结点所在层次为（　）。",
+    "options": ["8", "9", "10", "11"],
+    "answer": ["B"],
+    "explanation": "编号为 i 的结点层次为 ⌊log2 i⌋+1，⌊log2 500⌋=8，故为第 9 层。",
+    "difficulty": 3,
+    "knowledge": "完全二叉树编号"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "含有 10 个叶子结点的哈夫曼树，其结点总数为（　）。",
+    "options": ["19", "18", "20", "21"],
+    "answer": ["A"],
+    "explanation": "哈夫曼树无度为 1 的结点，n 个叶子对应 n-1 个度为 2 的结点，总数 2n-1=19。",
+    "difficulty": 2,
+    "knowledge": "哈夫曼树构造"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "由 n 个权值构造的哈夫曼树中，度为 2 的结点个数与度为 1 的结点个数分别为（　）。",
+    "options": ["n 和 0", "n-1 和 0", "n-1 和 1", "n 和 n-1"],
+    "answer": ["B"],
+    "explanation": "构造过程每次取两棵子树合并，每个非叶结点都有两个孩子，故度为 1 的结点为 0 个、度为 2 的为 n-1 个。",
+    "difficulty": 3,
+    "knowledge": "哈夫曼树构造"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "含有 100 个结点的二叉树的最小高度（层数）为（　）。",
+    "options": ["6", "7", "8", "9"],
+    "answer": ["B"],
+    "explanation": "高度 h 的二叉树最多 2^h-1 个结点，2^6-1=63<100≤127，故最小高度为 7。",
+    "difficulty": 2,
+    "knowledge": "二叉树高度"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在含 n 个结点的二叉树的二叉链表中，空指针域的个数为（　）。",
+    "options": ["n-1", "n", "2n", "n+1"],
+    "answer": ["D"],
+    "explanation": "二叉链表共有 2n 个指针域，其中 n-1 个指向孩子，故空指针域为 2n-(n-1)=n+1 个。",
+    "difficulty": 1,
+    "knowledge": "二叉链表"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "某二叉树采用二叉链表存储，共有 15 个空指针域，则该二叉树的结点个数为（　）。",
+    "options": ["13", "14", "15", "16"],
+    "answer": ["B"],
+    "explanation": "二叉链表的空指针域个数为 n+1，由 n+1=15 得 n=14。",
+    "difficulty": 1,
+    "knowledge": "二叉链表"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于哈夫曼树与哈夫曼编码，下列说法正确的有（　）。",
+    "options": [
+      "对同一组权值，构造出的哈夫曼树唯一",
+      "哈夫曼编码是一种前缀编码",
+      "哈夫曼编码是一种等长编码",
+      "哈夫曼编码的带权路径长度达到最小"
+    ],
+    "answer": ["B", "D"],
+    "explanation": "哈夫曼编码是前缀编码，其 WPL 在所有前缀编码中最小；同一组权值可构造出形态不同的哈夫曼树。",
+    "difficulty": 2,
+    "knowledge": "哈夫曼编码"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于树与其对应二叉树之间的遍历关系，下列说法正确的有（　）。",
+    "options": [
+      "树的先根遍历序列与其对应二叉树的前序序列相同",
+      "树的后根遍历序列与其对应二叉树的后序序列相同",
+      "树的后根遍历序列与其对应二叉树的中序序列相同",
+      "树的先根遍历序列与其对应二叉树的中序序列相同"
+    ],
+    "answer": ["A", "C"],
+    "explanation": "树转换后，先根遍历对应二叉树的前序遍历，后根遍历对应二叉树的中序遍历。",
+    "difficulty": 2,
+    "knowledge": "树的遍历"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于树与二叉树的基本性质，下列说法正确的有（　）。",
+    "options": [
+      "含 n 个结点的树中有 n-1 条边",
+      "树的后根遍历序列中最后一个结点一定是根结点",
+      "树中每个结点最多只能有一个孩子",
+      "二叉树中度为 1 的结点个数一定为 1"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "树有 n-1 条边，后根遍历最后访问根；树中结点可有多个孩子，二叉树中度 1 的结点数不定。",
+    "difficulty": 3,
+    "knowledge": "树的性质"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于森林的遍历，下列说法正确的有（　）。",
+    "options": [
+      "森林的先序遍历等价于依次对每棵树进行先根遍历",
+      "森林的中序遍历等价于依次对每棵树进行后根遍历",
+      "森林的中序遍历等价于依次对每棵树进行先根遍历",
+      "森林中不存在中序遍历，只能逐棵树单独遍历"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "森林的先序遍历即依次先根遍历各树，中序遍历即依次后根遍历各树，与对应二叉树遍历一致。",
+    "difficulty": 3,
+    "knowledge": "森林遍历"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "将森林转换为二叉树后，下列说法正确的有（　）。",
+    "options": [
+      "转换后二叉树根结点的右子树一定为空",
+      "森林中各棵树转换后仍互不相连，作为并列的二叉树存在",
+      "第一棵树的根结点成为转换后二叉树的根结点",
+      "第二棵树的根结点成为二叉树根结点的右孩子"
+    ],
+    "answer": ["C", "D"],
+    "explanation": "森林转换时第一棵树的根成为二叉树根，其余各树根依次挂为其右孩子，连成右链。",
+    "difficulty": 1,
+    "knowledge": "森林转二叉树"
+  }
+]

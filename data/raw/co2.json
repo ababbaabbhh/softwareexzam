@@ -1,0 +1,322 @@
+[
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "在计算机存储系统的层次结构中，从内到外依次为CPU寄存器、Cache、主存和辅存。设置这样层次结构的主要目的是（  ）。",
+    "options": ["解决主存容量不足问题", "解决CPU与主存速度不匹配且兼顾成本", "解决外设与主存的速度差异", "实现存储单元的并行编址"],
+    "answer": ["B"],
+    "explanation": "层次结构利用局部性原理，在速度、容量和价格之间折中，缓解CPU与主存速度差距。",
+    "difficulty": 1,
+    "knowledge": "存储层次结构"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某计算机主存容量为512MB，按字节编址，则其地址线至少需要（  ）根。",
+    "options": ["27", "28", "29", "30"],
+    "answer": ["C"],
+    "explanation": "512MB=2^29B，按字节编址时地址个数为2^29，需29根地址线。",
+    "difficulty": 1,
+    "knowledge": "主存容量编址"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某计算机主存按字节编址，地址从A4000H到CFFFFH，则该存储器的容量为（  ）。",
+    "options": ["176KB", "192KB", "224KB", "256KB"],
+    "answer": ["A"],
+    "explanation": "CFFFFH-A4000H+1=2C000H=176K个字节，故容量为176KB。",
+    "difficulty": 2,
+    "knowledge": "主存容量计算"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某计算机主存容量为1MB，Cache容量为16KB，采用直接映射方式，每个主存块大小为32B。则主存地址中用于标记（Tag）的位数为（  ）。",
+    "options": ["6", "9", "15", "20"],
+    "answer": ["A"],
+    "explanation": "块内地址5位，Cache共512行即行号9位，主存块号15位，标记位=20-9-5=6位。",
+    "difficulty": 2,
+    "knowledge": "Cache直接映射"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某计算机Cache采用组相联映射，主存地址格式为：标记11位、组号4位、块内地址5位。则该Cache共有（  ）个Cache块。",
+    "options": ["64", "256", "512", "1024"],
+    "answer": ["C"],
+    "explanation": "块大小32B占5位，主存1MB共20位，标记11位、组号4位即16组；Cache容量8KB，共256块。",
+    "difficulty": 3,
+    "knowledge": "Cache组相联映射"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某程序执行过程中共访问Cache 2000次，其中命中1800次，访问主存200次（均为Cache未命中引起的访问）。则Cache命中率为（  ）。",
+    "options": ["0.85", "0.90", "0.92", "0.95"],
+    "answer": ["B"],
+    "explanation": "命中率即命中次数与总访问次数之比，1800/2000=0.90。注意分母不含访存次数。",
+    "difficulty": 2,
+    "knowledge": "Cache命中率"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某计算机Cache的存取周期为5ns，主存存取周期为50ns，Cache命中率为95%。则该系统的平均访问时间约为（  ）ns（按先查Cache再查主存方式计算）。",
+    "options": ["7.25", "7.50", "12.50", "52.50"],
+    "answer": ["B"],
+    "explanation": "T=h×tc+(1-h)(tc+tm)=0.95×5+0.05×55=7.5ns。",
+    "difficulty": 3,
+    "knowledge": "Cache平均访问时间"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "在带有Cache的计算机系统中，为保证Cache内容与主存内容一致，下列做法中属于写回法（Write Back）特点的是（  ）。",
+    "options": ["每次写操作同时写入Cache和主存", "写操作只写Cache，待该块被替换时再写回主存", "写操作只写主存，并作废Cache中的对应块", "由硬件强制所有Cache块与主存同步更新"],
+    "answer": ["B"],
+    "explanation": "写回法只修改Cache并在替换时写回，减少访存次数，但需保持一致性控制。",
+    "difficulty": 2,
+    "knowledge": "Cache写策略"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "在多处理机（多核）系统中，各处理器拥有各自的Cache，当某个处理器修改了其Cache中的数据时，需要（  ）来保证其他Cache中数据副本的一致性。",
+    "options": ["增加Cache容量", "采用Cache一致性协议（如监听协议或目录协议）", "提高主存的存取速度", "改用直接映射方式"],
+    "answer": ["B"],
+    "explanation": "多核系统中私有Cache的数据副本需通过一致性协议维护，常见有总线监听和目录协议。",
+    "difficulty": 2,
+    "knowledge": "Cache一致性"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "虚拟存储器的主要作用是（  ）。",
+    "options": ["提高CPU主频", "扩大逻辑地址空间并实现主存与外存的统一管理", "减少指令系统中指令的条数", "降低Cache的缺失率"],
+    "answer": ["B"],
+    "explanation": "虚拟存储器通过地址变换扩大用户可见的逻辑地址空间，并由硬件和操作系统完成调入调出。",
+    "difficulty": 1,
+    "knowledge": "虚拟存储器"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "虚拟存储器中，页式管理的地址变换是由（  ）共同完成的。",
+    "options": ["全部由操作系统软件完成", "全部由硬件完成", "硬件（如TLB和页表基址寄存器）与操作系统配合完成", "由编译程序完成"],
+    "answer": ["C"],
+    "explanation": "地址变换由硬件完成，缺页时由操作系统处理页面调入调出，二者配合实现。",
+    "difficulty": 2,
+    "knowledge": "页式地址变换"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "RAID 1（镜像磁盘）的主要特点是（  ）。",
+    "options": ["通过校验码实现容错，磁盘利用率为(n-1)/n", "两两镜像，可靠性高但磁盘利用率仅为50%", "将数据分块并行写入多块磁盘，无冗余", "采用汉明码校验，可纠正多位错误"],
+    "answer": ["B"],
+    "explanation": "RAID1将数据完全复制到镜像盘，读性能提升、容错能力强，但有效容量减半。",
+    "difficulty": 2,
+    "knowledge": "RAID1镜像"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "RAID 5与RAID 4的主要区别在于（  ）。",
+    "options": ["RAID 5不使用校验信息", "RAID 5将校验信息分散存放在各磁盘上，避免校验盘瓶颈", "RAID 5仅支持两块磁盘", "RAID 5采用镜像方式容错"],
+    "answer": ["B"],
+    "explanation": "RAID5采用分布式奇偶校验，消除了RAID4中专用的校验盘带来的写瓶颈。",
+    "difficulty": 3,
+    "knowledge": "RAID5校验分布"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某指令流水线由取指、分析、执行3段组成，各段所需时间分别为2ns、3ns、2ns。则该流水线的时钟周期和一条指令的执行时间分别为（  ）。",
+    "options": ["2ns、7ns", "3ns、9ns", "3ns、7ns", "2ns、6ns"],
+    "answer": ["B"],
+    "explanation": "流水线周期取最长段3ns，一条指令需依次通过3段，共3×3=9ns。",
+    "difficulty": 2,
+    "knowledge": "流水线周期"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某流水线由4段组成，每段执行时间均为Δt，连续执行100条指令时，其加速比约为（  ）。",
+    "options": ["2.5", "3.0", "3.9", "4.0"],
+    "answer": ["C"],
+    "explanation": "顺序执行需400Δt，流水执行需(4+99)Δt=103Δt，加速比≈3.88，约3.9。",
+    "difficulty": 3,
+    "knowledge": "流水线加速比"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某指令流水线由4段组成，各段执行时间均为1个时钟周期，则连续执行10条指令时的流水线吞吐率为（  ）条指令/周期。",
+    "options": ["0.1", "0.77", "1.0", "2.5"],
+    "answer": ["B"],
+    "explanation": "总时间为(4+10-1)=13个周期，吞吐率=10/13≈0.77条/周期。",
+    "difficulty": 3,
+    "knowledge": "流水线吞吐率"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "下列情况中，属于流水线结构相关（资源冲突）的是（  ）。",
+    "options": ["相邻指令存在数据依赖，后一条指令需要前一条指令的运算结果", "多条指令在同一时钟周期争用同一个功能部件", "转移指令使后续已取出的指令作废", "指令译码时间过长导致流水段不等长"],
+    "answer": ["B"],
+    "explanation": "结构相关指多条指令争用同一硬件资源，可通过部件重复设置或停顿解决。",
+    "difficulty": 2,
+    "knowledge": "流水线结构相关"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "关于计算机总线的分类，下列叙述中正确的是（  ）。",
+    "options": ["数据总线是单向的，地址总线是双向的", "地址总线宽度决定了CPU可直接寻址的存储空间大小", "控制总线只传输时钟信号", "总线的带宽与总线宽度和数据传输频率无关"],
+    "answer": ["B"],
+    "explanation": "地址总线宽度决定可寻址空间；数据总线通常双向，控制总线传输各类控制信号。",
+    "difficulty": 2,
+    "knowledge": "总线分类"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某总线数据线宽度为32位，总线时钟频率为100MHz，每个时钟周期传送一次数据，则该总线的带宽为（  ）。",
+    "options": ["100MB/s", "200MB/s", "400MB/s", "800MB/s"],
+    "answer": ["C"],
+    "explanation": "带宽=32bit×100M/s=3200Mbit/s=400MB/s。",
+    "difficulty": 3,
+    "knowledge": "总线带宽"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "按传输方式划分，总线可分为（  ）。",
+    "options": ["系统总线、局部总线和通信总线", "串行总线和并行总线", "数据总线、地址总线和控制总线", "同步总线和异步总线"],
+    "answer": ["B"],
+    "explanation": "按数据传输方式分为串行总线与并行总线；按功能则分为数据、地址、控制总线。",
+    "difficulty": 1,
+    "knowledge": "总线分类方式"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "在程序查询方式（程序控制I/O）下，CPU与外设之间（  ）。",
+    "options": ["可以完全并行工作", "CPU需不断查询外设状态，效率较低", "只能通过DMA控制器交换数据", "必须由中断服务程序完成数据传送"],
+    "answer": ["B"],
+    "explanation": "程序查询方式由CPU反复查询外设状态，CPU与I/O串行工作，CPU利用率低。",
+    "difficulty": 2,
+    "knowledge": "程序查询方式"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "与中断方式相比，DMA方式的主要优点是（  ）。",
+    "options": ["数据传送不需要CPU干预，仅在开始和结束时需要CPU处理", "每传送一个字节都要产生一次中断", "不需要占用总线", "只能用于低速外设的数据传送"],
+    "answer": ["A"],
+    "explanation": "DMA由控制器直接完成主存与外设间数据传送，CPU仅做初始化与结束处理，适合高速批量传输。",
+    "difficulty": 2,
+    "knowledge": "DMA方式"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "通道方式与DMA方式的主要区别是（  ）。",
+    "options": ["通道只能连接一个设备，DMA可连接多个设备", "通道是专门处理I/O的处理器，可执行通道程序控制多台设备", "通道方式的传输率低于DMA方式", "通道方式需要CPU逐字节干预数据传送"],
+    "answer": ["B"],
+    "explanation": "通道是具有处理器功能的I/O控制部件，执行通道程序管理多台外设，进一步减轻CPU负担。",
+    "difficulty": 3,
+    "knowledge": "通道方式"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "中断方式下，CPU响应中断后首先要做的是（  ）。",
+    "options": ["保存断点并转入中断服务程序", "查询外设状态寄存器", "清除所有中断屏蔽位", "重新取指执行"],
+    "answer": ["A"],
+    "explanation": "CPU响应中断后关中断、保存断点和现场，再转入中断服务程序处理。",
+    "difficulty": 1,
+    "knowledge": "中断响应处理"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某系统由3个部件串联组成，各部件可靠度分别为0.9、0.9、0.9，则该系统的可靠度为（  ）。",
+    "options": ["0.9", "0.81", "0.729", "0.999"],
+    "answer": ["C"],
+    "explanation": "串联系统可靠度等于各部件可靠度之积，0.9×0.9×0.9=0.729。",
+    "difficulty": 2,
+    "knowledge": "串联系统可靠度"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某系统由两个可靠度均为0.9的部件并联组成（完全冗余），则该系统的可靠度为（  ）。",
+    "options": ["0.81", "0.9", "0.95", "0.99"],
+    "answer": ["D"],
+    "explanation": "并联系统可靠度=1-(1-0.9)(1-0.9)=0.99。",
+    "difficulty": 2,
+    "knowledge": "并联系统可靠度"
+  },
+  {
+    "type": "single",
+    "topic": "CO",
+    "stem": "某设备的平均无故障时间MTBF为2000小时，平均修复时间MTTR为8小时，则该设备的可用性为（  ）。",
+    "options": ["0.960", "0.996", "0.999", "0.9996"],
+    "answer": ["B"],
+    "explanation": "可用性=MTBF/(MTBF+MTTR)=2000/2008≈0.996。",
+    "difficulty": 3,
+    "knowledge": "可用性计算"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于Cache与主存之间的映射方式，下列叙述中正确的有（  ）。",
+    "options": ["直接映射实现简单、成本低，但冲突率较高", "全相联映射中任一主存块可装入Cache任一位置，命中率较高", "组相联映射是直接映射与全相联映射的折中", "直接映射中，一个主存块可映射到多个Cache块"],
+    "answer": ["A", "B", "C"],
+    "explanation": "直接映射块只能放入唯一行，冲突率高；全相联灵活命中率高；组相联折中二者。",
+    "difficulty": 2,
+    "knowledge": "Cache映射方式"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于指令流水线的冲突（相关），下列叙述中正确的有（  ）。",
+    "options": ["数据相关是指后续指令需要用到前面指令的结果，可通过数据旁路（转发）技术缓解", "控制相关通常由转移指令引起，可通过分支预测缓解", "结构相关可通过增加功能部件或插入流水线停顿解决", "流水线冲突不影响流水线的实际加速比"],
+    "answer": ["A", "B", "C"],
+    "explanation": "数据、控制、结构三类相关都会引入停顿使加速比下降，D项错误。",
+    "difficulty": 2,
+    "knowledge": "流水线冲突"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于I/O控制方式，下列叙述中正确的有（  ）。",
+    "options": ["程序查询方式下，CPU与外设串行工作，CPU效率最低", "中断方式下，外设准备好时通过中断请求通知CPU，CPU与外设可并行", "DMA方式以数据块为单位传送数据，传送过程无需CPU逐字干预", "中断方式下，CPU每传送一个字节都必须执行查询指令"],
+    "answer": ["A", "B", "C"],
+    "explanation": "中断方式靠中断请求触发，无需CPU查询指令，故D错误。",
+    "difficulty": 2,
+    "knowledge": "I/O控制方式"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于RAID技术，下列叙述中正确的有（  ）。",
+    "options": ["RAID 0采用条带化，无冗余，可靠性不提高但读写性能较好", "RAID 1采用镜像，磁盘利用率为50%，可靠性高", "RAID 5采用分布式奇偶校验，可容忍任意一块磁盘故障", "RAID 5的磁盘利用率为1/(n-1)，冗余度最高"],
+    "answer": ["A", "B", "C"],
+    "explanation": "RAID5磁盘利用率为(n-1)/n，D项描述错误；其余三项均正确。",
+    "difficulty": 3,
+    "knowledge": "RAID级别"
+  },
+  {
+    "type": "multi",
+    "topic": "CO",
+    "stem": "关于多核处理器与并行处理，下列叙述中正确的有（  ）。",
+    "options": ["多核处理器在一芯片上集成多个处理器核，可同时执行多个线程", "对称多处理（SMP）结构各处理器地位对等，共享统一主存", "多核处理器各核通常拥有私有Cache，需要通过一致性协议维护数据一致", "增加核数后程序性能必然线性提升，与程序可并行度无关"],
+    "answer": ["A", "B", "C"],
+    "explanation": "受Amdahl定律与串行部分限制，增加核数不会必然线性提升性能，D错误。",
+    "difficulty": 2,
+    "knowledge": "多核与并行"
+  }
+]

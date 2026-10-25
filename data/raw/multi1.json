@@ -1,0 +1,382 @@
+[
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "对一段时长为10秒的语音按44.1kHz采样、16位量化、双声道进行数字化，未压缩的数据量约为（　）。",
+    "options": ["0.84MB", "1.68MB", "3.36MB", "21MB"],
+    "answer": ["B"],
+    "explanation": "数据量=44100×16×2×10/8字节≈1764000字节≈1.68MB。",
+    "difficulty": 2,
+    "knowledge": "声音容量计算"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "一幅分辨率为1024×768、色彩深度为24位的图像，未压缩时占用的存储空间约为（　）。",
+    "options": ["0.75MB", "1.5MB", "2.25MB", "18MB"],
+    "answer": ["C"],
+    "explanation": "1024×768×24/8=2359296字节≈2.25MB。",
+    "difficulty": 1,
+    "knowledge": "位图容量计算"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "关于图像分辨率的叙述，正确的是（　）。",
+    "options": [
+      "分辨率越高图像越清晰，同尺寸下占用的存储空间越大",
+      "分辨率只由显示器的尺寸决定，与图像文件本身无关",
+      "分辨率越高图像文件一定越小",
+      "分辨率指的是图像中能够表示的颜色数量"
+    ],
+    "answer": ["A"],
+    "explanation": "分辨率反映像素数量，像素越多画面越细腻，数据量也越大。",
+    "difficulty": 2,
+    "knowledge": "图像分辨率"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "若某真彩色位图中每个像素用3个字节表示，则该图像能够表示的颜色数约为（　）。",
+    "options": ["256种", "约1677万种", "约42亿种", "65536种"],
+    "answer": ["B"],
+    "explanation": "3字节即24位，颜色数为2^24≈1677万种。",
+    "difficulty": 2,
+    "knowledge": "色彩深度"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "关于JPEG图像格式的叙述，不正确的是（　）。",
+    "options": [
+      "采用基于离散余弦变换的有损压缩",
+      "适合压缩自然风景和人物照片",
+      "支持无损压缩，可完全还原原始图像",
+      "不适合压缩线条图和文字图像"
+    ],
+    "answer": ["C"],
+    "explanation": "JPEG基本模式为有损压缩，无法完全还原原始图像。",
+    "difficulty": 2,
+    "knowledge": "JPEG压缩"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "一段分辨率为1024×768、24位色、帧率为25帧/秒的数字视频，1秒钟未压缩的数据量约为（　）。",
+    "options": ["2.25MB", "18.75MB", "56.25MB", "225MB"],
+    "answer": ["C"],
+    "explanation": "1024×768×3×25=58982400字节≈56.25MB。",
+    "difficulty": 3,
+    "knowledge": "视频容量计算"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "MPEG-1标准主要应用于（　）。",
+    "options": [
+      "高清晰度电视广播",
+      "VCD质量的音视频压缩",
+      "静态图像的压缩",
+      "多媒体内容的描述与检索"
+    ],
+    "answer": ["B"],
+    "explanation": "MPEG-1面向VCD，码率约1.5Mb/s，图像质量接近家用录像。",
+    "difficulty": 2,
+    "knowledge": "MPEG标准"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "关于H.264视频编码标准的叙述，正确的是（　）。",
+    "options": [
+      "只采用帧内编码，不使用运动补偿",
+      "是一种无损压缩标准",
+      "在同等画质下所需码率比MPEG-2更低",
+      "只用于静态图像的压缩"
+    ],
+    "answer": ["C"],
+    "explanation": "H.264采用多参考帧运动补偿等技术，压缩效率约为MPEG-2的两倍。",
+    "difficulty": 3,
+    "knowledge": "H.264"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "下列编码方法中，属于无损压缩编码的是（　）。",
+    "options": ["离散余弦变换编码", "哈夫曼编码", "矢量量化编码", "模型基编码"],
+    "answer": ["B"],
+    "explanation": "哈夫曼编码是统计熵编码，解码后可完全无损还原原始数据。",
+    "difficulty": 1,
+    "knowledge": "无损压缩编码"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "下列编码方法中，属于有损压缩编码的是（　）。",
+    "options": ["游程编码", "算术编码", "LZW编码", "矢量量化编码"],
+    "answer": ["D"],
+    "explanation": "矢量量化以一定失真换取高压缩比，其余三种均可无损还原。",
+    "difficulty": 2,
+    "knowledge": "有损压缩编码"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "哈夫曼编码依据符号出现的频率分配码字，其特点是（　）。",
+    "options": [
+      "出现频率高的符号分配较短的码字",
+      "所有符号的码字长度完全相同",
+      "需要额外存储字符串字典表",
+      "每个符号固定用8位二进制表示"
+    ],
+    "answer": ["A"],
+    "explanation": "变长编码让高频符号码长短，平均码长接近信源信息熵。",
+    "difficulty": 2,
+    "knowledge": "熵编码"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "在视频压缩中，利用相邻帧之间的相似性对差值进行编码，该技术属于（　）。",
+    "options": ["熵编码", "变换编码", "帧间预测编码", "统计编码"],
+    "answer": ["C"],
+    "explanation": "帧间预测配合运动补偿编码预测误差，消除时间冗余。",
+    "difficulty": 2,
+    "knowledge": "预测编码"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "JPEG编码先把图像分块进行离散余弦变换，再对系数进行量化和编码，其主要目的是（　）。",
+    "options": [
+      "提高图像边缘的清晰度",
+      "使能量集中到少数低频系数上以便压缩",
+      "增大图像的色彩深度",
+      "消除图像中的随机噪声"
+    ],
+    "answer": ["B"],
+    "explanation": "DCT具有能量集中特性，舍弃高频系数即可大幅压缩数据。",
+    "difficulty": 3,
+    "knowledge": "变换编码"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "关于超文本与超媒体关系的叙述，正确的是（　）。",
+    "options": [
+      "超媒体是超文本的扩展，其节点中还可以包含图形、声音和视频",
+      "超媒体与超文本是完全相同的概念",
+      "超文本是超媒体的真子集，超媒体包含超文本",
+      "超媒体只能组织纯文本形式的信息"
+    ],
+    "answer": ["A"],
+    "explanation": "超媒体在超文本基础上把节点内容扩展到多种媒体信息。",
+    "difficulty": 1,
+    "knowledge": "超媒体"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "流媒体技术能够实现边下载边播放，主要依赖于（　）。",
+    "options": [
+      "把整个文件完整下载后再开始播放",
+      "流式传输协议与播放缓冲区的支持",
+      "提高显示器的刷新频率",
+      "扩大本地磁盘的存储容量"
+    ],
+    "answer": ["B"],
+    "explanation": "流媒体通过流式传输和缓冲区控制，边接收数据边解码播放。",
+    "difficulty": 2,
+    "knowledge": "流媒体"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "关于虚拟现实VR与增强现实AR的叙述，正确的是（　）。",
+    "options": [
+      "VR把虚拟对象叠加到真实场景中，AR完全虚构环境",
+      "VR让用户沉浸于计算机生成的虚拟环境，AR把虚拟对象叠加到真实世界",
+      "两者都必须以用户的真实环境作为显示背景",
+      "两者都不需要使用立体显示和交互设备"
+    ],
+    "answer": ["B"],
+    "explanation": "VR生成沉浸式虚拟环境，AR在真实场景上叠加虚拟信息。",
+    "difficulty": 1,
+    "knowledge": "VR与AR"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "下列文件扩展名中，属于音频文件格式的是（　）。",
+    "options": ["jpg", "mpg", "wav", "avi"],
+    "answer": ["C"],
+    "explanation": "wav是波形音频文件格式，jpg为图像，mpg和avi为视频。",
+    "difficulty": 2,
+    "knowledge": "音频文件格式"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "下列图像文件格式中，既能存放多帧动画又能设置透明背景的是（　）。",
+    "options": ["BMP", "GIF", "JPEG", "TIFF"],
+    "answer": ["B"],
+    "explanation": "GIF支持多帧动画与一位透明色，并采用LZW无损压缩。",
+    "difficulty": 2,
+    "knowledge": "图像文件格式"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "视频帧率为25帧/秒的含义是（　）。",
+    "options": [
+      "每秒连续播放25幅静止画面",
+      "每幅画面的分辨率为25个像素",
+      "每幅画面最多显示25种颜色",
+      "整段视频的时长固定为25秒"
+    ],
+    "answer": ["A"],
+    "explanation": "帧率指每秒显示的帧数，25帧/秒即每秒播放25幅画面。",
+    "difficulty": 1,
+    "knowledge": "视频帧率"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "下列各项中，不属于多媒体技术关键特性的是（　）。",
+    "options": ["多样性", "集成性", "交互性", "单一线性播放"],
+    "answer": ["D"],
+    "explanation": "多媒体的关键特性是多样性、集成性和交互性，单一线性与之相反。",
+    "difficulty": 2,
+    "knowledge": "多媒体特性"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "某语音信号的有效最高频率约为4kHz，按照采样定理，采样频率至少应为（　）。",
+    "options": ["2kHz", "4kHz", "8kHz", "16kHz"],
+    "answer": ["C"],
+    "explanation": "采样频率不应低于信号最高频率的两倍，即4kHz×2=8kHz。",
+    "difficulty": 2,
+    "knowledge": "采样定理"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "一幅1024×768、24位色的位图经压缩后文件大小为300KB，其压缩比约为（　）。",
+    "options": ["3.7∶1", "5.7∶1", "7.7∶1", "10.7∶1"],
+    "answer": ["C"],
+    "explanation": "原图大小1024×768×3=2304KB，压缩比约为2304÷300≈7.7∶1。",
+    "difficulty": 3,
+    "knowledge": "压缩比计算"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "关于矢量图与位图的叙述，正确的是（　）。",
+    "options": [
+      "矢量图放大后不会产生锯齿，位图放大会出现马赛克",
+      "位图是由描述图形的指令序列构成的",
+      "矢量图适合表现色彩丰富的真实照片",
+      "位图放大后不会出现任何失真"
+    ],
+    "answer": ["A"],
+    "explanation": "矢量图用几何指令描述图形，缩放不失真；位图由像素组成，放大易失真。",
+    "difficulty": 1,
+    "knowledge": "矢量图与位图"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "下列软件中，主要用作多媒体集成创作工具的是（　）。",
+    "options": ["Authorware", "Winamp", "Photoshop", "WinRAR"],
+    "answer": ["A"],
+    "explanation": "Authorware是典型的多媒体集成创作工具，其余用于播放、图像处理和压缩。",
+    "difficulty": 2,
+    "knowledge": "创作工具"
+  },
+  {
+    "type": "single",
+    "topic": "MULTI",
+    "stem": "关于MIDI音乐的叙述，正确的是（　）。",
+    "options": [
+      "MIDI文件记录的是声音波形的采样值",
+      "MIDI文件记录乐器演奏指令，数据量很小",
+      "MIDI只能表示人声，不能表示乐器声",
+      "MIDI文件不能与波形声音同时播放"
+    ],
+    "answer": ["B"],
+    "explanation": "MIDI以指令记录音高、音色与时值，文件很小，音质取决于合成器。",
+    "difficulty": 3,
+    "knowledge": "MIDI音乐"
+  },
+  {
+    "type": "multi",
+    "topic": "MULTI",
+    "stem": "下列编码方法中，属于无损压缩的有（　）。",
+    "options": ["哈夫曼编码", "算术编码", "离散余弦变换编码", "矢量量化编码"],
+    "answer": ["A", "B"],
+    "explanation": "哈夫曼编码和算术编码均为可逆的熵编码；变换量化与矢量量化有损。",
+    "difficulty": 2,
+    "knowledge": "无损压缩方法"
+  },
+  {
+    "type": "multi",
+    "topic": "MULTI",
+    "stem": "关于MPEG系列标准的叙述，正确的有（　）。",
+    "options": [
+      "MPEG-1面向VCD，码率约1.5Mb/s",
+      "MPEG-1只定义视频编码，不包含音频编码",
+      "MPEG-2可用于数字电视和高清晰度电视",
+      "MPEG-7是音视频数据压缩编码标准"
+    ],
+    "answer": ["A", "C"],
+    "explanation": "MPEG-1含音视频编码用于VCD，MPEG-2用于数字电视；MPEG-7是内容描述标准。",
+    "difficulty": 3,
+    "knowledge": "MPEG标准"
+  },
+  {
+    "type": "multi",
+    "topic": "MULTI",
+    "stem": "关于数字视频的叙述，正确的有（　）。",
+    "options": [
+      "视频只能采用无损压缩方式存储",
+      "帧率越高画面越连贯，单位时间数据量越大",
+      "彩色视频的数据量与像素色彩深度无关",
+      "相同分辨率与帧率下，码率越大通常画质越好"
+    ],
+    "answer": ["B", "D"],
+    "explanation": "帧率提高使数据量增大，码率越高保留细节越多；视频常用有损压缩，数据量随色彩深度变化。",
+    "difficulty": 3,
+    "knowledge": "视频性能参数"
+  },
+  {
+    "type": "multi",
+    "topic": "MULTI",
+    "stem": "关于流媒体与超媒体的叙述，正确的有（　）。",
+    "options": [
+      "流媒体必须先完整下载整个文件后才能开始播放",
+      "流媒体播放需要设置缓冲区以平滑网络抖动",
+      "超媒体的节点中只能存放文本信息",
+      "超媒体是超文本与多媒体信息相结合的产物"
+    ],
+    "answer": ["B", "D"],
+    "explanation": "流媒体边传输边播放并靠缓冲区抗抖动；超媒体节点可含多种媒体信息。",
+    "difficulty": 3,
+    "knowledge": "流媒体与超媒体"
+  },
+  {
+    "type": "multi",
+    "topic": "MULTI",
+    "stem": "关于声音数字化的叙述，正确的有（　）。",
+    "options": [
+      "采样频率越高，能还原的信号频率越高，数据量越大",
+      "量化位数越多，幅度量化误差越小，音质越好",
+      "增加声道数不会影响数字化后的数据量",
+      "采样频率低于信号最高频率两倍时仍能无失真还原"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "提高采样频率和量化位数可改善音质但增大数据量；声道数增加同样增大数据量。",
+    "difficulty": 3,
+    "knowledge": "声音数字化"
+  }
+]

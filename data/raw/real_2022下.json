@@ -1,0 +1,1582 @@
+{
+ "paper": "2022下",
+ "title": "2022年下半年 软件设计师 上午试卷（真题）",
+ "mode": "morning",
+ "questions": [
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第1题",
+   "difficulty": 2,
+   "stem": "以下关于 RISC（精简指令集计算机）特点的叙述中，错误的是 （1） 。",
+   "options": [
+    "对存储器操作进行限制，使控制简单化",
+    "指令种类多，指令功能强",
+    "设置大量通用寄存器",
+    "选取使用频率较高的一些指令，提高执行速度"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 1,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第2题",
+   "difficulty": 2,
+   "stem": "CPU（中央处理单元）的基本组成部件不包括 （2） 。",
+   "options": [
+    "算逻运算单元",
+    "系统总线",
+    "控制单元",
+    "寄存器组"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 2,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第3题",
+   "difficulty": 2,
+   "stem": "某种部件用在 2000 台计算机系统中，运行工作 1000 小时后，其中有 4 台计算机的这种部件失效，则该部件的千小时可靠度 R 为 （3） 。",
+   "options": [
+    "0.990",
+    "0.992",
+    "0.996",
+    "0.998"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 3,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第4题",
+   "difficulty": 2,
+   "stem": "以下存储器中， （4） 使用电容存储信息且需要周期性地进行刷新。",
+   "options": [
+    "DRAM",
+    "EPROM",
+    "SRAM",
+    "EEPROM"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 4,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第5题",
+   "difficulty": 2,
+   "stem": "对于长度相同但格式不同的两种浮点数，假设前者阶码长、尾数短，后者阶码短、尾数长，其它规定都相同，则二者可以表示数值的范围和精度情况为 （5） 。",
+   "options": [
+    "二者可表示的数的范围和精度相同",
+    "前者所表示的数的范围更大且精度更高",
+    "前者所表示的数的范围更大但精度更低",
+    "前者所表示的数的范围更小但精度更高"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 5,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第6题",
+   "difficulty": 2,
+   "stem": "计算机系统中采用补码表示有符号的数值， （6） 。",
+   "options": [
+    "可以保持加法和减法运算过程与手工运算方式一致",
+    "可以提高运算过程和结果的精准程度",
+    "可以提高加法和减法运算的速度",
+    "可以将减法运算转换为加法运算从而简化运算器的设计下列认证方式安全性较低的是 （7） 。"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 6,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第7题",
+   "difficulty": 2,
+   "stem": "计算机系统中采用补码表示有符号的数值， （6） 。",
+   "options": [
+    "生物认证",
+    "多因子认证",
+    "口令认证",
+    "U 盾认证"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 7,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SEC",
+   "knowledge": "2022下·第8题",
+   "difficulty": 2,
+   "stem": "X.509 数字证书标准推荐使用的密码算法是 （8） ，而国密 SM2 数字证书采用的公钥密码算法是 （9） 。",
+   "options": [
+    "RSA",
+    "DES",
+    "AES",
+    "ECC"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 8,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SEC",
+   "knowledge": "2022下·第9题",
+   "difficulty": 2,
+   "stem": "X.509 数字证书标准推荐使用的密码算法是 （8） ，而国密 SM2 数字证书采用的公钥密码算法是 （9） 。",
+   "options": [
+    "RSA",
+    "DES",
+    "AES",
+    "ECC"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 9,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SEC",
+   "knowledge": "2022下·第10题",
+   "difficulty": 2,
+   "stem": "某单位网站首页被恶意篡改，应部署 （10） 设备阻止恶意攻击。",
+   "options": [
+    "数据库审计",
+    "包过滤防火墙",
+    "Web 应用防火墙",
+    "入侵检测"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 10,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第11题",
+   "difficulty": 2,
+   "stem": "使用漏洞扫描系统对信息系统和服务器进行定期扫描可以 （11） 。",
+   "options": [
+    "发现高危风险和安全漏洞",
+    "修复高危风险和安全漏洞",
+    "获取系统受攻击的日志信息",
+    "关闭非必要的网络端口和服务"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 11,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SEC",
+   "knowledge": "2022下·第12题",
+   "difficulty": 2,
+   "stem": "以下关于某委托开发软件的著作权归属的叙述中，正确的是 （12） 。",
+   "options": [
+    "该软件的著作权归属仅依据委托人与受托人在书面合同中的约定来确定",
+    "无论是否有合同约定，该软件的著作权都由委托人和受托人共同享有",
+    "若无书面合同或合同中未明确约定，则该软件的著作权由受托人享有",
+    "若无书面合同或合同中未明确约定，则该软件的著作权由委托人享有"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 12,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第13题",
+   "difficulty": 2,
+   "stem": "《计算机软件保护条例》第八条第一款第八项规定的软件著作权中的翻译权是将原软件由 （13） 的权利。",
+   "options": [
+    "源程序语言转换成目标程序语言",
+    "一种程序设计语言转换成另一种程序设计语言",
+    "一种汇编语言转换成一种自然语言",
+    "一种自然语言文字转换成另一种自然语言文字"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 13,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SEC",
+   "knowledge": "2022下·第14题",
+   "difficulty": 2,
+   "stem": "M 公司将其开发的某软件产品注册商标为 S，为确保公司在市场竞争中占据优势地位，M 公司对员工进行了保密约束，此情形下，该公司不享有 （14） 。",
+   "options": [
+    "软件著作权",
+    "专利权",
+    "商业秘密权",
+    "商标权"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 14,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第15题",
+   "difficulty": 2,
+   "stem": "某零件厂商的信息系统中，一个基本加工根据客户类型、订单金额、客户信用等信息的不同采取不同的行为，此时最适宜采用 （15） 来描述该加工规格说明。",
+   "options": [
+    "自然语言",
+    "流程图",
+    "判定表",
+    "某程序设计语言"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 15,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OS",
+   "knowledge": "2022下·第16题",
+   "difficulty": 2,
+   "stem": "优化模块结构时， （16） 不是适当的处理方法。",
+   "options": [
+    "使模块功能完整",
+    "消除重复功能，改善软件结构",
+    "只根据模块功能确定规模大小",
+    "避免或减少模块之间的病态连接"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 16,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第17题",
+   "difficulty": 2,
+   "stem": "下图是一个软件项目的活动图，其中顶点表示项目里程碑，连接顶点的边表示包含的活动，边上的数字表示完成该活动所需要的天数。则关键路径长度为 （17） 。若在实际项目进展中，在其他活动都能正常进行的前提下，活动 （18） 一旦延期就会影响项目的进度。",
+   "options": [
+    "34",
+    "47",
+    "54",
+    "58"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 17,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第18题",
+   "difficulty": 2,
+   "stem": "下图是一个软件项目的活动图，其中顶点表示项目里程碑，连接顶点的边表示包含的活动，边上的数字表示完成该活动所需要的天数。则关键路径长度为 （17） 。若在实际项目进展中，在其他活动都能正常进行的前提下，活动 （18） 一旦延期就会影响项目的进度。",
+   "options": [
+    "A→B",
+    "C→F",
+    "D→F",
+    "F→H"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 18,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第19题",
+   "difficulty": 2,
+   "stem": "以下关于风险管理的叙述中，不正确的是 （19） 。",
+   "options": [
+    "承认风险是客观存在的，不可能完全避免",
+    "同时管理所有的风险",
+    "风险管理应该贯穿整个项目管理过程",
+    "风险计划本身可能会带来新的风险"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 19,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第20题",
+   "difficulty": 2,
+   "stem": "当函数调用执行时，在栈顶创建且用来支持被调用函数执行的一段存储空间称为活动记录或者栈帧，栈帧中不包括 （20） 。",
+   "options": [
+    "形参变量",
+    "全局变量",
+    "返回地址",
+    "局部变量"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 20,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "PL",
+   "knowledge": "2022下·第21题",
+   "difficulty": 2,
+   "stem": "编译器与解释器是程序语言翻译的两种基本形态，以下关于编译器工作方式及特点的叙述中，正确的是 （21） 。",
+   "options": [
+    "边翻译边执行，用户程序运行效率低且可移植性差",
+    "先翻译后执行，用户程序运行效率高且可移植性好",
+    "边翻译边执行，用户程序运行效率低且可移植性好",
+    "先翻译后执行，用户程序运行效率高且可移植性差"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 21,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "PL",
+   "knowledge": "2022下·第22题",
+   "difficulty": 2,
+   "stem": "对高级语言源程序进行编译或解释的过程中需要进行语法分析，递归子程序分析属于（22） 的分析法。",
+   "options": [
+    "自上而下",
+    "自下而上",
+    "从左至右",
+    "从右至左"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 22,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OS",
+   "knowledge": "2022下·第23题",
+   "difficulty": 2,
+   "stem": "在计算机系统中，若 P1 进程正在运行，操作系统强行撤下 P1 进程所占用的 CPU，让具有更高优先级的进程 P2 运行，这种调度方式称为 （23） 。",
+   "options": [
+    "中断方式",
+    "先进先出方式",
+    "可剥夺方式",
+    "不可剥夺方式"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 23,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OS",
+   "knowledge": "2022下·第24题",
+   "difficulty": 2,
+   "stem": "进程 P1、P2、P3、P4、P5 和 P6 的前趋图如下所示。假设用 PV 操作控制这 6 个进程的同步与互斥的程序如下，程序中的空①和空②处应分别为 （24） ，空③和空④应分别为 （25） ，空⑤和空⑥应分别为 （26） 。",
+   "options": [
+    "V（S1）V（S2）和 P（S2）P（S3）",
+    "V（S1）P（S2）和 V（S3）P（S4）",
+    "V（S1）V（S2）和 V（S3）V（S4）",
+    "P（S1）P（S2）和 V（S2）V（S3）"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 24,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OS",
+   "knowledge": "2022下·第25题",
+   "difficulty": 2,
+   "stem": "进程 P1、P2、P3、P4、P5 和 P6 的前趋图如下所示。假设用 PV 操作控制这 6 个进程的同步与互斥的程序如下，程序中的空①和空②处应分别为 （24） ，空③和空④应分别为 （25） ，空⑤和空⑥应分别为 （26） 。",
+   "options": [
+    "V（S3）和 V（S6）V（S7）",
+    "V（S3）和 V（S6）P（S7）",
+    "P（S3）和 V（S6）V（S7）",
+    "P（S3）和 P（S6）V（S7）"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 25,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OS",
+   "knowledge": "2022下·第26题",
+   "difficulty": 2,
+   "stem": "进程 P1、P2、P3、P4、P5 和 P6 的前趋图如下所示。假设用 PV 操作控制这 6 个进程的同步与互斥的程序如下，程序中的空①和空②处应分别为 （24） ，空③和空④应分别为 （25） ，空⑤和空⑥应分别为 （26） 。",
+   "options": [
+    "V（S6）和 P（S7）P（S8）",
+    "P（S8）和 P（S7）P（S8）",
+    "P（S8）和 P（S7）V（S8）",
+    "V（S8）和 P（S7）P（S8）"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 26,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第27题",
+   "difficulty": 2,
+   "stem": "假设段页式存储管理系统中的地址结构如下图所示，则系统 （27） 。",
+   "options": [
+    "最多可有 512 个段，每个段的大小均为 2048 个页，页的大小为 8K",
+    "最多可有 512 个段，每个段最大允许有 2048 个页，页的大小为 8K",
+    "最多可有 1024 个段，每个段的大小均为 1024 个页，页的大小为 4K",
+    "最多可有 1024 个段，每个段最大允许有 1024 个页，页的大小为 4K"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 27,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OS",
+   "knowledge": "2022下·第28题",
+   "difficulty": 2,
+   "stem": "假设磁盘磁头从一个磁道移至相邻磁道需要 2ms。文件在磁盘上非连续存放，逻辑上相邻数据块的平均移动距离为 5 个磁道，每块的旋转延迟时间及传输时间分别为 10ms 和 1ms，则读取一个 100 块的文件需要 （28） ms。",
+   "options": [
+    "1100",
+    "1200",
+    "2100",
+    "2200"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 28,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第29题",
+   "difficulty": 2,
+   "stem": "以下关于快速原型模型优点的叙述中，不正确的是 （29） 。",
+   "options": [
+    "有助于满足用户的真实需求",
+    "适用于大型软件系统的开发",
+    "开发人员快速开发出原型系统，因此可以加速软件开发过程，节约开发成本",
+    "原型系统已经通过与用户的交互得到验证，因此对应的规格说明文档能正确描述用户需求"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 29,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第30题",
+   "difficulty": 2,
+   "stem": "以下关于三层 C/S 结构的叙述中，不正确的是 （30） 。",
+   "options": [
+    "允许合理划分三层结构的功能，使之在逻辑上保持相对独立性，提高系统的可维护性和可扩展性",
+    "允许更灵活有效地选用相应的软硬件平台和系统",
+    "应用的各层可以并发开发，但需要相同的开发语言",
+    "利用功能层有效地隔离表示层和数据层，便于严格的安全管理"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 30,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OS",
+   "knowledge": "2022下·第31题",
+   "difficulty": 2,
+   "stem": "若模块 A 和模块 B 通过外部变量来交换输入、输出信息，则这两个模块的耦合类型是（31） 耦合。",
+   "options": [
+    "数据",
+    "标记",
+    "控制",
+    "公共"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 31,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第32题",
+   "difficulty": 2,
+   "stem": "软件开发的目标是开发出高质量的软件系统，这里的高质量不包括 （32） 。",
+   "options": [
+    "软件必须满足用户规定的需求",
+    "软件应遵循规定标准所定义的一系列开发准则",
+    "软件开发应采用最新的开发技术",
+    "软件应满足某些隐含的需求，如可理解性、可维护性等"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 32,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第33题",
+   "difficulty": 2,
+   "stem": "白盒测试技术的各种覆盖方法中， （33） 具有最弱的错误发现能力。",
+   "options": [
+    "判定覆盖",
+    "语句覆盖",
+    "条件覆盖",
+    "路径覆盖"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 33,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第34题",
+   "difficulty": 2,
+   "stem": "文档是软件的重要因素，关于高质量文档，以下说法不正确的是 （34） 。",
+   "options": [
+    "不论项目规模和复杂程度如何，都要用统一的标准指定相同类型和相同要素的文档",
+    "应该分清读者对象",
+    "应当是完整的、独立的、自成体系的",
+    "行文应十分确切，不出现多义性描述"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 34,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第35题",
+   "difficulty": 2,
+   "stem": "某财务系统的一个组件中，某个变量没有正确初始化， （35） 最可能发现该错误。",
+   "options": [
+    "单元测试",
+    "集成测试",
+    "接受测试",
+    "安装测试"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 35,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OS",
+   "knowledge": "2022下·第36题",
+   "difficulty": 2,
+   "stem": "软件交付给用户之后进入维护阶段，根据维护具体内容的不同将维护分为不同的类型，其中“采用专用的程序模块对文件或数据中的记录进行增加、修改和删除等操作”的维护属于 （36） 。",
+   "options": [
+    "程序维护",
+    "数据维护",
+    "代码维护",
+    "设备维护"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 36,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第37题",
+   "difficulty": 2,
+   "stem": "采用面向对象方法进行某游戏设计，游戏中有野鸭、红头鸭等各种鸭子边游泳戏水边呱呱叫，不同种类的鸭子具有不同颜色，设计鸭子类负责呱呱叫和游泳方法的实现，显示颜色设计为抽象方法，由野鸭和红头鸭各自具体实现，这一机制称为 （37） 。当给这些类型的一组不同对象发送同一显示颜色消息时，能实现各自显示自己不同颜色的结果，这种现象称为 （38） 。",
+   "options": [
+    "继承",
+    "聚合",
+    "组合",
+    "多态"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 37,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第38题",
+   "difficulty": 2,
+   "stem": "采用面向对象方法进行某游戏设计，游戏中有野鸭、红头鸭等各种鸭子边游泳戏水边呱呱叫，不同种类的鸭子具有不同颜色，设计鸭子类负责呱呱叫和游泳方法的实现，显示颜色设计为抽象方法，由野鸭和红头鸭各自具体实现，这一机制称为 （37） 。当给这些类型的一组不同对象发送同一显示颜色消息时，能实现各自显示自己不同颜色的结果，这种现象称为 （38） 。",
+   "options": [
+    "覆盖",
+    "重载",
+    "动态绑定",
+    "多态"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 38,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第39题",
+   "difficulty": 2,
+   "stem": "采用面向对象方法分析时，首先要在应用领域中按自然存在的实体认定对象，即将自然存在的 （39） 作为一个对象。",
+   "options": [
+    "问题",
+    "关系",
+    "名词",
+    "动词"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 39,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第40题",
+   "difficulty": 2,
+   "stem": "进行面向对象系统设计时，修改某个类的原因有且只有一个，即一个类只做一种类型的功能，这属于 （40） 原则",
+   "options": [
+    "单一责任",
+    "开放-封闭",
+    "接口分离",
+    "依赖倒置"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 40,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第41题",
+   "difficulty": 2,
+   "stem": "UML 活动图用于建模 （41） 。以下活动图中，活动 A1 之后，可能的活动执行序列顺序是 （42） 。",
+   "options": [
+    "系统在它的周边环境的语境中所提供的外部可见服务",
+    "某一时刻一组对象以及它们之间的关系",
+    "系统内从一个活动到另一个活动的流程",
+    "对象的生命周期中某个条件或者状态"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 41,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第42题",
+   "difficulty": 2,
+   "stem": "UML 活动图用于建模 （41） 。以下活动图中，活动 A1 之后，可能的活动执行序列顺序是 （42） 。",
+   "options": [
+    "A2、A3、A4 和 A5",
+    "A3、A4 和 A5，或 A2、A4 或 A5",
+    "A2、A4 和 A5",
+    "A2 或 A3、A4 和 A5"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 42,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第43题",
+   "difficulty": 2,
+   "stem": "UML 构件图（component diagram）展现了一组构件之间的组织和依赖，专注于系统的静态 （43） 图，图中通常包括构件、接口以及各种关系。",
+   "options": [
+    "关联",
+    "实现",
+    "结构",
+    "行为"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 43,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第44题",
+   "difficulty": 2,
+   "stem": "在某系统中，不同级别的日志信息记录方式不同，每个级别的日志处理对象根据信息级别高低，采用不同方式进行记录。每个日志处理对象检查消息的级别，如果达到它的级别则进行记录，否则不记录；然后将消息传递给它的下一个日志处理对象。针对此需求，设计如下所示类图。该设计模式采用 （44） 模式使多个前后连接的对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。该模式属于（45）模式，该模式适用于（46）。",
+   "options": [
+    "责任链（Chain of Responsibility）",
+    "策略（Strategy）",
+    "过滤器（Filter）",
+    "备忘录（Memento）"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 44,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第45题",
+   "difficulty": 2,
+   "stem": "在某系统中，不同级别的日志信息记录方式不同，每个级别的日志处理对象根据信息级别高低，采用不同方式进行记录。每个日志处理对象检查消息的级别，如果达到它的级别则进行记录，否则不记录；然后将消息传递给它的下一个日志处理对象。针对此需求，设计如下所示类图。该设计模式采用 （44） 模式使多个前后连接的对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。该模式属于（45）模式，该模式适用于（46）。",
+   "options": [
+    "行为型类",
+    "行为型对象",
+    "结构型类",
+    "结构型对象"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 45,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第46题",
+   "difficulty": 2,
+   "stem": "在某系统中，不同级别的日志信息记录方式不同，每个级别的日志处理对象根据信息级别高低，采用不同方式进行记录。每个日志处理对象检查消息的级别，如果达到它的级别则进行记录，否则不记录；然后将消息传递给它的下一个日志处理对象。针对此需求，设计如下所示类图。该设计模式采用 （44） 模式使多个前后连接的对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。该模式属于（45）模式，该模式适用于（46）。",
+   "options": [
+    "不同的标准过滤一组对象，并通过逻辑操作以解耦的方式将它们链接起来",
+    "可处理一个请求的对象集合应被动态指定",
+    "必须保存一个对象在某一个时刻的状态，需要时它才能恢复到先前的状态",
+    "一个类定义了多种行为，并且以多个条件语句的形式出现"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 46,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "OO",
+   "knowledge": "2022下·第47题",
+   "difficulty": 2,
+   "stem": "驱动新能源汽车的发动机时，电能和光能汽车分别采用不同驱动方法，而客户端希望使用统一的驱动方法，需定义一个统一的驱动接口屏蔽不同的驱动方法，该要求适合采用（47）模式。",
+   "options": [
+    "中介者（Mediator）",
+    "访问者（Visitor）",
+    "观察者（Observer）",
+    "适配器（Adapter）"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 47,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第48题",
+   "difficulty": 2,
+   "stem": "在 Python3 中， （48） 不是合法的异常处理结构。",
+   "options": [
+    "try...except..",
+    "try...except...finally",
+    "try...catch..",
+    "raise"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 48,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "PL",
+   "knowledge": "2022下·第49题",
+   "difficulty": 2,
+   "stem": "在 Python3 中，表达式 list(range(11))[10:0:-2]的值为 （49） 。",
+   "options": [
+    "[10, 8, 6, 4, 2, 0]",
+    "[10, 8, 6, 4, 2]",
+    "[0, 2, 4, 6, 8, 10]",
+    "[0, 2, 4, 6, 8]"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 49,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第50题",
+   "difficulty": 2,
+   "stem": "在 Python3 中，执行语句 x = input()，如果从键盘输入 123 并按回车键，则 x 的值为（50）。",
+   "options": [
+    "123",
+    "1,2,3",
+    "1 2 3",
+    "'123'"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 50,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DB",
+   "knowledge": "2022下·第51题",
+   "difficulty": 2,
+   "stem": "E-R 模型向关系模型转换时，两个实体E和E之间的多对多联系 R 应该转换为一个独立的关系模式，且该关系模式的关键字由 （51） 组成。",
+   "options": [
+    "联系 R 的属性",
+    "E或E的关键字",
+    "E和E的关键字",
+    "E和E的关键字加上 R 的属性某高校人力资源管理系统的数据库中，"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 51,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DB",
+   "knowledge": "2022下·第52题",
+   "difficulty": 2,
+   "stem": "教师关系模式为 T（教师号，姓名，部门号，岗位，联系地址，薪资），函数依赖集 F={教师号→（姓名，部门号，岗位，联系地址），岗位→薪资}。关系模式 T 的主键为 （52） ，函数依赖集 F （53） 。",
+   "options": [
+    "教师号，T 存在冗余以及插入异常和删除异常的问题",
+    "教师号，T 不存在冗余以及插入异常和删除异常的问题",
+    "（教师号，岗位），T 存在冗余以及插入异常和删除异常的问题",
+    "（教师号，岗位），T 不存在冗余以及插入异常和删除异常的问题"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 52,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DB",
+   "knowledge": "2022下·第53题",
+   "difficulty": 2,
+   "stem": "教师关系模式为 T（教师号，姓名，部门号，岗位，联系地址，薪资），函数依赖集 F={教师号→（姓名，部门号，岗位，联系地址），岗位→薪资}。关系模式 T 的主键为 （52） ，函数依赖集 F （53） 。",
+   "options": [
+    "存在传递依赖，故关系模式 T 最高达到 1NF",
+    "存在传递依赖，故关系模式 T 最高达到 2NF",
+    "不存在传递依赖，故关系模式 T 最高达到 3NF",
+    "不存在传递依赖，故关系模式 T 最高达到 4NF"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 53,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "PL",
+   "knowledge": "2022下·第54题",
+   "difficulty": 2,
+   "stem": "给定员工关系 E（员工号，员工名，部门名，电话，家庭住址）、工程关系 P（工程号，工程名，前期工程号）、参与关系 EP（员工号，工程号，工作量）。查询“005”员工参与了“虎头山隧道”工程的员工名、部门名、工程名、工作量的关系代数表达式如下：ππ54 ⋈ (55)2, 3, 5, 6 1, 2, 3",
+   "options": [
+    "σ(E)",
+    "σ(E)2='005'1='005'",
+    "σ(P)",
+    "σ1='005'(P)2='005'"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 54,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "PL",
+   "knowledge": "2022下·第55题",
+   "difficulty": 2,
+   "stem": "给定员工关系 E（员工号，员工名，部门名，电话，家庭住址）、工程关系 P（工程号，工程名，前期工程号）、参与关系 EP（员工号，工程号，工作量）。查询“005”员工参与了“虎头山隧道”工程的员工名、部门名、工程名、工作量的关系代数表达式如下：ππ54 ⋈ (55)2, 3, 5, 6 1, 2, 3",
+   "options": [
+    "π2, 3 σ(P) ⋈EP2='虎头山隧道'",
+    "πσ(EP) ⋈P2, 32='虎头山隧道'",
+    "πσ(EP) ⋈P1, 2 2='虎头山隧道'",
+    "πσ(P) ⋈EP1, 2 2='虎头山隧道'"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 55,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DB",
+   "knowledge": "2022下·第56题",
+   "difficulty": 2,
+   "stem": "假设事务程序 A 中的表达式 x/y，若 y 取值为 0，则计算该表达式时，会产生故障。该故障属于 （56） 。",
+   "options": [
+    "系统故障",
+    "事务故障",
+    "介质故障",
+    "死机"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 56,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DS_ALGO",
+   "knowledge": "2022下·第57题",
+   "difficulty": 2,
+   "stem": "设栈初始时为空，对于入栈序列 1, 2, 3, ... , n，这些元素经过栈之后得到出栈序列P1, P2, P3,…, Pn，若P3=4，则P1, P2不可能的取值为 （57） 。",
+   "options": [
+    "6，5",
+    "2，3",
+    "3，1",
+    "3，5"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 57,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DS_ALGO",
+   "knowledge": "2022下·第58题",
+   "difficulty": 2,
+   "stem": "设 m 和 n 是某二叉树上的两个结点，中序遍历时，n 排在 m 之前的条件是 （58） 。",
+   "options": [
+    "m 是 n 的祖先结点",
+    "m 是 n 的子孙结点",
+    "m 在 n 的左边",
+    "m 在 n 的右边"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 58,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第59题",
+   "difficulty": 2,
+   "stem": "若无向图 G 有 n 个顶点 e 条边，则 G 采用邻接矩阵存储时，矩阵的大小为（59）。",
+   "options": [
+    "n × e",
+    "n²",
+    "n + e",
+    "(n + e)²"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 59,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DS_ALGO",
+   "knowledge": "2022下·第60题",
+   "difficulty": 2,
+   "stem": "以下关于 m 阶 B-树的说法中，错误的是 （60） 。",
+   "options": [
+    "根结点最多有 m 棵子树",
+    "所有叶子结点都在同一层次上",
+    "结点中的关键字有序排列",
+    "叶子结点通过指针链接为有序表"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 60,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "CO",
+   "knowledge": "2022下·第61题",
+   "difficulty": 2,
+   "stem": "下列排序算法中，占用辅助存储空间最多的是 （61） 。",
+   "options": [
+    "归并排序",
+    "快速排序",
+    "堆排序",
+    "冒泡排序"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 61,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DS_ALGO",
+   "knowledge": "2022下·第62题",
+   "difficulty": 2,
+   "stem": "折半查找在有序数组 A 中查找特定的记录 K：通过比较 K 和数组中的中间元素 A[mid]进行比较，如果相等，则算法结束；如果 K 小于 A[mid]，则对数组的前半部分进行折半查找；否则对数组的后半部分进行折半查找。根据上述描述，折半查找采用了 （62） 算法设计策略。对有序数组（3，14，27，39，42，55，70，85，93，98），成功查找和失败查找所需要的平均比较次数分别是 （63） （假设查找每个元素的概率是相同的）。",
+   "options": [
+    "分治",
+    "动态规划",
+    "贪心",
+    "回溯"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 62,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DS_ALGO",
+   "knowledge": "2022下·第63题",
+   "difficulty": 2,
+   "stem": "折半查找在有序数组 A 中查找特定的记录 K：通过比较 K 和数组中的中间元素 A[mid]进行比较，如果相等，则算法结束；如果 K 小于 A[mid]，则对数组的前半部分进行折半查找；否则对数组的后半部分进行折半查找。根据上述描述，折半查找采用了 （62） 算法设计策略。对有序数组（3，14，27，39，42，55，70，85，93，98），成功查找和失败查找所需要的平均比较次数分别是 （63） （假设查找每个元素的概率是相同的）。",
+   "options": [
+    "29/10 和 29/11",
+    "30/10 和 30/11",
+    "29/10 和 39/11",
+    "30/10 和 40/11"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 63,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DS_ALGO",
+   "knowledge": "2022下·第64题",
+   "difficulty": 2,
+   "stem": "采用 Dijkstra 算法求解下图 A 点到 E 点的最短路径，采用的算法设计策略是 （64） 。该最短路径的长度是 （65） 。",
+   "options": [
+    "分治法",
+    "动态规划",
+    "贪心算法",
+    "回溯法"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 64,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "DS_ALGO",
+   "knowledge": "2022下·第65题",
+   "difficulty": 2,
+   "stem": "采用 Dijkstra 算法求解下图 A 点到 E 点的最短路径，采用的算法设计策略是 （64） 。该最短路径的长度是 （65） 。",
+   "options": [
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 65,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "NET",
+   "knowledge": "2022下·第66题",
+   "difficulty": 2,
+   "stem": "VLAN tag 在 OSI 参考模型的 （66） 实现。",
+   "options": [
+    "网络层",
+    "传输层",
+    "数据链路层",
+    "物理层"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 66,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "NET",
+   "knowledge": "2022下·第67题",
+   "difficulty": 2,
+   "stem": "Telnet 协议是一种 （67） 远程登录协议。",
+   "options": [
+    "安全",
+    "B/S 模式",
+    "基于 TCP",
+    "分布式"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 67,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "NET",
+   "knowledge": "2022下·第68题",
+   "difficulty": 2,
+   "stem": "以下关于 HTTPS 和 HTTP 协议的叙述中，错误的是 （68） 。",
+   "options": [
+    "HTTPS 协议使用加密传输",
+    "HTTPS 协议默认服务端口号是 443",
+    "HTTP 协议默认服务端口号是 80",
+    "电子支付类网站应使用 HTTP 协议"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 68,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "NET",
+   "knowledge": "2022下·第69题",
+   "difficulty": 2,
+   "stem": "将网址转换为 IP 地址要用 （69） 协议。",
+   "options": [
+    "域名解析",
+    "IP 地址解析",
+    "路由选择",
+    "传输控制"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 69,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "NET",
+   "knowledge": "2022下·第70题",
+   "difficulty": 2,
+   "stem": "以下关于 IP 地址和 MAC 地址说法错误的是 （70） 。",
+   "options": [
+    "IP 地址长度 32 或 128 位，MAC 地址的长度 48 位",
+    "IP 地址工作在网络层，MAC 地址工作在数据链路层",
+    "IP 地址的分配是基于网络拓扑，MAC 地址的分配是基于制造商",
+    "IP 地址具有唯一性，MAC 地址不具有唯一性"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 70,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第71题",
+   "difficulty": 2,
+   "stem": "We initially described SOA without mentioning Web services, and vice versa. This is becausethey are orthogonal: service-orientation is an architectural （ 71 ） , while Web services are animplementation （72）. The two can be used together, and they frequently are, but they are notmutually dependent.For example, although it is widely considered to be a distributed-computing solution, SOAcan be applied to advantage in a single system, where services might be individual processes withwell-defined （73） that communicate using local channels, or in self-contained cluster, wherethey might communicate across a high-speed interconnect.Similarly, while Web services are（74）as the basis for a service-oriented environment, thereis nothing in their definition that requires them to embody the SOA principles. While （75） isoften held up as a key characteristic of Web services, there is no technical reason that they shouldbe stateless — that would be a design choice of the developer, which may be dictated by thearchitectural style of the environment in which the service is intended to participate.",
+   "options": [
+    "design",
+    "style",
+    "technology",
+    "structure"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 71,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第72题",
+   "difficulty": 2,
+   "stem": "We initially described SOA without mentioning Web services, and vice versa. This is becausethey are orthogonal: service-orientation is an architectural （ 71 ） , while Web services are animplementation （72）. The two can be used together, and they frequently are, but they are notmutually dependent.For example, although it is widely considered to be a distributed-computing solution, SOAcan be applied to advantage in a single system, where services might be individual processes withwell-defined （73） that communicate using local channels, or in self-contained cluster, wherethey might communicate across a high-speed interconnect.Similarly, while Web services are（74）as the basis for a service-oriented environment, thereis nothing in their definition that requires them to embody the SOA principles. While （75） isoften held up as a key characteristic of Web services, there is no technical reason that they shouldbe stateless — that would be a design choice of the developer, which may be dictated by thearchitectural style of the environment in which the service is intended to participate.",
+   "options": [
+    "structure",
+    "style",
+    "technology",
+    "method"
+   ],
+   "answer": [
+    "C"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 72,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第73题",
+   "difficulty": 2,
+   "stem": "We initially described SOA without mentioning Web services, and vice versa. This is becausethey are orthogonal: service-orientation is an architectural （ 71 ） , while Web services are animplementation （72）. The two can be used together, and they frequently are, but they are notmutually dependent.For example, although it is widely considered to be a distributed-computing solution, SOAcan be applied to advantage in a single system, where services might be individual processes withwell-defined （73） that communicate using local channels, or in self-contained cluster, wherethey might communicate across a high-speed interconnect.Similarly, while Web services are（74）as the basis for a service-oriented environment, thereis nothing in their definition that requires them to embody the SOA principles. While （75） isoften held up as a key characteristic of Web services, there is no technical reason that they shouldbe stateless — that would be a design choice of the developer, which may be dictated by thearchitectural style of the environment in which the service is intended to participate.",
+   "options": [
+    "interfaces",
+    "functions",
+    "logiccs",
+    "formats"
+   ],
+   "answer": [
+    "A"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 73,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第74题",
+   "difficulty": 2,
+   "stem": "We initially described SOA without mentioning Web services, and vice versa. This is becausethey are orthogonal: service-orientation is an architectural （ 71 ） , while Web services are animplementation （72）. The two can be used together, and they frequently are, but they are notmutually dependent.For example, although it is widely considered to be a distributed-computing solution, SOAcan be applied to advantage in a single system, where services might be individual processes withwell-defined （73） that communicate using local channels, or in self-contained cluster, wherethey might communicate across a high-speed interconnect.Similarly, while Web services are（74）as the basis for a service-oriented environment, thereis nothing in their definition that requires them to embody the SOA principles. While （75） isoften held up as a key characteristic of Web services, there is no technical reason that they shouldbe stateless — that would be a design choice of the developer, which may be dictated by thearchitectural style of the environment in which the service is intended to participate.",
+   "options": [
+    "regarded",
+    "well-suited",
+    "worked",
+    "used"
+   ],
+   "answer": [
+    "B"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 74,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  },
+  {
+   "type": "single",
+   "topic": "SE",
+   "knowledge": "2022下·第75题",
+   "difficulty": 2,
+   "stem": "We initially described SOA without mentioning Web services, and vice versa. This is becausethey are orthogonal: service-orientation is an architectural （ 71 ） , while Web services are animplementation （72）. The two can be used together, and they frequently are, but they are notmutually dependent.For example, although it is widely considered to be a distributed-computing solution, SOAcan be applied to advantage in a single system, where services might be individual processes withwell-defined （73） that communicate using local channels, or in self-contained cluster, wherethey might communicate across a high-speed interconnect.Similarly, while Web services are（74）as the basis for a service-oriented environment, thereis nothing in their definition that requires them to embody the SOA principles. While （75） isoften held up as a key characteristic of Web services, there is no technical reason that they shouldbe stateless — that would be a design choice of the developer, which may be dictated by thearchitectural style of the environment in which the service is intended to participate.",
+   "options": [
+    "distribution",
+    "interconnection",
+    "dependence",
+    "statelessness"
+   ],
+   "answer": [
+    "D"
+   ],
+   "explanation": null,
+   "score": 1,
+   "paper": "2022下",
+   "seq_no": 75,
+   "source": "2022年下半年 软件设计师 上午试卷（真题）（真题·PDF 解析版）"
+  }
+ ]
+}

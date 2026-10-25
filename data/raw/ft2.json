@@ -1,0 +1,542 @@
+[
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "对含 n 个元素的序列进行直接插入排序，最好情况下需进行____次元素比较，最坏情况下比较次数为____。",
+    "answer": ["n-1|n−1", "n(n-1)/2|n(n−1)/2"],
+    "explanation": "最好情况原序列有序，每趟仅比较一次，共 n-1 次；最坏为逆序，比较次数约 n²/2。",
+    "difficulty": 2,
+    "knowledge": "直接插入排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "直接插入排序在最好情况下的时间复杂度为____，其辅助空间复杂度为____。",
+    "answer": ["O(n)", "O(1)"],
+    "explanation": "原序列有序时只需一趟扫描，时间为 O(n)；只需一个暂存单元，空间为 O(1)。",
+    "difficulty": 1,
+    "knowledge": "直接插入排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "希尔排序又称____排序，其最后一趟的增量必须取____。",
+    "answer": ["缩小增量", "1"],
+    "explanation": "希尔排序按递减增量分组插入排序，最后一趟增量为 1 以保证序列最终有序。",
+    "difficulty": 2,
+    "knowledge": "希尔排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "希尔排序的时间复杂度约为____，且它是一种____（稳定/不稳定）的排序方法。",
+    "answer": ["O(n^1.3)|O(n1.3)", "不稳定"],
+    "explanation": "希尔排序时间约为 O(n^1.3)，分组移动使相同关键字相对次序可能改变，故不稳定。",
+    "difficulty": 3,
+    "knowledge": "希尔排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "冒泡排序每趟比较可将一个关键字送到最终位置；若某趟排序过程中____，则说明序列已经有序。",
+    "answer": ["没有发生交换|未发生交换|没有交换|无交换"],
+    "explanation": "一趟中若无任何元素交换，表明相邻元素均有序，可提前结束排序。",
+    "difficulty": 2,
+    "knowledge": "冒泡排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "对 n 个元素进行冒泡排序，最坏情况下的比较次数为____，其空间复杂度为____。",
+    "answer": ["n(n-1)/2|n(n−1)/2", "O(1)"],
+    "explanation": "逆序时需 n-1 趟，比较次数为 n(n-1)/2；只需一个交换暂存单元，空间为 O(1)。",
+    "difficulty": 2,
+    "knowledge": "冒泡排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "快速排序采用____策略，以基准元素将序列划分为两个子序列，其平均时间复杂度为____。",
+    "answer": ["分治|分治法", "O(nlogn)|O(nlog2n)"],
+    "explanation": "快排以基准划分后递归处理左右子序列，属分治法，平均时间为 O(nlogn)。",
+    "difficulty": 2,
+    "knowledge": "快速排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "当待排序列基本有序时，快速排序退化为最坏情况，此时时间复杂度为____，递归深度约为____。",
+    "answer": ["O(n^2)|O(n²)", "n"],
+    "explanation": "基本有序时每次划分极不平衡，时间复杂度降为 O(n²)，递归深度接近 n。",
+    "difficulty": 3,
+    "knowledge": "快速排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "大根堆中根结点的值____其左右孩子的值；堆排序所需的辅助空间为____。",
+    "answer": ["大于等于|不小于|大于或等于|≥", "O(1)"],
+    "explanation": "大根堆满足双亲值不小于孩子值；堆排序在原地进行调整，空间复杂度为 O(1)。",
+    "difficulty": 2,
+    "knowledge": "堆排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "堆排序在最坏情况下的时间复杂度为____，它是一种____（稳定/不稳定）的排序方法。",
+    "answer": ["O(nlogn)|O(nlog2n)", "不稳定"],
+    "explanation": "建堆与反复调整均为 O(nlogn)；堆顶与末尾交换会打乱相同元素次序，故不稳定。",
+    "difficulty": 2,
+    "knowledge": "堆排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "二路归并排序采用____策略，对 n 个元素进行排序共需____趟归并。",
+    "answer": ["分治|分治法", "⌈log2n⌉|log2n|log2n向上取整"],
+    "explanation": "归并排序先划分再两两归并，每趟子序列长度翻倍，故需约 log2n 趟。",
+    "difficulty": 3,
+    "knowledge": "归并排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "归并排序的时间复杂度为____，完成归并需要____的辅助空间。",
+    "answer": ["O(nlogn)|O(nlog2n)", "O(n)"],
+    "explanation": "每趟归并耗时 O(n)，共 log2n 趟；归并需与原序列等长的辅助数组。",
+    "difficulty": 1,
+    "knowledge": "归并排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "基数排序属于____类排序方法，它借助____实现按位分配与收集。",
+    "answer": ["分配|分配式", "队列|链队列|桶"],
+    "explanation": "基数排序不比较关键字，按各数位分配到队列（桶）中再依次收集。",
+    "difficulty": 2,
+    "knowledge": "基数排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "对 n 个关键字进行链式基数排序，若关键字有 d 位、基数为 r，则时间复杂度为____，所需的队列个数为____。",
+    "answer": ["O(d(n+r))", "r"],
+    "explanation": "共 d 趟分配与收集，每趟 O(n+r)；每个数位取值有 r 种，故需 r 个队列。",
+    "difficulty": 3,
+    "knowledge": "基数排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "若排序前后关键字相同的元素相对次序保持不变，则称该排序方法是____的；在直接插入、冒泡与快速排序中，____排序是不稳定的。",
+    "answer": ["稳定", "快速"],
+    "explanation": "稳定性指相同关键字记录相对次序不变；快排远距离交换使次序可能改变，不稳定。",
+    "difficulty": 1,
+    "knowledge": "排序稳定性"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "在堆排序、归并排序与希尔排序中，____排序是稳定的；采用稳定排序时，关键字相同记录的相对次序在排序后____。",
+    "answer": ["归并排序|归并", "不变|保持不变"],
+    "explanation": "二路归并合并时相同元素先取左段，故稳定；稳定排序不改变相同关键字次序。",
+    "difficulty": 2,
+    "knowledge": "排序稳定性"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "某算法执行基本运算的次数为 3n²+5n+7，则其时间复杂度为____，表示渐进上界的符号是____。",
+    "answer": ["O(n^2)|O(n²)", "O|大O"],
+    "explanation": "只保留最高阶项并略去系数得 O(n²)；大 O 记号表示时间复杂度的渐进上界。",
+    "difficulty": 1,
+    "knowledge": "时间复杂度"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "若算法 A 的时间复杂度为 O(nlogn)、算法 B 为 O(n²)，当 n 充分大时 A 的执行时间更____；算法复杂度分析通常关注输入的____情况。",
+    "answer": ["短|小|少", "最坏"],
+    "explanation": "n 充分大时 nlogn 增长慢于 n²，A 更省时；复杂度分析以保证最坏情况下界为准。",
+    "difficulty": 3,
+    "knowledge": "时间复杂度"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "若算法所需的辅助空间与问题规模无关，则其空间复杂度为____；递归算法通常借助____保存返回地址和局部变量。",
+    "answer": ["O(1)", "栈|系统栈|递归工作栈"],
+    "explanation": "辅助空间为常量时记作 O(1)；递归调用需用系统栈保存返回地址与局部变量。",
+    "difficulty": 2,
+    "knowledge": "空间复杂度"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "将 n 阶方阵就地转置的空间复杂度为____；若另设一个 n 阶矩阵存放结果，则需____个辅助存储单元。",
+    "answer": ["O(1)", "n^2|n²"],
+    "explanation": "就地转置只用常数个临时变量；另设结果矩阵需 n² 个单元，空间为 O(n²)。",
+    "difficulty": 3,
+    "knowledge": "空间复杂度"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "分治法的三个基本步骤是划分、求解和____；二分查找属于采用____策略的算法。",
+    "answer": ["合并", "分治|分治法"],
+    "explanation": "分治法按划分、求解子问题、合并三步进行；二分查找每次缩小一半规模属分治。",
+    "difficulty": 2,
+    "knowledge": "分治法"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "分治法要求分解出的子问题与原问题____相同且彼此独立，二分查找的时间复杂度为____。",
+    "answer": ["类型|形式", "O(logn)|O(log2n)|O(log n)"],
+    "explanation": "子问题与原问题类型相同且相互独立，才可递归求解；二分查找时间为对数级。",
+    "difficulty": 2,
+    "knowledge": "分治法"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "动态规划把原问题分解为若干个____的子问题，并用____记录已求子问题的解以避免重复计算。",
+    "answer": ["相互重叠|重叠|交叠", "表格|备忘录|表"],
+    "explanation": "动态规划适用于子问题重叠的情形，通过表格保存子问题解，避免重复求解。",
+    "difficulty": 2,
+    "knowledge": "动态规划"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "动态规划适用于具有最优子结构和____子结构的问题，其求解一般按____顺序进行。",
+    "answer": ["重叠", "自底向上"],
+    "explanation": "动态规划要求最优子结构与子问题重叠，通常由小到大自底向上填表求解。",
+    "difficulty": 3,
+    "knowledge": "动态规划"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "贪心法在每一步都作出____最优的选择，一般不能保证得到____最优解。",
+    "answer": ["当前|局部", "全局"],
+    "explanation": "贪心法只依据当前状态取局部最优，缺少全局考虑，故未必得到全局最优解。",
+    "difficulty": 1,
+    "knowledge": "贪心法"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "贪心法求解问题的两个基本要素是贪心选择性质和____结构；求最小生成树的 Prim 算法属于____法。",
+    "answer": ["最优子", "贪心"],
+    "explanation": "贪心法需具备贪心选择性质与最优子结构；Prim 算法每次选最小权边扩展属贪心法。",
+    "difficulty": 2,
+    "knowledge": "贪心法"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "哈夫曼编码是一种____编码，任一字符的编码都不是另一字符编码的____。",
+    "answer": ["前缀", "前缀"],
+    "explanation": "哈夫曼编码按前缀码构造，任一编码都不是其他编码的前缀，故解码无歧义。",
+    "difficulty": 2,
+    "knowledge": "哈夫曼编码"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "含 n 个叶结点的哈夫曼树共有____个结点；哈夫曼编码属于____（定长/变长）编码。",
+    "answer": ["2n-1|2n−1", "变长"],
+    "explanation": "严格二叉树中结点总数等于叶结点数的 2 倍减 1；各字符码长不同，为变长编码。",
+    "difficulty": 3,
+    "knowledge": "哈夫曼编码"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "AOE 网中从源点到汇点的最长路径称为____路径，其长度等于完成整个工程所需的____时间。",
+    "answer": ["关键", "最短"],
+    "explanation": "关键路径是源点到汇点的最长路径，其长度决定工程的最短完成时间。",
+    "difficulty": 1,
+    "knowledge": "关键路径"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "关键路径上的活动称为____活动，缩短其持续时间可能使总工期____。",
+    "answer": ["关键", "缩短|减小|变短"],
+    "explanation": "关键路径上的活动为关键活动，压缩其时间可能缩短工期，但需防止关键路径转移。",
+    "difficulty": 2,
+    "knowledge": "关键路径"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "简单选择排序每趟从待排序区间中选出最小元素并与区间首元素交换，因此它是一种稳定的排序方法。",
+    "answer": ["错"],
+    "explanation": "交换可能把相同关键字元素调到前面，破坏相对次序，故简单选择排序不稳定。",
+    "difficulty": 2,
+    "knowledge": "简单选择排序"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "对 n 个元素进行简单选择排序，元素比较次数与序列初始状态无关，总比较次数为 n(n-1)/2。",
+    "answer": ["对"],
+    "explanation": "每趟都在剩余区间内全部比较一遍，总比较次数固定为 n(n-1)/2，与初态无关。",
+    "difficulty": 2,
+    "knowledge": "简单选择排序"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "折半插入排序与直接插入排序相比减少了关键字的比较次数，但元素移动次数并未减少。",
+    "answer": ["对"],
+    "explanation": "折半插入仅用折半查找定位插入位置，减少比较次数，但插入时移动元素不变。",
+    "difficulty": 2,
+    "knowledge": "折半插入排序"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "折半插入排序只适用于顺序存储的线性表，其时间复杂度为 O(nlogn)。",
+    "answer": ["错"],
+    "explanation": "前半句正确，但折半插入仍需移动元素，总时间复杂度仍是 O(n²)。",
+    "difficulty": 2,
+    "knowledge": "折半插入排序"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "当 n 充分大时，时间复杂度为 O(nlogn) 的算法比时间复杂度为 O(n^1.5) 的算法增长得更慢。",
+    "answer": ["对"],
+    "explanation": "n 充分大时 nlogn 小于 n^1.5，故前者增长率更低，效率更高。",
+    "difficulty": 2,
+    "knowledge": "时间复杂度比较"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "时间复杂度为 O(n) 的算法在任何输入规模下都比时间复杂度为 O(n²) 的算法运行得更快。",
+    "answer": ["错"],
+    "explanation": "渐进复杂度只反映 n 充分大时的增长趋势，小规模或常数因子大时结论可能相反。",
+    "difficulty": 1,
+    "knowledge": "时间复杂度比较"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "时间复杂度为 O(2^n) 的算法，当 n 增大时仍能在多项式时间内完成计算。",
+    "answer": ["错"],
+    "explanation": "O(2^n) 是指数级复杂度，不属于多项式时间，n 增大后计算量不可接受。",
+    "difficulty": 1,
+    "knowledge": "渐进符号"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "若算法执行基本语句次数 f(n)=n²+100n，则 f(n)=O(n²) 且 f(n)=Ω(n²)。",
+    "answer": ["对"],
+    "explanation": "最高阶项为 n²，故 n²+100n 既是 O(n²) 也是 Ω(n²)，即 Θ(n²)。",
+    "difficulty": 3,
+    "knowledge": "渐进符号"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "快速排序平均情况的时间递推式为 T(n)=2T(n/2)+O(n)，其解为 O(nlogn)。",
+    "answer": ["对"],
+    "explanation": "按主定理，分治为两个规模减半子问题、合并代价 O(n)，解得 O(nlogn)。",
+    "difficulty": 3,
+    "knowledge": "递归方程"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "递推式 T(n)=2T(n/2)+O(n²) 的解为 O(n²)，说明划分过程本身的开销可决定算法复杂度。",
+    "answer": ["对"],
+    "explanation": "合并开销 n² 高于子问题开销 nlogn，按主定理整体复杂度由 O(n²) 主导。",
+    "difficulty": 1,
+    "knowledge": "递归方程"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "蛮力法即枚举法，它以增加时间开销为代价换取算法设计的简单与直观。",
+    "answer": ["对"],
+    "explanation": "蛮力法逐一列举所有可能情况，思路简单但通常效率较低，适合小规模问题。",
+    "difficulty": 1,
+    "knowledge": "蛮力法"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "用蛮力法求解最大子段和问题的时间复杂度为 O(n)，并可用分治法进一步优化为 O(nlogn)。",
+    "answer": ["错"],
+    "explanation": "蛮力法求解最大子段和至少需 O(n²) 时间，分治法为 O(nlogn)，动态规划为 O(n)。",
+    "difficulty": 3,
+    "knowledge": "蛮力法"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "回溯法在解空间树上按深度优先方式搜索，一旦某结点不满足约束条件即剪枝回退。",
+    "answer": ["对"],
+    "explanation": "回溯法用深度优先遍历解空间树，配合约束函数剪枝，避免无效搜索。",
+    "difficulty": 2,
+    "knowledge": "回溯法"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "回溯法一定能求得问题的最优解，且其时间复杂度总是低于动态规划算法。",
+    "answer": ["错"],
+    "explanation": "回溯法搜索全部可行解，最坏为指数级，时间复杂度通常不低于动态规划。",
+    "difficulty": 2,
+    "knowledge": "回溯法"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "分支限界法按广度优先或最小耗费优先方式搜索解空间树，常用于求解最优化问题。",
+    "answer": ["对"],
+    "explanation": "分支限界法以队列或优先队列组织活结点，用限界函数剪枝，善于求最优解。",
+    "difficulty": 2,
+    "knowledge": "分支限界法"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "分支限界法与回溯法的搜索方式相同，均按深度优先方式遍历解空间树。",
+    "answer": ["错"],
+    "explanation": "回溯法深度优先；分支限界法广度优先或最小耗费优先，二者搜索方式不同。",
+    "difficulty": 1,
+    "knowledge": "分支限界法"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "减治法每步将问题规模缩小一个常量或一个比例，只需对一个子问题求解，二分查找属于典型减治算法。",
+    "answer": ["对"],
+    "explanation": "减治法每次舍弃一部分、只解一个子问题；二分查找每步只处理一半区间。",
+    "difficulty": 2,
+    "knowledge": "减治法"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "快速排序每趟划分后需递归处理左右两个子序列，因此它属于减治法而不是分治法。",
+    "answer": ["错"],
+    "explanation": "快排要处理两个规模不等的子问题，属分治法，不是只解一个子问题的减治法。",
+    "difficulty": 3,
+    "knowledge": "减治法"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "哈夫曼树中权值越大的叶结点离根越近，且树中不存在度为 1 的结点。",
+    "answer": ["对"],
+    "explanation": "哈夫曼树每次合并权值最小的两棵树，权大者路径短；为严格二叉树，无度为 1 的结点。",
+    "difficulty": 2,
+    "knowledge": "哈夫曼树"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "给定一组权值构造出的哈夫曼树形态唯一，因此每个字符的哈夫曼编码也唯一。",
+    "answer": ["错"],
+    "explanation": "存在权值相同的叶结点时树形态和左右孩子可交换，编码不唯一但码长最优。",
+    "difficulty": 3,
+    "knowledge": "哈夫曼树"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "哈夫曼树的带权路径长度等于各叶结点的权值与其所在层次数乘积之和。",
+    "answer": ["对"],
+    "explanation": "WPL 定义为各叶结点权值与到根路径长度（层次数）之积的总和，哈夫曼树使其最小。",
+    "difficulty": 2,
+    "knowledge": "带权路径长度"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "对同一组权值构造哈夫曼树，所得不同形态的树其带权路径长度可能不同。",
+    "answer": ["错"],
+    "explanation": "形态可能不同，但由同一组权值构造的哈夫曼树 WPL 相同且取最小值。",
+    "difficulty": 3,
+    "knowledge": "带权路径长度"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "AOE 网中只有一个入度为 0 的源点和一个出度为 0 的汇点，边上的权表示活动的持续时间。",
+    "answer": ["对"],
+    "explanation": "AOE 网以边表示活动、权为活动时间，工程只有一个开始事件和一个结束事件。",
+    "difficulty": 2,
+    "knowledge": "AOE网"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "AOE 网中的关键路径可能不止一条，但所有关键路径的长度必然相同。",
+    "answer": ["对"],
+    "explanation": "关键路径是长度最长的路径，若有多条则其长度都等于该最长长度。",
+    "difficulty": 3,
+    "knowledge": "AOE网"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "事件的最迟发生时间等于其所有后继事件最迟发生时间与该活动持续时间之差的最小值。",
+    "answer": ["对"],
+    "explanation": "按逆拓扑序计算，vl(j)=min{vl(k)-dur(j,k)}，保证不影响后继事件的最迟时间。",
+    "difficulty": 3,
+    "knowledge": "最迟发生时间"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "活动的最早开始时间等于其弧尾事件的最早发生时间，最迟开始时间也等于其弧头事件的最迟发生时间。",
+    "answer": ["错"],
+    "explanation": "最迟开始时间等于弧头事件最迟发生时间减去该活动的持续时间，二者不相等。",
+    "difficulty": 2,
+    "knowledge": "最迟发生时间"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "活动的最早开始时间等于最迟开始时间的活动就是关键活动，其时间余量为零。",
+    "answer": ["对"],
+    "explanation": "关键活动满足 e(i)=l(i)，即时间余量（松弛时间）为零，构成关键路径。",
+    "difficulty": 2,
+    "knowledge": "关键活动"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "提高任一关键活动的效率都能缩短整个工程的工期，而非关键活动的压缩不会影响工期。",
+    "answer": ["错"],
+    "explanation": "存在多条关键路径时须同时压缩各路径上的关键活动才有效；压缩过度还可能改变关键路径。",
+    "difficulty": 3,
+    "knowledge": "关键活动"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "动态规划与贪心法都要求问题具有最优子结构，但动态规划通过求解所有相关子问题保证全局最优。",
+    "answer": ["对"],
+    "explanation": "两者都以最优子结构为前提，动态规划保留全部子问题解，贪心只作局部最优选择。",
+    "difficulty": 2,
+    "knowledge": "贪心与动态规划"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "只要问题具有最优子结构，贪心法每步取当前最优选择就一定能得到全局最优解。",
+    "answer": ["错"],
+    "explanation": "贪心法还须满足贪心选择性质；仅凭最优子结构不能保证局部最优导出全局最优。",
+    "difficulty": 1,
+    "knowledge": "贪心与动态规划"
+  }
+]

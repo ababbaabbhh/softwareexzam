@@ -1,0 +1,542 @@
+[
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "数据库系统的三级模式结构由外模式、____和内模式组成。",
+    "answer": ["模式"],
+    "explanation": "三级模式为外模式、模式（概念模式）和内模式，模式是全局逻辑结构的描述。",
+    "difficulty": 1,
+    "knowledge": "三级模式"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "外模式/模式映像保证了数据的____独立性，即模式改变时应用不变。",
+    "answer": ["逻辑"],
+    "explanation": "外模式/模式映像保证逻辑独立性，模式/内模式映像保证物理独立性。",
+    "difficulty": 2,
+    "knowledge": "两级映像"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "在关系代数中，从关系中选取满足给定条件的元组的运算称为____。",
+    "answer": ["选择|选择运算"],
+    "explanation": "选择运算按条件筛选行，投影运算按属性筛选列。",
+    "difficulty": 1,
+    "knowledge": "选择运算"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "关系R有3个元组，关系S有4个元组，则笛卡尔积R×S的结果含有____个元组。",
+    "answer": ["12"],
+    "explanation": "笛卡尔积的元组数等于两关系元组数之积，3×4=12。",
+    "difficulty": 1,
+    "knowledge": "笛卡尔积"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "在关系代数中，从关系中选出若干属性列组成新关系的运算称为____。",
+    "answer": ["投影|投影运算"],
+    "explanation": "投影运算选取指定的列并去掉重复元组，不改变行的条件筛选。",
+    "difficulty": 2,
+    "knowledge": "投影运算"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "实体完整性规则要求关系的主码属性不能取____。",
+    "answer": ["空值|NULL"],
+    "explanation": "主码唯一标识元组，取空值会破坏实体的可标识性。",
+    "difficulty": 1,
+    "knowledge": "实体完整性"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "参照完整性要求外码的取值或为空值，或等于被参照关系中某个元组的____。",
+    "answer": ["主码|主键|码"],
+    "explanation": "外码须引用被参照关系中已存在的主码值，否则为无效引用。",
+    "difficulty": 2,
+    "knowledge": "参照完整性"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "在SQL中，对查询结果进行分组统计使用的子句是____。",
+    "answer": ["GROUP BY|group by"],
+    "explanation": "GROUP BY按指定列分组，常与COUNT、SUM等聚集函数配合使用。",
+    "difficulty": 2,
+    "knowledge": "GROUP BY"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "在SQL中，删除表中全部数据但保留表结构的语句是____。",
+    "answer": ["TRUNCATE|TRUNCATE TABLE"],
+    "explanation": "TRUNCATE TABLE清空数据且不逐行记录日志，DROP TABLE则连表一起删除。",
+    "difficulty": 2,
+    "knowledge": "TRUNCATE"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "在SQL中，将已授予用户的权限收回的语句是____。",
+    "answer": ["REVOKE"],
+    "explanation": "GRANT授予权限，REVOKE收回权限，二者常带WITH GRANT OPTION。",
+    "difficulty": 2,
+    "knowledge": "SQL授权"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "若X→Y且Y→X，则称函数依赖X→Y与Y→X是____的。",
+    "answer": ["等价"],
+    "explanation": "相互决定的函数依赖称为等价依赖，可写为X↔Y。",
+    "difficulty": 2,
+    "knowledge": "函数依赖"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "关系模式R(A,B,C)，函数依赖集F={A→B，B→C}，则R的候选码是____。",
+    "answer": ["A"],
+    "explanation": "A能决定全部属性且无真子集能决定全部属性，故A为唯一候选码。",
+    "difficulty": 3,
+    "knowledge": "候选码"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "若关系模式中每个属性都是不可再分的数据项，则该模式至少属于____。",
+    "answer": ["1NF|第一范式"],
+    "explanation": "第一范式要求属性具有原子性，不可再分为更小的数据项。",
+    "difficulty": 1,
+    "knowledge": "第一范式"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "在1NF基础上消除非主属性对码的部分函数依赖，关系模式达到____。",
+    "answer": ["2NF|第二范式"],
+    "explanation": "2NF要求所有非主属性完全函数依赖于码，不含部分依赖。",
+    "difficulty": 2,
+    "knowledge": "第二范式"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "在2NF基础上消除非主属性对码的传递函数依赖，关系模式达到____。",
+    "answer": ["3NF|第三范式"],
+    "explanation": "3NF要求非主属性既不部分依赖也不传递依赖于码。",
+    "difficulty": 3,
+    "knowledge": "第三范式"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "BCNF要求关系模式中每个决定因素都包含____。",
+    "answer": ["码|候选码|键"],
+    "explanation": "BCNF消除了主属性对码的部分和传递依赖，条件比3NF更严格。",
+    "difficulty": 3,
+    "knowledge": "BCNF"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "数据库设计一般分为需求分析、概念结构设计、____、物理结构设计等阶段。",
+    "answer": ["逻辑结构设计|逻辑设计"],
+    "explanation": "设计阶段依次为需求分析、概念设计、逻辑设计、物理设计、实施与运行维护。",
+    "difficulty": 2,
+    "knowledge": "数据库设计"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "在E-R图中，用菱形表示的图形元素是____。",
+    "answer": ["联系|关系"],
+    "explanation": "E-R图中矩形表示实体，椭圆表示属性，菱形表示实体间的联系。",
+    "difficulty": 1,
+    "knowledge": "E-R图"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "将E-R图转换为关系模式时，m:n的联系需要转换为一个独立的____。",
+    "answer": ["关系模式|关系|表"],
+    "explanation": "m:n联系无法并入任一实体，须单独建模式，码为双方码的组合。",
+    "difficulty": 3,
+    "knowledge": "E-R转换"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "事务的四个特性是原子性、一致性、____和持久性。",
+    "answer": ["隔离性"],
+    "explanation": "ACID即原子性、一致性、隔离性和持久性，隔离性靠封锁协议实现。",
+    "difficulty": 1,
+    "knowledge": "事务特性"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "一级封锁协议要求事务在修改数据之前必须先对其加____锁。",
+    "answer": ["排它|排他|X|X锁|写"],
+    "explanation": "一级封锁协议加X锁到事务结束，可防丢失更新，但防不住脏读。",
+    "difficulty": 2,
+    "knowledge": "一级封锁协议"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "三级封锁协议要求事务在读数据之前加____锁，并保持到事务结束。",
+    "answer": ["共享|S|S锁|读"],
+    "explanation": "三级协议读时加S锁并保持到事务结束，可避免不可重复读。",
+    "difficulty": 3,
+    "knowledge": "三级封锁协议"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "两段锁协议中，事务的加锁和解锁分为扩展阶段和____阶段。",
+    "answer": ["收缩"],
+    "explanation": "扩展阶段只加锁不解锁，收缩阶段只解锁不加锁，以此保证可串行化。",
+    "difficulty": 2,
+    "knowledge": "两段锁协议"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "预防死锁的一种常用方法是要求所有事务按____顺序对数据加锁。",
+    "answer": ["相同|同一|固定|一致"],
+    "explanation": "按统一顺序加锁可破坏循环等待条件，从而预防死锁发生。",
+    "difficulty": 3,
+    "knowledge": "死锁预防"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "事务T1读取了T2修改过但尚未提交的数据，这种现象称为____。",
+    "answer": ["脏读|读脏数据"],
+    "explanation": "脏读读取了未提交数据，若T2回滚则T1读到的是无效数据。",
+    "difficulty": 2,
+    "knowledge": "脏读"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "为减少故障恢复时需要重做的日志量，系统周期性地建立____。",
+    "answer": ["检查点|checkpoint|CHECKPOINT"],
+    "explanation": "检查点把缓冲区内容写盘并记录日志位置，恢复时只需从检查点开始处理。",
+    "difficulty": 3,
+    "knowledge": "检查点"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "数据仓库是面向____的、集成的、非易失的、反映历史变化的数据集合。",
+    "answer": ["主题"],
+    "explanation": "数据仓库按主题组织数据，与面向应用的联机事务处理数据库不同。",
+    "difficulty": 1,
+    "knowledge": "数据仓库"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "支持联机分析处理的数据仓库应用，其英文缩写是____。",
+    "answer": ["OLAP"],
+    "explanation": "OLAP支持多维分析与决策，OLTP面向日常联机事务处理。",
+    "difficulty": 1,
+    "knowledge": "OLAP"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "从大量数据中提取隐含的、事先未知的、有潜在价值信息的过程称为____。",
+    "answer": ["数据挖掘|数据采掘|Data Mining"],
+    "explanation": "数据挖掘用于发现规律与模式，是数据仓库应用的重要方向。",
+    "difficulty": 2,
+    "knowledge": "数据挖掘"
+  },
+  {
+    "type": "fill",
+    "topic": "DB",
+    "stem": "视图是由基本表导出的虚表，数据库中只存储视图的____而不存储数据。",
+    "answer": ["定义"],
+    "explanation": "视图仅在数据字典中保存定义，数据仍存放在所引用的基本表中。",
+    "difficulty": 3,
+    "knowledge": "视图"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "原子性是指事务中的操作要么全部执行，要么全部不执行。",
+    "answer": ["对"],
+    "explanation": "原子性保证事务作为不可分割的工作单位，失败时回滚到初始状态。",
+    "difficulty": 1,
+    "knowledge": "原子性"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "内模式也称为存储模式，它描述数据的物理存储结构。",
+    "answer": ["对"],
+    "explanation": "内模式是数据的物理结构和存储方式的描述，位于三级模式最内层。",
+    "difficulty": 1,
+    "knowledge": "内模式"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "关系模型要求关系中的每个属性都必须是不可再分的数据项。",
+    "answer": ["对"],
+    "explanation": "关系模型的基本要求是属性原子性，即不允许表中套表。",
+    "difficulty": 1,
+    "knowledge": "关系模型"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "在SQL查询中，WHERE子句里不能直接使用聚集函数。",
+    "answer": ["对"],
+    "explanation": "聚集函数只能用于SELECT列表或HAVING子句，WHERE中要筛选用子查询。",
+    "difficulty": 1,
+    "knowledge": "WHERE子句"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "视图既能简化用户的操作，又能对数据提供一定的安全保护。",
+    "answer": ["对"],
+    "explanation": "视图隐藏了数据的来源与结构，用户通过视图只能访问授权范围内的数据。",
+    "difficulty": 2,
+    "knowledge": "视图作用"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "若关系模式R属于3NF，则R一定属于BCNF。",
+    "answer": ["错"],
+    "explanation": "BCNF条件更强，3NF不一定是BCNF，但BCNF一定是3NF。",
+    "difficulty": 2,
+    "knowledge": "范式关系"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "一个关系模式可以有多个候选码，主码是其中选定的一个。",
+    "answer": ["对"],
+    "explanation": "候选码均可唯一标识元组，主码是从候选码中选定的一个作为标识码。",
+    "difficulty": 2,
+    "knowledge": "主码选择"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "两个关系的笛卡尔积结果，其元组数等于两个关系元组数之和。",
+    "answer": ["错"],
+    "explanation": "笛卡尔积元组数为两个关系元组数之积而非之和。",
+    "difficulty": 2,
+    "knowledge": "笛卡尔积"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "自然连接要求两个关系具有公共属性，并在结果中去掉重复的属性列。",
+    "answer": ["对"],
+    "explanation": "自然连接在等值连接基础上按公共属性名去掉重复列。",
+    "difficulty": 2,
+    "knowledge": "自然连接"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "关系的主码值可以重复，但不可以为空。",
+    "answer": ["错"],
+    "explanation": "主码既不能取空值也不能重复，否则无法唯一标识元组。",
+    "difficulty": 2,
+    "knowledge": "主码约束"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "数据库概念结构设计阶段通常采用E-R图来描述概念模型。",
+    "answer": ["对"],
+    "explanation": "概念设计用E-R图刻画实体、属性与联系，独立于具体DBMS。",
+    "difficulty": 2,
+    "knowledge": "概念设计"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "逻辑结构设计阶段的主要任务之一是将E-R图转换为关系模式。",
+    "answer": ["对"],
+    "explanation": "逻辑设计把概念模型转换为DBMS支持的数据模型，如关系模式。",
+    "difficulty": 2,
+    "knowledge": "逻辑设计"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "三级封锁协议可以避免丢失更新和脏读，但不能避免不可重复读。",
+    "answer": ["错"],
+    "explanation": "三级协议要求读时加S锁并保持到事务结束，可避免不可重复读。",
+    "difficulty": 3,
+    "knowledge": "三级封锁协议"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "遵循两段锁协议的事务并发调度一定是可串行化的。",
+    "answer": ["对"],
+    "explanation": "两段锁协议是可串行化的充分条件，但可能发生死锁。",
+    "difficulty": 3,
+    "knowledge": "两段锁协议"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "排它锁即X锁，某事务对数据加了X锁后，其他事务不能再对其加任何锁。",
+    "answer": ["对"],
+    "explanation": "X锁是写锁，具有排他性，加X锁后其他事务既不能读也不能写。",
+    "difficulty": 2,
+    "knowledge": "排它锁"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "某数据对象已被加上共享锁，其他事务仍可对其加共享锁。",
+    "answer": ["对"],
+    "explanation": "共享锁即S锁，多个事务可同时加S锁读数据，但不能加X锁。",
+    "difficulty": 2,
+    "knowledge": "共享锁"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "丢失更新是指两个事务读取同一数据并修改，后提交的修改覆盖了先提交的结果。",
+    "answer": ["对"],
+    "explanation": "丢失更新由并发写同一数据引起，一级封锁协议可避免该问题。",
+    "difficulty": 3,
+    "knowledge": "丢失更新"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "不可重复读是指同一事务两次读取同一数据得到不同结果，通常由其他事务的修改引起。",
+    "answer": ["对"],
+    "explanation": "其他事务在两次读之间修改并提交，使前后读取结果不一致。",
+    "difficulty": 2,
+    "knowledge": "不可重复读"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "登记日志文件时，为了提高效率可以先写数据库，后写日志记录。",
+    "answer": ["错"],
+    "explanation": "必须遵循先写日志后写数据库的原则，否则故障时无法恢复。",
+    "difficulty": 2,
+    "knowledge": "日志原则"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "数据仓库中的数据一般不允许随意修改，主要用于查询和分析。",
+    "answer": ["对"],
+    "explanation": "数据仓库具有非易失性，数据以加载和追加为主，支持分析处理。",
+    "difficulty": 2,
+    "knowledge": "数据仓库特征"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "OLTP主要面向管理决策分析，而OLAP主要面向日常事务处理。",
+    "answer": ["错"],
+    "explanation": "OLTP面向日常事务处理，OLAP面向分析决策，两者定位相反。",
+    "difficulty": 2,
+    "knowledge": "OLTP与OLAP"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "在事务中执行DELETE语句删除数据后，可以用ROLLBACK撤销该删除操作。",
+    "answer": ["对"],
+    "explanation": "DELETE是DML操作，可回滚；TRUNCATE等DDL操作一般不可回滚。",
+    "difficulty": 2,
+    "knowledge": "DELETE语句"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "若关系模式的所有属性都是主属性，则该模式一定属于3NF。",
+    "answer": ["对"],
+    "explanation": "3NF只约束非主属性，无主属性时不存在非主属性的依赖问题。",
+    "difficulty": 3,
+    "knowledge": "3NF判定"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "左外连接的查询结果一定包含左表和右表的全部元组。",
+    "answer": ["错"],
+    "explanation": "左外连接只保留左表全部元组，右表不匹配处以空值填充。",
+    "difficulty": 3,
+    "knowledge": "外连接"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "关系代数中的除法运算可用于表达包含全部、对所有这类查询。",
+    "answer": ["对"],
+    "explanation": "除法运算适合表示对所有满足条件者都成立的一类查询。",
+    "difficulty": 3,
+    "knowledge": "除法运算"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "事务如果在读数据前不加任何锁，就一定不会引起并发异常。",
+    "answer": ["错"],
+    "explanation": "不加锁读取未提交数据会产生脏读，也可能引起不可重复读和幻读。",
+    "difficulty": 3,
+    "knowledge": "封锁必要性"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "引入检查点技术后，系统恢复时无须重做检查点之前已提交的全部事务。",
+    "answer": ["对"],
+    "explanation": "检查点之前已写盘的事务其更新已在数据库中，恢复时不必重做。",
+    "difficulty": 3,
+    "knowledge": "检查点恢复"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "数据仓库中数据的粒度越小，数据量越大，能回答的查询也越详细。",
+    "answer": ["对"],
+    "explanation": "粒度越细细节越多，数据量与存储开销也随之增大，需要权衡。",
+    "difficulty": 3,
+    "knowledge": "数据粒度"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "在SQL中，GROUP BY子句后的分组属性必须全部出现在SELECT子句中。",
+    "answer": ["错"],
+    "explanation": "SELECT只能出现分组属性与聚集函数，但分组属性无须全部列出。",
+    "difficulty": 3,
+    "knowledge": "GROUP BY规则"
+  },
+  {
+    "type": "tf",
+    "topic": "DB",
+    "stem": "事务的隔离级别越高，系统的并发性能通常越好。",
+    "answer": ["错"],
+    "explanation": "隔离级别越高封锁越严，并发度下降，二者是相互制约的权衡。",
+    "difficulty": 3,
+    "knowledge": "隔离级别"
+  }
+]

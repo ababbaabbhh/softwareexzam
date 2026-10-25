@@ -1,0 +1,452 @@
+[
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "有向图G的顶点集为{v1,v2,v3,v4,v5}，边集为{<v1,v2>,<v1,v3>,<v2,v4>,<v3,v4>,<v4,v5>}。下列序列中，是G的拓扑序列的是（　）。",
+    "options": [
+      "v1,v2,v3,v4,v5",
+      "v2,v1,v3,v4,v5",
+      "v1,v3,v4,v2,v5",
+      "v1,v2,v4,v3,v5"
+    ],
+    "answer": ["A"],
+    "explanation": "拓扑序列中每条边的起点必须排在终点之前。v1须先于v2、v3，v4须在v2、v3之后，只有第一项满足全部约束。",
+    "difficulty": 1,
+    "knowledge": "拓扑排序"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于有向图的拓扑排序，下列说法中正确的是（　）。",
+    "options": [
+      "有向无环图的拓扑序列一定唯一",
+      "图中存在拓扑序列说明该图中不存在回路",
+      "拓扑排序过程中，每一步可以从当前入度为0的顶点中任选一个",
+      "拓扑排序要求图中各边上的权值均为非负"
+    ],
+    "answer": ["B", "C"],
+    "explanation": "能完成拓扑排序等价于图中无回路；存在多个入度为0的顶点时序列不唯一；拓扑排序只依赖顶点与边的方向，与权值无关。",
+    "difficulty": 2,
+    "knowledge": "拓扑排序"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在AOE网中，从源点到汇点的关键路径是指（　）。",
+    "options": [
+      "路径长度最短的路径",
+      "路径长度最长的路径",
+      "经过边数最多的路径",
+      "经过边数最少的路径"
+    ],
+    "answer": ["B"],
+    "explanation": "关键路径是源点到汇点路径长度（各活动持续时间之和）最长的路径，其长度即整个工程的最短完成时间。",
+    "difficulty": 1,
+    "knowledge": "关键路径"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "某AOE网的顶点v1为源点、v5为汇点，活动及其持续时间如下：a1=<v1,v2>持续3，a2=<v1,v3>持续2，a3=<v2,v4>持续4，a4=<v3,v4>持续6，a5=<v4,v5>持续2。该工程的最短完成时间为（　）。",
+    "options": [
+      "9",
+      "10",
+      "12",
+      "15"
+    ],
+    "answer": ["B"],
+    "explanation": "两条路径长度分别为3+4+2=9和2+6+2=10，最长路径为v1→v3→v4→v5，即关键路径长度为10。",
+    "difficulty": 3,
+    "knowledge": "关键路径"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "某AOE网中，a1=<v1,v2>持续3，a2=<v1,v3>持续2，a3=<v2,v4>持续4，a4=<v3,v4>持续6，a5=<v4,v5>持续2，v1为源点。活动a3的最早开始时间是（　）。",
+    "options": [
+      "2",
+      "3",
+      "6",
+      "8"
+    ],
+    "answer": ["B"],
+    "explanation": "活动的最早开始时间等于其起点顶点的最早发生时间，ve(v2)=ve(v1)+3=3，故e(a3)=3。",
+    "difficulty": 2,
+    "knowledge": "AOE最早时间"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在上述AOE网中（a1=3，a2=2，a3=4，a4=6，a5=2），顶点v4的最早发生时间是（　）。",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "answer": ["C"],
+    "explanation": "ve(v2)=3，ve(v3)=2，v4有两个前驱，取最大值：max(3+4, 2+6)=8，故ve(v4)=8。",
+    "difficulty": 3,
+    "knowledge": "AOE最早时间"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在上述AOE网中（a1=3，a2=2，a3=4，a4=6，a5=2），活动a3的最迟开始时间是（　）。",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "8"
+    ],
+    "answer": ["C"],
+    "explanation": "vl(v5)=10，vl(v4)=8，活动最迟开始时间等于其终点顶点最迟发生时间减去持续时间，即8-4=4。",
+    "difficulty": 3,
+    "knowledge": "AOE最迟时间"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在上述AOE网中（a1=3，a2=2，a3=4，a4=6，a5=2），活动a3的时间余量是（　）。",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "answer": ["B"],
+    "explanation": "e(a3)=ve(v2)=3，l(a3)=vl(v4)-4=4，时间余量为4-3=1，故a3不是关键活动。",
+    "difficulty": 2,
+    "knowledge": "AOE最迟时间"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "有向网中边及其权值为：<v1,v2>=4，<v1,v3>=2，<v3,v2>=1，<v2,v4>=5，<v3,v4>=8，<v4,v5>=2。从v1到v5的最短路径长度是（　）。",
+    "options": [
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "answer": ["B"],
+    "explanation": "路径v1→v3→v2→v4→v5长度为2+1+5+2=10，比v1→v2→v4→v5的11更短，故最短路径长度为10。",
+    "difficulty": 3,
+    "knowledge": "最短路径"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在上述有向网中（边权<v1,v2>=4，<v1,v3>=2，<v3,v2>=1，<v2,v4>=5，<v3,v4>=8，<v4,v5>=2），从v1到v4的最短路径长度是（　）。",
+    "options": [
+      "5",
+      "7",
+      "8",
+      "10"
+    ],
+    "answer": ["C"],
+    "explanation": "v1→v3→v2→v4的长度为2+1+5=8；v1→v2→v4为9，v1→v3→v4为10，故最短路径长度为8。",
+    "difficulty": 2,
+    "knowledge": "最短路径"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于求单源最短路径的Dijkstra算法，下列说法中正确的是（　）。",
+    "options": [
+      "适用于含负权边的带权图",
+      "每一步从未确定的顶点中选取距源点最近的顶点加入已确定集合",
+      "按路径长度递减的次序产生各顶点的最短路径",
+      "可求出源点到其余各顶点的最短路径"
+    ],
+    "answer": ["B", "D"],
+    "explanation": "Dijkstra按路径长度递增的次序逐点确定最短路径，要求边权非负；一次运行即可得到源点到所有顶点的最短距离。",
+    "difficulty": 2,
+    "knowledge": "Dijkstra算法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "采用邻接矩阵存储含n个顶点的图，用Dijkstra算法求单源最短路径的时间复杂度为（　）。",
+    "options": [
+      "O(n)",
+      "O(nlogn)",
+      "O(n^2)",
+      "O(n^3)"
+    ],
+    "answer": ["C"],
+    "explanation": "邻接矩阵实现时需进行n次选取最小距离顶点的操作，每次比较n-1个顶点，总时间复杂度为O(n^2)。",
+    "difficulty": 2,
+    "knowledge": "Dijkstra算法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "含n个顶点的连通网，其最小生成树所含的边数为（　）。",
+    "options": [
+      "n-1",
+      "n",
+      "n+1",
+      "2n-1"
+    ],
+    "answer": ["A"],
+    "explanation": "生成树是含全部顶点的极小连通子图，n个顶点的树恰好有n-1条边，最小生成树边数相同。",
+    "difficulty": 1,
+    "knowledge": "最小生成树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "无向网G的顶点为v1~v4，边及权值为：(v1,v2)=1，(v1,v3)=3，(v2,v3)=2，(v2,v4)=4，(v3,v4)=5。G的最小生成树的权值之和为（　）。",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "answer": ["B"],
+    "explanation": "依次选权值1、2、4三条边：(v1,v2)、(v2,v3)、(v2,v4)，权值之和为1+2+4=7，再多选任一边都会构成回路。",
+    "difficulty": 2,
+    "knowledge": "最小生成树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对上述无向网G（(v1,v2)=1，(v1,v3)=3，(v2,v3)=2，(v2,v4)=4，(v3,v4)=5），从顶点v1出发用Prim算法构造最小生成树，顶点加入的次序是（　）。",
+    "options": [
+      "v1,v2,v3,v4",
+      "v1,v3,v2,v4",
+      "v1,v2,v4,v3",
+      "v1,v4,v2,v3"
+    ],
+    "answer": ["A"],
+    "explanation": "先选最小边(v1,v2)=1加入v2，再从已选集合出发选(v2,v3)=2加入v3，最后选(v2,v4)=4加入v4。",
+    "difficulty": 2,
+    "knowledge": "Prim算法"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于求最小生成树的Prim算法，下列说法中正确的是（　）。",
+    "options": [
+      "从任一顶点出发，每次选择与已选顶点集合相连且权值最小的边",
+      "时间复杂度与图中边数无关，适合稠密图",
+      "必须先把所有边按权值升序排序",
+      "最小生成树的总权值随所选起点不同而不同"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "Prim按顶点逐次扩展，用邻接矩阵实现时时间复杂度为O(n^2)，与边数无关，适合稠密图；排序是Kruskal的做法。",
+    "difficulty": 2,
+    "knowledge": "Prim算法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "一棵5阶B树中，除根结点和叶结点外，每个结点至少含有（　）个关键字。",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": ["B"],
+    "explanation": "m阶B树的非根非叶结点至少有⌈m/2⌉棵子树、⌈m/2⌉-1个关键字，即⌈5/2⌉-1=2个。",
+    "difficulty": 3,
+    "knowledge": "B树阶"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "一棵m阶B树的每个结点最多含有（　）棵子树。",
+    "options": [
+      "⌈m/2⌉",
+      "m-1",
+      "m",
+      "m+1"
+    ],
+    "answer": ["C"],
+    "explanation": "m阶B树的结点至多含m-1个关键字、m棵子树，故子树数目的上限为m。",
+    "difficulty": 2,
+    "knowledge": "B树阶"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在B+树中，含有n个关键字的非叶结点所对应的子树数目是（　）。",
+    "options": [
+      "n-1",
+      "n",
+      "n+1",
+      "2n"
+    ],
+    "answer": ["B"],
+    "explanation": "B+树的非叶结点用n个关键字划分出n棵子树，与B树中n个关键字对应n+1棵子树不同。",
+    "difficulty": 3,
+    "knowledge": "B+树"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于B+树的结构特点，下列说法中正确的是（　）。",
+    "options": [
+      "所有关键字都存放在叶结点中，非叶结点仅起索引作用",
+      "叶结点之间用指针链接成一个有序链表",
+      "含n个关键字的非叶结点有n+1棵子树",
+      "非叶结点中存放的是各记录在磁盘上的存储地址"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "B+树叶子结点含全部关键字并链成有序链表，便于顺序查找；非叶结点只存索引，记录地址仅出现在叶结点中。",
+    "difficulty": 2,
+    "knowledge": "B+树"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对含n个元素的顺序表进行顺序查找，在等概率情况下查找成功的平均查找长度为（　）。",
+    "options": [
+      "n/2",
+      "(n+1)/2",
+      "(n-1)/2",
+      "n"
+    ],
+    "answer": ["B"],
+    "explanation": "第i个元素需比较i次，成功平均查找长度为(1+2+…+n)/n=(n+1)/2。",
+    "difficulty": 1,
+    "knowledge": "顺序查找"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于顺序查找，下列说法中正确的是（　）。",
+    "options": [
+      "对表中元素的排列次序没有要求",
+      "既可用于顺序存储的表，也可用于链式存储的表",
+      "平均查找长度为log2(n)",
+      "查找失败时最多比较n-1次"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "顺序查找逐个比较，对有序性与存储方式均无要求；成功平均查找长度为(n+1)/2，失败时需比较n次。",
+    "difficulty": 2,
+    "knowledge": "顺序查找"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "使用折半查找法查找一个元素，要求线性表必须（　）。",
+    "options": [
+      "以顺序方式存储且按关键字有序",
+      "以链式方式存储且按关键字有序",
+      "以顺序方式存储但无需有序",
+      "以链式方式存储且无需有序"
+    ],
+    "answer": ["A"],
+    "explanation": "折半查找需按下标随机定位中间元素并通过比较确定查找区间，故要求顺序存储且按关键字有序。",
+    "difficulty": 1,
+    "knowledge": "折半查找"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对有序表(11,22,33,44,55,66,77,88,99)进行折半查找，查找关键字66时所需的比较次数为（　）。",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": ["C"],
+    "explanation": "第一次与中间元素55比较，第二次与77比较，第三次与66比较成功，共比较3次。",
+    "difficulty": 2,
+    "knowledge": "折半查找"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对含12个元素的有序表进行折半查找，查找成功时最多需要的比较次数为（　）。",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": ["B"],
+    "explanation": "折半查找判定树的高度为⌊log2(12)⌋+1=4，故查找成功时最多比较4次。",
+    "difficulty": 3,
+    "knowledge": "判定树ASL"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对含11个元素的有序表进行折半查找，在等概率情况下查找成功的平均查找长度为（　）。",
+    "options": [
+      "2.5",
+      "3",
+      "3.5",
+      "4"
+    ],
+    "answer": ["B"],
+    "explanation": "判定树第1至4层结点数依次为1、2、4、4，ASL=(1×1+2×2+3×4+4×4)/11=33/11=3。",
+    "difficulty": 2,
+    "knowledge": "判定树ASL"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "分块查找（索引顺序查找）对线性表的要求是（　）。",
+    "options": [
+      "整个表必须按关键字有序",
+      "块间有序，块内可以无序",
+      "块内有序，块间可以无序",
+      "块内块间均无需有序"
+    ],
+    "answer": ["B"],
+    "explanation": "分块查找只要求块间有序，即后一块所有关键字大于前一块，块内元素可任意排列。",
+    "difficulty": 1,
+    "knowledge": "分块查找"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "若长度为n的表采用分块查找，以顺序查找确定所在块、块内也用顺序查找，则平均查找长度最小时块数b与块长s的关系是（　）。",
+    "options": [
+      "b=s=√n",
+      "b=2s",
+      "s=2b",
+      "b=n"
+    ],
+    "answer": ["A"],
+    "explanation": "ASL约为(b+1)/2+(s+1)/2，且b与s之积为n，当b=s=√n时ASL取得最小值。",
+    "difficulty": 3,
+    "knowledge": "分块查找"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "长度为1000的顺序表采用分块查找，等分为25块、每块40个元素，索引表和块内均用顺序查找。等概率情况下查找成功的平均查找长度为（　）。",
+    "options": [
+      "20.5",
+      "26",
+      "33.5",
+      "40"
+    ],
+    "answer": ["C"],
+    "explanation": "ASL=(25+1)/2+(40+1)/2=13+20.5=33.5，即索引查找与块内查找两部分的平均比较次数之和。",
+    "difficulty": 3,
+    "knowledge": "索引顺序表"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在索引顺序表（分块查找）中，索引表内的每个索引项通常包含（　）。",
+    "options": [
+      "该块内的最小关键字与该块的首地址",
+      "该块内的最大关键字与该块的首地址",
+      "该块内全部关键字",
+      "该块的元素个数与校验码"
+    ],
+    "answer": ["B"],
+    "explanation": "块间有序要求后块关键字均大于前块，故索引项记录每块的最大关键字及其起始地址，据此确定待查元素所在块。",
+    "difficulty": 2,
+    "knowledge": "索引顺序表"
+  }
+]

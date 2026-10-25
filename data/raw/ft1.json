@@ -1,0 +1,542 @@
+[
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "在长度为 n 的顺序表中，等概率地在任意位置插入一个元素，平均需要移动____个元素。",
+    "answer": ["n/2"],
+    "explanation": "共有 n+1 个插入位置，平均移动元素个数为 n/2。",
+    "difficulty": 2,
+    "knowledge": "顺序表插入"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "在单链表中，若要在指针 p 所指结点之后插入结点 s，应先执行 s->next=p->next，再执行____。",
+    "answer": ["p->next=s|p->next = s"],
+    "explanation": "必须先连后继再改前驱指针，否则链表会断链。",
+    "difficulty": 1,
+    "knowledge": "单链表插入"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "栈是一种只允许在____进行插入和删除操作的线性表。",
+    "answer": ["栈顶|表尾"],
+    "explanation": "栈的插入与删除都在栈顶一端进行，遵循后进先出。",
+    "difficulty": 1,
+    "knowledge": "栈特性"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "设循环队列的最大容量为 MaxSize，队头指针为 front、队尾指针为 rear，采用少用一个存储单元的办法区分队空与队满，则队满的条件是____。",
+    "answer": ["(rear+1)%MaxSize==front|(rear+1)%MaxSize=front"],
+    "explanation": "牺牲一个单元，尾指针加一后追上头指针即为队满。",
+    "difficulty": 3,
+    "knowledge": "循环队列"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "模式串为“abab”，采用从 1 开始计数的 next 数组（next[1]=0），则 next[4] 的值为____。",
+    "answer": ["2"],
+    "explanation": "前三个字符“aba”最长相等前后缀长为 1，故 next[4]=2。",
+    "difficulty": 3,
+    "knowledge": "KMP算法"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "长度为 n 的串中，非空子串的个数为____。",
+    "answer": ["n(n+1)/2"],
+    "explanation": "长度 1 到 n 的子串个数依次为 n、n-1、…、1。",
+    "difficulty": 2,
+    "knowledge": "串的子串"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "n 阶对称矩阵采用压缩存储，只保存下三角（含对角线）元素，则需保存的元素个数为____。",
+    "answer": ["n(n+1)/2"],
+    "explanation": "下三角元素个数为 1+2+…+n，即 n(n+1)/2。",
+    "difficulty": 2,
+    "knowledge": "对称矩阵"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "n 阶三对角矩阵中非零元素的个数为____。",
+    "answer": ["3n-2"],
+    "explanation": "首行、末行各 2 个，其余 n-2 行各 3 个，合计 3n-2。",
+    "difficulty": 3,
+    "knowledge": "三对角矩阵"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "一棵有 1000 个结点的完全二叉树中，叶子结点的个数为____。",
+    "answer": ["500"],
+    "explanation": "n 为偶数时度为 1 的结点仅有 1 个，叶子数为 n/2。",
+    "difficulty": 2,
+    "knowledge": "完全二叉树"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "已知一棵二叉树的先序遍历序列和____遍历序列，可以唯一确定这棵二叉树。",
+    "answer": ["中序|中根"],
+    "explanation": "先序与中序、后序与中序均可唯一确定二叉树。",
+    "difficulty": 1,
+    "knowledge": "二叉树遍历"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "对权值集合 {1,2,3,4,5} 构造哈夫曼树，其带权路径长度 WPL 为____。",
+    "answer": ["33"],
+    "explanation": "合并过程产生权值 3、6、9、15，WPL 之和为 33。",
+    "difficulty": 3,
+    "knowledge": "哈夫曼树"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "按照“左孩子右兄弟”的规则将树转换为二叉树后，所得二叉树的根结点没有____。",
+    "answer": ["右子树|右孩子"],
+    "explanation": "树根无兄弟，故转换后根结点的右子树为空。",
+    "difficulty": 2,
+    "knowledge": "树转二叉树"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "具有 n 个顶点的无向完全图的边数为____。",
+    "answer": ["n(n-1)/2"],
+    "explanation": "n 个顶点两两之间有边，边数为组合数 C(n,2)。",
+    "difficulty": 2,
+    "knowledge": "完全图"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "具有 n 个顶点的图采用邻接矩阵存储时，其空间复杂度为____。",
+    "answer": ["O(n^2)|O(n²)"],
+    "explanation": "邻接矩阵是 n×n 的方阵，占用 n² 个存储单元。",
+    "difficulty": 2,
+    "knowledge": "邻接矩阵"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "只有一个顶点的入度为零且其余逻辑关系无环的____图才存在拓扑序列。",
+    "answer": ["有向无环|DAG"],
+    "explanation": "拓扑排序只能用于有向无环图，有环则无法排序。",
+    "difficulty": 1,
+    "knowledge": "拓扑排序"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "克鲁斯卡尔算法求最小生成树的时间复杂度为____（e 为边数）。",
+    "answer": ["O(eloge)|O(e log e)"],
+    "explanation": "算法主要时间花在对边按权值排序上。",
+    "difficulty": 3,
+    "knowledge": "克鲁斯卡尔"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "迪杰斯特拉算法用于求____到其余各顶点的最短路径。",
+    "answer": ["单源点|单源|一个顶点"],
+    "explanation": "按路径长度递增次序逐个求出到各顶点的最短路径。",
+    "difficulty": 2,
+    "knowledge": "最短路径"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "对长度为 1000 的有序表进行折半查找，最多需要比较____次。",
+    "answer": ["10"],
+    "explanation": "2 的 10 次方为 1024，大于 1000，故最多比较 10 次。",
+    "difficulty": 2,
+    "knowledge": "折半查找"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "折半查找的判定树中，任一结点的左右子树高度之差的绝对值不超过____。",
+    "answer": ["1"],
+    "explanation": "判定树是平衡二叉树，左右子树高度差至多为 1。",
+    "difficulty": 3,
+    "knowledge": "判定树"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "散列表处理冲突的方法中，除开放定址法外，最常用的还有____。",
+    "answer": ["链地址法|拉链法"],
+    "explanation": "链地址法把同义词链成单链表，不产生堆积。",
+    "difficulty": 1,
+    "knowledge": "散列表"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "一棵 5 阶 B 树中，除根结点外每个结点至少含有____个关键字。",
+    "answer": ["2"],
+    "explanation": "m 阶 B 树除根外结点至少 ⌈m/2⌉ 棵子树、⌈m/2⌉-1 个关键字。",
+    "difficulty": 3,
+    "knowledge": "B树"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "中缀表达式 a+b*c 所对应的后缀表达式为____。",
+    "answer": ["abc*+"],
+    "explanation": "先计算 b*c，再做加法，后缀式为 abc*+。",
+    "difficulty": 2,
+    "knowledge": "表达式求值"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "顺序栈已满时再执行入栈操作，将产生____现象。",
+    "answer": ["上溢|溢出|栈上溢"],
+    "explanation": "栈满再入栈为上溢，栈空再出栈为下溢。",
+    "difficulty": 1,
+    "knowledge": "栈溢出"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "队列的插入操作在____进行，删除操作在队头进行。",
+    "answer": ["队尾|rear"],
+    "explanation": "队列先进先出，入队在队尾、出队在队头。",
+    "difficulty": 1,
+    "knowledge": "队列特性"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "求单链表中结点个数（表长）的时间复杂度为____。",
+    "answer": ["O(n)"],
+    "explanation": "单链表只能从头指针起顺序遍历所有结点。",
+    "difficulty": 1,
+    "knowledge": "链表长度"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "朴素（BF）模式匹配算法在最坏情况下的时间复杂度为____。",
+    "answer": ["O(n*m)|O(nm)"],
+    "explanation": "每趟失配后主串指针回溯，最坏比较 n*m 次。",
+    "difficulty": 2,
+    "knowledge": "模式匹配"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "高度为 h 的满二叉树共有____个结点。",
+    "answer": ["2^h-1|2^h - 1"],
+    "explanation": "各层结点数之和为 2 的 h 次方减 1。",
+    "difficulty": 2,
+    "knowledge": "满二叉树"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "具有 n 个顶点的连通图至少需要____条边。",
+    "answer": ["n-1"],
+    "explanation": "n 个顶点的生成树含 n-1 条边，是连通的最少边数。",
+    "difficulty": 2,
+    "knowledge": "连通图"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "长度为 n 的线性表进行顺序查找，查找成功时的平均查找长度为____。",
+    "answer": ["(n+1)/2"],
+    "explanation": "等概率下平均比较次数为 (1+2+…+n)/n。",
+    "difficulty": 2,
+    "knowledge": "顺序查找"
+  },
+  {
+    "type": "fill",
+    "topic": "DS_ALGO",
+    "stem": "图的深度优先遍历过程类似于树的____遍历。",
+    "answer": ["先序|先根"],
+    "explanation": "DFS 先访问根结点再深入子树，与先序遍历相似。",
+    "difficulty": 3,
+    "knowledge": "图遍历"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "顺序表支持随机访问，按位置存取元素的时间复杂度为 O(1)。",
+    "answer": ["对"],
+    "explanation": "顺序表元素地址可由首地址和下标直接算出。",
+    "difficulty": 1,
+    "knowledge": "顺序存储"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "单链表可以像顺序表一样随机访问表中的任意元素。",
+    "answer": ["错"],
+    "explanation": "单链表只能从头指针起顺序查找，属顺序存取结构。",
+    "difficulty": 2,
+    "knowledge": "链式存储"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "在单链表中，已知指向某非尾结点的指针 p，可以在 O(1) 时间内删除 p 所指结点。",
+    "answer": ["对"],
+    "explanation": "把后继结点数据复制到 p，再删除其后继即可。",
+    "difficulty": 3,
+    "knowledge": "链表删除"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "在双向链表中查找某结点前驱结点的时间复杂度为 O(1)。",
+    "answer": ["对"],
+    "explanation": "双向链表结点含前驱指针，可直接取得前驱。",
+    "difficulty": 2,
+    "knowledge": "双向链表"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "栈的插入和删除操作都只能在栈顶一端进行。",
+    "answer": ["对"],
+    "explanation": "栈是受限线性表，操作只允许在栈顶进行。",
+    "difficulty": 1,
+    "knowledge": "栈特性"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "在循环队列中，队尾指针 rear 的值一定大于队头指针 front 的值。",
+    "answer": ["错"],
+    "explanation": "循环队列指针会回绕，rear 可能小于 front。",
+    "difficulty": 2,
+    "knowledge": "循环队列"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "队列是一种先进后出的线性表。",
+    "answer": ["错"],
+    "explanation": "队列是先进先出，只有栈才是先进后出。",
+    "difficulty": 3,
+    "knowledge": "队列特性"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "串是一种特殊的线性表，其数据元素只能是单个字符。",
+    "answer": ["对"],
+    "explanation": "串是数据元素为字符的线性表，操作以子串为单位。",
+    "difficulty": 2,
+    "knowledge": "串定义"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "两个串相等的充分必要条件是它们的长度相等。",
+    "answer": ["错"],
+    "explanation": "还须对应位置上的字符全部相同。",
+    "difficulty": 3,
+    "knowledge": "串相等"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "n 阶对称矩阵采用压缩存储只存下三角，可把存储量减少到约一半。",
+    "answer": ["对"],
+    "explanation": "只需 n(n+1)/2 个单元，约为 n² 的一半。",
+    "difficulty": 2,
+    "knowledge": "对称矩阵"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "稀疏矩阵采用三元组表存储后，仍能随机访问矩阵中的任意元素。",
+    "answer": ["错"],
+    "explanation": "三元组表需按行扫描定位，不能随机访问。",
+    "difficulty": 3,
+    "knowledge": "稀疏矩阵"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "在结点数为偶数的完全二叉树中，度为 1 的结点恰有 1 个。",
+    "answer": ["对"],
+    "explanation": "完全二叉树度为 1 的结点最多 1 个，n 为偶数时必为 1。",
+    "difficulty": 2,
+    "knowledge": "完全二叉树"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "二叉树的第 i 层上最多有 2^(i-1) 个结点。",
+    "answer": ["对"],
+    "explanation": "每层结点数最多翻倍，第 i 层最多 2 的 i-1 次方个。",
+    "difficulty": 1,
+    "knowledge": "二叉树性质"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "已知一棵二叉树的先序遍历序列和后序遍历序列，可以唯一确定这棵二叉树。",
+    "answer": ["错"],
+    "explanation": "只有先序加中序或后序加中序才能唯一确定。",
+    "difficulty": 2,
+    "knowledge": "遍历序列"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "哈夫曼树中，权值越大的叶子结点离根结点越近。",
+    "answer": ["对"],
+    "explanation": "每次取最小权值合并，大权值叶子路径最短。",
+    "difficulty": 3,
+    "knowledge": "哈夫曼树"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "含 n 个结点的二叉树中共有 n+1 个空指针域。",
+    "answer": ["对"],
+    "explanation": "共 2n 个指针域，非空 n-1 个，故空指针为 n+1 个。",
+    "difficulty": 2,
+    "knowledge": "二叉树存储"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "按“左孩子右兄弟”规则转成二叉树后，某结点的左孩子就是它在原树中的第一个孩子。",
+    "answer": ["对"],
+    "explanation": "左指针指向第一个孩子，右指针指向下一个兄弟。",
+    "difficulty": 2,
+    "knowledge": "树转二叉树"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "无向图中所有顶点的度数之和等于边数的 2 倍。",
+    "answer": ["对"],
+    "explanation": "每条边为两端各贡献 1 个度，故总度数为 2e。",
+    "difficulty": 3,
+    "knowledge": "图的基本概念"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "具有 n 个顶点的有向完全图中共有 n(n-1) 条弧。",
+    "answer": ["对"],
+    "explanation": "每对顶点间有两条相反方向的弧。",
+    "difficulty": 2,
+    "knowledge": "有向完全图"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "对有向图进行拓扑排序时若全部顶点都能输出，则该图一定存在回路。",
+    "answer": ["错"],
+    "explanation": "全部顶点能输出恰说明图中不存在回路。",
+    "difficulty": 3,
+    "knowledge": "拓扑排序"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "用普里姆算法求最小生成树，其时间复杂度只与顶点数有关而与边数无关。",
+    "answer": ["对"],
+    "explanation": "普里姆算法时间复杂度为 O(n²)，适用于稠密图。",
+    "difficulty": 2,
+    "knowledge": "普里姆算法"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "迪杰斯特拉算法可以正确求出含有负权边的图的单源最短路径。",
+    "answer": ["错"],
+    "explanation": "迪杰斯特拉算法要求边权非负，否则结果可能出错。",
+    "difficulty": 3,
+    "knowledge": "最短路径"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "图的广度优先遍历通常需要借助队列来实现。",
+    "answer": ["对"],
+    "explanation": "BFS 按层次访问，用队列保存待访问的邻接顶点。",
+    "difficulty": 2,
+    "knowledge": "图遍历"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "折半查找要求线性表采用顺序存储结构且元素按关键字有序排列。",
+    "answer": ["对"],
+    "explanation": "折半查找依靠下标定位，且必须有序才能比较判定。",
+    "difficulty": 2,
+    "knowledge": "折半查找"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "二叉排序树的中序遍历序列是一个递增有序序列。",
+    "answer": ["对"],
+    "explanation": "中序遍历按左、根、右访问，结果有序。",
+    "difficulty": 3,
+    "knowledge": "二叉排序树"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "散列表的查找效率与装填因子的大小无关。",
+    "answer": ["错"],
+    "explanation": "装填因子越大冲突越多，平均查找长度随之增大。",
+    "difficulty": 2,
+    "knowledge": "散列表"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "m 阶 B 树中所有叶子结点都出现在同一层上。",
+    "answer": ["对"],
+    "explanation": "B 树是平衡的多路查找树，叶子必在同一层。",
+    "difficulty": 3,
+    "knowledge": "B树"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "顺序查找既适用于顺序存储结构，也适用于链式存储结构。",
+    "answer": ["对"],
+    "explanation": "顺序查找逐个比较，不依赖元素的存储方式。",
+    "difficulty": 1,
+    "knowledge": "顺序查找"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "对长度为 n 的有序表进行折半查找，其平均查找长度约为 log2(n+1)-1。",
+    "answer": ["对"],
+    "explanation": "折半查找平均与最坏查找长度均为 O(log2n)。",
+    "difficulty": 3,
+    "knowledge": "平均查找长度"
+  },
+  {
+    "type": "tf",
+    "topic": "DS_ALGO",
+    "stem": "串的模式匹配中，KMP 算法的时间复杂度为 O(n+m)，其中 n 为主串长度、m 为模式串长度。",
+    "answer": ["对"],
+    "explanation": "KMP 主串指针不回溯，时间复杂度为 O(n+m)。",
+    "difficulty": 2,
+    "knowledge": "KMP算法"
+  }
+]

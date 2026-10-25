@@ -1,0 +1,452 @@
+[
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C)，若对R的任意两个元组t1、t2，只要t1[A]=t2[A]就有t1[B]=t2[B]，则称（　）。",
+    "options": [
+      "函数依赖A→B在R上成立",
+      "函数依赖B→A在R上成立",
+      "A与B之间不存在任何依赖关系",
+      "A与B之间存在多值依赖"
+    ],
+    "answer": ["A"],
+    "explanation": "两元组在A上取值相同则B上取值必相同，说明A函数决定B，记为A→B。该条件并不保证B→A成立。",
+    "difficulty": 1,
+    "knowledge": "函数依赖"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(Sno,Sname,Cno,Grade)，F={Sno→Sname，(Sno,Cno)→Grade}。下列叙述中正确的是（　）。",
+    "options": [
+      "(Sno,Cno)→Sname是部分函数依赖",
+      "Sno→Sname是部分函数依赖",
+      "(Sno,Cno)→Grade是部分函数依赖",
+      "该模式中不存在部分函数依赖"
+    ],
+    "answer": ["A"],
+    "explanation": "Sname只依赖于Sno，而Sno是组合键(Sno,Cno)的真子集，故(Sno,Cno)→Sname为部分函数依赖。",
+    "difficulty": 2,
+    "knowledge": "部分函数依赖"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C,D)，F={AB→C，A→D}。下列关于函数依赖的叙述中，正确的是（　）。",
+    "options": [
+      "AB→C是完全函数依赖，AB→D是部分函数依赖",
+      "AB→C是部分函数依赖，AB→D是完全函数依赖",
+      "AB→C与AB→D都是完全函数依赖",
+      "AB→C与AB→D都是部分函数依赖"
+    ],
+    "answer": ["A"],
+    "explanation": "C不能由A或B单独决定，故AB→C完全；D由A单独决定，A是AB的真子集，故AB→D部分。",
+    "difficulty": 2,
+    "knowledge": "完全函数依赖"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(学号,系名,系主任)，F={学号→系名，系名→系主任}，且不存在系名→学号。则学号→系主任属于（　）。",
+    "options": [
+      "完全函数依赖",
+      "部分函数依赖",
+      "传递函数依赖",
+      "平凡函数依赖"
+    ],
+    "answer": ["C"],
+    "explanation": "学号→系名、系名→系主任且系名不决定学号，故学号经系名传递决定系主任。",
+    "difficulty": 1,
+    "knowledge": "传递函数依赖"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(课程,教师,参考书)，一门课程由多名教师讲授、有多本参考书，教师与参考书彼此独立。下列叙述中正确的是（　）。",
+    "options": [
+      "R中存在课程→→教师和课程→→参考书两个非平凡多值依赖",
+      "R中只存在函数依赖，不存在多值依赖",
+      "教师与参考书之间存在函数依赖",
+      "课程是该关系模式的候选键"
+    ],
+    "answer": ["A"],
+    "explanation": "给定课程其教师集合与参考书集合各自独立确定，属非平凡多值依赖；全部属性才构成候选键。",
+    "difficulty": 2,
+    "knowledge": "多值依赖"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设U为关系模式R的全部属性集，X、Y⊆U。下列关于多值依赖的叙述中，正确的是（　）。",
+    "options": [
+      "若X→→Y成立，则X→→(U−X−Y)也成立",
+      "若X→→Y成立，则X→Y一定成立",
+      "多值依赖X→→Y与函数依赖X→Y完全等价",
+      "若X→→Y是平凡多值依赖，则一定有Y⊆X"
+    ],
+    "answer": ["A"],
+    "explanation": "多值依赖满足补集律；多值依赖不蕴含函数依赖；当X∪Y=U时多值依赖也是平凡的，故D错。",
+    "difficulty": 3,
+    "knowledge": "多值依赖"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C,D,E)，F={A→BC，CD→E，B→D，E→A}。属性集A关于F的闭包A+为（　）。",
+    "options": [
+      "ABC",
+      "ABCD",
+      "ABCDE",
+      "ABCE"
+    ],
+    "answer": ["C"],
+    "explanation": "由A→BC得A、B、C；由B→D得D；再由CD→E得E，故A+=ABCDE。",
+    "difficulty": 2,
+    "knowledge": "属性闭包"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C,D,E)，F={A→BC，CD→E，B→D，E→A}。下列函数依赖中，不被F逻辑蕴涵的是（　）。",
+    "options": [
+      "A→D",
+      "B→E",
+      "CD→A",
+      "E→B"
+    ],
+    "answer": ["B"],
+    "explanation": "B+=BD，不含E，故B→E不被蕴涵；A+=CD→A均为ABCDE，E+=EABCD均蕴涵对应依赖。",
+    "difficulty": 3,
+    "knowledge": "属性闭包"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(学号,姓名,课程号,成绩)，F={(学号,课程号)→成绩，学号→姓名}。R的候选键是（　）。",
+    "options": [
+      "学号",
+      "课程号",
+      "(学号,课程号)",
+      "(学号,姓名)"
+    ],
+    "answer": ["C"],
+    "explanation": "学号单独只能决定姓名，课程号单独不能决定任何属性，只有(学号,课程号)能决定全部属性且无冗余。",
+    "difficulty": 1,
+    "knowledge": "候选键"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C,D)，F={AB→C，C→D，D→A}。R的候选键是（　）。",
+    "options": [
+      "AB",
+      "AB、BC、BD",
+      "AB、AD",
+      "AB、AC"
+    ],
+    "answer": ["B"],
+    "explanation": "AB+=ABCD；BC+=BCDA；BD+=BDAC，三者均为候选键，其余子集闭包不含全部属性。",
+    "difficulty": 2,
+    "knowledge": "候选键"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "某关系模式的属性“联系电话”中允许存放多个电话号码，则该关系模式（　）。",
+    "options": [
+      "属于1NF",
+      "不属于1NF",
+      "属于2NF",
+      "属于3NF"
+    ],
+    "answer": ["B"],
+    "explanation": "1NF要求每个属性都是不可再分的原子数据项，属性取多个电话号码属于非原子值，故不满足1NF。",
+    "difficulty": 1,
+    "knowledge": "1NF"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(学号,课程号,成绩,系名,系主任)，F={(学号,课程号)→成绩，学号→系名，系名→系主任}。该模式最高属于（　）。",
+    "options": [
+      "1NF",
+      "2NF",
+      "3NF",
+      "BCNF"
+    ],
+    "answer": ["A"],
+    "explanation": "候选键为(学号,课程号)，非主属性系名仅依赖于学号，存在部分函数依赖，故只达到1NF。",
+    "difficulty": 2,
+    "knowledge": "2NF"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(Sno,Sname,Cno,Grade,Teacher)，F={(Sno,Cno)→Grade，Cno→Teacher，Sno→Sname}，将其分解为R1(Sno,Sname)、R2(Cno,Teacher)、R3(Sno,Cno,Grade)。下列叙述中正确的是（　）。",
+    "options": [
+      "R1、R2、R3均属于2NF，且该分解无损连接并保持函数依赖",
+      "该分解无损连接，但不保持函数依赖",
+      "该分解保持函数依赖，但有损连接",
+      "R1不属于2NF"
+    ],
+    "answer": ["A"],
+    "explanation": "各子模式非主属性均完全依赖于其键；公共属性Sno、Cno分别决定另一子模式，故无损且各依赖均落在子模式中。",
+    "difficulty": 3,
+    "knowledge": "2NF"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C)，F={A→B，B→C}。该模式最高属于（　）。",
+    "options": [
+      "1NF",
+      "2NF",
+      "3NF",
+      "BCNF"
+    ],
+    "answer": ["B"],
+    "explanation": "候选键为A，非主属性C经B传递依赖于A，故不满足3NF；非主属性完全依赖于A，满足2NF。",
+    "difficulty": 2,
+    "knowledge": "3NF"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "下列关于3NF与BCNF关系的叙述中，正确的是（　）。",
+    "options": [
+      "若R属于3NF，则R一定属于BCNF",
+      "若R属于BCNF，则R一定属于3NF",
+      "3NF与BCNF是相互等价的范式",
+      "R属于3NF当且仅当R的每个非平凡函数依赖的决定因素都是候选键"
+    ],
+    "answer": ["B"],
+    "explanation": "BCNF要求每个非平凡函数依赖的决定因素为超键，条件强于3NF，故BCNF必定是3NF，反之不成立。",
+    "difficulty": 3,
+    "knowledge": "3NF与BCNF"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "关系模式R属于BCNF的条件是，R中每一个非平凡函数依赖X→Y都满足（　）。",
+    "options": [
+      "X是超键",
+      "Y是主属性",
+      "X中不含空值",
+      "X→Y是完全函数依赖"
+    ],
+    "answer": ["A"],
+    "explanation": "BCNF要求所有非平凡函数依赖的决定因素X都包含候选键，即X为超键；“Y是主属性”是3NF的放宽条件。",
+    "difficulty": 2,
+    "knowledge": "BCNF"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(学生,课程,教师)，每位教师只讲授一门课程，每门课程可由多位教师讲授；学生选定某门课程后由讲授该课程的一位教师指导。F={(学生,课程)→教师，教师→课程}。该模式最高属于（　）。",
+    "options": [
+      "1NF",
+      "2NF",
+      "3NF",
+      "BCNF"
+    ],
+    "answer": ["C"],
+    "explanation": "候选键为(学生,课程)和(学生,教师)；教师→课程中决定因素非超键，但课程为主属性，故满足3NF不满足BCNF。",
+    "difficulty": 3,
+    "knowledge": "BCNF"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "若关系模式R已属于BCNF，则下列叙述中正确的是（　）。",
+    "options": [
+      "R一定属于4NF",
+      "R可能不属于4NF",
+      "R一定不属于4NF",
+      "R中一定存在非平凡多值依赖"
+    ],
+    "answer": ["B"],
+    "explanation": "4NF要求消除非平凡且非函数依赖的多值依赖，BCNF并不排除这类多值依赖，故BCNF不一定达到4NF。",
+    "difficulty": 2,
+    "knowledge": "4NF"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设函数依赖集F={A→B，B→C，A→C}，则F的最小函数依赖集是（　）。",
+    "options": [
+      "{A→B，B→C}",
+      "{A→B，A→C}",
+      "{B→C，A→C}",
+      "{A→B，B→C，A→C}"
+    ],
+    "answer": ["A"],
+    "explanation": "由A→B、B→C可推出A→C，故A→C冗余；余下两个依赖右部单属性、左部无冗余且不可再推。",
+    "difficulty": 2,
+    "knowledge": "最小依赖集"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设函数依赖集F={A→BC，B→C，AB→C}，则F的最小函数依赖集为（　）。",
+    "options": [
+      "{A→BC，B→C}",
+      "{A→B，B→C}",
+      "{A→B，A→C，B→C}",
+      "{A→C，B→C}"
+    ],
+    "answer": ["B"],
+    "explanation": "右部单属性化后AB→C、A→C均可由A→B、B→C推出而删除，A→BC须拆为A→B与A→C，最终仅剩两个依赖。",
+    "difficulty": 3,
+    "knowledge": "最小依赖集"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C)，F={A→B}，将其分解为ρ={R1(A,B)，R2(A,C)}。该分解（　）。",
+    "options": [
+      "是无损连接且保持函数依赖的分解",
+      "是无损连接但不保持函数依赖的分解",
+      "是有损连接的分解",
+      "是无损连接分解，但无法判断是否保持函数依赖"
+    ],
+    "answer": ["A"],
+    "explanation": "R1∩R2=A且A→B∈F，故无损连接；唯一的依赖A→B落在R1中，故同时保持函数依赖。",
+    "difficulty": 2,
+    "knowledge": "无损连接"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C,D)，F={A→B，B→C，C→D}，将其分解为ρ={R1(A,B)，R2(A,C,D)}。该分解（　）。",
+    "options": [
+      "无损连接，且保持函数依赖",
+      "无损连接，但不保持函数依赖",
+      "有损连接，但保持函数依赖",
+      "有损连接，且不保持函数依赖"
+    ],
+    "answer": ["B"],
+    "explanation": "R1∩R2=A且A→B∈F，故无损；B→C在R1、R2中均无法推出也无法验证，故不保持函数依赖。",
+    "difficulty": 3,
+    "knowledge": "无损连接"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "设关系模式R(学号,系名,系主任)，F={学号→系名，系名→系主任}，将其分解为R1(学号,系名)和R2(系名,系主任)。该分解（　）。",
+    "options": [
+      "既无损连接又保持函数依赖",
+      "无损连接但不保持函数依赖",
+      "保持函数依赖但有损连接",
+      "既不无损连接也不保持函数依赖"
+    ],
+    "answer": ["A"],
+    "explanation": "R1∩R2=系名且系名→系主任，满足无损连接条件；学号→系名与系名→系主任分别落在R1、R2中，依赖被保持。",
+    "difficulty": 2,
+    "knowledge": "保持依赖"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在E-R图转换为关系模式时，若两实体间存在m:n联系，则该联系转换成独立关系模式后，其主键是（　）。",
+    "options": [
+      "第一个实体的主键",
+      "第二个实体的主键",
+      "两个实体主键的组合",
+      "联系自身新增的编号"
+    ],
+    "answer": ["C"],
+    "explanation": "m:n联系转换的关系模式以两端实体主键的组合作为主键，才能唯一标识每一个联系实例。",
+    "difficulty": 2,
+    "knowledge": "E-R转关系"
+  },
+  {
+    "type": "single",
+    "topic": "DB",
+    "stem": "在E-R图转换为关系模式时，若两实体间存在1:n联系且联系上没有附加属性，通常的处理方法是（　）。",
+    "options": [
+      "将1端实体的主键作为外键加入n端实体的关系模式",
+      "将n端实体的主键作为外键加入1端实体的关系模式",
+      "必须为联系单独建立一个关系模式",
+      "将两端实体合并成一个关系模式"
+    ],
+    "answer": ["A"],
+    "explanation": "1:n联系可与n端实体的关系模式合并，把1端主键作为外键放入n端，无需单独建立联系模式。",
+    "difficulty": 1,
+    "knowledge": "E-R转关系"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "设关系模式R<U,F>，X、Y、Z均为U的子集。下列关于Armstrong公理的叙述中，正确的有（　）。",
+    "options": [
+      "若X→Y且Y→Z，则X→Z",
+      "若X→Y，则XZ→YZ",
+      "若X→Y，则Y→X",
+      "若XY→Z，则X→Z一定成立"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "A为传递律，B为增广律；C违反单向性，D中Z可能只依赖于组合属性Y，不能随意去掉决定因素。",
+    "difficulty": 2,
+    "knowledge": "推理规则"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C,D)，F={AB→C，C→D}，则下列叙述中正确的有（　）。",
+    "options": [
+      "R的候选键是AB",
+      "A和B都是主属性",
+      "C是主属性",
+      "R属于BCNF"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "AB+=ABCD且A、B单独不可决定全部属性，故AB为唯一候选键，A、B为主属性；C→D中C非超键，R不属于BCNF。",
+    "difficulty": 1,
+    "knowledge": "主属性"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C)，F={A→B，B→C}，则下列说法中正确的有（　）。",
+    "options": [
+      "分解ρ={R1(A,B)，R2(B,C)}是无损连接分解",
+      "分解ρ={R1(A,B)，R2(B,C)}不保持函数依赖",
+      "分解ρ={R1(A,B)，R2(A,C)}是无损连接分解",
+      "分解ρ={R1(A,C)，R2(B,C)}是无损连接分解"
+    ],
+    "answer": ["A", "C"],
+    "explanation": "A中公共属性B可决定C，C中公共属性A可决定B，均满足无损条件；B中两依赖分居R1、R2，依赖被保持；D公共属性C不能决定任何一端。",
+    "difficulty": 3,
+    "knowledge": "分解准则"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "下列关于关系模式各种范式之间包含关系的叙述中，正确的有（　）。",
+    "options": [
+      "若R属于BCNF，则R一定属于3NF",
+      "若R属于3NF，则R一定属于BCNF",
+      "若R属于4NF，则R一定属于BCNF",
+      "若R属于2NF，则R一定属于3NF"
+    ],
+    "answer": ["A", "C"],
+    "explanation": "范式由弱到强依次为1NF、2NF、3NF、BCNF、4NF，满足强范式必满足弱范式，反之不成立。",
+    "difficulty": 2,
+    "knowledge": "范式包含关系"
+  },
+  {
+    "type": "multi",
+    "topic": "DB",
+    "stem": "设关系模式R(A,B,C,D)，F={A→B，BC→D}，则下列说法中正确的有（　）。",
+    "options": [
+      "AC是R的候选键",
+      "ABC是R的超键",
+      "AB是R的候选键",
+      "R中不存在非主属性"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "AC+=ABCD且A+、C+均不为全体属性，故AC为候选键；超键含候选键即可，ABC包含AC故为超键；B、D为非主属性。",
+    "difficulty": 3,
+    "knowledge": "超键"
+  }
+]

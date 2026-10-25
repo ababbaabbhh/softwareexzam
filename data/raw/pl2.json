@@ -1,0 +1,452 @@
+[
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "关于上下文无关文法，下列说法正确的是（　）。",
+    "options": [
+      "产生式的左部可以是任意的符号串",
+      "产生式的左部是单个非终结符，右部是终结符与非终结符组成的任意串",
+      "产生式的右部必须是单个非终结符",
+      "上下文无关文法无法描述程序设计语言的语法"
+    ],
+    "answer": ["B"],
+    "explanation": "上下文无关文法要求产生式左部为单个非终结符，右部可为终结符与非终结符的任意串。",
+    "difficulty": 1,
+    "knowledge": "上下文无关文法"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "文法 G：S→aSb | ε 所描述的语言是（　）。",
+    "options": [
+      "{a^n b^n | n≥0}",
+      "{a^n b^m | n≥0, m≥0}",
+      "{a^n b^n | n≥1}",
+      "{ww | w∈{a,b}*}"
+    ],
+    "answer": ["A"],
+    "explanation": "S→aSb|ε 生成 a 在前、b 在后且个数相等的串，n 可取 0，故含空串。",
+    "difficulty": 2,
+    "knowledge": "上下文无关文法"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "所谓最左推导，是指推导过程中（　）。",
+    "options": [
+      "每一步都替换当前句型中最左边的终结符",
+      "每一步都替换当前句型中最左边的非终结符",
+      "每一步都替换当前句型中最右边的非终结符",
+      "每一步可任意选择非终结符进行替换"
+    ],
+    "answer": ["B"],
+    "explanation": "最左推导每一步总是替换句型中最左边的非终结符，与之对应的最右推导又称规范推导。",
+    "difficulty": 1,
+    "knowledge": "推导与归约"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "关于推导与归约的关系，下列说法正确的是（　）。",
+    "options": [
+      "归约是推导的逆过程，最右推导的逆过程称为规范归约",
+      "最左推导的逆过程称为规范归约",
+      "归约总是从句型的左端开始，因此称为规范推导",
+      "任一句子都只存在唯一的推导序列"
+    ],
+    "answer": ["A"],
+    "explanation": "最右推导即规范推导，其逆过程为规范归约（最左归约），是LR分析的理论基础。",
+    "difficulty": 2,
+    "knowledge": "推导与归约"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "关于语法树（推导树），下列说法错误的是（　）。",
+    "options": [
+      "语法树的根结点对应文法的开始符号",
+      "语法树的内部结点对应非终结符",
+      "语法树的叶子结点从左至右构成一个句型",
+      "二义性文法的某个句子可以对应多棵不同的语法树"
+    ],
+    "answer": ["C"],
+    "explanation": "只有全部叶子都是终结符时，从左至右读出的才是句子；一般情况叶子串构成句型。",
+    "difficulty": 2,
+    "knowledge": "语法树"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "在语法树中，若一棵子树的全部叶子结点都是终结符，则将这些叶子从左至右排列所得的符号串是（　）。",
+    "options": [
+      "相对于该子树根结点的一个短语",
+      "该文法的开始符号",
+      "一定是一个最左直接短语",
+      "一个素短语"
+    ],
+    "answer": ["A"],
+    "explanation": "子树叶结点从左至右组成的串是相对于该子树根的短语，高度为2时才是直接短语。",
+    "difficulty": 1,
+    "knowledge": "语法树"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "下列文法中，属于二义性文法的是（　）。",
+    "options": [
+      "S→aSb | ab",
+      "S→aS | b",
+      "E→E+E | E*E | id",
+      "S→aB | bA，A→a，B→b"
+    ],
+    "answer": ["C"],
+    "explanation": "E→E+E|E*E|id 中 id+id*id 存在两棵不同语法树，优先级未在文法中体现，故是二义的。",
+    "difficulty": 2,
+    "knowledge": "二义性"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "在规范归约过程中，每一步被归约的句柄是指当前句型的（　）。",
+    "options": [
+      "最左直接短语",
+      "最右直接短语",
+      "最左素短语",
+      "最长素短语"
+    ],
+    "answer": ["A"],
+    "explanation": "句型的最左直接短语称为该句型的句柄，规范归约每步归约的正是句柄。",
+    "difficulty": 3,
+    "knowledge": "短语与句柄"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "若某棵语法子树只有父子两层（高度为2），其叶子从左至右组成的符号串称为（　）。",
+    "options": [
+      "短语",
+      "直接短语",
+      "句柄",
+      "素短语"
+    ],
+    "answer": ["B"],
+    "explanation": "高度为2的子树对应一步推导，其叶串为直接短语；句柄是最左直接短语。",
+    "difficulty": 2,
+    "knowledge": "短语与句柄"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "算符优先分析法中，终结符之间定义的优先关系共有（　）种。",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": ["B"],
+    "explanation": "终结符间只有三种优先关系：a⋖b、a≐b、a⋗b，据此构造优先关系表。",
+    "difficulty": 2,
+    "knowledge": "算符优先"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "算符优先分析过程中，每次归约的是当前句型的（　）。",
+    "options": [
+      "句柄",
+      "最左素短语",
+      "最右直接短语",
+      "开始符号"
+    ],
+    "answer": ["B"],
+    "explanation": "算符优先分析不区分非终结符，每次归约当前句型的最左素短语。",
+    "difficulty": 3,
+    "knowledge": "算符优先"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "文法 G：S→AB，A→a | ε，B→b，则 FIRST(S) 为（　）。",
+    "options": [
+      "{a}",
+      "{a, b}",
+      "{a, b, ε}",
+      "{b}"
+    ],
+    "answer": ["B"],
+    "explanation": "FIRST(A)={a,ε}，因 A 可推出 ε，故 FIRST(S) 还需并入 FIRST(B)={b}。",
+    "difficulty": 2,
+    "knowledge": "FIRST集"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "文法 G：S→AB | ε，A→a | ε，B→b | ε，则 FIRST(S) 为（　）。",
+    "options": [
+      "{a}",
+      "{a, b}",
+      "{a, b, ε}",
+      "{a, ε}"
+    ],
+    "answer": ["C"],
+    "explanation": "A、B 均可推出 ε 且 S 本身可推出 ε，故 FIRST(S) 含 a、b 与 ε。",
+    "difficulty": 3,
+    "knowledge": "FIRST集"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "文法 G：S→aA，A→b | ε，则 FOLLOW(A) 为（　）。",
+    "options": [
+      "{#}",
+      "{b}",
+      "{a}",
+      "{#, a}"
+    ],
+    "answer": ["A"],
+    "explanation": "A 出现在 S→aA 的末尾，故 FOLLOW(A) 等于 FOLLOW(S)，即结束符集合 {#}。",
+    "difficulty": 1,
+    "knowledge": "FOLLOW集"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "文法 G 是 LL(1)文法，当且仅当对任一非终结符 A 的任意两个不同产生式 A→α | β，满足（　）。",
+    "options": [
+      "FIRST(α) ∩ FIRST(β) = ∅",
+      "FIRST(α) ∩ FIRST(β) = ∅，且当 α 或 β 可推出 ε 时，相应 FIRST 集与 FOLLOW(A) 也不相交",
+      "FOLLOW(α) ∩ FOLLOW(β) = ∅",
+      "FIRST(α) = FIRST(β) 且二者均不含 ε"
+    ],
+    "answer": ["B"],
+    "explanation": "LL(1)要求候选式 FIRST 集互不相交；若有候选式可空，还须与 FOLLOW(A) 不相交。",
+    "difficulty": 2,
+    "knowledge": "LL(1)判定"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "文法 G：S→aA | aB，A→b，B→c，则该文法（　）。",
+    "options": [
+      "是 LL(1)文法",
+      "不是 LL(1)文法，因为 S 的两个候选式 FIRST 集相交",
+      "不是 LL(1)文法，因为文法中存在左递归",
+      "无法判断是否为 LL(1)文法"
+    ],
+    "answer": ["B"],
+    "explanation": "S 的两个候选式 FIRST 集均为 {a}，相交，故不是 LL(1)文法，应提取左公因子 a。",
+    "difficulty": 3,
+    "knowledge": "LL(1)判定"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "产生式 A→Aα | β 消除直接左递归后，可改写为（　）。",
+    "options": [
+      "A→βA′，A′→αA′ | ε",
+      "A→A′β，A′→βA′ | ε",
+      "A→β | αA",
+      "A→αA′ | β，A′→βA′ | ε"
+    ],
+    "answer": ["A"],
+    "explanation": "消除直接左递归的通用形式为 A→βA′，A′→αA′|ε，改写后语言不变。",
+    "difficulty": 2,
+    "knowledge": "左递归消除"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "文法 E→E+T | T，T→T*F | F 消除直接左递归后，E 的产生式为（　）。",
+    "options": [
+      "E→TE′，E′→+TE′ | ε",
+      "E→E′+T，E′→TE′ | ε",
+      "E→TE′，E′→E′+T | ε",
+      "E→T+E′，E′→TE′ | ε"
+    ],
+    "answer": ["A"],
+    "explanation": "按 A→Aα|β 形式，β 为 T、α 为 +T，改写得 E→TE′，E′→+TE′|ε。",
+    "difficulty": 3,
+    "knowledge": "左递归消除"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "一个 LR 分析器通常由（　）组成。",
+    "options": [
+      "分析栈、总控程序和分析表",
+      "输入串、语法树和符号表",
+      "FIRST 集、FOLLOW 集和预测分析表",
+      "状态栈与输出流"
+    ],
+    "answer": ["A"],
+    "explanation": "LR 分析器由总控程序、分析栈（含状态栈与符号栈）和分析表构成。",
+    "difficulty": 2,
+    "knowledge": "LR分析法"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "正规式 (a|b)*abb 所描述的符号串集合是（　）。",
+    "options": [
+      "由 a、b 组成且以 abb 结尾的所有串",
+      "以 a 开头、以 b 结尾的所有串",
+      "含有两个连续 b 的所有串",
+      "由偶数个 a 组成的串"
+    ],
+    "answer": ["A"],
+    "explanation": "(a|b)* 表示任意前缀，其后固定为 abb，故语言是以 abb 结尾的 a、b 串。",
+    "difficulty": 2,
+    "knowledge": "正规式"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "与正规式 a(ba)*b 等价的正规式是（　）。",
+    "options": [
+      "(ab)+",
+      "a+b",
+      "(ab)*",
+      "ab*"
+    ],
+    "answer": ["A"],
+    "explanation": "a(ba)*b 产生 ab、abab、ababab 等，恰好是 (ab)+，即一个或多个 ab。",
+    "difficulty": 3,
+    "knowledge": "正规式"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "某确定的有限自动机有 5 个状态，输入字母表含 3 个符号，则其转换函数最多包含的转移个数是（　）。",
+    "options": [
+      "5",
+      "10",
+      "15",
+      "25"
+    ],
+    "answer": ["C"],
+    "explanation": "DFA 的转换函数定义在状态与输入符号的组合上，最多 5×3=15 个转移。",
+    "difficulty": 1,
+    "knowledge": "有限自动机"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "用子集法将带 ε 转移的 NFA 确定化为 DFA 时，需要计算 ε-CLOSURE，其含义是（　）。",
+    "options": [
+      "从某状态集合出发经任意条空串弧可达的全部状态集合",
+      "从某状态出发经一个终结符可达的状态集合",
+      "删除状态集中不可达的状态",
+      "将等价状态合并为一个状态"
+    ],
+    "answer": ["A"],
+    "explanation": "ε-CLOSURE 求经零个或多个 ε 转移可达的状态集合，是子集法构造 DFA 状态的基础。",
+    "difficulty": 2,
+    "knowledge": "NFA确定化"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "某 NFA 有 4 个状态，用子集法确定化后所得 DFA 的状态数最多不超过（　）。",
+    "options": [
+      "4",
+      "8",
+      "16",
+      "32"
+    ],
+    "answer": ["C"],
+    "explanation": "子集法以状态集合作为 DFA 的状态，4 个状态共有 2^4=16 个子集，故最多 16 个状态。",
+    "difficulty": 3,
+    "knowledge": "NFA确定化"
+  },
+  {
+    "type": "single",
+    "topic": "PL",
+    "stem": "下列各项中，不属于语法分析阶段常用错误恢复策略的是（　）。",
+    "options": [
+      "恐慌模式恢复",
+      "短语层恢复",
+      "错误产生式恢复",
+      "对中间代码进行代码优化"
+    ],
+    "answer": ["D"],
+    "explanation": "常用恢复策略为恐慌模式、短语层恢复和错误产生式；代码优化属于中间代码优化阶段。",
+    "difficulty": 1,
+    "knowledge": "语法错误处理"
+  },
+  {
+    "type": "multi",
+    "topic": "PL",
+    "stem": "关于文法的二义性，下列说法正确的是（　）。",
+    "options": [
+      "若某个句子存在两棵不同的语法树，则该文法是二义的",
+      "若某个句子存在两个不同的最左推导，则该文法是二义的",
+      "消除左递归并提取公共左因子即可消除文法的二义性",
+      "二义性文法产生的语言一定不是上下文无关语言"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "存在两棵不同语法树或两个不同最左推导即为二义；左递归与公因子提取不能消除二义性。",
+    "difficulty": 3,
+    "knowledge": "二义性"
+  },
+  {
+    "type": "multi",
+    "topic": "PL",
+    "stem": "已知文法 G：E→TE′，E′→+TE′|ε，T→FT′，T′→*FT′|ε，F→(E)|id。关于其 FIRST 集与 FOLLOW 集，下列说法正确的是（　）。",
+    "options": [
+      "FIRST(E′) = {+}",
+      "FOLLOW(E′) = FOLLOW(E) = {), #}",
+      "FOLLOW(T) = {*, ), #}",
+      "FIRST(F) = {(, id}"
+    ],
+    "answer": ["B", "D"],
+    "explanation": "FIRST(E′)应含ε；FOLLOW(T)=FIRST(E′)-{ε}∪FOLLOW(E)={+,),#}，故 A、C 错，B、D 正确。",
+    "difficulty": 2,
+    "knowledge": "FOLLOW集"
+  },
+  {
+    "type": "multi",
+    "topic": "PL",
+    "stem": "关于 LR 分析方法，下列说法正确的是（　）。",
+    "options": [
+      "LR 分析在自左向右扫描输入的同时，按最右推导的逆过程（规范归约）进行分析",
+      "LR(1)分析法的识别能力强于 SLR(1)分析法",
+      "使用 LR 分析法之前必须先对文法消除左递归",
+      "任何上下文无关文法都能构造出无冲突的 LR 分析表"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "LR 按规范归约分析，LR(1)强于 SLR(1)；左递归文法可直接用 LR 分析，且并非所有文法都有无冲突 LR 表。",
+    "difficulty": 3,
+    "knowledge": "LR分析法"
+  },
+  {
+    "type": "multi",
+    "topic": "PL",
+    "stem": "关于有限自动机，下列说法正确的是（　）。",
+    "options": [
+      "DFA 中每个状态对每个输入符号至多有一个后继状态",
+      "NFA 所识别的语言总能被某个 DFA 识别",
+      "有限自动机可以识别 {a^n b^n | n≥1} 这类语言",
+      "DFA 中允许同一状态在同一输入符号上有两个不同的后继状态"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "DFA 后继状态唯一；NFA 与 DFA 等价；a^n b^n 不是正规语言，有限自动机不能识别。",
+    "difficulty": 2,
+    "knowledge": "有限自动机"
+  },
+  {
+    "type": "multi",
+    "topic": "PL",
+    "stem": "关于语法错误处理，下列说法正确的是（　）。",
+    "options": [
+      "语法分析阶段可以查出程序中的全部错误",
+      "恐慌模式恢复是跳过若干输入符号直到遇见同步符号后再继续分析",
+      "语法错误处理应尽量从错误中恢复，以便发现更多的错误",
+      "语法分析发现一个错误后必须立即终止整个编译过程"
+    ],
+    "answer": ["B", "C"],
+    "explanation": "语法分析只负责语法类错误，应尽量恢复；恐慌模式通过跳到同步符号继续分析。",
+    "difficulty": 2,
+    "knowledge": "语法错误处理"
+  }
+]

@@ -1,0 +1,382 @@
+[
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "算法必须具备五个基本特性，下列选项中不属于算法基本特性的是（ ）。",
+    "options": ["有穷性", "确定性", "可移植性", "可行性"],
+    "answer": ["C"],
+    "explanation": "算法五个基本特性为有穷性、确定性、可行性、输入和输出，可移植性属于程序质量要求。",
+    "difficulty": 1,
+    "knowledge": "算法特性"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "下列关于算法特性的叙述中，正确的有（ ）。",
+    "options": [
+      "算法必须在执行有穷步之后终止",
+      "算法中每条指令必须有确切的含义且无二义性",
+      "算法可以没有输出，但至少要有一个输入",
+      "算法的确定性要求算法在相同输入下可以产生不同结果"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "有穷性和确定性是算法的基本特性；算法可以有零个输入，但必须有输出；确定性要求结果唯一。",
+    "difficulty": 2,
+    "knowledge": "算法特性"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "下列程序段的时间复杂度为（ ）。\nx = 0;\nfor (i = 1; i <= n; i++)\n    x = x + 1;",
+    "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    "answer": ["C"],
+    "explanation": "循环体恰好执行 n 次，基本语句执行次数与 n 成正比，故时间复杂度为 O(n)。",
+    "difficulty": 1,
+    "knowledge": "时间复杂度"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "下列程序段的时间复杂度为（ ）。\nx = 0;\nfor (i = 1; i <= n; i++)\n    for (j = 1; j <= i; j++)\n        x = x + 1;",
+    "options": ["O(n)", "O(n log n)", "O(n²)", "O(n³)"],
+    "answer": ["C"],
+    "explanation": "基本语句共执行 1+2+…+n=n(n+1)/2 次，数量级为 n²，故时间复杂度为 O(n²)。",
+    "difficulty": 2,
+    "knowledge": "时间复杂度"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "下列关于算法空间复杂度的叙述中，正确的是（ ）。",
+    "options": [
+      "空间复杂度只统计算法中定义的局部变量所占的存储空间",
+      "空间复杂度是算法在运行过程中临时占用存储空间大小的度量",
+      "空间复杂度的大小与问题规模无关",
+      "空间复杂度为 O(1) 表示算法不需要任何存储空间"
+    ],
+    "answer": ["B"],
+    "explanation": "空间复杂度度量算法运行中临时占用的存储空间，是问题规模 n 的函数；O(1) 表示辅助空间为常量。",
+    "difficulty": 2,
+    "knowledge": "空间复杂度"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "按 n!=n×(n-1)! 编写递归算法计算 n!，该算法的空间复杂度为（ ）。",
+    "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    "answer": ["C"],
+    "explanation": "递归深度为 n，每层需保存返回地址和局部变量，递归工作栈空间为 O(n)。",
+    "difficulty": 3,
+    "knowledge": "空间复杂度"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "设 f(n)=3n²+2n+1，则下列关系成立的是（ ）。",
+    "options": ["f(n)=O(n)", "f(n)=Θ(n²)", "f(n)=Ω(n³)", "f(n)=o(n)"],
+    "answer": ["B"],
+    "explanation": "f(n) 的最高次项为 3n²，与 g(n)=n² 同阶，故 f(n)=Θ(n²)，同时有 f(n)=O(n²) 和 f(n)=Ω(n²)。",
+    "difficulty": 2,
+    "knowledge": "渐进符号"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "下列关于渐进符号含义的叙述中，正确的是（ ）。",
+    "options": [
+      "f(n)=O(g(n)) 表示 f(n) 的增长率不低于 g(n)",
+      "f(n)=Θ(g(n)) 表示 f(n) 与 g(n) 同阶，既是上界也是下界",
+      "f(n)=o(g(n)) 表示 f(n) 与 g(n) 同阶",
+      "f(n)=Ω(g(n)) 表示 f(n) 的增长率严格小于 g(n)"
+    ],
+    "answer": ["B"],
+    "explanation": "O 给出上界、Ω 给出下界、Θ 给出同阶紧确界，o 表示严格小于上界，只有 Θ 同时约束上下界。",
+    "difficulty": 3,
+    "knowledge": "渐进符号"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "递归算法在计算机中通常借助（ ）来实现。",
+    "options": ["队列", "栈", "堆", "散列表"],
+    "answer": ["B"],
+    "explanation": "递归调用时系统用栈保存返回地址和局部变量，逐层压栈，返回时逐层出栈。",
+    "difficulty": 1,
+    "knowledge": "递归"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "设计一个递归算法时，必须确定的两个部分是（ ）。",
+    "options": [
+      "递归出口（边界条件）和递归体",
+      "循环变量和循环条件",
+      "初始状态和终止状态",
+      "约束函数和限界函数"
+    ],
+    "answer": ["A"],
+    "explanation": "递归必须给出终止递归的边界条件，以及用较小规模同类问题表示原问题的递归体，否则将无限递归。",
+    "difficulty": 2,
+    "knowledge": "递归"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "采用分治法求解问题时，通常要求问题满足的条件有（ ）。",
+    "options": [
+      "问题可分解为若干规模较小的同类子问题",
+      "分解出的各子问题相互独立，不包含公共子问题",
+      "分解出的每个子问题规模必须恰好减半",
+      "分解出的各子问题之间存在大量重叠，需要反复求解"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "分治法要求子问题同类、相互独立且其解可合并；规模不必严格减半，子问题重叠是动态规划的特征。",
+    "difficulty": 2,
+    "knowledge": "分治法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "对 n 个元素进行归并排序，其时间复杂度和空间复杂度分别为（ ）。",
+    "options": ["O(n) 和 O(1)", "O(n log n) 和 O(n)", "O(n log n) 和 O(1)", "O(n²) 和 O(n)"],
+    "answer": ["B"],
+    "explanation": "归并排序划分 log n 层、每层合并耗时 O(n)，需 O(n) 辅助数组存放合并结果。",
+    "difficulty": 3,
+    "knowledge": "分治法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "字符串 X=\"ABCD\"、Y=\"ACBD\"，其最长公共子序列的长度为（ ）。",
+    "options": ["2", "3", "4", "5"],
+    "answer": ["B"],
+    "explanation": "ABD 与 ACD 均为 X 和 Y 的公共子序列，长度均为 3，故最长公共子序列长度为 3。",
+    "difficulty": 2,
+    "knowledge": "最长公共子序列"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "设 c[i][j] 表示串 X 的前 i 个字符与串 Y 的前 j 个字符的最长公共子序列长度，当 xi≠yj 时，c[i][j] 等于（ ）。",
+    "options": [
+      "c[i-1][j-1]",
+      "max{c[i-1][j], c[i][j-1]}",
+      "c[i-1][j-1]+1",
+      "min{c[i-1][j], c[i][j-1]}"
+    ],
+    "answer": ["B"],
+    "explanation": "两字符不相等时，公共子序列只能取自去掉 xi 或去掉 yj 两种情形中的较优者。",
+    "difficulty": 3,
+    "knowledge": "最长公共子序列"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "用动态规划求解 0/1 背包问题（n 件物品，背包容量为 W，W 为整数），其时间复杂度为（ ）。",
+    "options": ["O(n)", "O(n log n)", "O(nW)", "O(2^n)"],
+    "answer": ["C"],
+    "explanation": "状态表中需填写 n×W 个状态，每个状态以常数时间完成转移，故时间复杂度为 O(nW)。",
+    "difficulty": 2,
+    "knowledge": "0/1背包"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "用一维数组 f[0..W] 实现 0/1 背包的动态规划时，容量维度的枚举顺序应为（ ）。",
+    "options": [
+      "从 0 到 W 递增枚举",
+      "从 W 到物品重量递减枚举",
+      "任意顺序均可",
+      "先递增后递减枚举"
+    ],
+    "answer": ["B"],
+    "explanation": "逆序枚举保证每件物品至多被选一次；递增枚举会允许物品重复选取，退化为完全背包。",
+    "difficulty": 3,
+    "knowledge": "0/1背包"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "三个矩阵 A1(10×20)、A2(20×5)、A3(5×15) 连乘，按最优计算次序所需的数乘次数为（ ）。",
+    "options": ["1750", "3000", "4500", "1500"],
+    "answer": ["A"],
+    "explanation": "按 (A1A2)A3 计算需 10×20×5+10×5×15=1000+750=1750，小于 A1(A2A3) 的 3000+1500=4500。",
+    "difficulty": 2,
+    "knowledge": "矩阵连乘"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "矩阵连乘问题可用动态规划求解，其中状态 m[i][j] 的含义是（ ）。",
+    "options": [
+      "矩阵 Ai 到 Aj 连乘所需的最少数乘次数",
+      "矩阵 Ai 到 Aj 连乘结果矩阵的行数",
+      "矩阵 Ai 与 Aj 直接相乘所需的数乘次数",
+      "矩阵 Ai 到 Aj 连乘的加括号方案总数"
+    ],
+    "answer": ["A"],
+    "explanation": "m[i][j] 表示 Ai…Aj 的最少数乘次数，枚举断点 k 划分，三重循环使时间复杂度为 O(n³)。",
+    "difficulty": 3,
+    "knowledge": "矩阵连乘"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "用动态规划自底向上递推求第 n 项斐波那契数，其时间复杂度为（ ）。",
+    "options": ["O(1)", "O(log n)", "O(n)", "O(2^n)"],
+    "answer": ["C"],
+    "explanation": "由 F(n)=F(n-1)+F(n-2) 从前两项顺序递推出 n 项，每项计算为常数时间，故为 O(n)。",
+    "difficulty": 1,
+    "knowledge": "斐波那契"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "直接按 F(n)=F(n-1)+F(n-2) 编写朴素递归算法求第 n 项斐波那契数，其时间复杂度为（ ）。",
+    "options": ["O(n)", "O(n log n)", "O(n²)", "O(2^n)"],
+    "answer": ["D"],
+    "explanation": "朴素递归重复计算大量相同子问题，调用次数约按指数增长，时间复杂度为 O(2^n)。",
+    "difficulty": 2,
+    "knowledge": "斐波那契"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "下列问题中，能够保证用贪心算法求得最优解的有（ ）。",
+    "options": [
+      "部分背包问题（物品可以分割）",
+      "哈夫曼编码问题",
+      "0/1 背包问题",
+      "旅行商问题"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "部分背包和哈夫曼编码具有贪心选择性质；0/1 背包与旅行商问题用贪心法只能得到近似解。",
+    "difficulty": 2,
+    "knowledge": "贪心算法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "关于贪心算法，下列说法正确的是（ ）。",
+    "options": [
+      "贪心算法在任何问题上都能求得全局最优解",
+      "贪心算法每步作出当前看来最优的选择，且一旦选定不再回溯修改",
+      "贪心算法必须自底向上求解所有子问题后才能得到解",
+      "贪心选择性质与最优子结构无关"
+    ],
+    "answer": ["B"],
+    "explanation": "贪心法按局部最优策略逐步构造解且不回退，只有同时具备贪心选择性质和最优子结构时才得全局最优。",
+    "difficulty": 3,
+    "knowledge": "贪心算法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "在 4×4 棋盘上放置 4 个互不攻击的皇后，利用回溯法可求得解的个数为（ ）。",
+    "options": ["0 个", "1 个", "2 个", "4 个"],
+    "answer": ["C"],
+    "explanation": "4 皇后问题共有 2 个解，两者互为镜像，回溯法搜索整棵解空间树即可全部找出。",
+    "difficulty": 1,
+    "knowledge": "回溯法"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "关于回溯法，下列叙述正确的有（ ）。",
+    "options": [
+      "回溯法按深度优先方式搜索解空间树",
+      "回溯法在搜索过程中用剪枝函数避免无效搜索",
+      "回溯法一定能在多项式时间内求得最优解",
+      "回溯法从根结点出发逐层扩展，到达叶结点后无需回退"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "回溯法按深度优先搜索解空间树，用约束函数和限界函数剪枝，最坏时间复杂度为指数级。",
+    "difficulty": 2,
+    "knowledge": "回溯法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "与回溯法相比，分支限界法在搜索解空间树时通常采用（ ）。",
+    "options": [
+      "深度优先搜索，用栈保存活结点",
+      "宽度优先或最小耗费优先搜索，用队列或优先队列保存活结点",
+      "随机搜索，用散列表保存活结点",
+      "只扩展根结点的所有孩子后即结束搜索"
+    ],
+    "answer": ["B"],
+    "explanation": "分支限界法按广度优先或最小耗费（最大效益）优先扩展结点，活结点表用队列或优先队列组织。",
+    "difficulty": 2,
+    "knowledge": "分支限界"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "关于分支限界法，下列说法正确的是（ ）。",
+    "options": [
+      "分支限界法只需求出满足约束的任一可行解即可",
+      "分支限界法用限界函数剪去不可能产生最优解的子树，常用于求解最优化问题",
+      "分支限界法与动态规划的基本思想完全相同",
+      "分支限界法按深度优先扩展结点且不使用限界函数"
+    ],
+    "answer": ["B"],
+    "explanation": "分支限界法以限界函数评估结点价值，剪去不可能含最优解的分支，目标是求出最优化问题的最优解。",
+    "difficulty": 3,
+    "knowledge": "分支限界"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "模式串为 abaabc，其 next 数组为（下标从 1 开始，规定 next[1]=0）（ ）。",
+    "options": [
+      "0，1，1，2，2，3",
+      "0，1，2，1，2，3",
+      "0，0，1，1，2，3",
+      "0，1，1，2，3，3"
+    ],
+    "answer": ["A"],
+    "explanation": "逐位求前 j-1 个字符的最长相等前后缀长度并加 1，可得 next 为 0、1、1、2、2、3。",
+    "difficulty": 2,
+    "knowledge": "KMP算法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "设主串长度为 n、模式串长度为 m（m≤n），KMP 算法进行模式匹配的时间复杂度为（ ）。",
+    "options": ["O(n×m)", "O(n+m)", "O(n log m)", "O(m²)"],
+    "answer": ["B"],
+    "explanation": "KMP 借助 next 数组使主串指针不回溯、只前进，求 next 与匹配各耗线性时间，总计 O(n+m)。",
+    "difficulty": 3,
+    "knowledge": "KMP算法"
+  },
+  {
+    "type": "single",
+    "topic": "DS_ALGO",
+    "stem": "下列关于 P 类问题与 NP 类问题关系的叙述中，正确的是（ ）。",
+    "options": [
+      "P 类问题都是 NP 类问题",
+      "所有 NP 类问题都能在多项式时间内求解",
+      "P=NP 已经被严格证明成立",
+      "NP 类问题都不存在多项式时间算法"
+    ],
+    "answer": ["A"],
+    "explanation": "P 类问题可在多项式时间内求解，因而也能在多项式时间内验证，故 P⊆NP；P=NP 至今未被证明。",
+    "difficulty": 1,
+    "knowledge": "P/NP"
+  },
+  {
+    "type": "multi",
+    "topic": "DS_ALGO",
+    "stem": "下列关于 NP 完全（NPC）问题的叙述中，正确的有（ ）。",
+    "options": [
+      "NPC 问题属于 NP 类问题",
+      "若某个 NPC 问题存在多项式时间算法，则 P=NP",
+      "所有 NPC 问题目前都已有多项式时间算法",
+      "NPC 问题之间不能相互多项式归约"
+    ],
+    "answer": ["A", "B"],
+    "explanation": "NPC 问题是 NP 中最难的一类，所有 NP 问题都可归约到它；若能多项式求解其中一个，则 P=NP。",
+    "difficulty": 2,
+    "knowledge": "NPC问题"
+  }
+]

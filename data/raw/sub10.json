@@ -1,0 +1,367 @@
+[
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某系统需要一个全局唯一的配置管理器，用于加载并保存 application.properties 中的键值对。配置项以 Map<String,String> 存储，要求实例在首次使用时才创建，并且保证在多线程环境下也只有一个实例。现给出如下 Java 代码：\n\n```java\nimport java.util.*;\n\npublic class ConfigManager {\n    private static ___(1)___ ConfigManager instance;\n    private final Map<String, String> config = new HashMap<>();\n\n    private ConfigManager() {\n        config.put(\"app.name\", \"demo\");\n        config.put(\"app.port\", \"8080\");\n    }\n\n    public static ConfigManager getInstance() {\n        if (instance == null) {\n            synchronized (ConfigManager.class) {\n                if (instance == null) {\n                    instance = ___(2)___;\n                }\n            }\n        }\n        return instance;\n    }\n\n    public String get(String key) {\n        String v = config.get(key);\n        return (v == null) ? ___(3)___ : v;\n    }\n\n    public static void main(String[] args) {\n        System.out.println(ConfigManager.getInstance().get(\"app.port\"));\n    }\n}\n```\n\n问题1：该程序采用了哪种设计模式？说明该模式的意图以及私有构造方法的作用。\n问题2：写出空 (1)(2)(3) 处应填入的内容。\n问题3：说明 (1) 处修饰符的作用；若去掉该修饰符，上述双重检查锁定可能出现什么问题？",
+    "answer": "问题1：\n（1）采用单例模式（Singleton Pattern）。\n（2）意图：保证一个类仅有一个实例，并提供一个访问它的全局访问点 getInstance()，由类自身负责创建并保存这个唯一实例。\n（3）私有构造方法 private ConfigManager() 阻止外部代码通过 new 创建对象，使实例只能由类内部创建，从而保证实例的唯一性。\n\n问题2：\n（1）volatile\n（2）new ConfigManager()\n（3）\"\"（空字符串，表示该键未配置时返回的默认值）\n\n问题3：\n（1）volatile 保证 instance 变量的可见性，并禁止指令重排序；一个线程写入后其他线程能立即读到最新值。\n（2）instance = new ConfigManager() 不是原子操作，可分解为：分配内存空间、调用构造方法初始化对象、把引用赋给 instance 三步。\n（3）若去掉 volatile，编译器和处理器可能把这三步重排序为“先赋值引用、后初始化对象”，另一线程在第一次判空时读到非 null 但尚未初始化完成的对象，从而使用到不完整的实例，这就是失效的延迟初始化问题。",
+    "rubric": [
+      "问题1：正确答出单例模式，得2分",
+      "问题1：说明意图为“保证唯一实例并提供全局访问点”，得1分",
+      "问题1：说明私有构造方法阻止外部 new、保证唯一性，得2分",
+      "问题2：答出 volatile，得2分",
+      "问题2：答出 new ConfigManager()，得2分",
+      "问题2：答出空字符串 \"\" 作为默认值，得1分",
+      "问题3：说明 volatile 的可见性作用，得1分",
+      "问题3：说明禁止指令重排序、new 操作非原子，得2分",
+      "问题3：说明可能取到未初始化完成的对象，得2分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某日志组件需要支持“输出到控制台”和“输出到文件”两种方式，并要求以后能方便地新增“输出到数据库”。日志格式的拼接逻辑在父类中统一实现，具体输出目标由子类决定；日志对象的创建则交给各自的工厂类完成。现给出如下 Java 代码：\n\n```java\nabstract class Logger {\n    public void log(String level, String msg) {\n        write(\"[\" + level + \"] \" + msg);\n    }\n    protected abstract void write(String line);\n}\n\nclass ConsoleLogger extends Logger {\n    protected void write(String line) {\n        System.out.println(line);\n    }\n}\n\nclass FileLogger extends Logger {\n    private final String fileName;\n    public FileLogger(String fileName) { this.fileName = fileName; }\n    protected void write(String line) {\n        try (java.io.PrintWriter out =\n                 new java.io.PrintWriter(new java.io.FileWriter(fileName, true))) {\n            out.println(line);\n        } catch (java.io.IOException e) {\n            throw new RuntimeException(e);\n        }\n    }\n}\n\nabstract class LoggerFactory {\n    public abstract Logger createLogger();\n    public void run() {\n        Logger logger = ___(1)___;\n        logger.log(\"INFO\", \"system started\");\n    }\n}\n\nclass ConsoleLoggerFactory extends LoggerFactory {\n    public Logger createLogger() { return ___(2)___; }\n}\n\nclass FileLoggerFactory extends LoggerFactory {\n    public Logger createLogger() { return ___(3)___; }\n}\n```\n\n问题1：指出该程序使用的设计模式，并说明其中抽象产品、具体产品、抽象工厂、具体工厂分别对应哪些类。\n问题2：写出空 (1)(2)(3) 处应填入的内容。\n问题3：若新增一种 DatabaseLogger（输出到数据库），需要新增或修改哪些类？该设计符合哪条面向对象设计原则？FileLogger 中 write 方法抛出 RuntimeException 是否合理，请说明理由。",
+    "answer": "问题1：\n（1）使用工厂方法模式（Factory Method Pattern）。\n（2）抽象产品：Logger；具体产品：ConsoleLogger、FileLogger。\n（3）抽象工厂：LoggerFactory；具体工厂：ConsoleLoggerFactory、FileLoggerFactory。\n（4）LoggerFactory.run() 中的模板代码只依赖抽象产品 Logger，把“创建哪个具体产品”推迟到子类工厂中决定。\n\n问题2：\n（1）createLogger()\n（2）new ConsoleLogger()\n（3）new FileLogger(\"app.log\")\n\n问题3：\n（1）只需新增 DatabaseLogger 类（继承 Logger，实现 write）和 DatabaseLoggerFactory 类（继承 LoggerFactory，实现 createLogger），不需要修改 LoggerFactory.run() 等已有代码。\n（2）符合“开闭原则”：对扩展开放、对修改关闭。\n（3）合理。write 是父类声明的抽象方法，父类未声明受检异常，子类实现不能新增受检异常；IOException 属于受检异常，因此包装为 RuntimeException 抛出，避免污染父类契约。",
+    "rubric": [
+      "问题1：答出工厂方法模式，得2分",
+      "问题1：正确指出抽象产品、具体产品、抽象工厂、具体工厂四类角色，得3分（缺一项扣1分，扣完为止）",
+      "问题2：三空分别答出 createLogger()、new ConsoleLogger()、new FileLogger(\"app.log\")，每空1分，共3分",
+      "问题3：说明只需新增两个类、无需修改已有代码，得2分",
+      "问题3：答出开闭原则，得2分",
+      "问题3：说明子类不能新增受检异常、包装为 RuntimeException 的理由，得3分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某电商平台需要向多个订阅方（邮件、短信）推送商品价格变动通知。库存对象在价格变化后应自动通知全部订阅者，并允许订阅者随时加入或退出。现给出如下 Java 代码：\n\n```java\nimport java.util.*;\n\ninterface Observer {\n    void update(String product, double price);\n}\n\nclass Stock {\n    private final List<Observer> observers = new ArrayList<>();\n    private final Map<String, Double> prices = new HashMap<>();\n\n    public void addObserver(Observer o) { ___(1)___; }\n\n    public void removeObserver(Observer o) { observers.remove(o); }\n\n    public void setPrice(String product, double price) {\n        prices.put(product, price);\n        notifyObservers(product, price);\n    }\n\n    private void notifyObservers(String product, double price) {\n        for (___(2)___ o : observers) {\n            o.update(product, price);\n        }\n    }\n}\n\npublic class Client {\n    public static void main(String[] args) {\n        Stock stock = new Stock();\n        Observer email = new Observer() {\n            public void update(String product, double price) {\n                System.out.println(\"邮件通知：\" + product + \" 现价 \" + price);\n            }\n        };\n        stock.addObserver(___(3)___);\n        stock.setPrice(\"手机\", 5999);\n    }\n}\n```\n\n问题1：指出该程序使用的设计模式，说明其意图以及“主题”与“观察者”两个角色在本例中分别由什么承担。\n问题2：写出空 (1)(2)(3) 处应填入的内容。\n问题3：为什么 observers 成员声明为 List<Observer> 而不是 List<Object>？如果要新增短信通知，需要修改 Stock 类吗？说明这种设计的优点。",
+    "answer": "问题1：\n（1）使用观察者模式（Observer Pattern，也称发布—订阅模式）。\n（2）意图：定义对象间一对多的依赖关系，当一个对象（主题）的状态发生改变时，所有依赖于它的对象（观察者）都得到通知并被自动更新。\n（3）主题（Subject）由 Stock 承担；观察者（Observer）由观察者接口 Observer 及其实现（示例中的匿名内部类）承担。\n\n问题2：\n（1）observers.add(o)\n（2）Observer\n（3）email\n\n问题3：\n（1）List<Observer> 用泛型限定了集合元素的静态类型，编译期即可检查只能加入观察者对象，从集合取出时无需强制类型转换，类型安全；若写成 List<Object>，取出元素需强制转换，运行期可能出现 ClassCastException。\n（2）不需要修改 Stock 类，只要新增一个实现 Observer 接口的短信通知类并注册到 Stock 中即可（或像示例那样使用匿名内部类）。\n（3）优点：主题与观察者之间是松耦合，符合开闭原则；可动态增加、删除观察者，主题无需知道观察者的具体类型，只依赖抽象接口，便于广播通知和扩展。",
+    "rubric": [
+      "问题1：答出观察者模式，得2分",
+      "问题1：说明一对多依赖、状态改变时自动通知全部观察者，得1分",
+      "问题1：正确指出 Stock 为主题、Observer 及其实现为观察者，得2分",
+      "问题2：三空分别答出 observers.add(o)、Observer、email，每空1分，共3分",
+      "问题3：说明泛型的编译期类型检查与免强制转换，得3分",
+      "问题3：说明新增短信通知无需修改 Stock，得1分",
+      "问题3：说明松耦合、开闭原则等优点，得3分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某商城下单结算时，折扣规则随促销活动频繁变化：普通用户不打折、会员打九折，以后还可能出现“满减”“限时五折”等规则。系统把“折扣算法”抽象为接口，运行时由订单对象持有一个算法对象，从而可以动态替换。现给出如下 Java 代码：\n\n```java\ninterface DiscountStrategy {\n    double calculate(double original);\n}\n\nclass NoDiscount implements DiscountStrategy {\n    public double calculate(double original) { return original; }\n}\n\nclass MemberDiscount implements DiscountStrategy {\n    public double calculate(double original) { return original * 0.9; }\n}\n\nclass Order {\n    private final double original;\n    private ___(1)___ strategy;\n\n    public Order(double original) {\n        this.original = original;\n    }\n\n    public void setStrategy(DiscountStrategy strategy) {\n        this.strategy = strategy;\n    }\n\n    public double pay() {\n        return ___(2)___;\n    }\n}\n\npublic class Shop {\n    private static DiscountStrategy choose(int level) {\n        if (level >= 3) return new MemberDiscount();\n        return ___(3)___;\n    }\n\n    public static void main(String[] args) {\n        Order order = new Order(1000);\n        order.setStrategy(choose(3));\n        System.out.println(order.pay());\n    }\n}\n```\n\n问题1：指出该程序使用的设计模式，说明三个角色（策略接口、具体策略、上下文）在本例中分别由什么承担。\n问题2：写出空 (1)(2)(3) 处应填入的内容，并给出 main 方法的输出结果。\n问题3：与在 pay() 中写 if-else 判断会员等级相比，这种写法有什么优点？它符合哪些设计原则？",
+    "answer": "问题1：\n（1）使用策略模式（Strategy Pattern）。\n（2）策略接口：DiscountStrategy；具体策略：NoDiscount、MemberDiscount；上下文（Context）：Order。\n（3）上下文持有一个策略接口类型的引用，通过 setStrategy() 在运行时切换具体算法。\n\n问题2：\n（1）DiscountStrategy\n（2）strategy.calculate(original)\n（3）new NoDiscount()\n（4）main 方法输出：900.0\n\n问题3：\n（1）优点：把“选择算法”与“使用算法”分离，每种折扣规则独立成类，新增规则只需新增实现类，不必修改 Order 的 pay()；避免冗长的 if-else/switch 分支，代码可读性和可维护性更好；算法可在运行时动态替换。\n（2）符合开闭原则（对扩展开放、对修改关闭）、单一职责原则（每个类只负责一种算法）以及“针对接口编程，不针对实现编程”的设计思想。\n（3）相对于 if-else，策略模式的核心价值在于消除条件分支并把变化点封装，适应规则频繁变化和组合的场景。",
+    "rubric": [
+      "问题1：答出策略模式，得2分",
+      "问题1：正确指出三个角色对应类，得3分（缺一项扣1分）",
+      "问题2：答出 DiscountStrategy，得2分",
+      "问题2：答出 strategy.calculate(original)，得2分",
+      "问题2：答出 new NoDiscount()，得1分",
+      "问题2：答出输出 900.0，得1分",
+      "问题3：说明消除 if-else 分支、算法可独立扩展、可动态替换，得2分",
+      "问题3：答出开闭原则与单一职责原则，得2分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某报表系统需要把同一批数据分别导出为 CSV 和 XML 两种格式。导出的整体流程（输出表头、输出数据行、输出表尾、保存）是固定不变的，其中各部分的具体内容随格式不同而不同，且表尾对某些格式可以没有。系统要求导出流程不被子类改变。现给出如下 Java 代码：\n\n```java\nabstract class DataExporter {\n    public final void export(String[] rows) {\n        String head = header();\n        String body = body(rows);\n        String tail = footer();\n        save(head + body + tail);\n    }\n    protected abstract String header();\n    protected abstract String body(String[] rows);\n    protected String footer() { return \"\"; }\n    protected abstract void save(String content);\n}\n\nclass CsvExporter extends DataExporter {\n    protected String header() { return \"name,score\\n\"; }\n    protected String body(String[] rows) {\n        StringBuilder sb = new StringBuilder();\n        for (___(1)___ : rows) {\n            sb.append(row).append(\"\\n\");\n        }\n        return sb.toString();\n    }\n    protected void save(String content) { System.out.print(content); }\n}\n\nclass XmlExporter extends DataExporter {\n    protected String header() { return \"<data>\\n\"; }\n    protected String body(String[] rows) {\n        StringBuilder sb = new StringBuilder();\n        for (String row : rows) {\n            sb.append(\"  <row>\").append(row).append(\"</row>\\n\");\n        }\n        return ___(2)___;\n    }\n    protected String footer() { return \"</data>\"; }\n    protected void save(String content) { System.out.print(content); }\n}\n\npublic class Test {\n    public static void main(String[] args) {\n        DataExporter exporter = new XmlExporter();\n        exporter.export(new String[]{\"a,1\"});\n        exporter = ___(3)___;\n        exporter.export(new String[]{\"b,2\"});\n    }\n}\n```\n\n问题1：指出该程序使用的设计模式及其意图，说明“模板方法”是哪一方法、哪些方法是“基本方法/钩子方法”。\n问题2：写出空 (1)(2)(3) 处应填入的内容。\n问题3：export 方法为什么要用 final 修饰？footer() 为什么可以不是抽象方法？若某格式不需要表尾，子类应如何处理？",
+    "answer": "问题1：\n（1）使用模板方法模式（Template Method Pattern）。\n（2）意图：在抽象类中定义一个操作中算法的骨架，而将一些步骤延迟到子类实现，使子类可以不改变算法结构就重定义算法的某些特定步骤。\n（3）模板方法：DataExporter.export()，它按固定顺序调用各步骤并加 final 防止子类覆写。\n（4）基本方法：header()、body(rows)、save(content) 为抽象方法，强制子类实现；footer() 为钩子方法（hook），提供了默认实现，子类可按需覆写。\n\n问题2：\n（1）String row\n（2）sb.toString()\n（3）new CsvExporter()\n\n问题3：\n（1）export 加 final 是为了固定算法骨架的顺序与结构，防止子类覆写导致流程被破坏，这是模板方法模式的关键约束。\n（2）footer() 不是抽象方法，因为它是钩子方法，允许“可选步骤”：给出默认空实现后，不需要表尾的子类（如 CsvExporter）无需实现它，减少子类的实现负担。\n（3）子类不必覆写 footer()，直接沿用父类的空字符串实现即可；若需要表尾则覆写 footer() 返回相应内容。",
+    "rubric": [
+      "问题1：答出模板方法模式，得2分",
+      "问题1：写出意图（定义算法骨架、步骤延迟到子类），得2分",
+      "问题1：指出模板方法为 export()，并区分抽象的基本方法与钩子方法，得2分",
+      "问题2：三空分别答出 String row、sb.toString()、new CsvExporter()，每空1分，共3分",
+      "问题3：说明 final 固定算法骨架、防止子类改变流程，得2分",
+      "问题3：说明 footer() 是钩子方法/可选步骤、默认空实现的作用，得2分",
+      "问题3：说明不需要表尾时子类沿用默认实现即可，得2分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某文本分析程序需要统计一段英文中每个单词出现的次数，并按次数从高到低输出。程序使用 Map 保存“单词—次数”的映射，最后对键集排序输出。现给出如下 Java 代码：\n\n```java\nimport java.util.*;\n\npublic class WordCount {\n    public static void main(String[] args) {\n        String text = \"java is easy and java is powerful and java is fun\";\n        String[] words = text.split(\" \");\n\n        Map<String, Integer> count = new ___(1)___();\n\n        for (String w : words) {\n            Integer old = count.get(w);\n            if (old == null) {\n                count.put(w, 1);\n            } else {\n                count.put(w, ___(2)___);\n            }\n        }\n\n        List<String> keys = new ArrayList<>(count.keySet());\n        keys.sort(new Comparator<String>() {\n            public int compare(String a, String b) {\n                return ___(3)___;\n            }\n        });\n\n        for (String k : keys) {\n            System.out.println(k + \"=\" + count.get(k));\n        }\n    }\n}\n```\n\n问题1：写出空 (1)(2)(3) 处应填入的内容（要求输出按次数从高到低排序）。\n问题2：说明 Map 的 keySet()、values()、entrySet() 三种视图的区别；若把遍历改为遍历 entrySet()，请写出循环体应如何取键和值。\n问题3：如果把 count 改为 LinkedHashMap 或 TreeMap，输出分别会有什么变化？请说明 HashMap、LinkedHashMap、TreeMap 三者的区别及适用场景。",
+    "answer": "问题1：\n（1）HashMap\n（2）old + 1\n（3）count.get(b) - count.get(a)（即按次数降序比较；若升序则为 count.get(a) - count.get(b)）\n\n问题2：\n（1）keySet() 返回所有键的 Set 视图；values() 返回所有值的 Collection 视图；entrySet() 返回所有键值对 Map.Entry 的 Set 视图。\n（2）三者都是对原 Map 的视图，不复制数据，删除视图中的元素会同步影响原 Map。\n（3）遍历 entrySet 的循环体：\nfor (Map.Entry<String, Integer> e : count.entrySet()) {\n    String k = e.getKey();\n    Integer v = e.getValue();\n    System.out.println(k + \"=\" + v);\n}\n（4）一次遍历同时取出键和值，效率高于先遍历 keySet 再逐个 get()。\n\n问题3：\n（1）改为 LinkedHashMap：仍按次数从高到低的排序输出（因为后面显式排序了 keys），但 HashMap 的“插入顺序可保留”特性体现在未排序遍历时——LinkedHashMap 遍历顺序等于元素插入顺序。\n（2）改为 TreeMap：TreeMap 按 key 自然顺序（字符串字典序）有序，但本程序先取 keySet 再排序，输出顺序不变，差别只在于 TreeMap 的 key 必须实现 Comparable 或构造时提供 Comparator。\n（3）三者区别：HashMap 基于哈希表，不保证顺序，查找/插入平均 O(1)，允许一个 null 键和多个 null 值，最常用；LinkedHashMap 继承 HashMap 并维护双向链表记录插入或访问顺序，遍历有序，适合需要保持顺序或实现 LRU 缓存；TreeMap 基于红黑树，按 key 排序，查找/插入 O(log n)，适合需要有序遍历、范围查询的场景，key 不允许为 null。",
+    "rubric": [
+      "问题1：答出 HashMap，得2分",
+      "问题1：答出 old + 1，得2分",
+      "问题1：答出按次数降序的比较表达式，得2分",
+      "问题2：正确说明 keySet、values、entrySet 的区别，得3分",
+      "问题2：给出 entrySet 遍历的循环体并说明效率优势，得2分",
+      "问题3：说明 LinkedHashMap 保持插入顺序、TreeMap 按键排序，得2分",
+      "问题3：说明三者底层结构与适用场景，得2分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某服务层需要统一的返回结果封装：成功时携带业务数据，失败时携带错误信息，且数据的具体类型由调用方决定（可能是 Integer、String 或 List<String>）。系统设计了一个泛型类 Result<T>，并只通过静态工厂方法创建实例。现给出如下 Java 代码：\n\n```java\npublic class Result<T> {\n    private final boolean success;\n    private final T data;\n    private final String message;\n\n    private Result(boolean success, T data, String message) {\n        this.success = success;\n        this.data = data;\n        this.message = message;\n    }\n\n    public static <T> Result<T> ok(T data) {\n        return new Result<>(true, data, \"OK\");\n    }\n\n    public static <T> Result<T> fail(String message) {\n        return new ___(1)___(false, null, message);\n    }\n\n    public ___(2)___ getData() {\n        return data;\n    }\n\n    public String getMessage() { return message; }\n    public boolean isSuccess() { return success; }\n}\n\npublic class Demo {\n    public static void main(String[] args) {\n        Result<Integer> r1 = Result.ok(100);\n        Result<String> r2 = Result.fail(\"timeout\");\n        if (r2.isSuccess()) {\n            System.out.println(r2.getData());\n        } else {\n            System.out.println(___(3)___);\n        }\n    }\n}\n```\n\n问题1：写出空 (1)(2)(3) 处应填入的内容，并给出 main 方法的输出结果。\n问题2：说明 fail 方法返回 new Result<>(false, null, message) 时，为什么传入 null 是合法的；如果把 (2) 处的返回类型写成 Object 会有什么后果？\n问题3：现有方法签名 public static <T> Result<T> of(T data)，请说明方法名前 <T> 的作用；为什么不能把泛型类的静态方法写为 public static Result<T> of(T data)；再说明泛型擦除对运行时类型判断的影响。",
+    "answer": "问题1：\n（1）Result<>\n（2）T\n（3）r2.getMessage()（或 \"timeout\" 常量）\n（4）main 输出：timeout\n\n问题2：\n（1）data 的类型是类型参数 T，而 T 在实例化时可以是任意引用类型，null 是任何引用类型的合法值，因此 Result<String> 中 data 为 null 是合法的。\n（2）若把 getData() 的返回类型写成 Object，调用方取到的仍是 Object，需要强制类型转换才能赋给 Integer、String 等变量，泛型的编译期类型检查和“免强制转换”优势就丢失了，违背了泛型的初衷，且转换失败会在运行期抛 ClassCastException。\n\n问题3：\n（1）方法签名中的 <T> 是泛型方法的类型参数声明，表示该方法的类型参数与类无关，每次调用可独立推断；静态方法不能使用类的类型参数，只能自己声明。\n（2）泛型类的类型参数 T 属于实例成员，静态方法在类加载时即可调用、此时没有实例，无法确定 T，因此不能写 public static Result<T> of(T data)，否则编译错误（“cannot be referenced from a static context”）。\n（3）泛型擦除：编译后类型参数被擦除为上界（无界为 Object），运行期不保留实际类型实参信息；因此不能写 new T()、不能对泛型类型使用 instanceof（如 obj instanceof List<String> 非法，只能判断 obj instanceof List），也不能创建泛型数组如 new T[10]。",
+    "rubric": [
+      "问题1：答出 Result<>，得2分",
+      "问题1：答出 T，得2分",
+      "问题1：答出 r2.getMessage()，得1分",
+      "问题1：答出输出 timeout，得1分",
+      "问题2：说明 null 是任意引用类型的合法值，得2分",
+      "问题2：说明返回 Object 会丢失类型检查、需强制转换，得2分",
+      "问题3：说明方法级类型参数声明的作用及静态方法不能使用类类型参数，得3分",
+      "问题3：说明类型擦除导致不能 new T()、不能对泛型用 instanceof，得2分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某银行账户程序规定：取款金额超过余额时抛出业务异常；异常对象中除错误提示外，还要携带当前余额供上层展示；无论取款成功与否，都要打印一条“交易结束”日志。现给出如下 Java 代码：\n\n```java\nclass InsufficientBalanceException extends ___(1)___ {\n    private final double balance;\n\n    public InsufficientBalanceException(String message, double balance) {\n        super(message);\n        this.balance = balance;\n    }\n\n    public double getBalance() { return balance; }\n}\n\nclass Account {\n    private double balance = 1000;\n\n    public void withdraw(double amount) ___(2)___ {\n        if (amount > balance) {\n            throw new InsufficientBalanceException(\"余额不足\", balance);\n        }\n        balance -= amount;\n    }\n}\n\npublic class Test {\n    public static void main(String[] args) {\n        Account acc = new Account();\n        try {\n            acc.withdraw(2000);\n        } catch (InsufficientBalanceException e) {\n            System.out.println(\"错误：\" + e.getMessage() + \"，余额 \" + e.getBalance());\n        } finally {\n            ___(3)___;\n        }\n    }\n}\n```\n\n问题1：写出空 (1)(2)(3) 处应填入的内容，并给出程序的输出结果。\n问题2：说明自定义异常继承 Exception 与继承 RuntimeException 的区别；若 (1) 处改为 RuntimeException，(2) 处是否可以省略，为什么？\n问题3：说明 finally 块的执行时机与作用；若在 catch 块中加入 return 语句，finally 块中的语句还会执行吗？请说明 try-catch-finally 的执行顺序。",
+    "answer": "问题1：\n（1）Exception\n（2）throws InsufficientBalanceException\n（3）System.out.println(\"交易结束\")\n（4）输出：\n错误：余额不足，余额 1000.0\n交易结束\n\n问题2：\n（1）继承 Exception 属于受检异常（checked exception），调用方必须捕获或继续用 throws 声明抛出，编译器强制处理，适合可恢复、调用方应当处理的业务异常。\n（2）继承 RuntimeException 属于非受检异常（unchecked），编译器不强制捕获或声明，适合编程错误等无法预期恢复的情形。\n（3）若 (1) 改为 RuntimeException，(2) 处可以省略 throws 声明（JDK 8 起也可用 @throws 说明），因为非受检异常不要求显式声明；但为了可读性与文档完整，通常仍建议保留 throws 声明。\n\n问题3：\n（1）finally 块在 try 块或 catch 块执行完毕后、方法返回之前执行；无论是否发生异常、是否被捕获、是否有 return，都会执行（除非 JVM 退出 System.exit 或线程被强制终止）。\n（2）作用：集中释放资源（关闭文件、连接、锁），保证清理代码一定被执行。\n（3）即使 catch 块中有 return 语句，finally 块仍会执行，然后才真正返回；若 finally 中也有 return，则会覆盖之前的返回值，因此应避免在 finally 中 return。\n（4）执行顺序：try → （异常时）匹配的 catch → finally → 方法返回/继续执行后续语句。",
+    "rubric": [
+      "问题1：答出 Exception，得2分",
+      "问题1：答出 throws InsufficientBalanceException，得2分",
+      "问题1：答出打印“交易结束”的语句，得1分",
+      "问题1：写出正确输出（含余额 1000.0），得1分",
+      "问题2：正确区分受检异常与非受检异常，得2分",
+      "问题2：说明改为 RuntimeException 后可省略 throws 及理由，得2分",
+      "问题3：说明 finally 一定执行（除 System.exit 等）及资源释放作用，得2分",
+      "问题3：说明 catch 中 return 时 finally 仍执行、finally 中 return 会覆盖返回值，得2分",
+      "问题3：给出 try→catch→finally 的正确执行顺序，得1分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某绘图程序用抽象类 Shape 表示所有图形，提供抽象方法 area() 和已实现的 describe()；Circle、Rectangle 继承 Shape 并各自实现 area()。主程序把不同图形放入 Shape 数组统一处理。现给出如下 Java 代码：\n\n```java\nabstract class Shape {\n    public abstract double area();\n\n    public String describe() {\n        return getClass().getSimpleName() + \" area=\" + area();\n    }\n}\n\nclass Circle extends Shape {\n    private final double r;\n    public Circle(double r) { this.r = r; }\n    public double getRadius() { return r; }\n    public double area() { return ___(1)___; }\n}\n\nclass Rectangle extends Shape {\n    private final double w, h;\n    public Rectangle(double w, double h) { this.w = w; this.h = h; }\n    public double area() { return w * h; }\n}\n\npublic class Test {\n    public static void main(String[] args) {\n        Shape[] shapes = { new Circle(2), new Rectangle(3, 4) };\n        double total = 0;\n        for (___(2)___ : shapes) {\n            total += s.area();\n        }\n        System.out.println(total);\n\n        for (Shape s : shapes) {\n            if (___(3)___) {\n                System.out.println(\"圆的半径为 \" + ((Circle) s).getRadius());\n            }\n        }\n    }\n}\n```\n\n问题1：写出空 (1)(2)(3) 处应填入的内容，并给出 total 的输出结果。\n问题2：说明 describe() 中调用 area() 时，实际执行的是哪个类的方法，并描述 Java 方法调用的动态绑定过程。\n问题3：若新增 Triangle 子类，是否需要修改上述循环？这体现了什么设计原则？Shape 为什么不能声明为接口又保留 describe() 的默认实现，请结合接口与抽象类的区别说明。",
+    "answer": "问题1：\n（1）Math.PI * r * r\n（2）Shape s\n（3）s instanceof Circle\n（4）total 输出：3.141592653589793 * 4 + 12 ≈ 24.566370614359172\n\n问题2：\n（1）describe() 中 this.area() 是多态调用，实际执行的是当前对象运行期类型（Circle 或 Rectangle）的 area() 实现，而不是 Shape 的——Shape 中 area() 是抽象方法，无方法体。\n（2）动态绑定过程：编译期按引用变量的静态类型 Shape 检查方法存在性与签名可访问性；运行期根据对象的实际类型（由对象头中的类型指针确定）在方法表中查找该方法的实际实现并调用，即“编译看左边，运行看右边”。\n（3）成员方法默认动态绑定（除非 static、private、final 修饰）；成员变量不存在多态，按静态类型取值。\n\n问题3：\n（1）不需要修改循环。新增 Triangle 只是新增一个 Shape 的子类，循环仍通过 Shape 数组与 area()/describe() 统一处理，说明程序已具备可扩展性。\n（2）体现“开闭原则”（对扩展开放、对修改关闭）和“针对抽象编程/里氏替换原则”：子类对象可以替换父类对象而不影响调用方。\n（3）接口与抽象类的区别：接口是行为规范，方法默认 public abstract，字段默认 public static final，Java 8 起可有 default/static 方法，但接口不能有成员变量实例状态与构造方法；抽象类是类，可有构造方法、实例字段和已实现方法，用于表达“is-a”的公共实现。\n（4）本题 Shape 需要保存子类共享的结构（此例通过抽象方法约束）且表达“图形”这一同类事物的部分公共实现（describe），使用抽象类更自然；若只需规定能力、且需要多实现，则应使用接口。",
+    "rubric": [
+      "问题1：答出 Math.PI * r * r，得2分",
+      "问题1：答出 Shape s（增强 for 循环变量声明），得1分",
+      "问题1：答出 s instanceof Circle，得1分",
+      "问题1：正确写出 total 输出值，得1分",
+      "问题2：指出实际执行运行期类型的方法，得2分",
+      "问题2：正确描述编译期检查静态类型、运行期按实际类型查方法表的动态绑定过程，得3分",
+      "问题2：指出成员变量不具备多态性，得1分",
+      "问题3：说明新增子类无需修改循环及对应的开闭原则/里氏替换，得2分",
+      "问题3：正确说明接口与抽象类的区别，得2分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某公司工资系统中，Employee 是抽象类，实现 Payable 接口；接口中的税率 TAX 为常量，receipt() 为默认方法；不同职位（经理、普通员工）计算工资的方式不同。现给出如下 Java 代码：\n\n```java\ninterface Payable {\n    double TAX = 0.05;\n    double pay();\n\n    default String receipt() {\n        return \"应付：\" + pay();\n    }\n}\n\nabstract class Employee implements Payable {\n    protected final String name;\n    protected double salary;\n\n    public Employee(String name, double salary) {\n        this.name = name;\n        this.salary = salary;\n    }\n\n    public double pay() {\n        return ___(1)___;\n    }\n\n    public abstract String role();\n}\n\nclass Manager extends Employee {\n    private final double bonus;\n    public Manager(String name, double salary, double bonus) {\n        super(name, salary);\n        this.bonus = bonus;\n    }\n    public double pay() { return ___(2)___; }\n    public String role() { return \"经理\"; }\n}\n\nclass Test {\n    public static void main(String[] args) {\n        Employee e = new Manager(\"张三\", 8000, 2000);\n        System.out.println(e.role() + \" \" + ___(3)___);\n    }\n}\n```\n\n问题1：写出空 (1)(2)(3) 处应填入的内容，并给出程序输出结果。\n问题2：说明接口中 TAX 隐含的修饰符是什么；default 方法的作用与使用场景是什么；一个类可以同时继承抽象类并实现多个接口吗？\n问题3：Manager 重写 pay() 时调用 super.pay() 有什么意义？请从这个例子出发，说明抽象类与接口在设计上的分工（何时用抽象类、何时用接口）。",
+    "answer": "问题1：\n（1）salary * (1 + TAX)\n（2）super.pay() + bonus\n（3）e.receipt()\n（4）输出：经理 应付：10400.0\n\n问题2：\n（1）接口中的字段隐含修饰符为 public static final，即 TAX 是全局常量，实现类可直接用 TAX 访问（也常写 Payable.TAX）。\n（2）default 方法允许在接口中给出方法的默认实现，使实现类无需强制实现该方法即可直接使用；主要使用场景是接口演进时向已有接口新增方法而不破坏现有实现类（向后兼容），以及提供公共的默认行为。\n（3）可以。Java 中一个类只能继承一个父类（单继承），但可以实现多个接口（多实现），从而在保持单继承的同时获得多种行为规范；这避免了多继承的菱形（二义性）问题。\n\n问题3：\n（1）super.pay() 表示调用父类 Employee 中已实现的 pay()，在父类计算结果（含税工资）基础上叠加奖金，避免重复编写税率公式、保证计算规则一致；这是代码复用的体现。\n（2）设计分工：抽象类用于表达“是什么”（is-a），适合多个子类共享公共状态（字段）和公共实现，只能单继承，主要用于自下而上的公共部分抽取；接口用于表达“能做什么”（can-do），是行为的规范与契约，可多实现，适合定义跨类层次的通用能力和解耦。\n（3）本例中“员工身份 + 公共工资字段”适合放抽象类 Employee，“可计算工资”这一能力适合定义接口 Payable，二者结合既复用实现又保持扩展性。\n（4）实践原则：优先使用接口定义类型、面向接口编程；当需要在多个相关类之间共享代码实现和状态时使用抽象类。",
+    "rubric": [
+      "问题1：答出 salary * (1 + TAX)，得2分",
+      "问题1：答出 super.pay() + bonus，得2分",
+      "问题1：答出 e.receipt()，得1分",
+      "问题1：输出 经理 应付：10400.0，得1分",
+      "问题2：答出 public static final，得2分",
+      "问题2：说明 default 方法的作用与兼容性/复用场景，得2分",
+      "问题2：说明单继承多实现、避免多继承二义性，得2分",
+      "问题3：说明 super.pay() 的复用意义，得1分",
+      "问题3：正确区分抽象类（is-a、共享实现、单继承）与接口（can-do、规范、多实现），得2分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某文档系统需要表示“文件—文件夹”的树形结构：文件夹中可以放文件，也可以放子文件夹；对任意节点都能递归地显示其名称，并逐层缩进。系统把文件与文件夹统一抽象为 Node，客户端对单个文件和整个文件夹的调用方式完全一致。现给出如下 Java 代码：\n\n```java\nimport java.util.*;\n\nabstract class Node {\n    protected String name;\n    public Node(String name) { this.name = name; }\n    public abstract void display(int depth);\n}\n\nclass FileLeaf extends Node {\n    public FileLeaf(String name) { super(name); }\n    public void display(int depth) {\n        for (int i = 0; i < depth; i++) System.out.print(\"  \");\n        System.out.println(name);\n    }\n}\n\nclass Folder extends Node {\n    private final List<Node> children = new ArrayList<>();\n\n    public Folder(String name) { super(name); }\n\n    public void add(Node node) { ___(1)___; }\n\n    public void display(int depth) {\n        for (int i = 0; i < depth; i++) System.out.print(\"  \");\n        System.out.println(name);\n        for (___(2)___ child : children) {\n            child.display(___(3)___);\n        }\n    }\n}\n\npublic class Client {\n    public static void main(String[] args) {\n        Folder root = new Folder(\"root\");\n        root.add(new FileLeaf(\"a.txt\"));\n        Folder sub = new Folder(\"sub\");\n        sub.add(new FileLeaf(\"b.txt\"));\n        root.add(sub);\n        root.display(0);\n    }\n}\n```\n\n问题1：指出该程序使用的设计模式及其意图，并说明抽象构件、叶子构件、容器构件分别对应哪个类。\n问题2：写出空 (1)(2)(3) 处应填入的内容，并写出程序的输出结果。\n问题3：说明该模式的主要优点（客户端的统一性）和主要缺点（如叶子与容器接口的取舍问题）；若客户端想对文件单独执行压缩操作，而文件夹不能压缩，该结构会带来什么设计问题，如何改进？",
+    "answer": "问题1：\n（1）使用组合模式（Composite Pattern，树形结构模式）。\n（2）意图：将对象组合成树形结构以表示“部分—整体”的层次结构，使客户端对单个对象和组合对象的使用具有一致性。\n（3）抽象构件（Component）：Node；叶子构件（Leaf）：FileLeaf；容器构件（Composite）：Folder。\n\n问题2：\n（1）children.add(node)\n（2）Node\n（3）depth + 1\n（4）输出：\nroot\n  a.txt\n  sub\n    b.txt\n\n问题3：\n（1）优点：客户端无需区分处理的是叶子还是容器，可以一致地递归处理整棵树；新增构件类型（如新的叶子类型）只需新增子类，符合开闭原则；层次结构清晰，便于表达任意深度的树。\n（2）缺点：设计更加抽象，叶子与容器的行为必须统一声明在抽象构件中；这使得容器类特有的操作（如 add/remove）在叶子中也必须存在，形成“叶子不应有的方法”，属安全性与透明性的取舍。若把 add/remove 只定义在容器中则为“安全式”，避免叶子被误用但牺牲一致性；若定义在抽象构件中则为“透明式”，一致性更好但叶子上的 add 无意义（可抛 UnsupportedOperationException）。\n（3）对文件单独压缩而文件夹不支持压缩时，压缩方法会被迫出现在抽象构件 Node 中，导致 Folder 必须提供无意义的压缩实现，违背接口最小化（ISP）。改进方式：把压缩能力抽象为独立接口 Compressible，仅由 FileLeaf 实现，客户端用 instanceof 判断后转换调用；或采用访问者模式，把针对不同节点的操作从元素类中分离出去。",
+    "rubric": [
+      "问题1：答出组合模式，得2分",
+      "问题1：说明“部分—整体”层次与客户端调用一致性，得2分",
+      "问题1：正确指出三个类对应的角色，得2分",
+      "问题2：答出 children.add(node)，得1分",
+      "问题2：答出 Node，得1分",
+      "问题2：答出 depth + 1，得1分",
+      "问题2：写出正确缩进的输出结构，得1分",
+      "问题3：说明统一处理、递归、开闭原则等优点，得2分",
+      "问题3：说明透明式/安全式的取舍（叶子不应有的方法），得1分",
+      "问题3：给出独立接口 + instanceof 或访问者模式的改进方案，得2分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某图书系统用自定义的书架 BookShelf 保存书名列表，要求客户端能用增强 for 循环（for-each）逐个遍历书架，且遍历过程与内部存储结构（如 ArrayList）解耦；同时希望同一时刻可以有多个独立游标同时遍历。现给出如下 Java 代码：\n\n```java\nimport java.util.*;\n\nclass BookShelf implements ___(1)___<String> {\n    private final List<String> books = new ArrayList<>();\n\n    public void add(String book) { books.add(book); }\n\n    public ___(2)___ iterator() {\n        return new BookIterator();\n    }\n\n    private class BookIterator implements Iterator<String> {\n        private int index = 0;\n\n        public boolean hasNext() {\n            return index < books.size();\n        }\n\n        public String next() {\n            return books.get(___(3)___);\n        }\n    }\n}\n\npublic class Client {\n    public static void main(String[] args) {\n        BookShelf shelf = new BookShelf();\n        shelf.add(\"Java编程思想\");\n        shelf.add(\"设计模式\");\n        for (String book : shelf) {\n            System.out.println(book);\n        }\n    }\n}\n```\n\n问题1：写出空 (1)(2)(3) 处应填入的内容。\n问题2：指出该程序使用的设计模式及其意图，并说明为什么 for-each 循环能够作用于 BookShelf 对象（编译器做了什么转换）。\n问题3：把 BookIterator 改为非静态的内部类有什么好处？如果要支持用 remove 在遍历中删除元素，如何实现且需要注意什么？在 ArrayList 的迭代中使用集合自身的 remove 会有什么后果？",
+    "answer": "问题1：\n（1）Iterable\n（2）Iterator<String>\n（3）index++（即先取 books.get(index) 再自增；也可写 index 配合 index++ 使用）\n\n问题2：\n（1）使用迭代器模式（Iterator Pattern，游标模式）。\n（2）意图：提供一种方法顺序访问一个聚合对象中的各个元素，而不需要暴露该对象的内部表示；同时把遍历职责从聚合对象中分离出来。\n（3）for-each 能作用于 BookShelf，是因为 BookShelf 实现了 Iterable 接口；编译器把 for (String b : shelf) 转换为迭代器遍历：\nIterator<String> it = shelf.iterator();\nwhile (it.hasNext()) { String b = it.next(); ... }\n（4）因此只要类型实现了 Iterable（或数组），就能用增强 for 循环；这一转换要求 iterator() 返回 Iterator 且元素类型可赋值给循环变量。\n\n问题3：\n（1）改为内部（非静态）类的好处：可以直接访问外部类 BookShelf 的私有成员 books，无需额外传参，封装性更好；每次调用 iterator() 都会创建一个新的迭代器实例，天然支持多个游标同时遍历、互不干扰。\n（2）支持 remove 需在 BookIterator 中实现 Iterator 的 remove() 方法（Java 8 起为 default 方法，默认抛 UnsupportedOperationException），记录最近一次 next 返回的元素位置并从 books 中删除，同时修正 index；且只能在 next() 之后调用，hasNext() 之前连续调用两次会抛 IllegalStateException。\n（3）若在 for-each 遍历时调用集合自身的 books.remove()，会触发 fail-fast 机制：修改 modCount 后迭代器检测到 modCount 与 expectedModCount 不一致，抛 ConcurrentModificationException。正确做法是使用迭代器自身的 it.remove()，或用 removeIf()。",
+    "rubric": [
+      "问题1：答出 Iterable，得2分",
+      "问题1：答出 Iterator<String>，得2分",
+      "问题1：答出 index++，得2分",
+      "问题2：答出迭代器模式并说明意图（顺序访问、不暴露内部表示），得3分",
+      "问题2：说明 for-each 被编译为 iterator()/hasNext()/next() 且依赖 Iterable，得2分",
+      "问题3：说明内部类可访问外部类私有成员、支持多游标，得2分",
+      "问题3：说明实现迭代器 remove 的要点与 fail-fast 导致 ConcurrentModificationException，得2分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某工具类需要提供通用的集合操作：求一组可比较元素中的最大值、对一组数值求和，并提供一个能缓存任意类型对象的简单容器。这些方法既适用于 Integer，也适用于 String、Double 等类型。现给出如下 Java 代码：\n\n```java\nimport java.util.*;\n\nclass Box<T> {\n    private T value;\n    public void set(T value) { this.value = value; }\n    public T get() { return value; }\n\n    public static <T extends Comparable<T>> T max(List<T> list) {\n        T m = list.get(0);\n        for (T t : list) {\n            if (___(1)___) {\n                m = t;\n            }\n        }\n        return m;\n    }\n\n    public static double sum(List<? ___(2)___> list) {\n        double s = 0;\n        for (Number n : list) {\n            s += ___(3)___;\n        }\n        return s;\n    }\n}\n\npublic class Test {\n    public static void main(String[] args) {\n        System.out.println(Box.max(Arrays.asList(3, 9, 5)));\n        System.out.println(Box.sum(Arrays.asList(1, 2.5, 3L)));\n        Box<String> box = new Box<>();\n        box.set(\"java\");\n        System.out.println(box.get());\n    }\n}\n```\n\n问题1：写出空 (1)(2)(3) 处应填入的内容，并给出程序的输出结果。\n问题2：说明 <T extends Comparable<T>> 中 extends 的含义与作用；为什么 max 方法不能直接写成 static T max(List<T> list)；为什么 sum 的参数不能写成 List<Number>。\n问题3：说明 List<? extends Number> 与 List<? super Integer> 的区别，并简述泛型通配符的 PECS 原则；指出“把 List<String> 赋值给 List<Object>”为什么编译不通过。",
+    "answer": "问题1：\n（1）t.compareTo(m) > 0\n（2）extends Number\n（3）n.doubleValue()\n（4）输出：\n9\n6.5\njava\n\n问题2：\n（1）<T extends Comparable<T>> 是带界（bounded）的类型参数声明，extends 在这里表示“T 必须是 Comparable<T> 或其子类型”，即给类型参数设定上界；无界时上界是 Object，有界后 T 的实例可以调用 Comparable 定义的方法（如 compareTo），从而在编译期保证比较操作合法。\n（2）max 是静态方法，静态方法不能引用类的类型参数 T（类加载时没有实例，T 未确定），只能自己声明方法级类型参数 <T extends Comparable<T>>。\n（3）List<Number> 只能接收元素类型恰好为 Number 的列表，Arrays.asList(1, 2.5, 3L) 的类型是 List<Number> 时才行，但 List<Integer> 不是 List<Number> 的子类型；写成 List<? extends Number> 可以接受 List<Integer>、List<Double>、List<Long> 等元素类型为 Number 子类的列表，更具通用性。\n\n问题3：\n（1）List<? extends Number> 是上界通配符，元素类型是 Number 的某个未知子类型，只能从中“读”出 Number（读取安全），不允许 add（除 null 外），因为编译器不知道具体子类型。\n（2）List<? super Integer> 是下界通配符，元素类型是 Integer 的某个未知父类型，可以 add Integer 及其子类（写入安全），但读出的元素只能是 Object。\n（3）PECS 原则：Producer Extends，Consumer Super。若集合只用于产出（读取）数据，用 ? extends T；若只用于消费（写入）数据，用 ? super T；既要读又要写则用具体类型。\n（4）泛型不具备协变性：List<String> 与 List<Object> 之间没有继承关系，若允许赋值，则可通过 List<Object> 引用向其中加入 Integer，破坏原有 List<String> 的类型安全，因此编译报错。",
+    "rubric": [
+      "问题1：答出 t.compareTo(m) > 0，得2分",
+      "问题1：答出 extends Number，得2分",
+      "问题1：答出 n.doubleValue()，得2分",
+      "问题1：写出三项正确输出，得1分",
+      "问题2：说明有界类型参数的含义与作用（保证可调用 compareTo），得2分",
+      "问题2：说明静态方法不能使用类的类型参数，得2分",
+      "问题2：说明 List<Number> 不兼容 List<Integer>、通配符提高通用性，得1分",
+      "问题3：正确区分上界/下界通配符的读写限制，得2分",
+      "问题3：答出 PECS 原则及泛型不变性导致编译不通过，得1分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某程序需要依次打开两个资源，使用过程中抛出异常，无论成功与否都要按相反顺序关闭资源。系统要求关闭逻辑自动完成、无需手写 finally，并能知道关闭过程中产生的次要异常。现给出如下 Java 代码：\n\n```java\nclass Resource implements AutoCloseable {\n    private final String name;\n    public Resource(String name) {\n        this.name = name;\n        System.out.println(\"open \" + name);\n    }\n    public void use() throws Exception {\n        throw new Exception(\"use error: \" + name);\n    }\n    public void ___(1)___() throws Exception {\n        System.out.println(\"close \" + name);\n    }\n}\n\npublic class Test {\n    public static void main(String[] args) {\n        try (___(2)___ r1 = new Resource(\"A\"); Resource r2 = new Resource(\"B\")) {\n            r1.use();\n        } ___(3)___(Exception e) {\n            System.out.println(e.getMessage());\n            System.out.println(\"suppressed=\" + e.getSuppressed().length);\n        }\n        System.out.println(\"done\");\n    }\n}\n```\n\n问题1：写出空 (1)(2)(3) 处应填入的内容，并给出程序的输出结果。\n问题2：说明 try-with-resources 语句对资源对象的两个要求，以及资源关闭的顺序；它与传统 try-catch-finally 相比有什么优点。\n问题3：当 try 块中 use() 抛出异常、同时 close() 也抛出异常时，哪个异常会作为主异常向外传播？另一个异常去了哪里？这与异常链（initCause）有什么区别？",
+    "answer": "问题1：\n（1）close\n（2）Resource\n（3）catch\n（4）输出：\nopen A\nopen B\nclose B\nclose A\nuse error: A\nsuppressed=0\n\n问题2：\n（1）要求：资源对象的类型必须实现 java.lang.AutoCloseable（其子接口 Closeable 用于 IO 资源），即提供 close() 方法；资源必须在 try 后面的括号中声明并初始化。\n（2）关闭顺序：与声明顺序相反，后打开的先关闭（示例中先关 B 再关 A），符合嵌套资源释放的栈式语义。\n（3）优点：编译器自动生成 close 调用（等价于嵌套的 finally），无需手写 finally，减少样板代码；即使 try 块抛异常也能保证资源被关闭；自动处理关闭异常（作为抑制异常），代码更安全简洁。\n（4）Java 7 起支持 try-with-resources，Java 9 起还允许在括号中引用已声明的 effectively final 变量。\n\n问题3：\n（1）try 块中抛出的异常（use error）作为主异常向外传播，进入 catch 块。\n（2）close() 抛出的异常不会覆盖主异常，而是被添加到主异常的抑制异常列表中，可通过 getSuppressed() 获取；本例 close 未抛异常，故 suppressed=0。\n（3）区别：异常链（构造方法传入 cause 或 initCause()）表示“由某异常引起的另一个异常”的因果关系，形成 cause 链，用于保留原始失败原因；抑制异常（addSuppressed/getSuppressed）表示“同一处理过程中附带产生的其他异常”，是并列关系，不会覆盖主异常，主要用于资源关闭等清理失败的情形。",
+    "rubric": [
+      "问题1：答出 close，得2分",
+      "问题1：答出 Resource，得2分",
+      "问题1：答出 catch，得1分",
+      "问题1：写出正确的资源打开/关闭顺序与异常信息输出，得2分",
+      "问题2：说明必须实现 AutoCloseable、资源须在括号中声明并初始化，得2分",
+      "问题2：说明关闭顺序与声明相反，得1分",
+      "问题2：说明自动 close、无需 finally、可处理关闭异常等优点，得2分",
+      "问题3：说明主异常为 use 抛出的异常、close 异常进入抑制异常列表，得2分",
+      "问题3：正确区分异常链（cause）与抑制异常（suppressed），得1分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某咖啡店的点单系统需要支持“咖啡 + 牛奶 + 糖”等任意组合，且组合后的价格和描述由各部分累加得到。系统要求不通过为每种组合创建子类的方式实现（避免类数量爆炸），而是在运行时动态地给对象添加职责。现给出如下 Java 代码：\n\n```java\ninterface Coffee {\n    String desc();\n    double cost();\n}\n\nclass SimpleCoffee implements Coffee {\n    public String desc() { return \"咖啡\"; }\n    public double cost() { return 10.0; }\n}\n\nabstract class CoffeeDecorator implements Coffee {\n    protected final ___(1)___ coffee;\n\n    public CoffeeDecorator(Coffee coffee) {\n        this.coffee = coffee;\n    }\n}\n\nclass MilkDecorator extends CoffeeDecorator {\n    public MilkDecorator(Coffee coffee) { super(coffee); }\n    public String desc() { return ___(2)___ + \" + 牛奶\"; }\n    public double cost() { return coffee.cost() + 3.0; }\n}\n\nclass SugarDecorator extends CoffeeDecorator {\n    public SugarDecorator(Coffee coffee) { super(coffee); }\n    public String desc() { return coffee.desc() + \" + 糖\"; }\n    public double cost() { return coffee.cost() + 1.0; }\n}\n\npublic class Client {\n    public static void main(String[] args) {\n        Coffee c = new MilkDecorator(new SugarDecorator(new SimpleCoffee()));\n        System.out.println(c.desc() + \" \" + ___(3)___);\n    }\n}\n```\n\n问题1：指出该程序使用的设计模式及其意图，说明抽象构件、具体构件、抽象装饰者、具体装饰者分别对应哪些类。\n问题2：写出空 (1)(2)(3) 处应填入的内容，并给出程序的输出结果。\n问题3：说明装饰者模式与继承相比的优点；为什么 CoffeeDecorator 既要实现 Coffee 又要持有 Coffee 类型的成员；请举出 Java 标准库中该模式的应用实例。",
+    "answer": "问题1：\n（1）使用装饰者模式（Decorator Pattern，包装模式）。\n（2）意图：动态地给一个对象添加一些额外的职责，就增加功能而言，装饰者模式比生成子类更为灵活。\n（3）抽象构件：Coffee；具体构件：SimpleCoffee；抽象装饰者：CoffeeDecorator；具体装饰者：MilkDecorator、SugarDecorator。\n\n问题2：\n（1）Coffee\n（2）coffee.desc()\n（3）c.cost()\n（4）输出：咖啡 + 糖 + 牛奶 14.0\n\n问题3：\n（1）优点：无需为每一种组合创建子类，避免类数量呈指数增长；可在运行时任意组合、动态添加或撤销职责，比继承更灵活；符合开闭原则（新增装饰者不影响已有类）与单一职责原则（每个装饰者只负责一项功能）。\n（2）CoffeeDecorator 实现 Coffee：使装饰者与被装饰对象具有相同的类型，客户端可以像使用组件一样使用装饰后的对象，从而支持任意层嵌套装饰。\n（3）CoffeeDecorator 持有 Coffee 成员：内部保存被装饰对象的引用，在 desc()、cost() 中调用被装饰对象的方法并追加自己的职责，形成链式调用；同时采用组合而非继承来实现功能增强，避免继承导致的类爆炸。\n（4）Java 标准库实例：java.io 包中的 FilterInputStream/FilterOutputStream 及其子类 BufferedInputStream、DataInputStream、GZIPInputStream；java.io.Reader/Writer 的 BufferedReader、LineNumberReader 等，都是典型的装饰者模式。",
+    "rubric": [
+      "问题1：答出装饰者模式，得2分",
+      "问题1：说明动态添加职责、比继承灵活，得2分",
+      "问题1：正确指出四类角色对应类，得2分",
+      "问题2：答出 Coffee，得2分",
+      "问题2：答出 coffee.desc()，得2分",
+      "问题2：答出 c.cost() 并写出输出 咖啡 + 糖 + 牛奶 14.0，得1分",
+      "问题3：说明避免类爆炸、运行时可组合、符合开闭原则，得2分",
+      "问题3：说明既实现又持有 Coffee 的原因（类型一致 + 链式调用），得1分",
+      "问题3：举出 java.io 装饰者实例，得1分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某新系统定义了统一的请求接口 Target，客户端只依赖该接口；但底层仍在使用一个只提供 specificRequest(byte[]) 方法的旧类 Adaptee。为了在不修改旧类的前提下让客户端继续使用，系统增加了一个中间类 Adapter 完成接口转换。现给出如下 Java 代码：\n\n```java\ninterface Target {\n    void request(String data);\n}\n\nclass Adaptee {\n    public void specificRequest(byte[] data) {\n        System.out.println(\"legacy handle \" + data.length + \" bytes\");\n    }\n}\n\nclass Adapter extends Adaptee implements ___(1)___ {\n    public void request(String data) {\n        ___(2)___(data.getBytes());\n    }\n}\n\npublic class Client {\n    public static void main(String[] args) {\n        Target t = ___(3)___;\n        t.request(\"hello\");\n    }\n}\n```\n\n问题1：指出该程序使用的设计模式及其意图，说明 Target、Adaptee、Adapter 三个角色在本例中对应的类。\n问题2：写出空 (1)(2)(3) 处应填入的内容，并给出程序的输出结果。\n问题3：上述写法属于类适配器还是对象适配器？请写出对象适配器的实现要点，并比较两种方式的优缺点；举出一个 Java 标准库中适配器模式的应用实例。",
+    "answer": "问题1：\n（1）使用适配器模式（Adapter Pattern，包装器模式）。\n（2）意图：将一个类的接口转换成客户希望的另一个接口，使原本由于接口不兼容而不能一起工作的类可以协同工作。\n（3）目标接口（Target）：Target；被适配者（Adaptee）：Adaptee；适配器（Adapter）：Adapter。\n\n问题2：\n（1）Target\n（2）specificRequest\n（3）new Adapter()\n（4）输出：legacy handle 5 bytes\n\n问题3：\n（1）本例 Adapter 通过 extends Adaptee 继承被适配者，属于类适配器（基于继承，静态结构）。\n（2）对象适配器要点：Adapter 不继承 Adaptee，而是实现 Target 并在内部持有一个 Adaptee 类型的成员变量（可通过构造方法传入），在 request(String) 中调用 adaptee.specificRequest(...) 完成委托。\n（3）比较：类适配器利用继承，实现简单、可直接复用 Adaptee 的方法，但受 Java 单继承限制，且适配者与被适配者强耦合（Adaptee 的私有成员不可用），无法适配 Adaptee 的子类集合；对象适配器基于组合，一个适配器可适配多个不同的 Adaptee 子类，耦合更松、更灵活，是推荐做法，但需要额外写委托代码。\n（4）Java 标准库实例：java.io.InputStreamReader/OutputStreamWriter 把字节流适配为字符流；java.util.Arrays.asList() 把数组适配为 List；java.util.Collections.list/enumeration 系列转换方法。",
+    "rubric": [
+      "问题1：答出适配器模式，得2分",
+      "问题1：说明转换接口、使不兼容的类协同工作，得2分",
+      "问题1：正确对应 Target/Adaptee/Adapter 三个角色，得2分",
+      "问题2：答出 Target，得2分",
+      "问题2：答出 specificRequest，得2分",
+      "问题2：答出 new Adapter()，得1分",
+      "问题2：写出正确输出，得1分",
+      "问题3：判定为类适配器并写出对象适配器的组合实现要点，得2分",
+      "问题3：比较两种方式优缺点并举例 InputStreamReader 等，得1分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某 HTTP 客户端构造请求对象时，参数较多（URL、方法、请求头、请求体），且大部分参数可选、无默认值容易出错。系统要求：对象创建后不可修改（不可变对象），构造过程可以链式调用，避免出现参数顺序混乱的“重叠构造方法”和 setter 造成的对象不一致状态。现给出如下 Java 代码：\n\n```java\nimport java.util.*;\n\npublic class HttpRequest {\n    private final String url;\n    private final String method;\n    private final Map<String, String> headers;\n    private final String body;\n\n    private HttpRequest(Builder b) {\n        this.url = b.url;\n        this.method = b.method;\n        this.headers = Collections.unmodifiableMap(new HashMap<>(b.headers));\n        this.body = b.body;\n    }\n\n    public static class Builder {\n        private final String url;\n        private String method = \"GET\";\n        private final Map<String, String> headers = new HashMap<>();\n        private String body = \"\";\n\n        public Builder(String url) { this.url = url; }\n\n        public Builder method(String m) { this.method = m; return ___(1)___; }\n\n        public Builder header(String k, String v) { headers.put(k, v); return this; }\n\n        public Builder body(String b) { this.body = b; return this; }\n\n        public HttpRequest build() { return ___(2)___; }\n    }\n\n    public String toString() {\n        return method + \" \" + url + \" \" + headers + \" \" + body;\n    }\n}\n\npublic class Client {\n    public static void main(String[] args) {\n        HttpRequest req = new HttpRequest.___(3)___(\"http://api.demo.com\")\n                .method(\"POST\")\n                .header(\"Content-Type\", \"application/json\")\n                .body(\"{}\")\n                .build();\n        System.out.println(req);\n    }\n}\n```\n\n问题1：指出该程序使用的设计模式及其意图，说明 Builder 类为什么声明为 static 内部类。\n问题2：写出空 (1)(2)(3) 处应填入的内容，并给出程序的输出结果。\n问题3：说明该模式与“重叠构造方法（telescoping constructor）”以及“无参构造 + setter”两种方式相比的优点；为什么 build() 中要执行 Collections.unmodifiableMap(new HashMap<>(b.headers)) 而不是直接赋值 b.headers？",
+    "answer": "问题1：\n（1）使用建造者模式（Builder Pattern，生成器模式）。\n（2）意图：将一个复杂对象的构建与其表示分离，使得同样的构建过程可以创建不同的表示；本题侧重“链式调用的分步构建 + 不可变对象”这一经典应用。\n（3）Builder 声明为 static 内部类：它不依赖外部类 HttpRequest 的实例，只是为创建 HttpRequest 服务的“构造助手”；静态嵌套类可独立实例化（new HttpRequest.Builder(url)），不持有外部类引用，避免不必要的隐式引用与内存泄漏。\n\n问题2：\n（1）this\n（2）new HttpRequest(this)\n（3）Builder\n（4）输出：POST http://api.demo.com {Content-Type=application/json} {}\n\n问题3：\n（1）与重叠构造方法相比：避免参数个数不同而产生的大量重载构造方法，参数以“具名方法”出现，可读性强、顺序无关，不会传错位置。\n（2）与“无参构造 + setter”相比：setter 会让对象在构造过程中处于不完整/不一致状态，且对象可变、不是线程安全的；建造者模式在 build() 时才一次性创建目标对象，若目标类字段都是 final，可得到不可变对象（线程安全、可安全共享）。\n（3）build() 中对请求头做防御性拷贝：new HashMap<>(b.headers) 避免外部对 Builder 的修改影响已创建对象；Collections.unmodifiableMap 返回只读视图，防止调用方事后修改 headers 破坏不可变性。\n（4）链式调用的实现原理：每个设置方法都返回 this（Builder 自身），从而可以连续调用；最后调用 build() 校验必要参数（如 url 非空）并返回目标对象。",
+    "rubric": [
+      "问题1：答出建造者模式，得2分",
+      "问题1：说明构建与表示分离、分步构建复杂对象，得1分",
+      "问题1：说明 static 内部类不依赖外部实例、可独立创建，得2分",
+      "问题2：答出 this，得2分",
+      "问题2：答出 new HttpRequest(this)，得2分",
+      "问题2：答出 Builder，得1分",
+      "问题2：写出正确输出，得1分",
+      "问题3：说明优于重叠构造方法与 setter 方式（可读性、不可变性、线程安全），得2分",
+      "问题3：说明防御性拷贝与只读视图对不可变性的作用，得2分"
+    ],
+    "score": 15,
+    "difficulty": 2,
+    "explanation": ""
+  },
+  {
+    "type": "subjective",
+    "topic": "OO",
+    "knowledge": "程序设计-Java",
+    "stem": "【案例】某学生成绩管理系统用 Map 保存“姓名—成绩”，需要按成绩从高到低输出排名；同时需要对学生集合去重并按学号排序。系统要求：排名时若成绩相同则按姓名升序，且不修改原始集合。现给出如下 Java 代码：\n\n```java\nimport java.util.*;\n\nclass Student implements Comparable<Student> {\n    private final String name;\n    private final int score;\n\n    public Student(String name, int score) {\n        this.name = name;\n        this.score = score;\n    }\n\n    public int compareTo(Student o) {\n        return ___(1)___;\n    }\n\n    public String toString() { return name + \":\" + score; }\n}\n\npublic class Test {\n    public static void main(String[] args) {\n        Map<String, Integer> scores = new HashMap<>();\n        scores.put(\"张三\", 90);\n        scores.put(\"李四\", 95);\n        scores.put(\"王五\", 90);\n\n        List<Map.Entry<String, Integer>> list = new ArrayList<>(scores.entrySet());\n        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {\n            public int compare(Map.Entry<String, Integer> a, Map.Entry<String, Integer> b) {\n                int r = ___(2)___;\n                return (r != 0) ? r : a.getKey().compareTo(b.getKey());\n            }\n        });\n\n        for (Map.Entry<String, Integer> e : list) {\n            System.out.print(e.getKey() + \"=\" + e.getValue() + \" \");\n        }\n        System.out.println();\n\n        Set<Student> set = new ___(3)___();\n        set.add(new Student(\"S03\", 88));\n        set.add(new Student(\"S01\", 92));\n        set.add(new Student(\"S03\", 88));\n        System.out.println(set);\n    }\n}\n```\n\n问题1：写出空 (1)(2)(3) 处应填入的内容（(1) 要求按学号升序，(2) 要求成绩从高到低），并写出两行的输出结果。\n问题2：说明 Comparable 与 Comparator 的区别；为什么 Collections.sort(list, comparator) 不会修改 scores 这个 Map 本身，但会修改 list 的元素顺序。\n问题3：TreeSet 判断元素重复的依据是什么？示例中重复添加 new Student(\"S03\", 88) 后集合中的元素个数是多少？若 compareTo 返回 0 而 equals 返回 false，会有什么问题？",
+    "answer": "问题1：\n（1）name.compareTo(o.name)（按学号/姓名升序的字符串比较；也可写 o.name.compareTo(name) 若要降序）\n（2）b.getValue() - a.getValue()（按成绩降序）\n（3）TreeSet<Student>（或 TreeSet<>）\n（4）第一行输出：李四=95 张三=90 王五=90 （成绩相同者按姓名升序，张三排在王五前）\n（5）第二行输出：[S01:92, S03:88] （按学号升序，且重复的 S03:88 被去重）\n\n问题2：\n（1）Comparable 是“自然排序”接口，由被排序的元素类自身实现 compareTo(T)，排序规则内置于类中，一个类只能有一种自然排序；Comparator 是“定制排序”接口，独立于元素类之外实现 compare(T,T)，可定义多种排序规则，也可作为方法参数临时传入。\n（2）Collections.sort(list, comparator) 只是对 list 这个 List 就地排序（修改 list 的元素顺序），list 是一份新的 ArrayList，scores 这个 Map 本身没有被改动；但 list 中的元素是 Map.Entry 对象的引用（视图），元素的键值并未改变。\n（3）因此若需保留原始集合的顺序，应先复制（如 new ArrayList<>(...)）再排序，本题正是这样做的。\n\n问题3：\n（1）TreeSet 基于红黑树实现，判断元素是否重复的依据是 compareTo（或 Comparator.compare）的返回值是否为 0，而不是 equals。\n（2）示例中第二次添加的 S03:88 与已有元素的比较结果为 0，被视为重复而被拒绝加入，因此集合中元素个数为 2。\n（3）若 compareTo 返回 0 而 equals 返回 false，则与 equals 的一致性被破坏：集合会把“equals 不相等”的两个元素当成相同元素处理（去重、找不到），导致与 HashMap/HashSet 等基于 equals/hashCode 的集合行为不一致，违反 Comparable 的通用约定，容易引发难以排查的逻辑错误。",
+    "rubric": [
+      "问题1：答出按姓名/学号升序的 compareTo 表达式，得2分",
+      "问题1：答出 b.getValue() - a.getValue()（成绩降序），得2分",
+      "问题1：答出 TreeSet<Student>，得2分",
+      "问题1：写出两行正确输出（含同分按姓名升序、去重结果），得2分",
+      "问题2：正确区分 Comparable（自然排序、类内实现）与 Comparator（定制排序、类外实现），得3分",
+      "问题2：说明排序修改 list 而不修改 Map，得1分",
+      "问题3：说明 TreeSet 以 compareTo 返回 0 判重，得2分",
+      "问题3：说明与 equals 不一致带来的问题，得1分"
+    ],
+    "score": 15,
+    "difficulty": 3,
+    "explanation": ""
+  }
+]
